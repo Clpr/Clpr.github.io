@@ -1,4 +1,4 @@
-# LHS on Multivariate Normal Distribution with correlations
+# LHS on Univariate & Multivariate Normal Distributions with correlations
 
 [Back to Index Page](../../index.html)
 
@@ -14,14 +14,9 @@
 
 ## Informal Introduction
 
-Latin Hypercube Sampling (LHS) is quite useful in Monte-Carlo simulation. It samplings in equal-probability spaces which makes it easy to re-build a distribution or simulate extreme (tail) risks. In performance-matter simulations (e.g. large-scale economic model systems), we usually requires high-performance & low-cost programs to generate thousands even millions of normal random numbers. This blog aims to provide a Julia realization which samplings from a given univariate or multivariate normal distribution. Though there has been mature functions in MatLab (e.g. lhsnorm()) to do this job, it still worths discussion because current public papers or technical documents rarely give intuitive introductions to the algorithm which helps developers to design and integrate their own Latin Hypercube Sampling programs.
+Latin Hypercube Sampling (LHS) is quite useful in Monte-Carlo simulation. It samplings in equal-probability spaces which makes it easy to re-build a distribution or simulate extreme (tail) risks. In performance-matter simulations (e.g. large-scale economic model systems), we usually requires high-performance & low-cost programs to generate thousands even millions of normal random numbers. This blog aims to provide a Julia realization which samplings from a given univariate or multivariate normal distribution. Though there have been mature functions in MatLab (e.g. lhsnorm()) to do this job, it still worths discussion because current public papers or technical documents rarely give intuitive introductions to the algorithm which helps developers to design and integrate their own Latin Hypercube Sampling programs.
 
 About basic principles and mathematics of LHS, readers may just read the [pages on Wikipedia](https://en.wikipedia.org/wiki/Latin_hypercube_sampling).
-
-
-
-* **Methodology**: using rank correlations to approximate target correlation matrix
-* **Reason**: LHS on each dimension will produce some impossible samples if there are correlations among dimensions
 
 
 
@@ -30,8 +25,8 @@ About basic principles and mathematics of LHS, readers may just read the [pages 
 ### Input
 
 1. a given univariate normal distribution $N(\mu,\sigma)$ with parameter $(\mu,\sigma)$;
-2. the number of equal-probability spaces to divide in $[0,1]​$: $N \in N^+​$
-3. the number of samples in each equal-probability space to generate: $P \in N^+​$
+2. the number of equal-probability spaces to divide in $[0,1]$: $N \in N^+$
+3. the number of samples in each equal-probability space to generate: $P \in N^+$
 
 ### Output
 
@@ -40,8 +35,8 @@ About basic principles and mathematics of LHS, readers may just read the [pages 
 ### Algorithm
 
 1. equally divide the probability space $[0,1]$ into $N$ sections
-2. sampling $P​$ points on a uniform distribution in each section: $[\frac{n-1}{N},\frac{n}{N}],n=1,\dots,N​$
-3. use the inverse of CDF of $N(\mu,\sigma)​$ to convert probabilities to samples
+2. sampling $P$ points on a uniform distribution in each section: $[\frac{n-1}{N},\frac{n}{N}],n=1,\dots,N$
+3. use the inverse of the CDF of $N(\mu,\sigma)$ to convert probabilities to samples
 4. shuffle the result, then output
 
 ### Demo
@@ -79,7 +74,8 @@ end # end function LatinHyperCube
 ### Timing
 
 > 1. **Benchmark**: Intel Core i7 6700 3.40GHz; SATA3.0; no SSD; 16G DDR3;
-> 2. **Scenario**: sampling 10000 points on $N(0,1)​$ for each time, repeat 10000 times then average time costs
+> 2. **Scenario**: sampling 10000 points on $N(0,1)$ for each time, repeat 10000 times then average time costs
+> 3. **Note**: the testing is performed in *Main* workspace. It will get better performance when called in a project
 
 ```julia
 # julia 1.0
@@ -92,16 +88,29 @@ for x in 1:10000
   push!(TimeCost, @timed( NovDist.LatinHyperCube(D, 100,100) )[2] )
 end
 # averaging
-StatsBase.mean(TimeCost)
+StatsBase.mean(TimeCost); StatsBase.std(TimeCost);
 ```
 
 <img src="../../image/blog_190420_LHSonMvNormal.svg">
 
-The average time cost to sampling 10000 samples is: **<u>0.00035095323575284963</u>** s. As comparison, the average time of using *randn()* to sampling 10000 samples from $N(0,1)$ is about 0.0002 s.
+The average time cost to sampling 10000 samples is: **<u>0.00031711582139999997</u>** s with a standard error <u>**0.0002767948397527928**</u>. As comparison, the average time of using *randn()* to sampling 10000 samples from $N(0,1)$ is about 0.0002 s.
 
+As another comparison, we use the *lhsnorm()* function in MatLab to do the same testing (of course, on the same computer):
 
-
-
+> Calling:
+>
+> ```matlab
+> # matlab 2017a
+> TimeCost = zeros(10000,1);
+> for x = 1:10000
+>   tic();  
+>   tmp = lhsnorm(0,1,10000);
+>   TimeCost(x,1) = toc();
+> end
+> mean(TimeCost);std(TimeCost);
+> ```
+>
+> The average time cost is 0.0013 s with a standard error 0.0104.
 
 
 
@@ -111,7 +120,7 @@ The average time cost to sampling 10000 samples is: **<u>0.00035095323575284963<
 
 1. $\vec{\mu} = [ \mu_1,\dots,\mu_K ]$ is the mean parameter
 2. $R^*$ is a the $K\times K$ correlation matrix rather than the covariance matrix $\Sigma$
-3. $\vec{\sigma} = [\sigma_1,\dots,\sigma_K]​$ is the vector of the standard error of each marginal distributions
+3. $\vec{\sigma} = [\sigma_1,\dots,\sigma_K]$ is the vector of the standard error of each marginal distributions
 
 ### Difficulty & Solution
 
@@ -141,7 +150,7 @@ $$
 -0.4 & 2 & -2  \\
 -0.4 & 15.2 & -20 \\
 0.5 & 2.2 & 1.11 \\
-\end{bmatrix} \longrightarrow_{ordinal rank} \begin{bmatrix}
+\end{bmatrix} \xrightarrow[\text{ordinal rank}]{\text{by column}} \begin{bmatrix}
 3 & 3 & 2 \\
 1 & 1 & 3 \\
 2 & 4 & 1 \\
@@ -160,27 +169,95 @@ $$
 
 ### Demo
 
+With BLAS & LAPACK, readers may find the initial sampling of $X_0$ and following linear algebra operations cost ignorable time, when the last rearrangement operations becomes the bottle neck of performance. Therefore, our demo optimizes the rearrangement for less time cost. Meanwhile, we need 4 $NP\times K$ matrices and 4 $K\times K$ matrices in the original algorithm. The memory cost become horrible when $N,P,K$ go large. Therefore, our demo also optimizes the memory allocation for less memory cost.
 
+```julia
+# julia 1.0
+function LatinHyperCube( D::Distributions.AbstractMvNormal, N::Int, P::Int )
+    # validation
+	@assert( (N > 0) & (P > 0), "requries N,P > 0 but received: $(N) and $(P)" )
 
+	# sampling in N divided Uniform(0,1)
+	# NOTE: sampling N*P points in ONE Uniform(0,1) on EACH dimension
+	local Ddim::Int = Distributions.dim( D.Σ )  # dim of D
+	local Res::Matrix{Float64} = rand( Float64, N * P, Ddim )
+	# NOTE: using Int for less memoery cost & easy indexing
+	# NOTE: in practice, we do not need to declare a W0
+	local Rnk1::Matrix{Int} = zeros( Int, N * P, Ddim )  # (row) ranks of each column for Res with correlation
+	local EachDimStd = sqrt.( LinearAlgebra.diag( D.Σ ) )  # std of each marginal distribution
 
+	# loop to re-scale & inverse to a MvNormal without correlation (each dim is independent)
+	# NOTE: just use our LatinHyperCube() for univariate normal distribution which auto shuffles the results
+	for z in 1:Ddim
+		Res[:,z] = LatinHyperCube( Distributions.Normal( D.μ[z], EachDimStd[z] ), N, P )
+	end
 
+	# compute R (Ddim * Ddim size), the correlation matrix (not cov) of the Res without correlation
+	# NOTE: when N*P is large, it is a good idea to use a eye(Ddim) to approximate R
+	local Rmat::Matrix{Float64} = (N * P) > 10000 ?  LinearAlgebra.diagm( 0 => ones(Ddim) )  :  StatsBase.cor(Res)
+	# get a new sample matrix Res1
+	# NOTE: we do not specially declare Q,P but integrate them to the computing of X1
+	# 		the complier is smart enough to optimize it for least memeory & time costs
+	local Res1 = Res * transpose( LinearAlgebra.cholesky( Distributions.cor( D ) ).L * inv(LinearAlgebra.cholesky( Rmat ).L) )
 
+	# record ranks of each column of Res1, then rearrange Res's columns (one by one) according to Res1's col-ranks
+	for z in 1:Ddim
+		# first, record X1's rank values
+		Rnk1[:,z] = StatsBase.ordinalrank(Res1[:,z])
+		# then, sort X0's column, the index is the rank value
+		Res[:,z] = sort( Res[:,z] )
+		# finally, rearrange indices according to Rnk1
+		Res[:,z] = Res[Rnk1[:,z], z]
+	end
 
+	# return (we have already shuffled columns)
+	return Res::Matrix{Float64}
+end # end function LatinHyperCube
+```
 
+1. The full documentation of this function can be found in one of my GitHub project: [NumToolLibs/NovDist.jl](https://github.com/Clpr/NumToolLibs/blob/master/InJulia/NovDist.jl)
 
 ### Timing
 
+> 1. **Scenario**: sampling 10000 points on $N([0,1],[0.5,-0.25;-0.25;1.5])$ for each time, repeat 10000 times then average time costs
+> 2. **Note**: the testing is performed in *Main* workspace. It will get better performance when called in a project
+>
+> ```julia
+> # julia 1.0
+> 	import StatsBase
+> 	import Distributions
+> TimeCost = []
+> Sigma = [0.5 -0.25; -0.25 1.5];
+> Mu = [ 0.0, 1.0 ];
+> D = Distributions.MvNormal(Mu, Sigma)
+> for x in 1:10000
+> 	push!(TimeCost, @timed( NovDist.LatinHyperCube(D, 100,100) )[2] )
+> end
+> StatsBase.mean(TimeCost)
+> StatsBase.std(TimeCost)
+> ```
+>
+
+ The average time cost to sampling 10000 samples is: **<u>0.003703447855200001</u>** s with a standard error <u>**0.0013992824336122795**</u>. As comparison, the average time of using *Random.rand(D)* to sampling 10000 samples from the same distribution is about 0.0005 s.
 
 
+As another comparison, we use *lhsnorm()* in MatLab to do the same testing:
 
-
-
-
-
-
-
-
-
+> ```matlab
+> # matlab 2017a
+> TimeCost = zeros(10000,1);
+> Sigma = [0.5, -0.25; -0.25, 1.5];
+> Mu = [ 0.0, 1.0 ];
+> for x = 1:10000
+>      tic();
+>      tmp = lhsnorm( Mu,Sigma,10000 );
+>      TimeCost(x,1) = toc();
+> end
+> mean(TimeCost)
+> std(TimeCost)
+> ```
+>
+> The average time cost is 0.0026 s with a standard error 0.00040775.
 
 
 
