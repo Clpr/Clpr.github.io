@@ -14,7 +14,7 @@
 
 ## Informal Introduction
 
-Latin Hypercube Sampling (LHS) is quite useful in Monte-Carlo simulation. It samplings in equal-probability spaces which makes it easy to re-build a distribution or simulate extreme (tail) risks. In performance-matter simulations (e.g. large-scale economic model systems), we usually requires high-performance & low-cost programs to generate thousands even millions of normal random numbers. This blog aims to provide a Julia realization which samplings from a given univariate or multivariate normal distribution. Though there have been mature functions in MatLab (e.g. lhsnorm()) to do this job, it still worths discussion because current public papers or technical documents rarely give intuitive introductions to the algorithm which helps developers to design and integrate their own Latin Hypercube Sampling programs.
+Latin Hypercube Sampling (LHS) is quite useful in Monte-Carlo simulation. It samplings in equal-probability spaces which makes it easy to re-build a distribution or simulate extreme (tail) risks. In performance-matter simulations (e.g. large-scale economic model systems), we usually requires high-performance & low-cost programs to generate thousands even millions of normal random numbers. This blog aims to provide a Julia realization which samplings from a given univariate or multivariate normal distribution. Though there have been mature functions in MatLab (e.g. `lhsnorm()`) to do this job, it still worths discussion because current public papers or technical documents rarely give intuitive introductions to the algorithm which helps developers to design and integrate their own Latin Hypercube Sampling programs.
 
 About basic principles and mathematics of LHS, readers may just read the [pages on Wikipedia](https://en.wikipedia.org/wiki/Latin_hypercube_sampling).
 
@@ -68,7 +68,7 @@ end # end function LatinHyperCube
 ```
 
 1. The full documentation of this function can be found in one of my GitHub project: [NumToolLibs/NovDist.jl](https://github.com/Clpr/NumToolLibs/blob/master/InJulia/NovDist.jl)
-2. *Distirbutions.quantile()* computes the inverse CDF through interpolations automatically. Users do not need to write an interpolation function. But in some other languages like *C/C++*, user may need to do so. Please refer to this [blog on CSDN](https://blog.csdn.net/Superwen_go/article/details/7689063).
+2. `Distirbutions.quantile()` computes the inverse CDF through interpolations automatically. Users do not need to write an interpolation function. But in some other languages like *C/C++*, user may need to do so. Please refer to this [blog on CSDN](https://blog.csdn.net/Superwen_go/article/details/7689063).
 3. Specific to Julia, using simple loops can obtain better performance than vectorization. And of course, try to do all jobs in as least as possible loops.
 
 ### Timing
@@ -93,9 +93,9 @@ StatsBase.mean(TimeCost); StatsBase.std(TimeCost);
 
 <img src="../../image/blog_190420_LHSonMvNormal.svg">
 
-The average time cost to sampling 10000 samples is: **<u>0.00031711582139999997</u>** s with a standard error <u>**0.0002767948397527928**</u>. As comparison, the average time of using *randn()* to sampling 10000 samples from $N(0,1)$ is about 0.0002 s.
+The average time cost to sampling 10000 samples is: **<u>0.00031711582139999997</u>** s with a standard error <u>**0.0002767948397527928**</u>. As comparison, the average time of using `randn()` to sampling 10000 samples from $N(0,1)$ is about 0.0002 s.
 
-As another comparison, we use the *lhsnorm()* function in MatLab to do the same testing (of course, on the same computer):
+As another comparison, we use the `lhsnorm()` function in MatLab to do the same testing (of course, on the same computer):
 
 > Calling:
 >
@@ -238,10 +238,10 @@ end # end function LatinHyperCube
 > ```
 >
 
- The average time cost to sampling 10000 samples is: **<u>0.003703447855200001</u>** s with a standard error <u>**0.0013992824336122795**</u>. As comparison, the average time of using *Random.rand(D)* to sampling 10000 samples from the same distribution is about 0.0005 s.
+ The average time cost to sampling 10000 samples is: **<u>0.003703447855200001</u>** s with a standard error <u>**0.0013992824336122795**</u>. As comparison, the average time of using `Random.rand(D)` to sampling 10000 samples from the same distribution is about 0.0005 s.
 
 
-As another comparison, we use *lhsnorm()* in MatLab to do the same testing:
+As another comparison, we use `lhsnorm()` in MatLab to do the same testing:
 
 > ```matlab
 > # matlab 2017a
@@ -263,5 +263,5 @@ As another comparison, we use *lhsnorm()* in MatLab to do the same testing:
 
 ## Reference 
 
-1. Iman, R. L., and W. J. Conover. 1982. A Distribution-free Approach to Inducing Rank Correlation Among Input Variables. Communications in Statistics B 11:311-334
-2. Zhang, Y. , & Pinder, G. . (2003). Latin hypercube lattice sample selection strategy for correlated random hydraulic conductivity fields. Water Resources Research, 39(8).
+1. Iman, R. L., and W. J. Conover. 1982. A Distribution-free Approach to Inducing Rank Correlation Among Input Variables. *Communications in Statistics B* 11:311-334
+2. Zhang, Y. , & Pinder, G. . (2003). Latin hypercube lattice sample selection strategy for correlated random hydraulic conductivity fields. *Water Resources Research*, 39(8).
