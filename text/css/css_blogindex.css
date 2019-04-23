@@ -66,3 +66,19 @@ li{
       padding: 0;
     }
   }
+
+
+/* 萌娘百科黑幕效果 */
+.heimu,.heimu a{
+    background-color: #252525;
+    color:#252525;
+    text-shadow: none;
+}::selection{
+    background:#9ab0c0;
+    color:#fff;
+}
+/* 鼠标悬停时显示文字 */
+.heimu:hover,.heimu:hover a{
+    transition:color .13s linear;
+    color:#fff;
+}

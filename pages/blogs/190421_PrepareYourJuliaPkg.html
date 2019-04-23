@@ -1,308 +1,2633 @@
 <!doctype html>
 <html>
+
 <head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>190421_PrepareYourJuliaPkg</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
-@media screen and (max-width: 500px) {
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
-}
-#write li > figure:first-child { margin-top: -20px; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; }
-button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px !important; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror-linenumber { user-select: none; }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
-.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
-@media print {
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  html.blink-to-pdf { font-size: 13px; }
-  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0px; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) {
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
-code { text-align: left; vertical-align: initial; }
-a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
-.md-inline-math .MathJax_SVG .noError { display: none !important; }
-.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
-.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
-.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
-.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
-.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
-.MathJax_SVG * { transition: none; }
-.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
-
-
-.CodeMirror { height: auto; }
-.CodeMirror.cm-s-inner { background: inherit; }
-.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; z-index: 3; }
-.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
-.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
-.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
-.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
-.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
-.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
-.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
-.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
-.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
-.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
-.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
-.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
-.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
-.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
-.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
-.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
-.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
-.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
-.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
-.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
-.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
-.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
-.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
-.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
-.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
-.cm-negative { color: rgb(221, 68, 68); }
-.cm-positive { color: rgb(34, 153, 34); }
-.cm-header, .cm-strong { font-weight: 700; }
-.cm-del { text-decoration: line-through; }
-.cm-em { font-style: italic; }
-.cm-link { text-decoration: underline; }
-.cm-error { color: red; }
-.cm-invalidchar { color: red; }
-.cm-constant { color: rgb(38, 139, 210); }
-.cm-defined { color: rgb(181, 137, 0); }
-div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
-div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
-.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
-.CodeMirror { position: relative; overflow: hidden; }
-.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
-.CodeMirror-sizer { position: relative; }
-.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
-.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
-.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
-.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
-.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
-.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
-.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
-.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
-.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
-.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
-.CodeMirror-lines { cursor: text; }
-.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
-.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
-.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
-.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
-.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
-.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
-.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
-.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
-.CodeMirror-measure pre { position: static; }
-.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
-.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
-.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
-.cm-searching { background: rgba(255, 255, 0, 0.4); }
-@media print {
-  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
-}
-
-
-:root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
-html { font-size: 16px; }
-body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
-#write { max-width: 860px; margin: 0px auto; padding: 30px 30px 100px; }
-#write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
-a { color: rgb(65, 131, 196); }
-h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1rem; margin-bottom: 1rem; font-weight: bold; line-height: 1.4; cursor: text; }
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor { text-decoration: none; }
-h1 tt, h1 code { font-size: inherit; }
-h2 tt, h2 code { font-size: inherit; }
-h3 tt, h3 code { font-size: inherit; }
-h4 tt, h4 code { font-size: inherit; }
-h5 tt, h5 code { font-size: inherit; }
-h6 tt, h6 code { font-size: inherit; }
-h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
-h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
-h3 { font-size: 1.5em; line-height: 1.43; }
-h4 { font-size: 1.25em; }
-h5 { font-size: 1em; }
-h6 { font-size: 1em; color: rgb(119, 119, 119); }
-p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
-li > ol, li > ul { margin: 0px; }
-hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
-li p.first { display: inline-block; }
-ul, ol { padding-left: 30px; }
-ul:first-child, ol:first-child { margin-top: 0px; }
-ul:last-child, ol:last-child { margin-bottom: 0px; }
-blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
-blockquote blockquote { padding-right: 0px; }
-table { padding: 0px; word-break: initial; }
-table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
-table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
-table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
-table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
-table tr th:first-child, table tr td:first-child { margin-top: 0px; }
-table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
-.CodeMirror-lines { padding-left: 4px; }
-.code-tooltip { box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px; border-top: 1px solid rgb(238, 242, 242); }
-.md-fences, code, tt { border: 1px solid rgb(231, 234, 237); background-color: rgb(248, 248, 248); border-radius: 3px; padding: 2px 4px 0px; font-size: 0.9em; }
-code { background-color: rgb(243, 244, 244); padding: 0px 2px; }
-.md-fences { margin-bottom: 15px; margin-top: 15px; padding-top: 8px; padding-bottom: 6px; }
-.md-task-list-item > input { margin-left: -1.3em; }
-@media print {
-  html { font-size: 13px; }
-  table, pre { break-inside: avoid; }
-  pre { word-wrap: break-word; }
-}
-.md-fences { background-color: rgb(248, 248, 248); }
-#write pre.md-meta-block { padding: 1rem; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border: 0px; border-radius: 3px; color: rgb(119, 119, 119); margin-top: 0px !important; }
-.mathjax-block > .code-tooltip { bottom: 0.375rem; }
-.md-mathjax-midline { background: rgb(250, 250, 250); }
-#write > h3.md-focus::before { left: -1.5625rem; top: 0.375rem; }
-#write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-#write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-#write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-.md-image > .md-meta { border-radius: 3px; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
-.md-tag { color: rgb(167, 167, 167); opacity: 1; }
-.md-toc { margin-top: 20px; padding-bottom: 20px; }
-.sidebar-tabs { border-bottom: none; }
-#typora-quick-open { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); }
-#typora-quick-open-item { background-color: rgb(250, 250, 250); border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238); border-style: solid; border-width: 1px; }
-.on-focus-mode blockquote { border-left-color: rgba(85, 85, 85, 0.12); }
-header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Arial, sans-serif; }
-.file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
-.mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
-.md-lang { color: rgb(180, 101, 77); }
-.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
-#md-notification .btn { border: 0px; }
-.dropdown-menu .divider { border-color: rgb(229, 229, 229); }
 
 
 
 
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width initial-scale=1'>
+  <title>190421_PrepareYourJuliaPkg</title>
+  <link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext'
+    rel='stylesheet' type='text/css' />
+  <style type='text/css'>
+    html {
+      overflow-x: initial !important;
+    }
 
- .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
-</style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --select-text-bg-color: #B5D6FC;
+      --select-text-font-color: auto;
+      --monospace: "Lucida Console", Consolas, "Courier", monospace;
+    }
+
+    html {
+      font-size: 14px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0px;
+      padding: 0px;
+      height: auto;
+      bottom: 0px;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      font-size: 1rem;
+      line-height: 1.42857;
+      overflow-x: hidden;
+      background: inherit;
+    }
+
+    iframe {
+      margin: auto;
+    }
+
+    a.url {
+      word-break: break-all;
+    }
+
+    a:active,
+    a:hover {
+      outline: 0px;
+    }
+
+    .in-text-selection,
+    ::selection {
+      text-shadow: none;
+      background: var(--select-text-bg-color);
+      color: var(--select-text-font-color);
+    }
+
+    #write {
+      margin: 0px auto;
+      height: auto;
+      width: inherit;
+      word-break: normal;
+      word-wrap: break-word;
+      position: relative;
+      white-space: normal;
+      overflow-x: visible;
+      padding-top: 40px;
+    }
+
+    #write.first-line-indent p {
+      text-indent: 2em;
+    }
+
+    #write.first-line-indent li p,
+    #write.first-line-indent p * {
+      text-indent: 0px;
+    }
+
+    #write.first-line-indent li {
+      margin-left: 2em;
+    }
+
+    .for-image #write {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    body.typora-export {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .typora-export .footnote-line,
+    .typora-export li,
+    .typora-export p {
+      white-space: pre-wrap;
+    }
+
+    @media screen and (max-width: 500px) {
+      body.typora-export {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+      #write {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .CodeMirror-sizer {
+        margin-left: 0px !important;
+      }
+
+      .CodeMirror-gutters {
+        display: none !important;
+      }
+    }
+
+    #write li>figure:first-child {
+      margin-top: -20px;
+    }
+
+    #write ol,
+    #write ul {
+      position: relative;
+    }
+
+    img {
+      max-width: 100%;
+      vertical-align: middle;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      color: inherit;
+      font-style: inherit;
+      font-variant: inherit;
+      font-weight: inherit;
+      font-stretch: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      font-family: inherit;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      line-height: normal;
+      padding: 0px;
+    }
+
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    #write h1,
+    #write h2,
+    #write h3,
+    #write h4,
+    #write h5,
+    #write h6,
+    #write p,
+    #write pre {
+      width: inherit;
+    }
+
+    #write h1,
+    #write h2,
+    #write h3,
+    #write h4,
+    #write h5,
+    #write h6,
+    #write p {
+      position: relative;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      break-after: avoid-page;
+      break-inside: avoid;
+      orphans: 2;
+    }
+
+    p {
+      orphans: 4;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+    }
+
+    h4 {
+      font-size: 1.4rem;
+    }
+
+    h5 {
+      font-size: 1.2rem;
+    }
+
+    h6 {
+      font-size: 1rem;
+    }
+
+    .md-math-block,
+    .md-rawblock,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .md-blockmeta {
+      color: rgb(204, 204, 204);
+      font-weight: 700;
+      font-style: italic;
+    }
+
+    a {
+      cursor: pointer;
+    }
+
+    sup.md-footnote {
+      padding: 2px 4px;
+      background-color: rgba(238, 238, 238, 0.7);
+      color: rgb(85, 85, 85);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    sup.md-footnote a,
+    sup.md-footnote a:hover {
+      color: inherit;
+      text-transform: inherit;
+      text-decoration: inherit;
+    }
+
+    #write input[type="checkbox"] {
+      cursor: pointer;
+      width: inherit;
+      height: inherit;
+    }
+
+    figure {
+      overflow-x: auto;
+      margin: 1.2em 0px;
+      max-width: calc(100% + 16px);
+      padding: 0px;
+    }
+
+    figure>table {
+      margin: 0px !important;
+    }
+
+    tr {
+      break-inside: avoid;
+      break-after: auto;
+    }
+
+    thead {
+      display: table-header-group;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0px;
+      width: 100%;
+      overflow: auto;
+      break-inside: auto;
+      text-align: left;
+    }
+
+    table.md-table td {
+      min-width: 32px;
+    }
+
+    .CodeMirror-gutters {
+      border-right: 0px;
+      background-color: inherit;
+    }
+
+    .CodeMirror {
+      text-align: left;
+    }
+
+    .CodeMirror-placeholder {
+      opacity: 0.3;
+    }
+
+    .CodeMirror pre {
+      padding: 0px 4px;
+    }
+
+    .CodeMirror-lines {
+      padding: 0px;
+    }
+
+    div.hr:focus {
+      cursor: none;
+    }
+
+    #write pre {
+      white-space: pre-wrap;
+    }
+
+    #write.fences-no-line-wrapping pre {
+      white-space: pre;
+    }
+
+    #write pre.ty-contain-cm {
+      white-space: normal;
+    }
+
+    .CodeMirror-gutters {
+      margin-right: 4px;
+    }
+
+    .md-fences {
+      font-size: 0.9rem;
+      display: block;
+      break-inside: avoid;
+      text-align: left;
+      overflow: visible;
+      white-space: pre;
+      background: inherit;
+      position: relative !important;
+    }
+
+    .md-diagram-panel {
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+      padding-top: 0px;
+      padding-bottom: 8px;
+      overflow-x: auto;
+    }
+
+    #write .md-fences.mock-cm {
+      white-space: pre-wrap;
+    }
+
+    .md-fences.md-fences-with-lineno {
+      padding-left: 0px;
+    }
+
+    #write.fences-no-line-wrapping .md-fences.mock-cm {
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    .md-fences.mock-cm.md-fences-with-lineno {
+      padding-left: 8px;
+    }
+
+    .CodeMirror-line,
+    twitterwidget {
+      break-inside: avoid;
+    }
+
+    .footnotes {
+      opacity: 0.8;
+      font-size: 0.9rem;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+
+    .footnotes+.footnotes {
+      margin-top: 0px;
+    }
+
+    .md-reset {
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      outline: 0px;
+      vertical-align: top;
+      background: 0px 0px;
+      text-decoration: none;
+      text-shadow: none;
+      float: none;
+      position: static;
+      width: auto;
+      height: auto;
+      white-space: nowrap;
+      cursor: inherit;
+      -webkit-tap-highlight-color: transparent;
+      line-height: normal;
+      font-weight: 400;
+      text-align: left;
+      box-sizing: content-box;
+      direction: ltr;
+    }
+
+    li div {
+      padding-top: 0px;
+    }
+
+    blockquote {
+      margin: 1rem 0px;
+    }
+
+    li .mathjax-block,
+    li p {
+      margin: 0.5rem 0px;
+    }
+
+    li {
+      margin: 0px;
+      position: relative;
+    }
+
+    blockquote> :last-child {
+      margin-bottom: 0px;
+    }
+
+    blockquote> :first-child,
+    li> :first-child {
+      margin-top: 0px;
+    }
+
+    .footnotes-area {
+      color: rgb(136, 136, 136);
+      margin-top: 0.714rem;
+      padding-bottom: 0.143rem;
+      white-space: normal;
+    }
+
+    #write .footnote-line {
+      white-space: pre-wrap;
+    }
+
+    @media print {
+
+      body,
+      html {
+        border: 1px solid transparent;
+        height: 99%;
+        break-after: avoid;
+        break-before: avoid;
+      }
+
+      #write {
+        margin-top: 0px;
+        padding-top: 0px;
+        border-color: transparent !important;
+      }
+
+      .typora-export * {
+        -webkit-print-color-adjust: exact;
+      }
+
+      html.blink-to-pdf {
+        font-size: 13px;
+      }
+
+      .typora-export #write {
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 0px;
+        break-after: avoid;
+      }
+
+      .typora-export #write::after {
+        height: 0px;
+      }
+
+      @page {
+        margin: 20mm 0px;
+      }
+    }
+
+    .footnote-line {
+      margin-top: 0.714em;
+      font-size: 0.7em;
+    }
+
+    a img,
+    img a {
+      cursor: pointer;
+    }
+
+    pre.md-meta-block {
+      font-size: 0.8rem;
+      min-height: 0.8rem;
+      white-space: pre-wrap;
+      background: rgb(204, 204, 204);
+      display: block;
+      overflow-x: hidden;
+    }
+
+    p>.md-image:only-child:not(.md-img-error) img,
+    p>img:only-child {
+      display: block;
+      margin: auto;
+    }
+
+    p>.md-image:only-child {
+      display: inline-block;
+      width: 100%;
+    }
+
+    #write .MathJax_Display {
+      margin: 0.8em 0px 0px;
+    }
+
+    .md-math-block {
+      width: 100%;
+    }
+
+    .md-math-block:not(:empty)::after {
+      display: none;
+    }
+
+    [contenteditable="true"]:active,
+    [contenteditable="true"]:focus {
+      outline: 0px;
+      box-shadow: none;
+    }
+
+    .md-task-list-item {
+      position: relative;
+      list-style-type: none;
+    }
+
+    .task-list-item.md-task-list-item {
+      padding-left: 0px;
+    }
+
+    .md-task-list-item>input {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      margin-left: -1.2em;
+      margin-top: calc(1em - 10px);
+    }
+
+    .math {
+      font-size: 1rem;
+    }
+
+    .md-toc {
+      min-height: 3.58rem;
+      position: relative;
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+
+    .md-toc-content {
+      position: relative;
+      margin-left: 0px;
+    }
+
+    .md-toc-content::after,
+    .md-toc::after {
+      display: none;
+    }
+
+    .md-toc-item {
+      display: block;
+      color: rgb(65, 131, 196);
+    }
+
+    .md-toc-item a {
+      text-decoration: none;
+    }
+
+    .md-toc-inner:hover {
+      text-decoration: underline;
+    }
+
+    .md-toc-inner {
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .md-toc-h1 .md-toc-inner {
+      margin-left: 0px;
+      font-weight: 700;
+    }
+
+    .md-toc-h2 .md-toc-inner {
+      margin-left: 2em;
+    }
+
+    .md-toc-h3 .md-toc-inner {
+      margin-left: 4em;
+    }
+
+    .md-toc-h4 .md-toc-inner {
+      margin-left: 6em;
+    }
+
+    .md-toc-h5 .md-toc-inner {
+      margin-left: 8em;
+    }
+
+    .md-toc-h6 .md-toc-inner {
+      margin-left: 10em;
+    }
+
+    @media screen and (max-width: 48em) {
+      .md-toc-h3 .md-toc-inner {
+        margin-left: 3.5em;
+      }
+
+      .md-toc-h4 .md-toc-inner {
+        margin-left: 5em;
+      }
+
+      .md-toc-h5 .md-toc-inner {
+        margin-left: 6.5em;
+      }
+
+      .md-toc-h6 .md-toc-inner {
+        margin-left: 8em;
+      }
+    }
+
+    a.md-toc-inner {
+      font-size: inherit;
+      font-style: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+    }
+
+    .footnote-line a:not(.reversefootnote) {
+      color: inherit;
+    }
+
+    .md-attr {
+      display: none;
+    }
+
+    .md-fn-count::after {
+      content: ".";
+    }
+
+    code,
+    pre,
+    samp,
+    tt {
+      font-family: var(--monospace);
+    }
+
+    kbd {
+      margin: 0px 0.1em;
+      padding: 0.1em 0.6em;
+      font-size: 0.8em;
+      color: rgb(36, 39, 41);
+      background: rgb(255, 255, 255);
+      border: 1px solid rgb(173, 179, 185);
+      border-radius: 3px;
+      box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    .md-comment {
+      color: rgb(162, 127, 3);
+      opacity: 0.8;
+      font-family: var(--monospace);
+    }
+
+    code {
+      text-align: left;
+      vertical-align: initial;
+    }
+
+    a.md-print-anchor {
+      white-space: pre !important;
+      border-width: initial !important;
+      border-style: none !important;
+      border-color: initial !important;
+      display: inline-block !important;
+      position: absolute !important;
+      width: 1px !important;
+      right: 0px !important;
+      outline: 0px !important;
+      background: 0px 0px !important;
+      text-decoration: initial !important;
+      text-shadow: initial !important;
+    }
+
+    .md-inline-math .MathJax_SVG .noError {
+      display: none !important;
+    }
+
+    .html-for-mac .inline-math-svg .MathJax_SVG {
+      vertical-align: 0.2px;
+    }
+
+    .md-math-block .MathJax_SVG_Display {
+      text-align: center;
+      margin: 0px;
+      position: relative;
+      text-indent: 0px;
+      max-width: none;
+      max-height: none;
+      min-height: 0px;
+      min-width: 100%;
+      width: auto;
+      overflow-y: hidden;
+      display: block !important;
+    }
+
+    .MathJax_SVG_Display,
+    .md-inline-math .MathJax_SVG_Display {
+      width: auto;
+      margin: inherit;
+      display: inline-block !important;
+    }
+
+    .MathJax_SVG .MJX-monospace {
+      font-family: var(--monospace);
+    }
+
+    .MathJax_SVG .MJX-sans-serif {
+      font-family: sans-serif;
+    }
+
+    .MathJax_SVG {
+      display: inline;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      zoom: 90%;
+      text-indent: 0px;
+      text-align: left;
+      text-transform: none;
+      letter-spacing: normal;
+      word-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      float: none;
+      direction: ltr;
+      max-width: none;
+      max-height: none;
+      min-width: 0px;
+      min-height: 0px;
+      border: 0px;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .MathJax_SVG * {
+      transition: none;
+    }
+
+    .MathJax_SVG_Display svg {
+      vertical-align: middle !important;
+      margin-bottom: 0px !important;
+    }
+
+    .os-windows.monocolor-emoji .md-emoji {
+      font-family: "Segoe UI Symbol", sans-serif;
+    }
+
+    .md-diagram-panel>svg {
+      max-width: 100%;
+    }
+
+    [lang="mermaid"] svg,
+    [lang="flow"] svg {
+      max-width: 100%;
+    }
+
+    [lang="mermaid"] .node text {
+      font-size: 1rem;
+    }
+
+    table tr th {
+      border-bottom: 0px;
+    }
+
+    video {
+      max-width: 100%;
+      display: block;
+      margin: 0px auto;
+    }
+
+    iframe {
+      max-width: 100%;
+      width: 100%;
+      border: none;
+    }
+
+    .highlight td,
+    .highlight tr {
+      border: 0px;
+    }
+
+
+    .CodeMirror {
+      height: auto;
+    }
+
+    .CodeMirror.cm-s-inner {
+      background: inherit;
+    }
+
+    .CodeMirror-scroll {
+      overflow-y: hidden;
+      overflow-x: auto;
+      z-index: 3;
+    }
+
+    .CodeMirror-gutter-filler,
+    .CodeMirror-scrollbar-filler {
+      background-color: rgb(255, 255, 255);
+    }
+
+    .CodeMirror-gutters {
+      border-right: 1px solid rgb(221, 221, 221);
+      background: inherit;
+      white-space: nowrap;
+    }
+
+    .CodeMirror-linenumber {
+      padding: 0px 3px 0px 5px;
+      text-align: right;
+      color: rgb(153, 153, 153);
+    }
+
+    .cm-s-inner .cm-keyword {
+      color: rgb(119, 0, 136);
+    }
+
+    .cm-s-inner .cm-atom,
+    .cm-s-inner.cm-atom {
+      color: rgb(34, 17, 153);
+    }
+
+    .cm-s-inner .cm-number {
+      color: rgb(17, 102, 68);
+    }
+
+    .cm-s-inner .cm-def {
+      color: rgb(0, 0, 255);
+    }
+
+    .cm-s-inner .cm-variable {
+      color: rgb(0, 0, 0);
+    }
+
+    .cm-s-inner .cm-variable-2 {
+      color: rgb(0, 85, 170);
+    }
+
+    .cm-s-inner .cm-variable-3 {
+      color: rgb(0, 136, 85);
+    }
+
+    .cm-s-inner .cm-string {
+      color: rgb(170, 17, 17);
+    }
+
+    .cm-s-inner .cm-property {
+      color: rgb(0, 0, 0);
+    }
+
+    .cm-s-inner .cm-operator {
+      color: rgb(152, 26, 26);
+    }
+
+    .cm-s-inner .cm-comment,
+    .cm-s-inner.cm-comment {
+      color: rgb(170, 85, 0);
+    }
+
+    .cm-s-inner .cm-string-2 {
+      color: rgb(255, 85, 0);
+    }
+
+    .cm-s-inner .cm-meta {
+      color: rgb(85, 85, 85);
+    }
+
+    .cm-s-inner .cm-qualifier {
+      color: rgb(85, 85, 85);
+    }
+
+    .cm-s-inner .cm-builtin {
+      color: rgb(51, 0, 170);
+    }
+
+    .cm-s-inner .cm-bracket {
+      color: rgb(153, 153, 119);
+    }
+
+    .cm-s-inner .cm-tag {
+      color: rgb(17, 119, 0);
+    }
+
+    .cm-s-inner .cm-attribute {
+      color: rgb(0, 0, 204);
+    }
+
+    .cm-s-inner .cm-header,
+    .cm-s-inner.cm-header {
+      color: rgb(0, 0, 255);
+    }
+
+    .cm-s-inner .cm-quote,
+    .cm-s-inner.cm-quote {
+      color: rgb(0, 153, 0);
+    }
+
+    .cm-s-inner .cm-hr,
+    .cm-s-inner.cm-hr {
+      color: rgb(153, 153, 153);
+    }
+
+    .cm-s-inner .cm-link,
+    .cm-s-inner.cm-link {
+      color: rgb(0, 0, 204);
+    }
+
+    .cm-negative {
+      color: rgb(221, 68, 68);
+    }
+
+    .cm-positive {
+      color: rgb(34, 153, 34);
+    }
+
+    .cm-header,
+    .cm-strong {
+      font-weight: 700;
+    }
+
+    .cm-del {
+      text-decoration: line-through;
+    }
+
+    .cm-em {
+      font-style: italic;
+    }
+
+    .cm-link {
+      text-decoration: underline;
+    }
+
+    .cm-error {
+      color: red;
+    }
+
+    .cm-invalidchar {
+      color: red;
+    }
+
+    .cm-constant {
+      color: rgb(38, 139, 210);
+    }
+
+    .cm-defined {
+      color: rgb(181, 137, 0);
+    }
+
+    div.CodeMirror span.CodeMirror-matchingbracket {
+      color: rgb(0, 255, 0);
+    }
+
+    div.CodeMirror span.CodeMirror-nonmatchingbracket {
+      color: rgb(255, 34, 34);
+    }
+
+    .cm-s-inner .CodeMirror-activeline-background {
+      background: inherit;
+    }
+
+    .CodeMirror {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .CodeMirror-scroll {
+      height: 100%;
+      outline: 0px;
+      position: relative;
+      box-sizing: content-box;
+      background: inherit;
+    }
+
+    .CodeMirror-sizer {
+      position: relative;
+    }
+
+    .CodeMirror-gutter-filler,
+    .CodeMirror-hscrollbar,
+    .CodeMirror-scrollbar-filler,
+    .CodeMirror-vscrollbar {
+      position: absolute;
+      z-index: 6;
+      display: none;
+    }
+
+    .CodeMirror-vscrollbar {
+      right: 0px;
+      top: 0px;
+      overflow: hidden;
+    }
+
+    .CodeMirror-hscrollbar {
+      bottom: 0px;
+      left: 0px;
+      overflow: hidden;
+    }
+
+    .CodeMirror-scrollbar-filler {
+      right: 0px;
+      bottom: 0px;
+    }
+
+    .CodeMirror-gutter-filler {
+      left: 0px;
+      bottom: 0px;
+    }
+
+    .CodeMirror-gutters {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      padding-bottom: 30px;
+      z-index: 3;
+    }
+
+    .CodeMirror-gutter {
+      white-space: normal;
+      height: 100%;
+      box-sizing: content-box;
+      padding-bottom: 30px;
+      margin-bottom: -32px;
+      display: inline-block;
+    }
+
+    .CodeMirror-gutter-wrapper {
+      position: absolute;
+      z-index: 4;
+      background: 0px 0px !important;
+      border: none !important;
+    }
+
+    .CodeMirror-gutter-background {
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      z-index: 4;
+    }
+
+    .CodeMirror-gutter-elt {
+      position: absolute;
+      cursor: default;
+      z-index: 4;
+    }
+
+    .CodeMirror-lines {
+      cursor: text;
+    }
+
+    .CodeMirror pre {
+      border-radius: 0px;
+      border-width: 0px;
+      background: 0px 0px;
+      font-family: inherit;
+      font-size: inherit;
+      margin: 0px;
+      white-space: pre;
+      word-wrap: normal;
+      color: inherit;
+      z-index: 2;
+      position: relative;
+      overflow: visible;
+    }
+
+    .CodeMirror-wrap pre {
+      word-wrap: break-word;
+      white-space: pre-wrap;
+      word-break: normal;
+    }
+
+    .CodeMirror-code pre {
+      border-right: 30px solid transparent;
+      width: fit-content;
+    }
+
+    .CodeMirror-wrap .CodeMirror-code pre {
+      border-right: none;
+      width: auto;
+    }
+
+    .CodeMirror-linebackground {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      z-index: 0;
+    }
+
+    .CodeMirror-linewidget {
+      position: relative;
+      z-index: 2;
+      overflow: auto;
+    }
+
+    .CodeMirror-wrap .CodeMirror-scroll {
+      overflow-x: hidden;
+    }
+
+    .CodeMirror-measure {
+      position: absolute;
+      width: 100%;
+      height: 0px;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    .CodeMirror-measure pre {
+      position: static;
+    }
+
+    .CodeMirror div.CodeMirror-cursor {
+      position: absolute;
+      visibility: hidden;
+      border-right: none;
+      width: 0px;
+    }
+
+    .CodeMirror div.CodeMirror-cursor {
+      visibility: hidden;
+    }
+
+    .CodeMirror-focused div.CodeMirror-cursor {
+      visibility: inherit;
+    }
+
+    .cm-searching {
+      background: rgba(255, 255, 0, 0.4);
+    }
+
+    @media print {
+      .CodeMirror div.CodeMirror-cursor {
+        visibility: hidden;
+      }
+    }
+
+
+    :root {
+      --side-bar-bg-color: #fafafa;
+      --control-text-color: #777;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: rgb(51, 51, 51);
+      line-height: 1.6;
+    }
+
+    #write {
+      max-width: 860px;
+      margin: 0px auto;
+      padding: 30px 30px 100px;
+    }
+
+    #write>ul:first-child,
+    #write>ol:first-child {
+      margin-top: 30px;
+    }
+
+    a {
+      color: rgb(65, 131, 196);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      position: relative;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      line-height: 1.4;
+      cursor: text;
+    }
+
+    h1:hover a.anchor,
+    h2:hover a.anchor,
+    h3:hover a.anchor,
+    h4:hover a.anchor,
+    h5:hover a.anchor,
+    h6:hover a.anchor {
+      text-decoration: none;
+    }
+
+    h1 tt,
+    h1 code {
+      font-size: inherit;
+    }
+
+    h2 tt,
+    h2 code {
+      font-size: inherit;
+    }
+
+    h3 tt,
+    h3 code {
+      font-size: inherit;
+    }
+
+    h4 tt,
+    h4 code {
+      font-size: inherit;
+    }
+
+    h5 tt,
+    h5 code {
+      font-size: inherit;
+    }
+
+    h6 tt,
+    h6 code {
+      font-size: inherit;
+    }
+
+    h1 {
+      padding-bottom: 0.3em;
+      font-size: 2.25em;
+      line-height: 1.2;
+      border-bottom: 1px solid rgb(238, 238, 238);
+    }
+
+    h2 {
+      padding-bottom: 0.3em;
+      font-size: 1.75em;
+      line-height: 1.225;
+      border-bottom: 1px solid rgb(238, 238, 238);
+    }
+
+    h3 {
+      font-size: 1.5em;
+      line-height: 1.43;
+    }
+
+    h4 {
+      font-size: 1.25em;
+    }
+
+    h5 {
+      font-size: 1em;
+    }
+
+    h6 {
+      font-size: 1em;
+      color: rgb(119, 119, 119);
+    }
+
+    p,
+    blockquote,
+    ul,
+    ol,
+    dl,
+    table {
+      margin: 0.8em 0px;
+    }
+
+    li>ol,
+    li>ul {
+      margin: 0px;
+    }
+
+    hr {
+      height: 2px;
+      padding: 0px;
+      margin: 16px 0px;
+      background-color: rgb(231, 231, 231);
+      border: 0px none;
+      overflow: hidden;
+      box-sizing: content-box;
+    }
+
+    li p.first {
+      display: inline-block;
+    }
+
+    ul,
+    ol {
+      padding-left: 30px;
+    }
+
+    ul:first-child,
+    ol:first-child {
+      margin-top: 0px;
+    }
+
+    ul:last-child,
+    ol:last-child {
+      margin-bottom: 0px;
+    }
+
+    blockquote {
+      border-left: 4px solid rgb(223, 226, 229);
+      padding: 0px 15px;
+      color: rgb(119, 119, 119);
+    }
+
+    blockquote blockquote {
+      padding-right: 0px;
+    }
+
+    table {
+      padding: 0px;
+      word-break: initial;
+    }
+
+    table tr {
+      border-top: 1px solid rgb(223, 226, 229);
+      margin: 0px;
+      padding: 0px;
+    }
+
+    table tr:nth-child(2n),
+    thead {
+      background-color: rgb(248, 248, 248);
+    }
+
+    table tr th {
+      font-weight: bold;
+      border-width: 1px 1px 0px;
+      border-top-style: solid;
+      border-right-style: solid;
+      border-left-style: solid;
+      border-top-color: rgb(223, 226, 229);
+      border-right-color: rgb(223, 226, 229);
+      border-left-color: rgb(223, 226, 229);
+      border-image: initial;
+      border-bottom-style: initial;
+      border-bottom-color: initial;
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr td {
+      border: 1px solid rgb(223, 226, 229);
+      text-align: left;
+      margin: 0px;
+      padding: 6px 13px;
+    }
+
+    table tr th:first-child,
+    table tr td:first-child {
+      margin-top: 0px;
+    }
+
+    table tr th:last-child,
+    table tr td:last-child {
+      margin-bottom: 0px;
+    }
+
+    .CodeMirror-lines {
+      padding-left: 4px;
+    }
+
+    .code-tooltip {
+      box-shadow: rgba(0, 28, 36, 0.3) 0px 1px 1px 0px;
+      border-top: 1px solid rgb(238, 242, 242);
+    }
+
+    .md-fences,
+    code,
+    tt {
+      border: 1px solid rgb(231, 234, 237);
+      background-color: rgb(248, 248, 248);
+      border-radius: 3px;
+      padding: 2px 4px 0px;
+      font-size: 0.9em;
+    }
+
+    code {
+      background-color: rgb(243, 244, 244);
+      padding: 0px 2px;
+    }
+
+    .md-fences {
+      margin-bottom: 15px;
+      margin-top: 15px;
+      padding-top: 8px;
+      padding-bottom: 6px;
+    }
+
+    .md-task-list-item>input {
+      margin-left: -1.3em;
+    }
+
+    @media print {
+      html {
+        font-size: 13px;
+      }
+
+      table,
+      pre {
+        break-inside: avoid;
+      }
+
+      pre {
+        word-wrap: break-word;
+      }
+    }
+
+    .md-fences {
+      background-color: rgb(248, 248, 248);
+    }
+
+    #write pre.md-meta-block {
+      padding: 1rem;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: rgb(247, 247, 247);
+      border: 0px;
+      border-radius: 3px;
+      color: rgb(119, 119, 119);
+      margin-top: 0px !important;
+    }
+
+    .mathjax-block>.code-tooltip {
+      bottom: 0.375rem;
+    }
+
+    .md-mathjax-midline {
+      background: rgb(250, 250, 250);
+    }
+
+    #write>h3.md-focus::before {
+      left: -1.5625rem;
+      top: 0.375rem;
+    }
+
+    #write>h4.md-focus::before {
+      left: -1.5625rem;
+      top: 0.285714rem;
+    }
+
+    #write>h5.md-focus::before {
+      left: -1.5625rem;
+      top: 0.285714rem;
+    }
+
+    #write>h6.md-focus::before {
+      left: -1.5625rem;
+      top: 0.285714rem;
+    }
+
+    .md-image>.md-meta {
+      border-radius: 3px;
+      padding: 2px 0px 0px 4px;
+      font-size: 0.9em;
+      color: inherit;
+    }
+
+    .md-tag {
+      color: rgb(167, 167, 167);
+      opacity: 1;
+    }
+
+    .md-toc {
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .sidebar-tabs {
+      border-bottom: none;
+    }
+
+    #typora-quick-open {
+      border: 1px solid rgb(221, 221, 221);
+      background-color: rgb(248, 248, 248);
+    }
+
+    #typora-quick-open-item {
+      background-color: rgb(250, 250, 250);
+      border-color: rgb(254, 254, 254) rgb(229, 229, 229) rgb(229, 229, 229) rgb(238, 238, 238);
+      border-style: solid;
+      border-width: 1px;
+    }
+
+    .on-focus-mode blockquote {
+      border-left-color: rgba(85, 85, 85, 0.12);
+    }
+
+    header,
+    .context-menu,
+    .megamenu-content,
+    footer {
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .file-node-content:hover .file-node-icon,
+    .file-node-content:hover .file-node-open-state {
+      visibility: visible;
+    }
+
+    .mac-seamless-mode #typora-sidebar {
+      background-color: var(--side-bar-bg-color);
+    }
+
+    .md-lang {
+      color: rgb(180, 101, 77);
+    }
+
+    .html-for-mac .context-menu {
+      --item-hover-bg-color: #E6F0FE;
+    }
+
+    #md-notification .btn {
+      border: 0px;
+    }
+
+    .dropdown-menu .divider {
+      border-color: rgb(229, 229, 229);
+    }
+
+
+
+
+
+    .typora-export li,
+    .typora-export p,
+    .typora-export,
+    .footnote-line {
+      white-space: normal;
+    }
+
+
+    .heimu,.heimu a{
+  background-color: #252525;
+  color:#252525;
+  text-shadow: none;
+  }::selection{
+  background:#9ab0c0;
+  color:#fff;
+  }
+  .heimu:hover,.heimu:hover a{
+  transition:color .13s linear;
+  color:#fff;
+  }
+
+
+  </style>
 </head>
-<body class='typora-export os-windows' >
-<div  id='write'  class = 'is-node'><h1><a name='header-n1070' class='md-header-anchor '></a>Prepare your Julia 1.0 for economic research</h1><p><a href='../../index.html'>Back to index</a></p><blockquote><p>@author: Tianhao Zhao</p><p>@date: April 21, 2019</p><p>@copyright: free</p></blockquote><div class='md-toc' mdtype='toc'><p class="md-toc-content"><span class="md-toc-item md-toc-h1" data-ref="n1070"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1070">Prepare your Julia 1.0 for economic research</a></span><span class="md-toc-item md-toc-h2" data-ref="n1078"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1078">Informal Introduction</a></span><span class="md-toc-item md-toc-h2" data-ref="n1081"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1081">Why Julia?</a></span><span class="md-toc-item md-toc-h3" data-ref="n1082"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1082">Who need Julia?</a></span><span class="md-toc-item md-toc-h3" data-ref="n1100"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1100">Zombie Codes?</a></span><span class="md-toc-item md-toc-h3" data-ref="n1102"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1102">Calling Python or R?</a></span><span class="md-toc-item md-toc-h3" data-ref="n1108"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1108">Used to Matlab?</a></span><span class="md-toc-item md-toc-h2" data-ref="n1125"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1125">Install Julia 1.0 + Atom + Jupyter</a></span><span class="md-toc-item md-toc-h3" data-ref="n1126"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1126">Step 0: Other environments you may need</a></span><span class="md-toc-item md-toc-h3" data-ref="n1128"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1128">Step 1: Install core Julia</a></span><span class="md-toc-item md-toc-h3" data-ref="n1133"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1133">Step 2: Update pre-installed packages</a></span><span class="md-toc-item md-toc-h3" data-ref="n1150"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1150">Step 3: Install Jupyter</a></span><span class="md-toc-item md-toc-h3" data-ref="n1162"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1162">Step 4: Prepare your Juno IDE based on Atom</a></span><span class="md-toc-item md-toc-h3" data-ref="n1178"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1178">Step 5: (Optional) Prepare your VSCode with Julia</a></span><span class="md-toc-item md-toc-h2" data-ref="n1181"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1181">Installing 3rd-party packages</a></span><span class="md-toc-item md-toc-h3" data-ref="n1184"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1184">Installing <code>PyCall</code></a></span><span class="md-toc-item md-toc-h4" data-ref="n1187"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1187">Case 1: Anaconda Python</a></span><span class="md-toc-item md-toc-h4" data-ref="n1212"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1212">Case 2: Official Python installation</a></span><span class="md-toc-item md-toc-h3" data-ref="n1214"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1214">Installing <code>RCall</code></a></span><span class="md-toc-item md-toc-h3" data-ref="n1220"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1220">Popular 3rd-party packages for economic research</a></span><span class="md-toc-item md-toc-h3" data-ref="n1344"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1344">Visualization in Julia</a></span><span class="md-toc-item md-toc-h2" data-ref="n1348"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n1348">Start coding in Julia</a></span></p></div><h2><a name='header-n1078' class='md-header-anchor '></a>Informal Introduction</h2><p>This blog provides a useful list for economists to install and prepare their Julia 1.0 environment for economic research. Similar to many on-line instructions, this blog recommend users combine their Julia with mature Python, R, C and Fortran libraries to obtain most comfortable coding experience. However, this blog  prepares a series of questions to help users decide which packages are what they really need.</p><p><strong><u>Of course, I always agree that it is thoughts, mathematics, algorithms and designs that really matter rather than specific languages. Languages are just how to tell these things. A well-trained developer is required to learn any language in hours and quickly begin to work with it.</u></strong> However, for some specific purposes, e.g. economic research, a proper language can visibly improve productivities. This is the reason why I introduce and recommend Julia language in this blog. This language has several impressive advantages which make it a top choice for different economists.</p><h2><a name='header-n1081' class='md-header-anchor '></a>Why Julia?</h2><h3><a name='header-n1082' class='md-header-anchor '></a>Who need Julia?</h3><p>Learning cost is one of the main reasons that people are not willing to use a new language. Sometimes they  even do not look through a small function with patience.</p><blockquote><p>&quot;oh no, unreadable! so strange syntax! what exactly does the symbol $ mean!&quot; (by someone without programming trainings)</p><p>&quot;It looks familiar but still some subtle differences there ... but holy f**k, who cares. I am too busy to learn them!&quot; (by someone familiar to one or two languages but worry about a sharp learning curve)</p><p>&quot;I am used to old grandpa Fortran. I keep reservation about if that new guy is worth learning. Too costing to transfer my works to a new language.&quot; (by someone with piles of zombie codes)</p><p>&quot;Yes, it is quite easy to learn. But is it necessary? or is it worth spending time on?&quot; (by programmers used to many other popular languages)</p></blockquote><p>Are you one of the four types of perspective developers? If so, please look at:</p><ol start='' ><li>For programming beginners, Julia provides intuitive syntax, many syntax sugars, multiple programming styles, full OO features through multiple dispatch and a fast-growing community. As long as you do not insist to learn programming alchemy with Lisp, Julia is a good choice which has a flat learning curve.</li><li>For developers familiar to one or two languages, esp. R, Matlab or Python, you may find many familiar syntaxes, symbols even APIs in Julia. (e.g. <code>randn()</code>). You have approached to the final when you start! And, if you do not want to drop your old projects in other languages, just call them from Julia! It is so easy a job that you can make it like calling Julia programs with least contact cost. And, in most cases, Julia&#39;s performance is better than R, Matlab and Python (even in linear algebras!).</li><li>For zombie code owners, esp. Fortran or C, you can simply call your old programs from Julia now. Julia provides a user-friendly calling which has the same cost as calling your old programs locally in C/Fortran. You may easily enjoy Julia&#39;s high-level data types, easy visualizations together with C/Fortran&#39;s lower operations. In fact, Julia provides complete wrappers of BLAS and LAPACK. Many of your old programs can be translated with no performance loss but very familiar syntaxes.</li><li>For experienced programmers, if you work in the field of scientific computing, ML/DL, economic modeling or other performance-matter fields, Julia should be one of your primary considers. You may enjoy lots of syntax sugars, easy metaprogramming, both cookbook and low-level parallel/distributional computing control, and convenient abstractions when obtaining a high performance near to C or Fortran. </li></ol><p>Of course, this blog is not for general purpose but mainly for economists. So what next to introduce are targeted at economic research. They are definitely useful for economists but may not be so for developers in other fields.</p><h3><a name='header-n1100' class='md-header-anchor '></a>Zombie Codes?</h3><p>Many economists may have &quot;<strong>zombie codes</strong>&quot; which were developed years ago and extremely hard to refactor or optimize. This happens usually in large economic model systems such as an old DSGE. These codes are usually written in <strong><u>Fortran</u></strong> or <strong><u>C</u></strong>. In addition to translation or re-documentation, Julia is able to call the methods in these libraries with least cost like just calling them from local Fortran or C programs. It means zombie codes will not lose any performance when called from Julia. Therefore, economists have no need to worry about the transfer cost from one old language to Julia. Please refer to <a href='https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/' target='_blank' class='url'>https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/</a> for technical details of how to call C or Fortran codes in Julia programs.</p><h3><a name='header-n1102' class='md-header-anchor '></a>Calling Python or R?</h3><p>Nowadays, R language has become the 1st choice to do econometric research. Even I will primarily write R programs for a econometric study. (Of course, Julia has its own statistical APIs but the number of relative packages is not very large now) In the same way, Python, which though provides less user-friendly statistical APIs, is also popular in econometric research. So, how can those economists who have been used to R or Python transfer their projects to Julia? Or how can they continue writing Python/R programs in Julia <strong>without learning costs</strong>? Further, how can they combine the advantages, e.g. the impressive number of R&#39;s statistical packages, with Julia&#39;s high-performance computing?</p><p>The solution is so straight that economists can just leave their Python/R environments with no extra change, but just calling them from Julia with least contacting/calling cost.</p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 36px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>10</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -36px; width: 36px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># julia 1.0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-keyword">using</span> <span class="cm-variable">RCall</span> &nbsp;<span class="cm-comment"># R-lang calling API</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># just pacakge your R program in a string and evaluate it!</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">R"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>dat &lt;- data.frame(y=rnorm(100),x1=rnorm(100),x2=rnorm(100))</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>mod &lt;- lm( y ~ x1 + x2, data = dat )</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>summary(mod)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>modcoef &lt;- coefficients(mod)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">coef</span> <span class="cm-operator">=</span> <span class="cm-meta">@rget</span>(<span class="cm-variable">modcoef</span>) <span class="cm-comment"># pull variable values</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="height: 230px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 35px;"></div></div></div></div></pre><p>In the above demo, <code>RCall</code> package starts a backend R session and evaluates given R programs. the <code>@rget</code> macro pulls the value of <code>modcoef</code> from the R session and automatically converts it to a Julia vector. The total time cost, including contact cost, is less than 0.005 seconds. When <code>coef</code> or some other R-results pulled, users may use powerful optimization APIs such as <code>JuMP</code> to effectively improve their productivity. Of course, R programs in a string means that the metaprogramming advantages of both R &amp; Julia can now be perfectly combined. In Julia REPL, users may even type <code>$</code> to enter an R REPL and directly write R programs. Please refer to <a href='http://juliainterop.github.io/RCall.jl/stable/gettingstarted.html' target='_blank' class='url'>http://juliainterop.github.io/RCall.jl/stable/gettingstarted.html</a> for the full usage of <code>RCall</code>. (There are only several syntaxes to remember. 5min, then you can start to work with R in Julia!)</p><p>Things go similar in <code>PyCall</code>, another popular Python API in Julia. However, because Python is not a functional language like R or Lisp, this package uses symbols to calling Python programs. But do not worry, it is still easy to learn <code>PyCall</code>. Please refer to <a href='https://github.com/JuliaPy/PyCall.jl' target='_blank' class='url'>https://github.com/JuliaPy/PyCall.jl</a> for more guidance. And, I will use a single section to talk about how to <strong>perfectly</strong> install your <code>PyCall</code> and build it with your custom Python installation.</p><h3><a name='header-n1108' class='md-header-anchor '></a>Used to Matlab?</h3><p>Matlab is so popular in economic teaching that most economic departments require students to write their homework codes in Matlab. It is not only because Matlab has a plain syntax which is readable across readers with different programming backgrounds, but also because there is less &quot;lazy&quot; packages in Matlab which allow students to be &quot;package callers&quot;. However, though Matlab is powerful in industrial production and economic teaching, it has two main disadvantages which prevent it to be the most ideal language for economic research:</p><ol start='' ><li>Low performance in non-algebra cases: Of course, one of Matlab&#39;s most-featured advantages is its great linear algebra operations and <code>optimization</code> toolbox. A near-C performance of numerical operations makes Matlab so popular in computing-focused cases. However, this software/language lacks the ability of general programming and shows impressive low performance in non-linear-algebra scenarios. It works well in little research projects but shows its short-band when program logics go complicated.</li><li>Fat and commercial license: Matlab installation is so big. It takes nearly an hour to install and usually half a minute to start. Meanwhile, it is not free and not open-source, which prevents developers to customize their projects or quickly diagnose programs (esp. when errors occur in a low-level function).</li></ol><p>In economic teaching, Matlab is enough. But in research, esp. in large-scale economic models and other performance-matter projects, it becomes less satisfying.</p><p>So, can Julia be a better alternative of Matlab in most cases? How much can Julia improve than Matlab? There are several points Matlab users need to know:</p><ol start='' ><li><u>Julia is high-performance in both linear algebra and general cases</u>. While Matlab uses Fortran-MKL as its underlying numerical engine, Julia uses BLAS + LAPACK to acquire an equal even better performance on numerical operations than Matlab. In general cases, Julia overweighs Matlab in IO, control flows etc. This is partly because that Julia uses JIT (just in time) compilation: Julia is a compiling language but Matlab is a foot-script language. The performance difference is therefore impressive. (<a href='https://julialang.org/benchmarks/'>Performance testing between Julia and Matlab</a>)</li><li><u>Julia has high performance optimization APIs</u>. Many people like Matlab because of its <code>optimization</code> toolbox. Its comparable alternatives can be found in Julia, such as <code>JuMP</code> and <code>Optim</code>. For economists familiar to GAMS, SAS/OR or Lingo, they will find no obscure when simply running their codes in Julia with<code>JuMP</code>; for those used to Matlab&#39;s <code>optimization</code> toolbox, <code>Optim</code> provides nearly the same APIs, options and parameters as those in Matlab&#39;s <code>optimization</code> toolbox. The performance? Well, equal or better in Julia!</li><li><u>There is least learning cost for Matlab users to transfer to Julia</u>. If you read the story of how Julia was initiated, you will find that this language uses Matlab&#39;s syntax as its fundamental syntax. This feature is more significant before Julia 6.0, where many Matlab&#39;s API names were kept and many original Matlab codes can even run in Julia. (Julia pro even provided releases built on MKL at that time) Though Julia&#39;s syntax has formed its own styles since Julia 0.7, this language is still very friendly for Matlab users. However, it is wrong if readers think Julia language is a simple improvement based on Matlab. The two languages are designed in totally different philosophies &amp; frameworks, and realized in totally different ways in lower levels. You may easily start writing Julia in Matlab-like syntax, but things go quite different when more Julia features (e.g. macro, metaprogramming, multiple dispatch) introduced. This is just the spirit I discussed at the beginning of this blog: language is just the way to express your thoughts. But do not worry, you can safely write Matlab-style programs in Julia for most teaching &amp; research purposes until you are interested in advanced Julia features or designing your programs for special demands.</li></ol><p>&nbsp;</p><h2><a name='header-n1125' class='md-header-anchor '></a>Install Julia 1.0 + Atom + Jupyter</h2><h3><a name='header-n1126' class='md-header-anchor '></a>Step 0: Other environments you may need</h3><p>Considering many economists also use Python, R, MatLab, Fortran, C/C++ and other development environments, I recommend them to prepare these softwares before installing Julia in anyway they like, and add the executables to PATH variable (esp. Python and R). Julia will use user’s own installations (like Python, R) to build <code>RCall</code> and <code>PyCall</code>. (Please note, until this blog, <code>JavaCall</code> is not supported by Julia 1.0 yet) And, Julia will not interfere other development environments.</p><h3><a name='header-n1128' class='md-header-anchor '></a>Step 1: Install core Julia</h3><p>Readers may download core language from <a href='https://julialang.org/'>Julia&#39;s official website</a>. It is only about 50MB and easy to install. Julia Pro is a powerful release of Julia language for scientific computing. In addition to core language, this release provides a Juno IDE based on Atom, <code>IJulia</code> REPL, and the support of Jupyter Notebook. Like <code>Anaconda</code>, users may easily download and install Julia Pro from: <a href='https://juliacomputing.com/' target='_blank' class='url'>https://juliacomputing.com/</a>.</p><p><u><strong>However, in this blog, I will introduce how to DIY isntall Julia 1.0 + Atom + Juno + Jupyter to deploy an equivalent production environment as Julia Pro, from UI to functions.</strong></u> This is because recent Julia pro releases (until v1.0.3.2) meet some technical problems which is not easy to solve by beginners or non-programmer economists. But fortunately, it is easy to reproduce the tool chain of Julia pro release.</p><p>If you do not like the Juno IDE based on Atom, the &quot;VScode + Julia plug-in&quot; is a good alternative. However, this alternative does not support workspace pane which is provided in Juno. Users used to Matlab and R are recommended to continue using Juno.</p><p>In this tutorial, I will use Julia 1.0.3 as example. It is a long-term support release which ensures readers can totally follow this blog in the next few years.</p><h3><a name='header-n1133' class='md-header-anchor '></a>Step 2: Update pre-installed packages</h3><p>Julia is a fast-growing language. It not only means more possibility, but also some problems raised by frequent updating. To make sure every underlying libraries ready for 3rd party packages, users are recommended to update all their packages when first starting a Julia session.</p><p>Julia has integrated a user-friendly package manager since v0.7. In a Julia REPL launched by <code>JULIAINSTALL/bin/julia.exe</code> or any other REPL looks like:</p><p><img src='../../image/190421_fig_juliaREPL.png' alt='Julia REPL' referrerPolicy='no-referrer' /></p><p>users can type <code>]</code> to enter the package manager, where <code>julia&gt;</code> now becomes <code>(v1.0) pkg&gt;</code>. To return to normal julia REPL, just backspace at the beginning of current line. In the pkg mode, users can type <code>help</code> then press Enter to get a full documentation of pkg commands. Here we type in <code>update</code> then press Enter which tells Julia to update all possible packages, including core libraries. In default, Julia use repository registration on Github,  so please make sure your internet can access to Github.com.</p><p>In addition to <code>help</code> and <code>update</code>, there are some most often-used commands in pkg:</p><ul><li><code>add</code>: install a registered package by name, or install a non-registered package through its git-repo. Users may specify a package with specific version by <code>add packagename v”x.x.x”</code>.</li><li><code>remove</code>: uninstall packages, similar to <code>add</code>.</li><li><code>status</code>: show a list of all packages installed (but no standard library) and their versions, status. Users can find a full documentation of standard libraries from Julia official documentation: <a href='https://docs.julialang.org' target='_blank' class='url'>https://docs.julialang.org</a></li><li><code>pin</code>: froze a specific package to its current version. This command is very useful when you have carefully install all packages required and wanna work in this environment in a long time.</li><li><code>free</code>: free a package from pinned/frozen status to make it update-able.</li></ul><h3><a name='header-n1150' class='md-header-anchor '></a>Step 3: Install Jupyter</h3><p>In default, Julia language is installed together with <code>IJulia</code>, a package providing the same functions as <code>IPython</code> for Python. This package also installs Julia kernel for Jupyter (if you have already installed your own Jupyter, for Python or others), or install a new Jupyter for those who do not have a Jupyter software.</p><ol start='' ><li><p><strong>If you have already got Jupyter</strong>: After updating all packages, please check your Jupyter to see if Julia 1.0.3 kernel appears. If not, please start a Julia REPL and run the following command in pkg mode:</p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">pkg</span><span class="cm-operator">&gt;</span> <span class="cm-variable">build</span> <span class="cm-variable">IJulia</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div><div class="CodeMirror-gutters" style="height: 23px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p>This command re-builds <code>IJulia</code> package, which automatically installs a new Julia kernel or covers existing kernel.</p></li><li><p><strong>If you do not have Jupyter</strong>: Run the same command to install Jupyter and add your Julia kernel.</p></li></ol><p>To start a Jupyter notebook, start a Julia REPL then run the following code:</p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 36px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># julia 1.0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-keyword">using</span> <span class="cm-variable">IJulia</span> <span class="cm-comment"># using IJulia</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -28px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 19px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">notebook</span>() <span class="cm-comment"># to start jupyter notebook backend, auto open your browser</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="height: 69px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p>For other functions such as Jupyter Lab, readers may read <code>IJulia</code>’s documentation at: <a href='https://github.com/JuliaLang/IJulia.jl' target='_blank' class='url'>https://github.com/JuliaLang/IJulia.jl</a></p><h3><a name='header-n1162' class='md-header-anchor '></a>Step 4: Prepare your Juno IDE based on Atom</h3><p>Juno IDE is a project based on the Atom editor published by Github Inc. Users can download Atom installer from: <a href='https://atom.io/' target='_blank' class='url'>https://atom.io/</a>. When Atom installed, please go to <code>file -&gt; Settings -&gt; Install</code>, search and install the following packages in order:</p><ol start='' ><li><code>language-julia</code>: Julia language highlighting, spell checker and formatting</li><li><code>julia-client</code>: IDE-like layout and functions for Julia language in Atom, the body of Juno IDE for Julia</li><li><code>latex-completions</code>: Support of latex syntax and full-symbol set; working with Juno IDE</li><li><code>language-markdown</code>: Support for markdown; used in Juno IDE’s documentation system</li><li><code>indent-detective</code>: For debugger of Juno IDE</li></ol><p>Please note, installing Atom packages also requires the Internet access to Github.com.</p><p>When installing all the 5 Atom packages, you have already obtained the same IDE provided by Julia Pro release.</p><p>In the next section, we will focus on what 3rd packages to install, and how to correctly install them.</p><h3><a name='header-n1178' class='md-header-anchor '></a>Step 5: (Optional) Prepare your VSCode with Julia</h3><p>Many people are used to Visual Studio Code and wanna continue developing their Julia programs in VSCode. Fortunately, there has been a solution, the <code>julia</code> plug-in. This plug-in can be simply searched and installed in VSCode’s plug-in market. When installed, users need to specify the executable path (e.g. <code>C:/Julia/bin/julia.exe</code>), then they can start their coding. Please refer to <a href='https://github.com/JuliaEditorSupport/julia-vscode' target='_blank' class='url'>https://github.com/JuliaEditorSupport/julia-vscode</a> for more information.</p><p>&nbsp;</p><h2><a name='header-n1181' class='md-header-anchor '></a>Installing 3rd-party packages</h2><p>Though core Julia &amp; standard libraries can handle most of daily research and teaching, using 3rd-party packages can help you visibly improve your productivity in economic research. (like solving PDE, visualization and doing regression) Fortunately, Julia provides a user friendly package manager <code>pkg</code> which is highly integrated and connected to Github. We will use it to prepare many popular 3rd-party packages which are useful in economic research.</p><p>In this section, I firstly introduce how to <strong>correctly</strong> install <code>RCall</code> and <code>PyCall</code> because beginners often get problems while bridging Julia with the two languages. Then, I provide a list which covers most popular 3rd-party packages about economics. These packages can be simply added through <code>pkg&gt; add PackageName</code> command. Finally, I roughly discuss the visualization in Julia which has several realizations. Readers can choose their favorite method to do visualization.</p><h3><a name='header-n1184' class='md-header-anchor '></a>Installing <code>PyCall</code></h3><p><code>PyCall</code> provides the API to calling Python programs in Julia. Calling Python in Julia becomes meaningful especially when economists are wanna use some machine learning or deep learning libraries in Python <sup class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup>. (Well, <code>TensorFlow</code> has already got a Julia wrapper so users do not need <code>PyCall</code> to calling a python-based <code>TensorFlow</code>) However, because <code>PyCall</code> does not only depend on Julia installation but also depends on your Python installation, installing <code>PyCall</code> often meets some tough problems for beginners.</p><p><u>As mentioned above, I recommend users to install their Python before installing Julia, and add their python executable to PATH.</u> The following instructions depend on what type of Python installations you use.</p><h4><a name='header-n1187' class='md-header-anchor '></a>Case 1: Anaconda Python</h4><p>Anaconda is one of the most popular Python release. Many economists choose to install Anaconda as their Python installation. However, because Anaconda’s <code>base</code> environment has a different dependency structure from ordinary Python installation, users need to create a new virtual environment, add this new environment to PATH, then call this Python installation from Julia. If users build <code>PyCall</code> based on the base environment of Anaconda, the building will fail. About how to manage your Anaconda environments, please refer to: <a href='https://docs.conda.io/en/latest/' target='_blank' class='url'>https://docs.conda.io/en/latest/</a></p><p>However, compared with manually manage your new Python environment, there is a better &amp; <strong><u>recommended</u></strong> way to do this job: let Julia automatically create a Julia-private Python installation then use Anaconda Prompt/Navigator to conveniently manage it.</p><p>To do so, please follow the procedures below:</p><blockquote><ol start='' ><li>Prepare your Anaconda &amp; Julia; finish all the steps in the previous section; Make sure you can access to Github.com</li><li>Open a Julia REPL, run <code>ENV[&quot;PYTHON&quot;] = &quot;&quot;</code> to reset the path of your local Python installation. This operation tells <code>PyCall</code> to install a new environment but not use the current local Python installation.</li><li>Type in <code>]</code> to enter the pkg manager mode.</li><li>Run <code>add Conda</code> command to install a small Julia package which cooks conda affairs. About how to use this package and how to specify a specific Python version in the next steps, please refer to: <a href='https://github.com/JuliaPy/Conda.jl' target='_blank' class='url'>https://github.com/JuliaPy/Conda.jl</a></li><li>Run <code>add PyCall</code> in the pkg mode, then wait until things finish.</li><li>If there is no error thrown, return to normal Julia mode, run <code>import PyCall</code> to import PyCall package. If there is no error raised, congratulations!</li><li>If there are errors when importing <code>PyCall</code> or you have installed <code>PyCall</code> on a wrong Python installation (e.g. the base environment of Anaconda). Do step 2 then go to the pkg mode and run <code>build PyCall</code> to re-build this package. When this package rebuilt, try again to import it.</li><li>When importing <code>PyCall</code> works, your Anaconda for Python will automatically find this installation and you can easily manage your python libraries there.</li></ol></blockquote><p>Please note, the official Julia installation (not Julia Pro release) has integrated <code>PyPlot</code> module, one of the most popular visualization API in Julia. It can work without a special <code>PyCall</code> package. However, when users add <code>PyCall</code>, the <code>PyPlot</code> package will depend on the new-added <code>PyCall</code> to call the <code>matplotlib</code> in your custom python environment. Use Anaconda to install <code>matplotlib</code> in your new python environment, then go to Julia, and run <code>import PyPlot</code> to see if this library works now.</p><p>About the usage of <code>PyCall</code>, please refer to <a href='https://github.com/JuliaPy/PyCall.jl' target='_blank' class='url'>https://github.com/JuliaPy/PyCall.jl</a>. There is a very simple and intuitive demo of <code>PyCall</code> to display how easy to call Python in Julia:</p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 36px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>12</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -36px; width: 36px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># julia 1.0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-keyword">using</span> <span class="cm-variable">PyCall</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># run python script in a backend py session</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">py"""</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">import numpy as np</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">def func(x):</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>return np.sin(x)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"""</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># get/call py values/functions via py"String", PyCall auto do type conversions</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-string">py"func"</span>(<span class="cm-number">1.2</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># the result of python's func() is converted to Julia type and is assigned to x</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">println</span>(<span class="cm-string">"the value of x is:"</span>, <span class="cm-variable">x</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 276px;"></div><div class="CodeMirror-gutters" style="height: 276px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 35px;"></div></div></div></div></pre><h4><a name='header-n1212' class='md-header-anchor '></a>Case 2: Official Python installation</h4><p>If you do not use Anaconda but install the official Python release, installing <code>PyCall</code> becomes easier because you can choose from using an existing python installation or creating a Julia-private one. For the latter, please follow the instructions of Case 1 (reset <code>ENV[&quot;PYTHON&quot;]</code> then build the package). For the former, please check your <code>ENV[&quot;PYTHON&quot;]</code> alright then <code>add PyCall</code>. For other cases such as wanna using <code>virtualenv</code>, please refer to <a href='https://github.com/JuliaPy/PyCall.jl' target='_blank' class='url'>https://github.com/JuliaPy/PyCall.jl</a></p><h3><a name='header-n1214' class='md-header-anchor '></a>Installing <code>RCall</code></h3><p>Similar to <code>PyCall</code>, <code>RCall</code> provides the API to your R-language installation. To ensure the <code>RCall</code> can automatically detect your R installation, please use the R language no earlier than 3.5.0. When add your R executable to PATH, e.g. <code>C:\Program Files\R\R-3.5.3\bin</code>, <code>RCall</code> can automatically locate it and build itself based on your R installation. If you have multiple R versions, please refer to <a href='https://github.com/JuliaInterop/RCall.jl' target='_blank' class='url'>https://github.com/JuliaInterop/RCall.jl</a> for more help.</p><p>Installing <code>RCall</code> usually meets much fewer problems than installing <code>PyCall</code>. Users just need to go to Julia’s pkg mode and run <code>add RCall</code>. When installed, please return to normal Julia mode and import RCall to see if it works normally. Of course, do not forget to check <code>ENV[&quot;R_HOME&quot;]</code> before adding <code>RCall</code>.</p><p>There is a simple demo of how to call R language in Julia:</p><pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 36px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>11</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -36px; width: 36px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># julia 1.0</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">  </span><span class="cm-keyword">using</span> <span class="cm-variable">RCall</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># do a simple linear regression and get the coefficient</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">R"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>dat &lt;- data.frame(y= rnorm(200), x= rnorm(200) )</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>mod &lt;- lm(y~x, data = dat)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>summary(mod); print(\"model estimated\")</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">  </span>modcoef &lt;- coefficients(mod)</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># pull coef from R to Julia, auto type conversion</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -36px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 27px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-meta">@rget</span>(<span class="cm-variable">modcoef</span>)</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 253px;"></div><div class="CodeMirror-gutters" style="height: 253px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 35px;"></div></div></div></div></pre><p>Or users can type in <code>$</code> in normal Julia mode to enter an R REPL, where they can write original R programs. To return to Julia, just backspace at the beginning of current line.</p><h3><a name='header-n1220' class='md-header-anchor '></a>Popular 3rd-party packages for economic research</h3><p>In this section, users are recommended to use <code>add PackageName</code> or <code>add PackageName v&quot;x.x.x&quot;</code> command in the pkg mode to install all listed packages. <strong><u>They can also decide which packages to install or not install according to their research demands.</u></strong> Though installing order does not matter in most cases (because dependencies are automatically installed), users can install all the listed packages in order to make sure everything is OK <sup class='md-footnote'><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup>. The listed package versions is the current version I am using. These versions are ensured to be compatible together also with Julia 1.0.3. </p><p><font color=red><b><u>When all packages installed, users are strongly suggested to use <code>pin PackageName</code> to freeze every package to its current version.</u></b></font> This avoids the possible conflict in the future when installing an unstable new package which updates some existing packages to an incompatible version.</p><figure><table><thead><tr><th>Name</th><th>Version</th><th>Class</th><th>Introduction</th></tr></thead><tbody><tr><td>DataStructures</td><td>0.14.0</td><td>Data Type</td><td>&nbsp;</td></tr><tr><td>DataFrames</td><td>0.14.0</td><td>Data Type</td><td>&nbsp;</td></tr><tr><td>CSV</td><td>0.4.3</td><td>IO Stream</td><td>&nbsp;</td></tr><tr><td>LightGraphs</td><td>1.2.0</td><td>Data Type</td><td>&nbsp;</td></tr><tr><td>Calculus</td><td>0.4.1</td><td>Numerical</td><td>&nbsp;</td></tr><tr><td>QuadGK</td><td>2.0.3</td><td>Numerical</td><td>&nbsp;</td></tr><tr><td>TaylorSeries</td><td>0.9.2</td><td>Numerical</td><td>&nbsp;</td></tr><tr><td>SpecialFunctions</td><td>0.7.1</td><td>Numerical/Stats</td><td>&nbsp;</td></tr><tr><td>Distributions</td><td>0.16.4</td><td>Stats</td><td>&nbsp;</td></tr><tr><td>StatsBase</td><td>0.25.0</td><td>Stats</td><td>&nbsp;</td></tr><tr><td>StatsModels</td><td>0.3.1</td><td>Stats</td><td>&nbsp;</td></tr><tr><td>GLM</td><td>1.0.1</td><td>Stats</td><td>&nbsp;</td></tr><tr><td>TimeSeries</td><td>0.14.1</td><td>Data Type</td><td>&nbsp;</td></tr><tr><td>HypothesisTests</td><td>0.8.0</td><td>Stats</td><td>&nbsp;</td></tr><tr><td>StaticArrays</td><td>0.10.3</td><td>Data Type</td><td>&nbsp;</td></tr><tr><td>BenchmarkTools</td><td>0.4.2</td><td>Debug/Develop</td><td>&nbsp;</td></tr><tr><td>ForwardDiff</td><td>0.10.3</td><td>Numerical</td><td>&nbsp;</td></tr><tr><td>Roots</td><td>0.7.3</td><td>Optimization</td><td>&nbsp;</td></tr><tr><td>Optim</td><td>0.18.1</td><td>Optimization</td><td>&nbsp;</td></tr><tr><td>Rebugger</td><td>0.3.1</td><td>Debug/Develop</td><td>&nbsp;</td></tr><tr><td>Debugger</td><td>0.4.0</td><td>Debug/Develop</td><td>&nbsp;</td></tr></tbody></table></figure><p><code>QuantEcon</code> is a <a href='https://lectures.quantecon.org/jl/'>project</a> initiated by several famous economists such as Dr. Sargent. It provides a collection of useful tools in economic research, esp. in macroeconomic modeling, time series and quadratic DP problems. Though it seems to be designed mainly for the economists in macroeconomics, this project is a good reference for Julia beginners. However, it depends on many 3rd-party packages. It then does not have a high “version safety”. But users are recommended to <code>add QuantEcon</code> and have a try. It saves time in modeling many common methods.</p><h3><a name='header-n1344' class='md-header-anchor '></a>Visualization in Julia</h3><p>Visualization is important for economic research, from statistical plotting to dynamic display. There are several popular packages in Julia to do this job:</p><ol><li><strong>PyPlot</strong>: calling <code>matplotlib</code> from Python. One of the most beginner-friendly visualization packages, esp. for MatLab &amp; Python users. I have introduced its installation.</li><li><strong>Gadfly</strong>: another popular library using the philosophy of <code>ggplot2</code> in R. It is powerful but there is a problem that the first plotting by <code>Gadfly</code> in a Julia session is very, very slow. To install <code>Gadfly</code>, use the command <code>add Gadfly</code>. Meanwhile, users may like <code>Cairo</code> to make <code>Gadfly</code> work with full functions.</li><li><strong>GR</strong>: a wrapper of classical <code>GR</code> library for C/C++. Its biggest advantage is the speed: faster than all the others. If you wanna quick response and demand high plotting speed, use <code>GR</code>. To install <code>GR</code>, just use command <code>add GR</code> <sup class='md-footnote'><a href='#dfref-footnote-3' name='ref-footnote-3'>3</a></sup>.</li><li><strong>Plots</strong>: <code>Plots</code> is a <strong>front-end</strong> API which use one syntax to call different visualization backends e.g. <code>PyPlot</code>, <code>GR</code>. It cannot work alone but need to work with other packages like <code>GR</code>. The biggest advantage of using  <code>Plots</code> is that you may write cross-platform visualization programs with the same syntax to save time and labor. Please go to <a href='https://github.com/JuliaPlots/Plots.jl'>Github</a> and <a href='http://docs.juliaplots.org/latest/'>the official site of Plots</a> to learn how to use <code>Plots</code> to improve your productivity.</li></ol><p>&nbsp;</p><h2><a name='header-n1348' class='md-header-anchor '></a>Start coding in Julia</h2><p>Congratulations! </p><p>Now you have prepared your Julia for economic research and further development. Please refer to <a href='https://julialang.org/learning/' target='_blank' class='url'>https://julialang.org/learning/</a> to begin your programming in Julia language!</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><div class='footnotes-area'  ><hr/>
-<div class='footnote-line'><span class='md-fn-count'>1</span> Julia has all Python’s core types even more. These types have much better performance in Julia but do not need extra optimization like <code>Numba</code>.<a name='dfref-footnote-1' href='#ref-footnote-1' title='回到文档' class='reversefootnote' >↩</a></div>
-<div class='footnote-line'><span class='md-fn-count'>2</span> to avoid possible the conflicts raised by the different versions of a common underlying package<a name='dfref-footnote-2' href='#ref-footnote-2' title='回到文档' class='reversefootnote' >↩</a></div>
-<div class='footnote-line'><span class='md-fn-count'>3</span> But please note, installing <code>GR</code> may be time-costing, because this library need to be complied like in C/C++.<a name='dfref-footnote-3' href='#ref-footnote-3' title='回到文档' class='reversefootnote' >↩</a></div></div></div>
+
+<body class='typora-export os-windows'>
+  <div id='write' class='is-node'>
+    <h1><a name='header-n331' class='md-header-anchor '></a>Prepare your Julia 1.0 for economic research</h1>
+    <p><a href='../../index.html'>Back to index</a></p>
+    <blockquote>
+      <p>@author: Tianhao Zhao</p>
+      <p>@date: April 21, 2019</p>
+      <p>@copyright: free</p>
+    </blockquote>
+    <div class='md-toc' mdtype='toc'>
+      <p class="md-toc-content"><span class="md-toc-item md-toc-h1" data-ref="n331"><a class="md-toc-inner"
+            style="cursor: pointer;" href="#header-n331">Prepare your Julia 1.0 for economic research</a></span><span
+          class="md-toc-item md-toc-h2" data-ref="n338"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n338">Informal Introduction</a></span><span class="md-toc-item md-toc-h2" data-ref="n341"><a
+            class="md-toc-inner" style="cursor: pointer;" href="#header-n341">Why Julia?</a></span><span
+          class="md-toc-item md-toc-h3" data-ref="n342"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n342">Who need Julia?</a></span><span class="md-toc-item md-toc-h3" data-ref="n360"><a
+            class="md-toc-inner" style="cursor: pointer;" href="#header-n360">Zombie Codes?</a></span><span
+          class="md-toc-item md-toc-h3" data-ref="n362"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n362">Calling Python or R?</a></span><span class="md-toc-item md-toc-h3" data-ref="n368"><a
+            class="md-toc-inner" style="cursor: pointer;" href="#header-n368">Used to Matlab?</a></span><span
+          class="md-toc-item md-toc-h2" data-ref="n385"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n385">Install Julia 1.0 + Atom + Jupyter</a></span><span class="md-toc-item md-toc-h3"
+          data-ref="n386"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n386">Step 0: Other
+            environments you may need</a></span><span class="md-toc-item md-toc-h3" data-ref="n388"><a
+            class="md-toc-inner" style="cursor: pointer;" href="#header-n388">Step 1: Install core Julia</a></span><span
+          class="md-toc-item md-toc-h3" data-ref="n393"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n393">Step 2: Update pre-installed packages</a></span><span class="md-toc-item md-toc-h3"
+          data-ref="n410"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n410">Step 3: Install
+            Jupyter</a></span><span class="md-toc-item md-toc-h3" data-ref="n422"><a class="md-toc-inner"
+            style="cursor: pointer;" href="#header-n422">Step 4: Prepare your Juno IDE based on Atom</a></span><span
+          class="md-toc-item md-toc-h3" data-ref="n438"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n438">Step 5: (Optional) Prepare your VSCode with Julia</a></span><span
+          class="md-toc-item md-toc-h2" data-ref="n441"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n441">Installing 3rd-party packages</a></span><span class="md-toc-item md-toc-h3"
+          data-ref="n444"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n444">Installing
+            <code>PyCall</code></a></span><span class="md-toc-item md-toc-h4" data-ref="n447"><a class="md-toc-inner"
+            style="cursor: pointer;" href="#header-n447">Case 1: Anaconda Python</a></span><span
+          class="md-toc-item md-toc-h4" data-ref="n472"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n472">Case 2: Official Python installation</a></span><span class="md-toc-item md-toc-h3"
+          data-ref="n474"><a class="md-toc-inner" style="cursor: pointer;" href="#header-n474">Installing
+            <code>RCall</code></a></span><span class="md-toc-item md-toc-h3" data-ref="n480"><a class="md-toc-inner"
+            style="cursor: pointer;" href="#header-n480">Popular 3rd-party packages for economic
+            research</a></span><span class="md-toc-item md-toc-h3" data-ref="n606"><a class="md-toc-inner"
+            style="cursor: pointer;" href="#header-n606">Visualization in Julia</a></span><span
+          class="md-toc-item md-toc-h2" data-ref="n618"><a class="md-toc-inner" style="cursor: pointer;"
+            href="#header-n618">Start coding in Julia</a></span><span class="md-toc-item md-toc-h2" data-ref="n622"><a
+            class="md-toc-inner" style="cursor: pointer;" href="#header-n622">Conclusion</a></span></p>
+    </div>
+    <h2><a name='header-n338' class='md-header-anchor '></a>Informal Introduction</h2>
+    <p>This blog provides a useful list for economists to install and prepare their Julia 1.0 environment for economic
+      research. Similar to many on-line instructions, this blog recommend users combine their Julia with mature Python,
+      R, C and Fortran libraries to obtain most comfortable coding experience. However, this blog prepares a series of
+      questions to help users decide which packages are what they really need.</p>
+    <p><strong><u>Of course, I always agree that it is thoughts, mathematics, algorithms and designs that really matter
+          rather than specific languages. Languages are just how to tell these things. A well-trained developer is
+          required to learn any language in hours and quickly begin to work with it.</u></strong> However, for some
+      specific purposes, e.g. economic research, a proper language can visibly improve productivities. This is the
+      reason why I introduce and recommend Julia language in this blog. This language has several impressive advantages
+      which make it a top choice for different economists.</p>
+    <h2><a name='header-n341' class='md-header-anchor '></a>Why Julia?</h2>
+    <h3><a name='header-n342' class='md-header-anchor '></a>Who need Julia?</h3>
+    <p>Learning cost is one of the main reasons that people are not willing to use a new language. Sometimes they even
+      do not look through a small function with patience.</p>
+    <blockquote>
+      <p>“oh no, unreadable! so strange syntax! what exactly does the symbol $ mean!” (by someone without programming
+        trainings)</p>
+      <p>“It looks familiar but still some subtle differences there ... but holy f**k, who cares. I am too busy to learn
+        them!” (by someone familiar to one or two languages but worry about a sharp learning curve)</p>
+      <p>“I am used to old grandpa Fortran. I keep reservation about if that new guy is worth learning. Too costing to
+        transfer my works to a new language.” (by someone with piles of zombie codes)</p>
+      <p>“Yes, it is quite easy to learn. But is it necessary? or is it worth spending time on?” (by programmers used to
+        many other popular languages)</p>
+    </blockquote>
+    <p>Are you one of the four types of perspective developers? If so, please look at:</p>
+    <ol start=''>
+      <li>For programming beginners, Julia provides intuitive syntax, many syntax sugars, multiple programming styles,
+        full OO features through multiple dispatch and a fast-growing community. As long as you do not insist to learn
+        programming alchemy with Lisp, Julia is a good choice which has a flat learning curve.</li>
+      <li>For developers familiar to one or two languages, esp. R, Matlab or Python, you may find many familiar
+        syntaxes, symbols even APIs in Julia. (e.g. <code>randn()</code>). You have approached to the final when you
+        start! And, if you do not want to drop your old projects in other languages, just call them from Julia! It is so
+        easy a job that you can make it like calling Julia programs with least contact cost. And, in most cases, Julia’s
+        performance is better than R, Matlab and Python (even in linear algebras!).</li>
+      <li>For zombie code owners, esp. Fortran or C, you can simply call your old programs from Julia now. Julia
+        provides a user-friendly calling which has the same cost as calling your old programs locally in C/Fortran. You
+        may easily enjoy Julia’s high-level data types, easy visualizations together with C/Fortran’s lower operations.
+        In fact, Julia provides complete wrappers of BLAS and LAPACK. Many of your old programs can be translated with
+        no performance loss but very familiar syntaxes.</li>
+      <li>For experienced programmers, if you work in the field of scientific computing, ML/DL, economic modeling or
+        other performance-matter fields, Julia should be one of your primary considers. You may enjoy lots of syntax
+        sugars, easy metaprogramming, both cookbook and low-level parallel/distributional computing control, and
+        convenient abstractions when obtaining a high performance near to C or Fortran. </li>
+    </ol>
+    <p>Of course, this blog is not for general purpose but mainly for economists. So what next to introduce are targeted
+      at economic research. They are definitely useful for economists but may not be so for developers in other fields.
+    </p>
+    <h3><a name='header-n360' class='md-header-anchor '></a>Zombie Codes?</h3>
+    <p>Many economists may have “<strong>zombie codes</strong>” which were developed years ago and extremely hard to
+      refactor or optimize. This happens usually in large economic model systems such as an old DSGE. These codes are
+      usually written in <strong><u>Fortran</u></strong> or <strong><u>C</u></strong>. In addition to translation or
+      re-documentation, Julia is able to call the methods in these libraries with least cost like just calling them from
+      local Fortran or C programs. It means zombie codes will not lose any performance when called from Julia.
+      Therefore, economists have no need to worry about the transfer cost from one old language to Julia. Please refer
+      to <a href='https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/' target='_blank'
+        class='url'>https://docs.julialang.org/en/v1/manual/calling-c-and-fortran-code/</a> for technical details of how
+      to call C or Fortran codes in Julia programs.</p>
+    <h3><a name='header-n362' class='md-header-anchor '></a>Calling Python or R?</h3>
+    <p>Nowadays, R language has become the 1st choice to do econometric research. Even I will primarily write R programs
+      for a econometric study. (Of course, Julia has its own statistical APIs but the number of relative packages is not
+      very large now) In the same way, Python, which though provides less user-friendly statistical APIs, is also
+      popular in econometric research. So, how can those economists who have been used to R or Python transfer their
+      projects to Julia? Or how can they continue writing Python/R programs in Julia <strong>without learning
+        costs</strong>? Further, how can they combine the advantages, e.g. the impressive number of R’s statistical
+      packages, with Julia’s high-performance computing?</p>
+    <p>The solution is so straight that economists can just leave their Python/R environments with no extra change, but
+      just calling them from Julia with least contacting/calling cost.</p>
+    <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+      lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 43.1641px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+    <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+      <div>10</div>
+    </div>
+  </div>
+  <div class="CodeMirror-measure"></div>
+  <div style="position: relative; z-index: 1;"></div>
+  <div class="CodeMirror-code" role="presentation" style="">
+    <div class="CodeMirror-activeline" style="position: relative;">
+      <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+      <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div>
+      <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 27px;">1</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># julia 1.0</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">2</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">using</span> <span class="cm-variable">RCall</span> &nbsp;<span class="cm-comment"># R-lang calling API</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">3</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># just pacakge your R program in a string and evaluate it!</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">4</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">R"</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">5</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>dat &lt;- data.frame(y=rnorm(100),x1=rnorm(100),x2=rnorm(100))</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">6</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>mod &lt;- lm( y ~ x1 + x2, data = dat )</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">7</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>summary(mod)</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">8</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>modcoef &lt;- coefficients(mod)</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">9</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 27px;">10</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">coef</span> <span class="cm-operator">=</span> <span class="cm-meta">@rget</span>(<span class="cm-variable">modcoef</span>) <span class="cm-comment"># pull variable values</span></span></pre>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 225px;"></div>
+  <div class="CodeMirror-gutters" style="height: 225px;">
+    <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div>
+  </div>
+  </div>
+  </div>
+  </pre>
+  <p>In the above demo, <code>RCall</code> package starts a backend R session and evaluates given R programs. the
+    <code>@rget</code> macro pulls the value of <code>modcoef</code> from the R session and automatically converts it to
+    a Julia vector. The total time cost, including contact cost, is less than 0.005 seconds. When <code>coef</code> or
+    some other R-results pulled, users may use powerful optimization APIs such as <code>JuMP</code> to effectively
+    improve their productivity. Of course, R programs in a string means that the metaprogramming advantages of both R
+    &amp; Julia can now be perfectly combined. In Julia REPL, users may even type <code>$</code> to enter an R REPL and
+    directly write R programs. Please refer to <a
+      href='http://juliainterop.github.io/RCall.jl/stable/gettingstarted.html' target='_blank'
+      class='url'>http://juliainterop.github.io/RCall.jl/stable/gettingstarted.html</a> for the full usage of
+    <code>RCall</code>. (There are only several syntaxes to remember. 5min, then you can start to work with R in Julia!)
+  </p>
+  <p>Things go similar in <code>PyCall</code>, another popular Python API in Julia. However, because Python is not a
+    functional language like R or Lisp, this package uses symbols to calling Python programs. But do not worry, it is
+    still easy to learn <code>PyCall</code>. Please refer to <a href='https://github.com/JuliaPy/PyCall.jl'
+      target='_blank' class='url'>https://github.com/JuliaPy/PyCall.jl</a> for more guidance. And, I will use a single
+    section to talk about how to <strong>perfectly</strong> install your <code>PyCall</code> and build it with your
+    custom Python installation.</p>
+  <h3><a name='header-n368' class='md-header-anchor '></a>Used to Matlab?</h3>
+  <p>Matlab is so popular in economic teaching that most economic departments require students to write their homework
+    codes in Matlab. It is not only because Matlab has a plain syntax which is readable across readers with different
+    programming backgrounds, but also because there is less “lazy” packages in Matlab which allow students to be
+    “package callers”. However, though Matlab is powerful in industrial production and economic teaching, it has two
+    main disadvantages which prevent it to be the most ideal language for economic research:</p>
+  <ol start=''>
+    <li>Low performance in non-algebra cases: Of course, one of Matlab’s most-featured advantages is its great linear
+      algebra operations and <code>optimization</code> toolbox. A near-C performance of numerical operations makes
+      Matlab so popular in computing-focused cases. However, this software/language lacks the ability of general
+      programming and shows impressive low performance in non-linear-algebra scenarios. It works well in little research
+      projects but shows its short-band when program logics go complicated.</li>
+    <li>Fat and commercial license: Matlab installation is so big. It takes nearly an hour to install and usually half a
+      minute to start. Meanwhile, it is not free and not open-source, which prevents developers to customize their
+      projects or quickly diagnose programs (esp. when errors occur in a low-level function).</li>
+  </ol>
+  <p>In economic teaching, Matlab is enough. But in research, esp. in large-scale economic models and other
+    performance-matter projects, it becomes less satisfying.</p>
+  <p>So, can Julia be a better alternative of Matlab in most cases? How much can Julia improve than Matlab? There are
+    several points Matlab users need to know:</p>
+  <ol start=''>
+    <li><u>Julia is high-performance in both linear algebra and general cases</u>. While Matlab uses Fortran-MKL as its
+      underlying numerical engine, Julia uses BLAS + LAPACK to acquire an equal even better performance on numerical
+      operations than Matlab. In general cases, Julia overweighs Matlab in IO, control flows etc. This is partly because
+      that Julia uses JIT (just in time) compilation: Julia is a compiling language but Matlab is a foot-script
+      language. The performance difference is therefore impressive. (<a
+        href='https://julialang.org/benchmarks/'>Performance testing between Julia and Matlab</a>)</li>
+    <li><u>Julia has high performance optimization APIs</u>. Many people like Matlab because of its
+      <code>optimization</code> toolbox. Its comparable alternatives can be found in Julia, such as <code>JuMP</code>
+      and <code>Optim</code>. For economists familiar to GAMS, SAS/OR or Lingo, they will find no obscure when simply
+      running their codes in Julia with<code>JuMP</code>; for those used to Matlab’s <code>optimization</code> toolbox,
+      <code>Optim</code> provides nearly the same APIs, options and parameters as those in Matlab’s
+      <code>optimization</code> toolbox. The performance? Well, equal or better in Julia!</li>
+    <li><u>There is least learning cost for Matlab users to transfer to Julia</u>. If you read the story of how Julia
+      was initiated, you will find that this language uses Matlab’s syntax as its fundamental syntax. This feature is
+      more significant before Julia 6.0, where many Matlab’s API names were kept and many original Matlab codes can even
+      run in Julia. (Julia pro even provided releases built on MKL at that time) Though Julia’s syntax has formed its
+      own styles since Julia 0.7, this language is still very friendly for Matlab users. However, it is wrong if readers
+      think Julia language is a simple improvement based on Matlab. The two languages are designed in totally different
+      philosophies &amp; frameworks, and realized in totally different ways in lower levels. You may easily start
+      writing Julia in Matlab-like syntax, but things go quite different when more Julia features (e.g. macro,
+      metaprogramming, multiple dispatch) introduced. This is just the spirit I discussed at the beginning of this blog:
+      language is just the way to express your thoughts. But do not worry, you can safely write Matlab-style programs in
+      Julia for most teaching &amp; research purposes until you are interested in advanced Julia features or designing
+      your programs for special demands.</li>
+  </ol>
+  <p>&nbsp;</p>
+  <h2><a name='header-n385' class='md-header-anchor '></a>Install Julia 1.0 + Atom + Jupyter</h2>
+  <h3><a name='header-n386' class='md-header-anchor '></a>Step 0: Other environments you may need</h3>
+  <p>Considering many economists also use Python, R, MatLab, Fortran, C/C++ and other development environments, I
+    recommend them to prepare these softwares before installing Julia in anyway they like, and add the executables to
+    PATH variable (esp. Python and R). Julia will use user’s own installations (like Python, R) to build
+    <code>RCall</code> and <code>PyCall</code>. (Please note, until this blog, <code>JavaCall</code> is not supported by
+    Julia 1.0 yet) And, Julia will not interfere other development environments.</p>
+  <h3><a name='header-n388' class='md-header-anchor '></a>Step 1: Install core Julia</h3>
+  <p>Readers may download core language from <a href='https://julialang.org/'>Julia’s official website</a>. It is only
+    about 50MB and easy to install. Julia Pro is a powerful release of Julia language for scientific computing. In
+    addition to core language, this release provides a Juno IDE based on Atom, <code>IJulia</code> REPL, and the support
+    of Jupyter Notebook. Like <code>Anaconda</code>, users may easily download and install Julia Pro from: <a
+      href='https://juliacomputing.com/' target='_blank' class='url'>https://juliacomputing.com/</a>.</p>
+  <p><u><strong>However, in this blog, I will introduce how to DIY isntall Julia 1.0 + Atom + Juno + Jupyter to deploy
+        an equivalent production environment as Julia Pro, from UI to functions.</strong></u> This is because recent
+    Julia pro releases (until v1.0.3.2) meet some technical problems which is not easy to solve by beginners or
+    non-programmer economists. But fortunately, it is easy to reproduce the tool chain of Julia pro release.</p>
+  <p>If you do not like the Juno IDE based on Atom, the “VScode + Julia plug-in” is a good alternative. However, this
+    alternative does not support workspace pane which is provided in Juno. Users used to Matlab and R are recommended to
+    continue using Juno.</p>
+  <p>In this tutorial, I will use Julia 1.0.3 as example. It is a long-term support release which ensures readers can
+    totally follow this blog in the next few years.</p>
+  <h3><a name='header-n393' class='md-header-anchor '></a>Step 2: Update pre-installed packages</h3>
+  <p>Julia is a fast-growing language. It not only means more possibility, but also some problems raised by frequent
+    updating. To make sure every underlying libraries ready for 3rd party packages, users are recommended to update all
+    their packages when first starting a Julia session.</p>
+  <p>Julia has integrated a user-friendly package manager since v0.7. In a Julia REPL launched by
+    <code>JULIAINSTALL/bin/julia.exe</code> or any other REPL looks like:</p>
+  <p><img src='../../image/190421_fig_juliaREPL.png' alt='Julia REPL' referrerPolicy='no-referrer' /></p>
+  <p>users can type <code>]</code> to enter the package manager, where <code>julia&gt;</code> now becomes
+    <code>(v1.0) pkg&gt;</code>. To return to normal julia REPL, just backspace at the beginning of current line. In the
+    pkg mode, users can type <code>help</code> then press Enter to get a full documentation of pkg commands. Here we
+    type in <code>update</code> then press Enter which tells Julia to update all possible packages, including core
+    libraries. In default, Julia use repository registration on Github, so please make sure your internet can access to
+    Github.com.</p>
+  <p>In addition to <code>help</code> and <code>update</code>, there are some most often-used commands in pkg:</p>
+  <ul>
+    <li><code>add</code>: install a registered package by name, or install a non-registered package through its
+      git-repo. Users may specify a package with specific version by <code>add packagename v”x.x.x”</code>.</li>
+    <li><code>remove</code>: uninstall packages, similar to <code>add</code>.</li>
+    <li><code>status</code>: show a list of all packages installed (but no standard library) and their versions, status.
+      Users can find a full documentation of standard libraries from Julia official documentation: <a
+        href='https://docs.julialang.org' target='_blank' class='url'>https://docs.julialang.org</a></li>
+    <li><code>pin</code>: froze a specific package to its current version. This command is very useful when you have
+      carefully install all packages required and wanna work in this environment in a long time.</li>
+    <li><code>free</code>: free a package from pinned/frozen status to make it update-able.</li>
+  </ul>
+  <h3><a name='header-n410' class='md-header-anchor '></a>Step 3: Install Jupyter</h3>
+  <p>In default, Julia language is installed together with <code>IJulia</code>, a package providing the same functions
+    as <code>IPython</code> for Python. This package also installs Julia kernel for Jupyter (if you have already
+    installed your own Jupyter, for Python or others), or install a new Jupyter for those who do not have a Jupyter
+    software.</p>
+  <ol start=''>
+    <li>
+      <p><strong>If you have already got Jupyter</strong>: After updating all packages, please check your Jupyter to see
+        if Julia 1.0.3 kernel appears. If not, please start a Julia REPL and run the following command in pkg mode:</p>
+      <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+        lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 37.1614px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 29px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+      <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+        <div>1</div>
+      </div>
+      </div>
+      <div class="CodeMirror-measure"></div>
+      <div style="position: relative; z-index: 1;"></div>
+      <div class="CodeMirror-code" role="presentation">
+        <div class="CodeMirror-activeline" style="position: relative;">
+          <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+          <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28.9974px; width: 29px;">
+          </div>
+          <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28.9974px;">
+            <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+              style="left: 0px; width: 19px;">1</div>
+          </div>
+          <pre class=" CodeMirror-line "
+            role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">pkg</span><span class="cm-operator">&gt;</span> <span class="cm-variable">build</span> <span class="cm-variable">IJulia</span></span></pre>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 23px;"></div>
+      <div class="CodeMirror-gutters" style="height: 23px;">
+        <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div>
+      </div>
+      </div>
+      </div>
+      </pre>
+      <p>This command re-builds <code>IJulia</code> package, which automatically installs a new Julia kernel or covers
+        existing kernel.</p>
+    </li>
+    <li>
+      <p><strong>If you do not have Jupyter</strong>: Run the same command to install Jupyter and add your Julia kernel.
+      </p>
+    </li>
+  </ol>
+  <p>To start a Jupyter notebook, start a Julia REPL then run the following code:</p>
+  <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+    lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 37.1614px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 29px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+  <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+    <div>3</div>
+  </div>
+  </div>
+  <div class="CodeMirror-measure"></div>
+  <div style="position: relative; z-index: 1;"></div>
+  <div class="CodeMirror-code" role="presentation">
+    <div class="CodeMirror-activeline" style="position: relative;">
+      <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+      <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -28.9974px; width: 29px;">
+      </div>
+      <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -28.9974px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 19px;">1</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># julia 1.0</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -28.9974px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 19px;">2</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">using</span> <span class="cm-variable">IJulia</span> <span class="cm-comment"># using IJulia</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -28.9974px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 19px;">3</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">notebook</span>() <span class="cm-comment"># to start jupyter notebook backend, auto open your browser</span></span></pre>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 68px;"></div>
+  <div class="CodeMirror-gutters" style="height: 68px;">
+    <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div>
+  </div>
+  </div>
+  </div>
+  </pre>
+  <p>For other functions such as Jupyter Lab, readers may read <code>IJulia</code>’s documentation at: <a
+      href='https://github.com/JuliaLang/IJulia.jl' target='_blank'
+      class='url'>https://github.com/JuliaLang/IJulia.jl</a></p>
+  <h3><a name='header-n422' class='md-header-anchor '></a>Step 4: Prepare your Juno IDE based on Atom</h3>
+  <p>Juno IDE is a project based on the Atom editor published by Github Inc. Users can download Atom installer from: <a
+      href='https://atom.io/' target='_blank' class='url'>https://atom.io/</a>. When Atom installed, please go to
+    <code>file -&gt; Settings -&gt; Install</code>, search and install the following packages in order:</p>
+  <ol start=''>
+    <li><code>language-julia</code>: Julia language highlighting, spell checker and formatting</li>
+    <li><code>julia-client</code>: IDE-like layout and functions for Julia language in Atom, the body of Juno IDE for
+      Julia</li>
+    <li><code>latex-completions</code>: Support of latex syntax and full-symbol set; working with Juno IDE</li>
+    <li><code>language-markdown</code>: Support for markdown; used in Juno IDE’s documentation system</li>
+    <li><code>indent-detective</code>: For debugger of Juno IDE</li>
+  </ol>
+  <p>Please note, installing Atom packages also requires the Internet access to Github.com.</p>
+  <p>When installing all the 5 Atom packages, you have already obtained the same IDE provided by Julia Pro release.</p>
+  <p>In the next section, we will focus on what 3rd packages to install, and how to correctly install them.</p>
+  <h3><a name='header-n438' class='md-header-anchor '></a>Step 5: (Optional) Prepare your VSCode with Julia</h3>
+  <p>Many people are used to Visual Studio Code and wanna continue developing their Julia programs in VSCode.
+    Fortunately, there has been a solution, the <code>julia</code> plug-in. This plug-in can be simply searched and
+    installed in VSCode’s plug-in market. When installed, users need to specify the executable path (e.g.
+    <code>C:/Julia/bin/julia.exe</code>), then they can start their coding. Please refer to <a
+      href='https://github.com/JuliaEditorSupport/julia-vscode' target='_blank'
+      class='url'>https://github.com/JuliaEditorSupport/julia-vscode</a> for more information.</p>
+  <p>&nbsp;</p>
+  <h2><a name='header-n441' class='md-header-anchor '></a>Installing 3rd-party packages</h2>
+  <p>Though core Julia &amp; standard libraries can handle most of daily research and teaching, using 3rd-party packages
+    can help you visibly improve your productivity in economic research. (like solving PDE, visualization and doing
+    regression) Fortunately, Julia provides a user friendly package manager <code>pkg</code> which is highly integrated
+    and connected to Github. We will use it to prepare many popular 3rd-party packages which are useful in economic
+    research.</p>
+  <p>In this section, I firstly introduce how to <strong>correctly</strong> install <code>RCall</code> and
+    <code>PyCall</code> because beginners often get problems while bridging Julia with the two languages. Then, I
+    provide a list which covers most popular 3rd-party packages about economics. These packages can be simply added
+    through <code>pkg&gt; add PackageName</code> command. Finally, I roughly discuss the visualization in Julia which
+    has several realizations. Readers can choose their favorite method to do visualization.</p>
+  <h3><a name='header-n444' class='md-header-anchor '></a>Installing <code>PyCall</code></h3>
+  <p><code>PyCall</code> provides the API to calling Python programs in Julia. Calling Python in Julia becomes
+    meaningful especially when economists are wanna use some machine learning or deep learning libraries in Python <sup
+      class='md-footnote'><a href='#dfref-footnote-1' name='ref-footnote-1'>1</a></sup>. (Well, <code>TensorFlow</code>
+    has already got a Julia wrapper so users do not need <code>PyCall</code> to calling a python-based
+    <code>TensorFlow</code>) However, because <code>PyCall</code> does not only depend on Julia installation but also
+    depends on your Python installation, installing <code>PyCall</code> often meets some tough problems for beginners.
+  </p>
+  <p><u>As mentioned above, I recommend users to install their Python before installing Julia, and add their python
+      executable to PATH.</u> The following instructions depend on what type of Python installations you use.</p>
+  <h4><a name='header-n447' class='md-header-anchor '></a>Case 1: Anaconda Python</h4>
+  <p>Anaconda is one of the most popular Python release. Many economists choose to install Anaconda as their Python
+    installation. However, because Anaconda’s <code>base</code> environment has a different dependency structure from
+    ordinary Python installation, users need to create a new virtual environment, add this new environment to PATH, then
+    call this Python installation from Julia. If users build <code>PyCall</code> based on the base environment of
+    Anaconda, the building will fail. About how to manage your Anaconda environments, please refer to: <a
+      href='https://docs.conda.io/en/latest/' target='_blank' class='url'>https://docs.conda.io/en/latest/</a></p>
+  <p>However, compared with manually manage your new Python environment, there is a better &amp;
+    <strong><u>recommended</u></strong> way to do this job: let Julia automatically create a Julia-private Python
+    installation then use Anaconda Prompt/Navigator to conveniently manage it.</p>
+  <p>To do so, please follow the procedures below:</p>
+  <blockquote>
+    <ol start=''>
+      <li>Prepare your Anaconda &amp; Julia; finish all the steps in the previous section; Make sure you can access to
+        Github.com</li>
+      <li>Open a Julia REPL, run <code>ENV[&quot;PYTHON&quot;] = &quot;&quot;</code> to reset the path of your local
+        Python installation. This operation tells <code>PyCall</code> to install a new environment but not use the
+        current local Python installation.</li>
+      <li>Type in <code>]</code> to enter the pkg manager mode.</li>
+      <li>Run <code>add Conda</code> command to install a small Julia package which cooks conda affairs. About how to
+        use this package and how to specify a specific Python version in the next steps, please refer to: <a
+          href='https://github.com/JuliaPy/Conda.jl' target='_blank' class='url'>https://github.com/JuliaPy/Conda.jl</a>
+      </li>
+      <li>Run <code>add PyCall</code> in the pkg mode, then wait until things finish.</li>
+      <li>If there is no error thrown, return to normal Julia mode, run <code>import PyCall</code> to import PyCall
+        package. If there is no error raised, congratulations!</li>
+      <li>If there are errors when importing <code>PyCall</code> or you have installed <code>PyCall</code> on a wrong
+        Python installation (e.g. the base environment of Anaconda). Do step 2 then go to the pkg mode and run
+        <code>build PyCall</code> to re-build this package. When this package rebuilt, try again to import it.</li>
+      <li>When importing <code>PyCall</code> works, your Anaconda for Python will automatically find this installation
+        and you can easily manage your python libraries there.</li>
+    </ol>
+  </blockquote>
+  <p>Please note, the official Julia installation (not Julia Pro release) has integrated <code>PyPlot</code> module, one
+    of the most popular visualization API in Julia. It can work without a special <code>PyCall</code> package. However,
+    when users add <code>PyCall</code>, the <code>PyPlot</code> package will depend on the new-added <code>PyCall</code>
+    to call the <code>matplotlib</code> in your custom python environment. Use Anaconda to install
+    <code>matplotlib</code> in your new python environment, then go to Julia, and run <code>import PyPlot</code> to see
+    if this library works now.</p>
+  <p>About the usage of <code>PyCall</code>, please refer to <a href='https://github.com/JuliaPy/PyCall.jl'
+      target='_blank' class='url'>https://github.com/JuliaPy/PyCall.jl</a>. There is a very simple and intuitive demo of
+    <code>PyCall</code> to display how easy to call Python in Julia:</p>
+  <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+    lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 43.1641px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+  <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+    <div>12</div>
+  </div>
+  </div>
+  <div class="CodeMirror-measure"></div>
+  <div style="position: relative; z-index: 1;"></div>
+  <div class="CodeMirror-code" role="presentation" style="">
+    <div class="CodeMirror-activeline" style="position: relative;">
+      <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+      <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div>
+      <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 27px;">1</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># julia 1.0</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">2</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">using</span> <span class="cm-variable">PyCall</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">3</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># run python script in a backend py session</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">4</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">py"""</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">5</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">import numpy as np</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">6</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">def func(x):</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">7</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>return np.sin(x)</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">8</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"""</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">9</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># get/call py values/functions via py"String", PyCall auto do type conversions</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 27px;">10</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-string">py"func"</span>(<span class="cm-number">1.2</span>)</span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">11</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># the result of python's func() is converted to Julia type and is assigned to x</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 27px;">12</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">println</span>(<span class="cm-string">"the value of x is:"</span>, <span class="cm-variable">x</span>)</span></pre>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 270px;"></div>
+  <div class="CodeMirror-gutters" style="height: 270px;">
+    <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div>
+  </div>
+  </div>
+  </div>
+  </pre>
+  <h4><a name='header-n472' class='md-header-anchor '></a>Case 2: Official Python installation</h4>
+  <p>If you do not use Anaconda but install the official Python release, installing <code>PyCall</code> becomes easier
+    because you can choose from using an existing python installation or creating a Julia-private one. For the latter,
+    please follow the instructions of Case 1 (reset <code>ENV[&quot;PYTHON&quot;]</code> then build the package). For
+    the former, please check your <code>ENV[&quot;PYTHON&quot;]</code> alright then <code>add PyCall</code>. For other
+    cases such as wanna using <code>virtualenv</code>, please refer to <a href='https://github.com/JuliaPy/PyCall.jl'
+      target='_blank' class='url'>https://github.com/JuliaPy/PyCall.jl</a></p>
+  <h3><a name='header-n474' class='md-header-anchor '></a>Installing <code>RCall</code></h3>
+  <p>Similar to <code>PyCall</code>, <code>RCall</code> provides the API to your R-language installation. To ensure the
+    <code>RCall</code> can automatically detect your R installation, please use the R language no earlier than 3.5.0.
+    When add your R executable to PATH, e.g. <code>C:\Program Files\R\R-3.5.3\bin</code>, <code>RCall</code> can
+    automatically locate it and build itself based on your R installation. If you have multiple R versions, please refer
+    to <a href='https://github.com/JuliaInterop/RCall.jl' target='_blank'
+      class='url'>https://github.com/JuliaInterop/RCall.jl</a> for more help.</p>
+  <p>Installing <code>RCall</code> usually meets much fewer problems than installing <code>PyCall</code>. Users just
+    need to go to Julia’s pkg mode and run <code>add RCall</code>. When installed, please return to normal Julia mode
+    and import RCall to see if it works normally. Of course, do not forget to check <code>ENV[&quot;R_HOME&quot;]</code>
+    before adding <code>RCall</code>.</p>
+  <p>There is a simple demo of how to call R language in Julia:</p>
+  <pre spellcheck="false" class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded"
+    lang="julia"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="julia"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 43.1641px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 35px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre>
+  <div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+    <div>11</div>
+  </div>
+  </div>
+  <div class="CodeMirror-measure"></div>
+  <div style="position: relative; z-index: 1;"></div>
+  <div class="CodeMirror-code" role="presentation" style="">
+    <div class="CodeMirror-activeline" style="position: relative;">
+      <div class="CodeMirror-activeline-background CodeMirror-linebackground"></div>
+      <div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -35px; width: 35px;"></div>
+      <div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 27px;">1</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># julia 1.0</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">2</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-tab" role="presentation" cm-text="	">    </span><span class="cm-keyword">using</span> <span class="cm-variable">RCall</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">3</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># do a simple linear regression and get the coefficient</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">4</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">R"</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">5</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>dat &lt;- data.frame(y= rnorm(200), x= rnorm(200) )</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">6</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>mod &lt;- lm(y~x, data = dat)</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">7</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>summary(mod); print(\"model estimated\")</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">8</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" class="cm-tab-wrap-hack" style="padding-right: 0.1px;"><span class="cm-string"><span class="cm-tab" role="presentation" cm-text="	">    </span>modcoef &lt;- coefficients(mod)</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 27px;">9</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-string">"</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 27px;">10</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># pull coef from R to Julia, auto type conversion</span></span></pre>
+    </div>
+    <div style="position: relative;">
+      <div class="CodeMirror-gutter-wrapper" style="left: -35px;">
+        <div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show"
+          style="left: 0px; width: 27px;">11</div>
+      </div>
+      <pre class=" CodeMirror-line "
+        role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">x</span> <span class="cm-operator">=</span> <span class="cm-meta">@rget</span>(<span class="cm-variable">modcoef</span>)</span></pre>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 248px;"></div>
+  <div class="CodeMirror-gutters" style="height: 248px;">
+    <div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 34px;"></div>
+  </div>
+  </div>
+  </div>
+  </pre>
+  <p>Or users can type in <code>$</code> in normal Julia mode to enter an R REPL, where they can write original R
+    programs. To return to Julia, just backspace at the beginning of current line.</p>
+  <h3><a name='header-n480' class='md-header-anchor '></a>Popular 3rd-party packages for economic research</h3>
+  <p>In this section, users are recommended to use <code>add PackageName</code> or
+    <code>add PackageName v&quot;x.x.x&quot;</code> command in the pkg mode to install all listed packages.
+    <strong><u>They can also decide which packages to install or not install according to their research
+        demands.</u></strong> Though installing order does not matter in most cases (because dependencies are
+    automatically installed), users can install all the listed packages in order to make sure everything is OK <sup
+      class='md-footnote'><a href='#dfref-footnote-2' name='ref-footnote-2'>2</a></sup>. The listed package versions is
+    the current version I am using. These versions are ensured to be compatible together also with Julia 1.0.3. </p>
+  <p>
+    <font color=red><b><u>When all packages installed, users are strongly suggested to use <code>pin PackageName</code>
+          to freeze every package to its current version.</u></b></font> This avoids the possible conflict in the future
+    when installing an unstable new package which updates some existing packages to an incompatible version.
+  </p>
+  <figure>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Version</th>
+          <th>Class</th>
+          <th>Introduction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>DataStructures</td>
+          <td>0.14.0</td>
+          <td>Data Type</td>
+          <td>Generalized data structures such as stack, ordered set and linked list</td>
+        </tr>
+        <tr>
+          <td>DataFrames</td>
+          <td>0.14.0</td>
+          <td>Data Type</td>
+          <td>Dataframes similar to R &amp; <code>pandas</code>; easy to convert to or converted from the two</td>
+        </tr>
+        <tr>
+          <td>CSV</td>
+          <td>0.4.3</td>
+          <td>IO Stream</td>
+          <td>I/O stream for .csv files to DataFrames (of course, you can simply use the standard library
+            <code>DelimitedFiles</code> to read/write to csv files as Array)</td>
+        </tr>
+        <tr>
+          <td>LightGraphs</td>
+          <td>1.2.0</td>
+          <td>Data Type</td>
+          <td>Data structures for graph theory</td>
+        </tr>
+        <tr>
+          <td>Calculus</td>
+          <td>0.4.1</td>
+          <td>Numerical</td>
+          <td>Methods for both numerical and symbolic calculus</td>
+        </tr>
+        <tr>
+          <td>QuadGK</td>
+          <td>2.0.3</td>
+          <td>Numerical</td>
+          <td>Methods special for numerical integral</td>
+        </tr>
+        <tr>
+          <td>TaylorSeries</td>
+          <td>0.9.2</td>
+          <td>Numerical</td>
+          <td>Methods for Taylor series and function approximations</td>
+        </tr>
+        <tr>
+          <td>SpecialFunctions</td>
+          <td>0.7.1</td>
+          <td>Numerical/Stats</td>
+          <td>Conventional special functions such as <span class="MathJax_SVG" tabindex="-1"
+              style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="6.144ex" height="2.577ex" viewBox="0 -806.1 2645.3 1109.7" role="img" focusable="false"
+                style="vertical-align: -0.705ex;">
+                <defs>
+                  <path stroke-width="0" id="E5-MJMATHI-3B1"
+                    d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z">
+                  </path>
+                  <path stroke-width="0" id="E5-MJMAIN-2C"
+                    d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z">
+                  </path>
+                  <path stroke-width="0" id="E5-MJMATHI-3B2"
+                    d="M29 -194Q23 -188 23 -186Q23 -183 102 134T186 465Q208 533 243 584T309 658Q365 705 429 705H431Q493 705 533 667T573 570Q573 465 469 396L482 383Q533 332 533 252Q533 139 448 65T257 -10Q227 -10 203 -2T165 17T143 40T131 59T126 65L62 -188Q60 -194 42 -194H29ZM353 431Q392 431 427 419L432 422Q436 426 439 429T449 439T461 453T472 471T484 495T493 524T501 560Q503 569 503 593Q503 611 502 616Q487 667 426 667Q384 667 347 643T286 582T247 514T224 455Q219 439 186 308T152 168Q151 163 151 147Q151 99 173 68Q204 26 260 26Q302 26 349 51T425 137Q441 171 449 214T457 279Q457 337 422 372Q380 358 347 358H337Q258 358 258 389Q258 396 261 403Q275 431 353 431Z">
+                  </path>
+                  <path stroke-width="0" id="E5-MJMATHI-3B3"
+                    d="M31 249Q11 249 11 258Q11 275 26 304T66 365T129 418T206 441Q233 441 239 440Q287 429 318 386T371 255Q385 195 385 170Q385 166 386 166L398 193Q418 244 443 300T486 391T508 430Q510 431 524 431H537Q543 425 543 422Q543 418 522 378T463 251T391 71Q385 55 378 6T357 -100Q341 -165 330 -190T303 -216Q286 -216 286 -188Q286 -138 340 32L346 51L347 69Q348 79 348 100Q348 257 291 317Q251 355 196 355Q148 355 108 329T51 260Q49 251 47 251Q45 249 31 249Z">
+                  </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                  <use xlink:href="#E5-MJMATHI-3B1" x="0" y="0"></use>
+                  <use xlink:href="#E5-MJMAIN-2C" x="640" y="0"></use>
+                  <use xlink:href="#E5-MJMATHI-3B2" x="1084" y="0"></use>
+                  <use xlink:href="#E5-MJMAIN-2C" x="1657" y="0"></use>
+                  <use xlink:href="#E5-MJMATHI-3B3" x="2102" y="0"></use>
+                </g>
+              </svg></span>
+            <script type="math/tex">\alpha,\beta,\gamma</script>
+          </td>
+        </tr>
+        <tr>
+          <td>Distributions</td>
+          <td>0.16.4</td>
+          <td>Stats</td>
+          <td>Types and methods for popular statistical distributions. It covers most distributions used in statistical
+            research, e.g. <span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="1.331ex" height="2.461ex"
+                viewBox="0 -806.1 573 1059.4" role="img" focusable="false" style="vertical-align: -0.588ex;">
+                <defs>
+                  <path stroke-width="0" id="E7-MJMATHI-3B2"
+                    d="M29 -194Q23 -188 23 -186Q23 -183 102 134T186 465Q208 533 243 584T309 658Q365 705 429 705H431Q493 705 533 667T573 570Q573 465 469 396L482 383Q533 332 533 252Q533 139 448 65T257 -10Q227 -10 203 -2T165 17T143 40T131 59T126 65L62 -188Q60 -194 42 -194H29ZM353 431Q392 431 427 419L432 422Q436 426 439 429T449 439T461 453T472 471T484 495T493 524T501 560Q503 569 503 593Q503 611 502 616Q487 667 426 667Q384 667 347 643T286 582T247 514T224 455Q219 439 186 308T152 168Q151 163 151 147Q151 99 173 68Q204 26 260 26Q302 26 349 51T425 137Q441 171 449 214T457 279Q457 337 422 372Q380 358 347 358H337Q258 358 258 389Q258 396 261 403Q275 431 353 431Z">
+                  </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                  <use xlink:href="#E7-MJMATHI-3B2" x="0" y="0"></use>
+                </g>
+              </svg></span>
+            <script type="math/tex">\beta</script> distribution the second type</td>
+        </tr>
+        <tr>
+          <td>StatsBase</td>
+          <td>0.25.0</td>
+          <td>Stats</td>
+          <td>Basic statistical functions such as <code>mean</code>, <code>std</code>. It was separated from core Julia
+            since v0.7</td>
+        </tr>
+        <tr>
+          <td>StatsModels</td>
+          <td>0.3.1</td>
+          <td>Stats</td>
+          <td>Core types and declares to develop your own statistical models</td>
+        </tr>
+        <tr>
+          <td>GLM</td>
+          <td>1.0.1</td>
+          <td>Stats</td>
+          <td>R-style generalized linear regression models such as <code>lm</code>,<code>glm</code>. Supports
+            <code>@formula</code> and other syntaxes very close to R</td>
+        </tr>
+        <tr>
+          <td>TimeSeries</td>
+          <td>0.14.1</td>
+          <td>Data Type</td>
+          <td>Date and time types for constructing time series</td>
+        </tr>
+        <tr>
+          <td>HypothesisTests</td>
+          <td>0.8.0</td>
+          <td>Stats</td>
+          <td>To do hypothesis tests such as Chi-square test</td>
+        </tr>
+        <tr>
+          <td>StaticArrays</td>
+          <td>0.10.3</td>
+          <td>Data Type</td>
+          <td>Data types for <strong>small</strong> matrices to accelerate their linear algebra operations. Usually
+            10<span class="MathJax_SVG" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="3.614ex" height="1.877ex"
+                viewBox="0 -655.4 1556 808.1" role="img" focusable="false" style="vertical-align: -0.355ex;">
+                <defs>
+                  <path stroke-width="0" id="E38-MJMAIN-D7"
+                    d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z">
+                  </path>
+                  <path stroke-width="0" id="E38-MJMAIN-2B"
+                    d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z">
+                  </path>
+                </defs>
+                <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)">
+                  <use xlink:href="#E38-MJMAIN-D7" x="0" y="0"></use>
+                  <use xlink:href="#E38-MJMAIN-2B" x="778" y="0"></use>
+                </g>
+              </svg></span>
+            <script type="math/tex">\times+</script> faster than <code>Base.Array</code></td>
+        </tr>
+        <tr>
+          <td>BenchmarkTools</td>
+          <td>0.4.2</td>
+          <td>Debug/Develop</td>
+          <td>Tools to do benchmark testing; Helpful when evaluating your new algorithm’s performance</td>
+        </tr>
+        <tr>
+          <td>ForwardDiff</td>
+          <td>0.10.3</td>
+          <td>Numerical</td>
+          <td>Finite differentiations; Usually used in high-order numerical differentiations</td>
+        </tr>
+        <tr>
+          <td>Roots</td>
+          <td>0.7.3</td>
+          <td>Optimization</td>
+          <td>Root searching API, a generalization of the similar functions in Matlab’s optimization toolbox</td>
+        </tr>
+        <tr>
+          <td>DifferentialEquations</td>
+          <td>6.0.0</td>
+          <td>Numerical</td>
+          <td>Work flows for ODE/PDE/SODE/RODE/DAE/DDE/SPDE. High-performance and fully functioned</td>
+        </tr>
+        <tr>
+          <td>Optim</td>
+          <td>0.18.1</td>
+          <td>Optimization</td>
+          <td>Matlab-style optimization API but with higher performance; Matlab users may like it</td>
+        </tr>
+        <tr>
+          <td>Rebugger</td>
+          <td>0.3.1</td>
+          <td>Debug/Develop</td>
+          <td>New interactive debugger since Julia v1.0; works tightly with <code>Revise</code></td>
+        </tr>
+        <tr>
+          <td>Debugger</td>
+          <td>0.4.0</td>
+          <td>Debug/Develop</td>
+          <td>Traditional debugger, works tightly with <code>Revise</code></td>
+        </tr>
+        <tr>
+          <td>Revise</td>
+          <td>0.7.12</td>
+          <td>Debug/Develop</td>
+          <td>Automatically update your function definitions, module, scripts. Very useful in developing; Highly
+            recommended</td>
+        </tr>
+      </tbody>
+    </table>
+  </figure>
+  <p><code>Pkg</code> is another package once popular before Julia 1.0. In fact, the current pkg mode is an integrated
+    <code>Pkg</code> package. Users do not need to specially <code>add Pkg</code> since Julia 1.0 unless they want to
+    run some old codes written in Julia 0.6 or before where <code>Pkg</code> used.</p>
+  <p><code>QuantEcon</code> is a <a href='https://lectures.quantecon.org/jl/'>project</a> initiated by several famous
+    economists such as Dr. Sargent. It provides a collection of useful tools in economic research, esp. in macroeconomic
+    modeling, time series and quadratic DP problems. Though it seems to be designed mainly for the economists in
+    macroeconomics, this project is a good reference for Julia beginners. However, it depends on many 3rd-party
+    packages. It then does not have a high “version safety”. But users are recommended to <code>add QuantEcon</code> and
+    have a try. It saves time in modeling many common methods.</p>
+  <h3><a name='header-n606' class='md-header-anchor '></a>Visualization in Julia</h3>
+  <p>Visualization is important for economic research, from statistical plotting to dynamic display. There are several
+    popular packages in Julia to do this job:</p>
+  <ol start=''>
+    <li><strong>PyPlot</strong>: calling <code>matplotlib</code> from Python. One of the most beginner-friendly
+      visualization packages, esp. for MatLab &amp; Python users. I have introduced its installation.</li>
+    <li><strong>Gadfly</strong>: another popular library using the philosophy of <code>ggplot2</code> in R. It is
+      powerful but there is a problem that the first plotting by <code>Gadfly</code> in a Julia session is very, very
+      slow. To install <code>Gadfly</code>, use the command <code>add Gadfly</code>. Meanwhile, users may like
+      <code>Cairo</code> to make <code>Gadfly</code> work with full functions.</li>
+    <li><strong>GR</strong>: a wrapper of classical <code>GR</code> library for C/C++. Its biggest advantage is the
+      speed: faster than all the others. If you wanna quick response and demand high plotting speed, use
+      <code>GR</code>. To install <code>GR</code>, just use command <code>add GR</code> <sup class='md-footnote'><a
+          href='#dfref-footnote-3' name='ref-footnote-3'>3</a></sup>.</li>
+    <li><strong>Plots</strong>: <code>Plots</code> is a <strong>front-end</strong> API which use one syntax to call
+      different visualization backends e.g. <code>PyPlot</code>, <code>GR</code>. It cannot work alone but need to work
+      with other packages like <code>GR</code>. The biggest advantage of using <code>Plots</code> is that you may write
+      cross-platform visualization programs with the same syntax to save time and labor. Please go to <a
+        href='https://github.com/JuliaPlots/Plots.jl'>Github</a> and <a href='http://docs.juliaplots.org/latest/'>the
+        official site of Plots</a> to learn how to use <code>Plots</code> to improve your productivity.</li>
+  </ol>
+  <p>&nbsp;</p>
+  <h2><a name='header-n618' class='md-header-anchor '></a>Start coding in Julia</h2>
+  <p>Congratulations! </p>
+  <p>Now you have prepared your Julia for economic research and further development. Please refer to <a
+      href='https://julialang.org/learning/' target='_blank' class='url'>https://julialang.org/learning/</a> to begin
+    your programming in Julia language!</p>
+  <p>&nbsp;</p>
+  <h2><a name='header-n622' class='md-header-anchor '></a>Conclusion</h2>
+  <p>Julia has attracted many developers in different fields to contribute. It is a new language growing at a very high
+    speed. There emerges many outstanding 3rd-party packages on GitHub and Julia community. The above list is
+    conservative that the listed packages can handle most daily tasks in economic research. Users are recommended to
+    discover more possibility and actively contribute to the community in both academics and developing.</p>
+  <p>Though Julia has become very popular in optimization, finance, big data and ML/DL, one thing we must see is that
+    there are not enough statistical packages developed for Julia (I mean traditional statistics). <code>GLM</code> is
+    good but far not enough. Economists still need to seek solutions in R language (writing R programs or calling R in
+    Julia). For example, ANOVA, panel data models, quantile regression models, and most of other conventional
+    statistical methods are not perfectly realized yet.</p>
+  <p>Theoretically, Julia can be a better choice on statistical models than R because of its more consistent design
+    philosophy <sup class='md-footnote'><a href='#dfref-footnote-4' name='ref-footnote-4'>4</a></sup>, general
+    programming ability and high performance near to C. However, it is obvious that the potential of Julia in statistics
+    has not been fully developed. But to develop statistics in Julia, a thriving community and ecosystem is necessary. R
+    language has formed a mature community composed by numerous statistical packages and contributors. The way of Julia
+    is still long and it needs the contribution by everyone. But just as mentioned above, Julia is growing very quickly.
+    Maybe in less than three years, it will be able to handle over 90% R’s jobs.</p>
+  <p>&nbsp;</p>
+  <div class='footnotes-area'>
+    <hr />
+    <div class='footnote-line'><span class='md-fn-count'>1</span> Julia has all Python’s core types even more. These
+      types have much better performance in Julia but do not need extra optimization like <code>Numba</code>.<a
+        name='dfref-footnote-1' href='#ref-footnote-1' title='回到文档' class='reversefootnote'>↩</a></div>
+    <div class='footnote-line'><span class='md-fn-count'>2</span> to avoid possible the conflicts raised by the
+      different versions of a common underlying package<a name='dfref-footnote-2' href='#ref-footnote-2' title='回到文档'
+        class='reversefootnote'>↩</a></div>
+    <div class='footnote-line'><span class='md-fn-count'>3</span> But please note, installing <code>GR</code> may be
+      time-costing, because this library need to be complied like in C/C++.<a name='dfref-footnote-3'
+        href='#ref-footnote-3' title='回到文档' class='reversefootnote'>↩</a></div>
+    <div class='footnote-line'><span class='md-fn-count'>4</span> I do not want to say so but the OO mechanism of R is
+      really a total zombie <span class="heimu">shit</span>.<a name='dfref-footnote-4' href='#ref-footnote-4'
+        title='回到文档' class='reversefootnote'>↩</a></div>
+  </div>
+  </div>
 </body>
+
 </html>

@@ -1,3 +1,4 @@
+
 # Prepare your Julia 1.0 for economic research
 
 [Back to index](../../index.html)
@@ -247,27 +248,31 @@ In this section, users are recommended to use `add PackageName` or `add PackageN
 
 | Name             | Version | Class | Introduction |
 | ---------------- | ------- | ----- | ------------ |
-| DataStructures   | 0.14.0 | Data Type |              |
-| DataFrames       | 0.14.0 | Data Type |              |
-| CSV              | 0.4.3 | IO Stream |              |
-| LightGraphs      | 1.2.0 | Data Type |              |
-| Calculus         | 0.4.1 | Numerical |              |
-| QuadGK           | 2.0.3 | Numerical |              |
-| TaylorSeries     | 0.9.2 | Numerical |              |
-| SpecialFunctions | 0.7.1 | Numerical/Stats |              |
-| Distributions    | 0.16.4 | Stats |              |
-| StatsBase|0.25.0|Stats||
-| StatsModels|0.3.1|Stats||
-| GLM|1.0.1|Stats||
-| TimeSeries|0.14.1|Data Type||
-| HypothesisTests|0.8.0|Stats||
-| StaticArrays|0.10.3|Data Type||
-| BenchmarkTools|0.4.2|Debug/Develop||
-| ForwardDiff|0.10.3|Numerical||
-| Roots|0.7.3|Optimization||
-| Optim|0.18.1|Optimization||
-| Rebugger|0.3.1|Debug/Develop||
-| Debugger|0.4.0|Debug/Develop||
+| DataStructures   | 0.14.0 | Data Type | Generalized data structures such as stack, ordered set and linked list |
+| DataFrames       | 0.14.0 | Data Type | Dataframes similar to R & `pandas`; easy to convert to or converted from the two |
+| CSV              | 0.4.3 | IO Stream | I/O stream for .csv files to DataFrames (of course, you can simply use the standard library `DelimitedFiles` to read/write to csv files as Array) |
+| LightGraphs      | 1.2.0 | Data Type | Data structures for graph theory |
+| Calculus         | 0.4.1 | Numerical | Methods for both numerical and symbolic calculus |
+| QuadGK           | 2.0.3 | Numerical | Methods special for numerical integral |
+| TaylorSeries     | 0.9.2 | Numerical | Methods for Taylor series and function approximations |
+| SpecialFunctions | 0.7.1 | Numerical/Stats | Conventional special functions such as $\alpha,\beta,\gamma$ |
+| Distributions    | 0.16.4 | Stats | Types and methods for popular statistical distributions. It covers most distributions used in statistical research, e.g. $\beta$ distribution the second type |
+| StatsBase|0.25.0|Stats|Basic statistical functions such as `mean`, `std`. It was separated from core Julia since v0.7|
+| StatsModels|0.3.1|Stats|Core types and declares to develop your own statistical models|
+| GLM|1.0.1|Stats|R-style generalized linear regression models such as `lm`,`glm`. Supports `@formula` and other syntaxes very close to R|
+| TimeSeries|0.14.1|Data Type|Date and time types for constructing time series|
+| HypothesisTests|0.8.0|Stats|To do hypothesis tests such as Chi-square test|
+| StaticArrays|0.10.3|Data Type|Data types for **small** matrices to accelerate their linear algebra operations. Usually 10$\times+$ faster than `Base.Array`|
+| BenchmarkTools|0.4.2|Debug/Develop|Tools to do benchmark testing; Helpful when evaluating your new algorithm's performance|
+| ForwardDiff|0.10.3|Numerical|Finite differentiations; Usually used in high-order numerical differentiations|
+| Roots|0.7.3|Optimization|Root searching API, a generalization of the similar functions in Matlab's optimization toolbox|
+| DifferentialEquations |6.0.0|Numerical|Work flows for ODE/PDE/SODE/RODE/DAE/DDE/SPDE. High-performance and fully functioned|
+| Optim|0.18.1|Optimization|Matlab-style optimization API but with higher performance; Matlab users may like it|
+| Rebugger|0.3.1|Debug/Develop|New interactive debugger since Julia v1.0; works tightly with `Revise`|
+| Debugger|0.4.0|Debug/Develop|Traditional debugger, works tightly with `Revise`|
+| Revise |0.7.12|Debug/Develop|Automatically update your function definitions, module, scripts. Very useful in developing; Highly recommended|
+
+`Pkg` is another package once popular before Julia 1.0. In fact, the current pkg mode is an integrated `Pkg` package. Users do not need to specially `add Pkg` since Julia 1.0 unless they want to run some old codes written in Julia 0.6 or before where `Pkg` used.
 
 `QuantEcon` is a [project](https://lectures.quantecon.org/jl/) initiated by several famous economists such as Dr. Sargent. It provides a collection of useful tools in economic research, esp. in macroeconomic modeling, time series and quadratic DP problems. Though it seems to be designed mainly for the economists in macroeconomics, this project is a good reference for Julia beginners. However, it depends on many 3rd-party packages. It then does not have a high “version safety”. But users are recommended to `add QuantEcon` and have a try. It saves time in modeling many common methods.
 
@@ -290,7 +295,13 @@ Now you have prepared your Julia for economic research and further development. 
 
 
 
+## Conclusion
 
+Julia has attracted many developers in different fields to contribute. It is a new language growing at a very high speed. There emerges many outstanding 3rd-party packages on GitHub and Julia community. The above list is conservative that the listed packages can handle most daily tasks in economic research. Users are recommended to discover more possibility and actively contribute to the community in both academics and developing.
+
+Though Julia has become very popular in optimization, finance, big data and ML/DL, one thing we must see is that there are not enough statistical packages developed for Julia (I mean traditional statistics).  `GLM` is good but far not enough. Economists still need to seek solutions in R language (writing R programs or calling R in Julia). For example, ANOVA, panel data models, quantile regression models, and most of other conventional statistical methods are not perfectly realized yet.
+
+Theoretically, Julia can be a better choice on statistical models than R because of its more consistent design philosophy [^4], general programming ability and high performance near to C. However, it is obvious that the potential of Julia in statistics has not been fully developed. But to develop statistics in Julia, a thriving community and ecosystem is necessary. R language has formed a mature community composed by numerous statistical packages and contributors. The way of Julia is still long and it needs the contribution by everyone. But just as mentioned above, Julia is growing very quickly. Maybe in less than three years, it will be able to handle over 90% R's jobs.
 
 
 
@@ -298,3 +309,5 @@ Now you have prepared your Julia for economic research and further development. 
 [^2]: to avoid possible the conflicts raised by the different versions of a common underlying package
 
 [^3]: But please note, installing `GR` may be time-costing, because this library need to be complied like in C/C++.
+
+[^4]: I do not want to say so but the OO mechanism of R is really a total zombie <span class="heimu">shit</span>.
