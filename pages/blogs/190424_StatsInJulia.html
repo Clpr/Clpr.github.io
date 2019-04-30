@@ -14373,7 +14373,7 @@ does not support cdf for multivariate normal
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">import</span> <span class="n">Distributions</span>
@@ -14387,7 +14387,7 @@ does not support cdf for multivariate normal
 <span class="n">println</span><span class="p">(</span> <span class="s">&quot;The median of N(0.5,0.5) is: &quot;</span><span class="p">,</span> <span class="n">Distributions</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="s">&quot; or &quot;</span><span class="p">,</span> <span class="n">Distributions</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">)</span>
 <span class="n">println</span><span class="p">(</span> <span class="s">&quot;The kurtosis of N(0.5,0.5) is: &quot;</span><span class="p">,</span> <span class="n">Distributions</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">)</span>
 <span class="n">println</span><span class="p">(</span> <span class="s">&quot;The skewness of N(0.5,0.5) is: &quot;</span><span class="p">,</span> <span class="n">Distributions</span><span class="o">.</span><span class="n">skewness</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="p">)</span>
-<span class="n">println</span><span class="p">(</span> <span class="s">&quot;The 5-th order moment of N(0.5,0.5) is (approximately): &quot;</span><span class="p">,</span> <span class="n">Distributions</span><span class="o">.</span><span class="n">moment</span><span class="p">(</span> <span class="n">Distributions</span><span class="o">.</span><span class="n">quantile</span><span class="o">.</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">rand</span><span class="p">(</span><span class="mi">2000</span><span class="p">)),</span> <span class="mi">5</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">println</span><span class="p">(</span> <span class="s">&quot;The 5-th order moment of N(0.5,0.5) is (approximately): &quot;</span><span class="p">,</span> <span class="n">Distributions</span><span class="o">.</span><span class="n">moment</span><span class="p">(</span> <span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="mi">5</span> <span class="p">)</span> <span class="p">)</span>
 <span class="n">println</span><span class="p">(</span> <span class="s">&quot;The N(0.5,0.5) log-likelihood of given data is: &quot;</span><span class="p">,</span> <span class="n">Distributions</span><span class="o">.</span><span class="n">loglikelihood</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
@@ -14412,8 +14412,8 @@ The variance of N(0.5,0.5) is: 0.25 or 0.5
 The median of N(0.5,0.5) is: 0.5 or 0.5
 The kurtosis of N(0.5,0.5) is: 0.0
 The skewness of N(0.5,0.5) is: 0.0
-The 5-th order moment of N(0.5,0.5) is (approximately): 0.019864832757326055
-The N(0.5,0.5) log-likelihood of given data is: -577.0191329160267
+The 5-th order moment of N(0.5,0.5) is (approximately): 0.024609563671820767
+The N(0.5,0.5) log-likelihood of given data is: -550.814206754019
 </pre>
 </div>
 </div>
@@ -14421,17 +14421,6 @@ The N(0.5,0.5) log-likelihood of given data is: -577.0191329160267
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Readers may have found that we use a work-flow <code>Uniform(0,1) -&gt; inverse cdf of a specific distribution</code> to sample a given distribution.
-Because <code>Distributinos</code> does not provide methods such as <code>rand()</code> to generate random numbers from a given distribution.
-In fact, it is difficult to design a universal API to sample from different distributions.
-We will discuss this topic in the next section.</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
