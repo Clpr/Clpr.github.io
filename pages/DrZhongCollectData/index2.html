@@ -39,13 +39,16 @@
         .auto_USuniv {
             font-family: 'Times New Roman', Times, serif;
         }
+
         .auto_field {
             font-family: 'Times New Roman', Times, serif;
         }
+
         .auto_alluniv {
             font-family: 'Times New Roman', Times, serif;
         }
-        .auto_proftitle{
+
+        .auto_proftitle {
             font-family: 'Times New Roman', Times, serif;
         }
     </style>
@@ -73,7 +76,18 @@
             });
     </script>
 
- 
+
+
+
+<!-- 测试添加新记录 -->
+    <script>
+        function add_record() {
+            var myform = $('#mainform'); //得到form对象
+            var tmpInput = $("  <input type='text' name='fuckyou'  />   ");
+            myform.append(tmpInput);
+        }
+
+    </script> 
     <!-- autocomplete: US universities -->
     <script>
         $(
@@ -104,13 +118,13 @@
     </script> </head> <!-- page title and notes -->
 <div id="main_frame" style="width:60%;margin-left: 20%;">
     <h1>Create Faculty Profile</h1>
-    <div>This form is built with HTML5 features, please use up-to-date browsers, e.g. newest Chrome or Edge to fill it.
+    <div>This form is built on HTML5 features, please use up-to-date browsers, e.g. newest Chrome, Firefox, Edge or Safiri to fill it.
     </div>
     <hr />
 
 
 
-  <form class="form-horizontal">  <h2>Basic Information</h2>
+  <form class="form-horizontal" id="mainform" enctype="application/json" >  <h2>Basic Information</h2>
 <table id="tab_basicinfo1" width="100%" border="0">
     <tr>
         <td>First Name <font color=red>*</font>
@@ -179,7 +193,7 @@
     </tr>
     <tr>
         <td>
-            <input class="auto_year" name="yearofbirth" placeholder="e.g. 1954" min="1920" max="2000" />
+            <input type="number" name="yearofbirth" placeholder="1920 ~ 2000" min=1920 max=2000 style="width:50%;" />
         </td>
         <td>
             <input class="auto_country" name="birthcountry" placeholder="type to search" required />                                       
@@ -379,9 +393,8 @@
         </td>
     </tr>
     <tr>
-        <td><input class="auto_alluniv" name="phduniv01" placeholer="type to search" width="100%" required /></td>
-        <td><input class="auto_year" name="yearofphd01" placeholer="please type in a year" width="100%" min="1920"
-                max="2020" required /></td>
+        <td><input class="auto_alluniv" name="phduniv01" placeholder="type to search" width="100%" required /></td>
+        <td><input name="yearofphd01" placeholder="1920 ~ 2020" style="width:60%" type="number" min=1920 max=2020 required /></td>
     </tr>
 
     <!-- ------------------------------- -->
@@ -393,9 +406,8 @@
         </td>
     </tr>
     <tr>
-        <td><input class="auto_alluniv" name="bacheloruniv01" placeholer="type to search" width="100%" required /></td>
-        <td><input class="auto_year" name="yearofbachelor01" placeholer="please type in a year" width="100%" min="1920"
-                max="2020" required /></td>
+        <td><input class="auto_alluniv" name="bacheloruniv01" placeholder="type to search" width="100%" required /></td>
+        <td><input name="yearofbachelor01" placeholder="1920 ~ 2020" style="width:60%" type="number" min=1920 max=2020 required /></td>
     </tr>
 
 
@@ -414,9 +426,8 @@
         </td>
     </tr>
     <tr>
-        <td><input class="auto_alluniv" name="masteruniv01" placeholer="type to search" width="100%" /></td>
-        <td><input class="auto_year" name="yearofmaster01" placeholer="please type in a year" width="100%" min="1920"
-                max="2020" /></td>
+        <td><input class="auto_alluniv" name="masteruniv01" placeholder="type to search" width="100%" /></td>
+        <td><input name="yearofmaster01" placeholder="1920 ~ 2020" style="width:60%" type="number" min=1920 max=2020 /></td>
     </tr>
 
     <!-- ------------------ -->
@@ -428,9 +439,8 @@
         </td>
     </tr>
     <tr>
-        <td><input class="auto_alluniv" name="masteruniv02" placeholer="type to search" width="100%" /></td>
-        <td><input class="auto_year" name="yearofmaster02" placeholer="please type in a year" width="100%" min="1920"
-                max="2020" /></td>
+        <td><input class="auto_alluniv" name="masteruniv02" placeholder="type to search" width="100%" /></td>
+        <td><input name="yearofmaster02" placeholder="1920 ~ 2020" style="width:60%" type="number" min=1920 max=2020 /></td>
     </tr>
 
     <!-- ------------------ -->
@@ -442,9 +452,8 @@
         </td>
     </tr>
     <tr>
-        <td><input class="auto_alluniv" name="phduniv02" placeholer="type to search" width="100%" /></td>
-        <td><input class="auto_year" name="yearofphd02" placeholer="please type in a year" width="100%" min="1920"
-                max="2020" /></td>
+        <td><input class="auto_alluniv" name="phduniv02" placeholder="type to search" width="100%" /></td>
+        <td><input  name="yearofphd02" placeholder="1920 ~ 2020" style="width:60%" type="number" min=1920 max=2020 /></td>
     </tr>
 
     <!-- ------------------ -->
@@ -456,9 +465,8 @@
         </td>
     </tr>
     <tr>
-        <td><input class="auto_alluniv" name="bacheloruniv02" placeholer="type to search" width="100%" /></td>
-        <td><input class="auto_year" name="yearofbachelor02" placeholer="please type in a year" width="100%" min="1920"
-                max="2020" /></td>
+        <td><input class="auto_alluniv" name="bacheloruniv02" placeholder="type to search" width="100%" /></td>
+        <td><input  name="yearofbachelor02" placeholder="1920 ~ 2020" style="width:60%" type="number" min=1920 max=2020 /></td>
     </tr>
 
 
@@ -475,21 +483,254 @@
 
 
 
-</table> <hr/>
+</table> <hr />
 <h2>Working Experiences</h2>
-<p>working experiences as professor etc.</p>
+<p>1. working experiences means teaching jobs as professor etc.</p>
+<p>2. please use the most recent working experience as the 1st record.</p>
+<p>3. if there are more than 10 experiences, please check the last checkbox.</p>
+<p>4. please primarily input those <b>non-visiting</b> experiences.</p>
+<p>5. For the 1st record, if "Until Now" checked, please fill 2019 in "Ending in Year".</p>
+
 <table id="tab_workexp" width="100%">
+
+    <!-- work exp: 01 (recent, required) -->
+    <tr>
+        <td><label for="workexp01_title">Title <font color=red>*</font> </label></td>
+        <td><label for="workexp01_univ">University <font color=red>*</font></label></td>
+        <td><label for="workexp01_fromyear">Starting from Year <font color=red>*</font></label></td>
+        <td><label for="workexp01_toyear">Ending in Year <font color=red>*</font></label></td>
+        <td><label for="workexp01_stillwork">Until now? <font color=red>*</font></label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp01_title" style="width:60%;" required> <option value="please select" disabled selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp01_univ" placeholder="type to search" style="width:80%;" required /></td>
+        <td><input type="number" name="workexp01_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" required /></td>
+        <td><input type="number" name="workexp01_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" required /></td>
+        <td><input type="checkbox" name="workexp01_stillwork" value="Yes" checked required /></td>
+    </tr>
+
+
+    <!-- work exp: 02 -->
+    <tr>
+        <td><label for="workexp02_title">Title</label></td>
+        <td><label for="workexp02_univ">University</label></td>
+        <td><label for="workexp02_fromyear">Starting from Year</label></td>
+        <td><label for="workexp02_toyear">Ending in Year</label></td>
+        <td><label for="workexp02_stillwork">Until now?</label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp02_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp01_univ" placeholder="type to search" style="width:80%;" /></td>
+        <td><input type="number" name="workexp02_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="number" name="workexp02_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="checkbox" name="workexp02_stillwork" value="Yes" /></td>
+    </tr>
+
+
+
+    <!-- work exp: 03 -->
+    <tr>
+        <td><label for="workexp03_title">Title</label></td>
+        <td><label for="workexp03_univ">University</label></td>
+        <td><label for="workexp03_fromyear">Starting from Year</label></td>
+        <td><label for="workexp03_toyear">Ending in Year</label></td>
+        <td><label for="workexp03_stillwork">Until now?</label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp03_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp03_univ" placeholder="type to search" style="width:80%;" /></td>
+        <td><input type="number" name="workexp03_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="number" name="workexp03_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="checkbox" name="workexp03_stillwork" value="Yes" /></td>
+    </tr>
+
+
+
+    <!-- work exp: 04 -->
+    <tr>
+        <td><label for="workexp04_title">Title</label></td>
+        <td><label for="workexp04_univ">University</label></td>
+        <td><label for="workexp04_fromyear">Starting from Year</label></td>
+        <td><label for="workexp04_toyear">Ending in Year</label></td>
+        <td><label for="workexp04_stillwork">Until now?</label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp04_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp04_univ" placeholder="type to search" style="width:80%;" /></td>
+        <td><input type="number" name="workexp04_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="number" name="workexp04_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="checkbox" name="workexp04_stillwork" value="Yes" /></td>
+    </tr>
+
+
+
+    <!-- work exp: 05 -->
+    <tr>
+        <td><label for="workexp05_title">Title</label></td>
+        <td><label for="workexp05_univ">University</label></td>
+        <td><label for="workexp05_fromyear">Starting from Year</label></td>
+        <td><label for="workexp05_toyear">Ending in Year</label></td>
+        <td><label for="workexp05_stillwork">Until now?</label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp05_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp05_univ" placeholder="type to search" style="width:80%;" /></td>
+        <td><input type="number" name="workexp05_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="number" name="workexp05_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="checkbox" name="workexp05_stillwork" value="Yes" /></td>
+    </tr>
+
+
+
+
+    <!-- work exp: 06 -->
+    <tr>
+        <td><label for="workexp06_title">Title</label></td>
+        <td><label for="workexp06_univ">University</label></td>
+        <td><label for="workexp06_fromyear">Starting from Year</label></td>
+        <td><label for="workexp06_toyear">Ending in Year</label></td>
+        <td><label for="workexp06_stillwork">Until now?</label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp06_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp06_univ" placeholder="type to search" style="width:80%;" /></td>
+        <td><input type="number" name="workexp06_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="number" name="workexp06_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="checkbox" name="workexp06_stillwork" value="Yes" /></td>
+    </tr>
+
+
+
+
+    <!-- work exp: 07 -->
+    <tr>
+        <td><label for="workexp07_title">Title</label></td>
+        <td><label for="workexp07_univ">University</label></td>
+        <td><label for="workexp07_fromyear">Starting from Year</label></td>
+        <td><label for="workexp07_toyear">Ending in Year</label></td>
+        <td><label for="workexp07_stillwork">Until now?</label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp07_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp07_univ" placeholder="type to search" style="width:80%;" /></td>
+        <td><input type="number" name="workexp07_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="number" name="workexp07_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="checkbox" name="workexp07_stillwork" value="Yes" /></td>
+    </tr>
+
+
+
+
+    <!-- work exp: 08 -->
+    <tr>
+            <td><label for="workexp08_title">Title</label></td>
+            <td><label for="workexp08_univ">University</label></td>
+            <td><label for="workexp08_fromyear">Starting from Year</label></td>
+            <td><label for="workexp08_toyear">Ending in Year</label></td>
+            <td><label for="workexp08_stillwork">Until now?</label></td>
+        </tr>
+        <tr>
+            <td><select name="workexp08_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+            <td><input class="auto_alluniv" name="workexp08_univ" placeholder="type to search" style="width:80%;" /></td>
+            <td><input type="number" name="workexp08_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+            <td><input type="number" name="workexp08_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+            <td><input type="checkbox" name="workexp08_stillwork" value="Yes" /></td>
+        </tr>
+
+
+
+    <!-- work exp: 09 -->
+    <tr>
+        <td><label for="workexp09_title">Title</label></td>
+        <td><label for="workexp09_univ">University</label></td>
+        <td><label for="workexp09_fromyear">Starting from Year</label></td>
+        <td><label for="workexp09_toyear">Ending in Year</label></td>
+        <td><label for="workexp09_stillwork">Until now?</label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp09_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp09_univ" placeholder="type to search" style="width:80%;" /></td>
+        <td><input type="number" name="workexp09_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="number" name="workexp09_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="checkbox" name="workexp09_stillwork" value="Yes" /></td>
+    </tr>
+
+
+
+    <!-- work exp: 10 -->
+    <tr>
+        <td><label for="workexp10_title">Title</label></td>
+        <td><label for="workexp10_univ">University</label></td>
+        <td><label for="workexp10_fromyear">Starting from Year</label></td>
+        <td><label for="workexp10_toyear">Ending in Year</label></td>
+        <td><label for="workexp10_stillwork">Until now?</label></td>
+    </tr>
+    <tr>
+        <td><select name="workexp10_title" style="width:60%;" > <option value="please select"  selected>please select</option> <option value="Unknown">Unknown</option><option value="Professor">Professor</option><option value="Associate Professor">Associate Professor</option><option value="Assistant Professor">Assistant Professor</option><option value="Chair Professor">Chair Professor</option><option value="Senior Lecturer">Senior Lecturer</option><option value="Lecturer">Lecturer</option><option value="Adjunt Professor">Adjunt Professor</option><option value="Visiting Professor">Visiting Professor</option> </select></td>
+        <td><input class="auto_alluniv" name="workexp10_univ" placeholder="type to search" style="width:80%;" /></td>
+        <td><input type="number" name="workexp10_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="number" name="workexp10_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+        <td><input type="checkbox" name="workexp10_stillwork" value="Yes" /></td>
+    </tr>
+
+
+    <!-- more than 10> -->
+    <tr>
+        <td>More than 10 records?</td>
+        <td>
+            <label for="morethan10workexp">Yes <input type="radio" value="Yes" name="morethan10workexp" /></label>
+            <label for="morethan10workexp">No <input type="radio" value="No" name="morethan10workexp" checked /></label>
+        </td>
+    </tr>
+
+
+
+
+
+
+
+
+
+
 
 
 
 </table>
+ <hr />
+<h2>Serving Experiences</h2>
+<p>1. Serving experiences mean the positions in government, non-government organizations (NGO), journal publisher, membership etc.</p>
+
+<table name="tab_serve" width="100%">
 
 
-<p>This is a test:</p>
-<script>auto_years("#testfuck")</script>
-<input class="auto_year" name="testfuck" />
+    <!-- serve exp: 01 -->
+    <tr>
+            <td><label for="serveexp01_title">Title</label></td>
+            <td><label for="serveexp01_institution">Institution</label></td>
+            <td><label for="serveexp01_fromyear">Starting from Year</label></td>
+            <td><label for="serveexp01_toyear">Ending in Year</label></td>
+            <td><label for="serveexp01_stillwork">Until now?</label></td>
+        </tr>
+        <tr>
+            <td><select name="serveexp01_title" style="width:60%;" > <option value="please select"  selected>please select</option>  </select></td>
+            <td><input class="auto_alluniv" name="workexp01_institution" placeholder="type to search" style="width:80%;" /></td>
+            <td><input type="number" name="serveexp01_fromyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+            <td><input type="number" name="serveexp01_toyear" min=1920 max=2019 placeholder="1920~2019" style="width:50%;" /></td>
+            <td><input type="checkbox" name="serveexp01_stillwork" value="Yes" /></td>
+        </tr>
 
-<input class="auto_country" name="testfuck2" />
 
 
-  </form></div>  <div style= "height:800px" ></>  </body></html> 
+
+
+
+
+
+
+
+
+
+
+
+
+</table>  <input type="submit">  </form></div>  <div style= "height:800px" ></>  </body></html> 
