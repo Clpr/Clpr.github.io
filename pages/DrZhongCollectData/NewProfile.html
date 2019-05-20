@@ -115,16 +115,57 @@
                     source: availableYears
                 });
             });
+    </script>     <!-- 将内容变成文件下载 -->
+    <script>
+        var funDownload = function (content, filename) {
+            // 创建隐藏的可下载链接
+            var eleLink = document.createElement('a');
+            eleLink.download = filename;
+            eleLink.style.display = 'none';
+            // 字符内容转变成blob地址
+            var blob = new Blob([content]);
+            eleLink.href = URL.createObjectURL(blob);
+            // 触发点击
+            document.body.appendChild(eleLink);
+            eleLink.click();
+            // 然后移除
+            document.body.removeChild(eleLink);
+        };
+    </script>
+
+
+
+    <!-- form生成json字符串 -->
+    <script>
+        function onSubmit(form) {
+            // 序列化为json的pair数组{name:,value:}
+            var jsondata = $(form).serializeArray();
+            // 将json变为纯字符串
+            var data = JSON.stringify(jsondata); 
+
+            // pick up "faculty name + university"组成文件名
+            var FileName = document.getElementById("FacultyFirstName").value + "_" + document.getElementById("FacultyLastName").value + "_" + document.getElementById("FacultyCurrentUniversity").value + ".json" ;
+
+            // 生成json下载文件
+            funDownload(data, FileName)
+
+            // console.log(data);
+            return false; // return a false to prevent submit
+        }
     </script> </head> <!-- page title and notes -->
 <div id="main_frame" style="width:60%;margin-left: 20%;">
     <h1>Create Faculty Profile</h1>
-    <div>This form is built on HTML5 features, please use up-to-date browsers, e.g. newest Chrome, Firefox, Edge or Safiri to fill it.
+    <div>
+        <p>1. This form is built on HTML5 features, please use up-to-date Chrome, Firefox or Edge to fill it.</p>
+        <p>2. When the form submitted, please save the generated .json file which is named as "faculty name + current university".</p>
+        <p>3. We record your submits according to the final signature (case insensitive). So, please type in your name carefully.</p>
+        <p>4. The pre-submit validation(s) and conditional-required functions are in development. Thanks for your patience.</p>
     </div>
     <hr />
 
 
 
-  <form action="#" class="form-horizontal" id="mainform" enctype="application/json" >  <h2>Basic Information</h2>
+  <form action="#" onsubmit="return onSubmit(this)" id="mainform" enctype="application/json" >  <h2>Basic Information</h2>
 <table id="tab_basicinfo1" width="100%" border="0">
     <tr>
         <td>First Name <font color=red>*</font>
@@ -134,9 +175,10 @@
         </td>
     </tr>
     <tr>
-        <td><input type="text" placeholder="e.g. James" name="firstname" required></td>
-        <td><input type="text" placeholder="e.g. Von" name="middlename"></td>
-        <td><input type="text" placeholder="e.g. Bond" name="lastname" required></td>
+        <!-- 添加id用于pick up姓名并组成文件名 -->
+        <td><input id="FacultyFirstName" type="text" placeholder="e.g. James" name="firstname" required></td>
+        <td><input id="FacultyMiddleName" type="text" placeholder="e.g. Von" name="middlename"></td>
+        <td><input id="FacultyLastName" type="text" placeholder="e.g. Bond" name="lastname" required></td>
     </tr>
 
 </table>
@@ -149,7 +191,7 @@
     </tr>
     <tr>
         <td>
-            <input class="auto_USuniv" name="currentuniversity" width="100%" placeholder="type to search" required />
+            <input id="FacultyCurrentUniversity" class="auto_USuniv" name="currentuniversity" width="100%" placeholder="type to search" required />
         </td>
     </tr>
     <tr>
@@ -1386,4 +1428,26 @@
 
 
 
- <hr/><div style= "height:50px" ></div>  <input type="submit" id="downloadasjson" name="btn_submit" value="Submit" style="width:25%;height:50px;" onclick="newJSONdown()" />  </form></div>  <div style= "height:200px" ></div>  </body></html> 
+ 
+
+<!-- 签名验证 -->
+
+<hr/>
+<h3>Please signature and submit <font color=red>*</font> :</h3>
+<p><i>Note:</i> please use your name's pinyin e.g. "Leilei Han"; case insensitive; we mark your submits according to your signatures.</p>
+<input type="text" name="authorsignature" placeholder="e.g. Leilei Han" required style="width:40%;" >
+
+
+ <hr/><div style= "height:50px" ></div>  <input type="submit" id="downloadasjson" value="Submit" style="width:25%;height:50px;" />  </form></div>  <div id="references" style="background-color: lightgoldenrodyellow;" >
+
+<h2>References</h2>
+
+<p>This page uses the ideas & source codes from:</p>
+<ul>
+    <li> https://stackoverflow.com/questions/11338774/serialize-form-data-to-json </li>
+    <li> https://gaohaoyang.github.io/2016/11/22/js-create-file-and-download/  </li>
+    <li> https://www.zhangxinxu.com/study/201707/js-text-download-as-html-file.html </li>
+</ul>
+
+
+</div>  </body></html> 
