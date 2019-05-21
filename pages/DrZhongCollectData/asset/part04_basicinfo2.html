@@ -1,0 +1,47 @@
+<br/>
+<table id="tab_basicinfo2" width="100%" border="0">
+    <tr>
+        <td>
+            Sex (biological) <font color=red>*</font>
+        </td>
+        <td>
+            Race <font color=red>*</font>
+        </td>
+    </tr>
+    <!-- --------------------------- -->
+    <tr>
+        <td>
+            <input type="radio" checked="checked" name="sex" value="male" /> Male
+            <input type="radio"                   name="sex" value="female" /> Female
+            <input type="radio"                   name="sex" value="female" /> Unknown
+        </td>
+        <td>
+            <select name="race" required>
+                    <option value="" disabled selected># please select one #</option>
+                    <option value="Unknown">Unknown</option>    
+                    <option value="White">White</option>
+                    <option value="Black or African American">Black or African American</option>
+                    <option value="Asian">Asian</option>
+                    <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
+                    <option value="Hispanic or Latino">Hispanic or Latino</option>
+                    <option value="Native Hawaiian or Other Pacific Islander">Native Hawaiian or Other Pacific Islander</option>
+                    <option value="Mixed or Others">Mixed or Others</option>                    
+            </select>
+        </td>
+    </tr>
+    <!-- -------------------------------------------- -->
+    <tr>
+        <td>Year of Birth</td>
+        <td>Birth Country <font color=red>*</font></td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" name="yearofbirth" placeholder="1920 ~ 2000" min=1920 max=2000 style="width:50%;" />
+        </td>
+        <td>
+            <input class="auto_country" name="birthcountry" placeholder="type to search" required />                                       
+        </td>
+    </tr>
+
+</table>
+<p><i>Notes</i>: if there is no birth country in CV, please use the country of his/her undergraduate university as birth country</p>
