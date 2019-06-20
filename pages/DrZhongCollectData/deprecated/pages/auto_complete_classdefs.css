@@ -1,0 +1,30 @@
+/* avoid transparent dropdown list */
+
+.ui-autocomplete {
+    font-size: 9pt;
+    background-color: white;
+}
+
+.auto_year {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.auto_country {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.auto_USuniv {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.auto_field {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.auto_alluniv {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.auto_proftitle {
+    font-family: 'Times New Roman', Times, serif;
+}
