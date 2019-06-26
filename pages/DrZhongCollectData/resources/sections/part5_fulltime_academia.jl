@@ -4,11 +4,13 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("V. FULL-TIME: ACADEMIA"))
+add!(tmpdiv, tag_h2("V. FULL-TIME: ACADEMIA 全职学术类经历"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "全职教学类工作。",
+    "全职学术类经历指该教师全职在某大学或其他机构担任教授等常规职位的工作经历。",
+    "请按照时间逆序填写，第一条记录（Record 1）应当为该教师在 Current Institution 的正在进行的工作。",
+    "若该教师的此类经历多于10个，请在仍按时间逆序的前提下，优先填写不是 visiting（访问）的经历，以及优先填写高级职称的经历（如：教授经历优先于副教授经历）",
 ]))
 
 

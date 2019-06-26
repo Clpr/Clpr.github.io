@@ -52,7 +52,30 @@ Fields = [
 # -------------------------- MAJOR (DEPARTMENT)
 Majors = [
     "Unknown",
-    "D of Economics", "D of Finance", "D of Applied Econ", "D of Agri Econ", "D of Stats", "Other Depart(s)",
+    "Economics (H)", "Finance (H)", "Applied Econ (H)", "Agri Econ (H)",
+    "Statistics (Q)", "Mathematics (Q)", "Physics (Q)", "Chemistry (Q)",
+    "Biostatistics/Public Health (R)", "Management (H)",
+    "Political Science (J)", "Law (K)",
+    "----------- if not one of the above -----------",
+    "General Works (A)",
+    "Philosophy/Psychology/Religion (B)",
+    "Auxiliary Sciences of History (C)",
+    "World History and History of XXX (D)",
+    "History of the Americas (E,F)",
+    "Geography/Anthropology/Recreation (G)",
+    "Other Social Sciences (H)",
+    "Education (L)",
+    "Music and Books on Music (M)",
+    "Fine Arts (N)",
+    "Language/Literature (P)",
+    "Other Science (Q)",
+    "Medicine (R)",
+    "Agriculture (S)",
+    "Techonology (T)",
+    "Military Science (U)",
+    "Naval Science (V)",
+    "Bibliography/Library/Information Resources (Z)",
+    "Other Subject",
 ]
 
 
@@ -163,6 +186,7 @@ EditorialTitles = [
     "Other",
 ]
 
+# ------------------------- COURSE NAMES
 
 
 

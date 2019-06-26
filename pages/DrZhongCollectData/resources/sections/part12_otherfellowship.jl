@@ -4,13 +4,14 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("XII: OTHER FUNDING/SUPPORT/FELLOWSHIP/AWARD"))
+add!(tmpdiv, tag_h2("XII: OTHER FUNDING/SUPPORT/FELLOWSHIP/AWARD 其他研究资金来源"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "其他学术资金来源。",
+    "其他研究资金来源指该教师除上述各经历外从其他地方（如基金会、官方科学基金等）获得的资金支持",
+    "这些资金支持通常以 fellowship, award, project, funding 等字样/形式出现。",
     "NSF是国家科学基金，指某国<b>官方</b>设立的科学资助机构。此处代指所有具有政府背景的科学资助基金。",
-    "Academy funding指各国科学院/社科院等提供的科学资助基金。",
+    "Academy funding 指各国科学院/社科院等提供的科学资助基金。请注意，院士荣誉与研究资助无关",
 ]))
 
 

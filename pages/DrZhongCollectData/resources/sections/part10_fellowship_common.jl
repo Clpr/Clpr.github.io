@@ -4,11 +4,13 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("XI: SOCIETY & COMMON FELLOWSHIP"))
+add!(tmpdiv, tag_h2("XI: SOCIETY & COMMON FELLOWSHIP 常见学术社团与非官方院士荣誉"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "常见的学术社团。"
+    "NBER是美国国家经济研究局（National Bureau of Economic Research），是私人机构。",
+    "Econometric Society (ES) 是国际计量经济学会。",
+    "在 current/last position 问题中我们区分了NBER和ES特有的职位，请注意。",
 ]))
 
 

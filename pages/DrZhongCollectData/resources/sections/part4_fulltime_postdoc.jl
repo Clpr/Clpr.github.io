@@ -4,11 +4,13 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("IV. FULL-TIME: POST-DOCTORAL RESEARCHER"))
+add!(tmpdiv, tag_h2("IV. FULL-TIME: POST-DOCTORAL RESEARCHER 全职博士后"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "博士后（post-doctoral）。",
+    "请按照时间逆序填写。",
+    "Since 指该段经历开始的年份，Until 指经历结束的年份。",
+    "若该教师目前仍未结束某段经历，请在 Still 字段选择 Yes，且 Until 字段填写 2019",
 ]))
 
 

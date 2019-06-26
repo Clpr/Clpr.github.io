@@ -33,20 +33,20 @@ EducationRecord( QuestionNamePrefix::String, InstitutionLabel::String ; required
     local tmpmat = predefvars.empty_tablematrix(1,6)  # 1 * 6 Vector{Any} prepared
     tmpstr = required ? HtmlConstructor.CONS.RedAsterisk : ""  # used to mark the red star
     # -----
-    # a.1) [1,1:2] PhD 1 institution (required)
+    # a.1) [1,1:2] institution (required)
         tmp_QuestionName = QuestionNamePrefix * "_institution"
         tmpmat[1,1] = tag_label( InstitutionLabel  * tmpstr , tmp_QuestionName )
         tmpmat[1,2] = tag_input( name = tmp_QuestionName, class = "auto_alluniv", type = "text", placeholder = "type to search", required = required )
-    # a.2) [1,3:4] PhD 1 major (required)
+    # a.2) [1,3:4] major (required)
         tmp_QuestionName = QuestionNamePrefix * "_major"
         tmpmat[1,3] = tag_label( "Major"  * tmpstr , tmp_QuestionName )
             tmp_select = [ tag_option(x, value = x) for x in predefvars.Majors ]
             insert!(tmp_select, 1, tag_option("# please select #", value = "#", selected = required, disabled = required )) # 加一个空选项(如果问题必填)
         tmpmat[1,4] = quicktag_select( tmp_select, name = tmp_QuestionName, required = required )
-    # a.3) [1,5:6]  PhD 1 graduate year (required)
+    # a.3) [1,5:6] graduate year (required)
         tmp_QuestionName = QuestionNamePrefix * "_gradyear"
         tmpmat[1,5] = tag_label( "Graduate year"  * tmpstr , tmp_QuestionName )
-        tmpmat[1,6] = templates.InputYear( 1920, 2000, name = tmp_QuestionName, width = width, required = required )
+        tmpmat[1,6] = templates.InputYear( 1920, 2020, name = tmp_QuestionName, width = width, required = required )
 
     return tmpmat::Matrix{Any}
 end
@@ -66,11 +66,11 @@ PostDocRecord( Idx::Int ; required::Bool = false ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[1,3] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[1,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[1,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[1,5] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[1,6] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[1,6] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[1,7] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -109,11 +109,11 @@ AcademiaFullTimeRecord( Idx::Int ; required::Bool = true ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[3,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[3,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -157,11 +157,11 @@ IndustrialFullTimeRecord( Idx::Int ; required::Bool = true ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[3,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[3,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -206,11 +206,11 @@ GovernmentFullTimeRecord( Idx::Int ; required::Bool = true ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[3,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[3,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -256,11 +256,11 @@ NGOFullTimeRecord( Idx::Int ; required::Bool = true ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[3,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[3,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -289,7 +289,7 @@ AcademicianRecord( Idx::Int ; required::Bool = false ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[1,3] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[1,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[1,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
 
     return tmpmat::Matrix{Any}
 end # AcademicianRecord
@@ -320,7 +320,7 @@ CommonSocietyAndFellowship( SocietyName::String ; required::Bool = false ) = beg
     # 3) from which year?
         tmp_QuestionName = tmpprefix * "_sinceyear"
         tmpmat[4,1] = tag_label( "From which year did he/she begin to serve? " * tmpstr , tmp_QuestionName )
-        tmpmat[4,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[4,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     return tmpmat::Matrix{Any}
 end # CommonSocietyAndFellowship
 
@@ -350,7 +350,7 @@ OtherFunding( Idx::Int ; required::Bool = false ) = begin
     # 3) grant year
         tmp_QuestionName = tmpprefix * "_grantyear"
         tmpmat[2,5] = tag_label( "Grant year " * tmpstr, tmp_QuestionName )
-        tmpmat[2,6] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[2,6] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
 
     return tmpmat::Matrix{Any}
 end # OtherFunding
@@ -386,11 +386,11 @@ EditorialServe( Idx::Int ; required::Bool = false ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[3,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[3,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -431,11 +431,11 @@ GovernmentPartTimeRecord( Idx::Int ; required::Bool = true ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[3,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[3,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -475,11 +475,11 @@ NGOPartTimeRecord( Idx::Int ; required::Bool = true ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[3,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[3,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -520,11 +520,11 @@ IndustrialPartTimeRecord( Idx::Int ; required::Bool = true ) = begin
     # b. since year
         tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
         tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
-        tmpmat[3,2] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. until year
         tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
         tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
-        tmpmat[3,4] = InputYear( 1920, 2000, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
     # b. still ?
         tmp_QuestionName = tmpprefix * string(Idx) * "_still"
         tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
@@ -536,7 +536,21 @@ end # IndustrialPartTimeRecord
 
 
 
-
+# -------------------------- COURSE RECORD
+# CourseRecord( CourseName::String ; required::Bool = false ) = begin
+#     local tmpmat = predefvars.empty_tablematrix(1,6)
+#     local tmpstr = required ? HtmlConstructor.CONS.RedAsterisk : ""  # used to mark the red star
+#     local tmpwidth = "70%"  # for year input
+#     local tmpprefix = "teach_" * lowercase(CourseName) * "_"
+#     # --------------- now, let`s fill it
+#     # 0) Course name
+#         tmpmat[1,1] = tag_b( CourseName * string(Idx) * tmpstr )
+#     # 1) how many times did he/she taught?
+#         tmpmat[1,2] = tag_input( name = tmpprefix * "times", type = "number", min = "0", max = "" )
+#
+#
+#     return tmpmat::Matrix
+# end # CourseRecord
 
 
 

@@ -4,11 +4,13 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("XIII. SERVE: EDITORIAL"))
+add!(tmpdiv, tag_h2("XIII. SERVE: EDITORIAL 兼职学术期刊类经历"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "期刊编辑类兼职。",
+    "兼职学术期刊类经历指该教师为某学术期刊（如 American Economic Review）兼职担任编辑、编委会成员等的经历。",
+    "本节不记录审稿人（referee or reviewer）类经历。",
+    "Editor on board 指编委会成员。",
 ]))
 
 

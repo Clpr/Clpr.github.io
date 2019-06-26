@@ -4,11 +4,12 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("XV. SERVE: NGO RESEARCH"))
+add!(tmpdiv, tag_h2("XV. SERVE: NGO RESEARCH 兼职非政府组织经历"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "兼职非政府组织工作。",
+    "兼职非政府组织经历指该教师全职工作外，兼职于非政府组织（如UN、美联储Fed等）的经历。",
+    "请按照时间逆序填写，其余要求同前。在时间逆序前提下，请优先填写高级职位。",
 ]))
 
 

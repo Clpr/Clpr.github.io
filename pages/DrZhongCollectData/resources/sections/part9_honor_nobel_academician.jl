@@ -4,11 +4,11 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("IX. HONOR: NOBEL LAUREATE"))
+add!(tmpdiv, tag_h2("IX. HONOR: NOBEL LAUREATE 诺贝尔奖"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "诺贝尔奖得奖情况。",
+    "该节调查该教师是否为诺贝尔经济学奖获得者。",
 ]))
 
 # 3. then, begin to fill the table
@@ -22,7 +22,7 @@ tmpmat = predefvars.empty_tablematrix(2,2)
     # b. which year?
         tmp_QuestionName = "nobel_grantyear"
         tmpmat[2,1] = tag_label( "If true, which year was he/she granted?", tmp_QuestionName )
-        tmpmat[2,2] = templates.InputYear( 1920, 2000, name = tmp_QuestionName, width = "70%", required = false )
+        tmpmat[2,2] = templates.InputYear( 1920, 2019, name = tmp_QuestionName, width = "70%", required = false )
 
 # then, make the table tag
 tmptab = quicktag_table(tmpmat, id = "tab_nobel", width = "100%", border = "0", cellspacing = "120%",
@@ -50,11 +50,13 @@ add!(tmpdiv, tmptab)  # form << table
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("X. HONOR: ACADEMICIAN"))
+add!(tmpdiv, tag_h2("X. HONOR: ACADEMICIAN 官方院士荣誉"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "院士情况。",
+    "官方院士指各国官方科学院（如中科院、社科院、美国科学院等）颁发的院士头衔荣誉，不同于学术社团的院士（fellow）。",
+    "若该教师同时为同一国家多个科学院的院士，则按照两个国家处理，请分别填写两条记录。另外，请优先填写大国的院士荣誉。",
+    "英国及其他拥有类似于“<b>皇家</b>XX学会”的，按照官方院士处理。",
 ]))
 
 

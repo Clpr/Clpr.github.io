@@ -4,7 +4,7 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("I. BASIC INFORMATION"))
+add!(tmpdiv, tag_h2("I. BASIC INFORMATION 基本信息"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[

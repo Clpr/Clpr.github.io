@@ -4,11 +4,17 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("III. EDUCATION"))
+add!(tmpdiv, tag_h2("III. EDUCATION 教育背景"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
+    "对于不熟悉的学校，请配合实用链接中的世界大学名录查找并填写。",
+    "对于非拉丁字母命名的学校（如中国、日本等的学校），请使用CV中记录的学校英文名称填写。",
     "若该教师拥有多个同水平学位（如双博士），请优先填写经济、金融类有关学位。",
+    "Major字段，分割线上方为优先选项，若该教师的专业不属于优先选项，则请从下方的分类中选择一个",
+	"Major字段，分割线下方的选项基于<a href = \"http://www.loc.gov/catdir/cpso/lcco/\">美国国会图书馆学科分类（点击查看）</a>",
+	"对于不确定的学科，请查询美国国会图书馆学科分类然后填写",
+	"当然，我们预期非优先选项是少数 :)",
 ]))
 
 

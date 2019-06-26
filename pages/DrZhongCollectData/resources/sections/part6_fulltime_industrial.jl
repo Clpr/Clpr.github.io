@@ -4,11 +4,12 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("VI. FULL-TIME: INDUSTRIAL"))
+add!(tmpdiv, tag_h2("VI. FULL-TIME: INDUSTRIAL 全职业界工作"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "全职企业工作。",
+    "全职业界工作指该教师全职在工业/企业界的公司、银行等机构任职的经历。",
+    "请按时间逆序填写，其余填写要求与之前相同。",
 ]))
 
 

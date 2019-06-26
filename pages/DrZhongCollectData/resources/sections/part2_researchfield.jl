@@ -4,11 +4,13 @@
 tmpdiv = quicktag_paired("div")
 
 # 1. header <h2>
-add!(tmpdiv, tag_h2("II. RESEARCH FIELDS"))
+add!(tmpdiv, tag_h2("II. RESEARCH FIELDS 研究领域"))
 add!(tmpdiv, tag_h3("NOTE:"))
 # 2. notes <ol>
 add!(tmpdiv, quicktag_ol(String[
-    "研究领域通常可在该教师的院系主页或索引页找到。若没有，请在Google Scholar查找该教师。",
+    "研究领域通常可在该教师的院系主页或索引页找到。若没有，请在Google Scholar查找该教师的个人简历。",
+    "若该教师披露的研究领域与列表选项不完全匹配，请选择最相近的选项，或联系指导教师。",
+    "推荐按照披露的顺序依次填写。若领域多于3个，则对于研究领域1（必填项）请填写最能代表该教师研究的领域。"
 ]))
 
 
