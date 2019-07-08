@@ -22,15 +22,18 @@ tmpmat = predefvars.empty_tablematrix(3,6)
     # a. [1,1:2] first name
         tmp_QuestionName = "first_name"
         tmpmat[1,1] = tag_label( "First name" * HtmlConstructor.CONS.RedAsterisk , tmp_QuestionName )
-        tmpmat[1,2] = tag_input( id = "FacultyFirstName", name = tmp_QuestionName, type = "text", placeholder = "e.g. James", required = true )
+        tmpmat[1,2] = tag_input( id = "FacultyFirstName", name = tmp_QuestionName, type = "text", placeholder = "e.g. James", required = true,
+                        style = "text-transform:uppercase" )  # all uppercase
     # b. [1,3:4] middle name
         tmp_QuestionName = "middle_name"
         tmpmat[1,3] = tag_label( "Middle name", tmp_QuestionName )
-        tmpmat[1,4] = tag_input( name = tmp_QuestionName, type = "text", placeholder = "e.g. Von" )
+        tmpmat[1,4] = tag_input( name = tmp_QuestionName, type = "text", placeholder = "e.g. Von",
+                        style = "text-transform:uppercase" )  # all uppercase
     # c. [1,5:6] last name
         tmp_QuestionName = "last_name"
         tmpmat[1,5] = tag_label( "Last name"  * HtmlConstructor.CONS.RedAsterisk , tmp_QuestionName )
-        tmpmat[1,6] = tag_input( id = "FacultyLastName", name = tmp_QuestionName, type = "text", placeholder = "e.g. Bond" )
+        tmpmat[1,6] = tag_input( id = "FacultyLastName", name = tmp_QuestionName, type = "text", placeholder = "e.g. Bond",
+                        style = "text-transform:uppercase" )  # all uppercase
     # d. [2,1:2] current institution
         tmp_QuestionName = "current_institution"
         tmpmat[2,1] = tag_label( "Current institution"  * HtmlConstructor.CONS.RedAsterisk , tmp_QuestionName )

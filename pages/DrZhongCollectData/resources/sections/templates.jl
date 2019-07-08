@@ -313,14 +313,14 @@ CommonSocietyAndFellowship( SocietyName::String ; required::Bool = false ) = beg
         tmpmat[2,2] = quicktag_select( tmp_select, name = tmp_QuestionName, required = required )
     # 2) position now?
         tmp_QuestionName = tmpprefix * "_nowposition"
-        tmpmat[3,1] = tag_label("If true, what current/last position?" * tmpstr, tmp_QuestionName )
+        tmpmat[3,1] = tag_label("If true, what current/last position?", tmp_QuestionName )
             tmp_select = [ tag_option(x, value = x) for x in predefvars.SocietyPositions ]
-            insert!(tmp_select, 1, tag_option("# please select #", value = "#", selected = required, disabled = required )) # 加一个空选项(如果问题必填)
-        tmpmat[3,2] = quicktag_select( tmp_select, name = tmp_QuestionName, required = required )
+            insert!(tmp_select, 1, tag_option("# please select #", value = "#", selected = false, disabled = false )) # 加一个空选项(如果问题必填)
+        tmpmat[3,2] = quicktag_select( tmp_select, name = tmp_QuestionName, required = false )
     # 3) from which year?
         tmp_QuestionName = tmpprefix * "_sinceyear"
-        tmpmat[4,1] = tag_label( "From which year did he/she begin to serve? " * tmpstr , tmp_QuestionName )
-        tmpmat[4,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
+        tmpmat[4,1] = tag_label( "From which year did he/she begin to serve? " , tmp_QuestionName )
+        tmpmat[4,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = false )
     return tmpmat::Matrix{Any}
 end # CommonSocietyAndFellowship
 
@@ -537,20 +537,32 @@ end # IndustrialPartTimeRecord
 
 
 # -------------------------- COURSE RECORD
-# CourseRecord( CourseName::String ; required::Bool = false ) = begin
-#     local tmpmat = predefvars.empty_tablematrix(1,6)
-#     local tmpstr = required ? HtmlConstructor.CONS.RedAsterisk : ""  # used to mark the red star
-#     local tmpwidth = "70%"  # for year input
-#     local tmpprefix = "teach_" * lowercase(CourseName) * "_"
-#     # --------------- now, let`s fill it
-#     # 0) Course name
-#         tmpmat[1,1] = tag_b( CourseName * string(Idx) * tmpstr )
-#     # 1) how many times did he/she taught?
-#         tmpmat[1,2] = tag_input( name = tmpprefix * "times", type = "number", min = "0", max = "" )
-#
-#
-#     return tmpmat::Matrix
-# end # CourseRecord
+CourseRecord( CourseNameList::Vector{String} ; required::Bool = false ) = begin
+    local tmpmat = predefvars.empty_tablematrix(1+length(CourseNameList), 4) # title + body
+    local tmpstr = required ? HtmlConstructor.CONS.RedAsterisk : ""  # used to mark the red star
+    # local tmpwidth = "70%"  # for year input
+    local tmpprefix = "teach_"
+    # level lists
+    local levs = ["Undergrad","Master","PhD"]
+    # --------------- now, let`s fill it
+    # 0) Levels (leave 1,1 blank)
+    for y in 1:length(levs)
+        tmpmat[1,1+y] = tag_b( levs[y] )
+    end # for y
+
+    # 1) Courses, using check boxes, starting from the second row
+    for x in 1:length(CourseNameList)
+        tmpmat[x+1,1] = BlankHtmlTag(CourseNameList[x])
+        for y in 1:length(levs)
+            tmpmat[x+1,y+1] = tag_input(
+                name = tmpprefix * CourseNameList[x] * levs[y] * "_flag",
+                value = CourseNameList[x], type = "checkbox" )
+        end # for y
+    end # for x
+
+
+    return tmpmat::Matrix
+end # CourseRecord
 
 
 

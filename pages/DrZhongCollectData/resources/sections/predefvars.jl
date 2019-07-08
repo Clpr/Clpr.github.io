@@ -26,26 +26,40 @@ Sex = [ "Male", "Female", "Unknown" ]
 Races = [
     "Unknown",
     "White", "Black or African American",
-    "Asian", "American Indian or Alaska Native",
-    "Hispanic or Latino", "Native Hawaiian or Other Pacific Islander",
-    "Half-blood", "Other",
+    "Asian",
+    "Brown and others",
+    # "American Indian or Alaska Native",
+    # "Hispanic or Latino", "Native Hawaiian or Other Pacific Islander",
+    # "Half-blood", "Other",
 ]
 
 # ----------------- RESEARCH FIELDS
 Fields = [
     "Unknown (#)",
     "Other (Z)",
-    "Agricultural economics (Q)", "Business economics (M)", "Computational economics (C)", "Decision theory (D)",
-    "Demographic economics (J)", "Development economics (O)", "Econometrics (C)", "Economic geography (Q)",
-    "Economic history (N)", "Economic model (C)", "Economic planning (P)", "Economic policy (E)",
-    "Economic sociology (Y)", "Economic statistics (C)", "Economic theory (A)", "Education economics (I)",
-    "Environmental economics (Q)", "Experimental economics (Z)", "Financial economics (G)", "Game theory (D)",
-    "Health economics (I)", "Industrial engineering (L)", "Industrial organization (L)", "Input-output model (E)",
-    "International economics (F)", "Knowledge economics (O)", "Labor economics (J)", "Law and economics (K)",
-    "Macroeconomics (E)", "Mathematical economics (C)", "Mathematical finance (G)", "Mechanism design (D)",
-    "Microeconomics (D)", "Monetary economics (E)", "Natural resource (Q)", "Political economy (A)",
-    "Public choice (H)", "Public economics (H)", "Regional economics (R)", "Service economics (R)",
-    "Socioeconomics (Y)", "Transportation (R)", "Urban economics (R)", "Welfare economics (I)",
+    "Agricultural economics (Q)", 
+    "Business economics (M)", 
+    "Computational economics (C6)", "Decision theory (C4)",
+    "Demographic economics (J1)", "Development economics (O)", 
+    "Econometrics (C1-C5)", "Economic geography (Z)",
+    "Economic history (N)", "Economic model (C)", 
+    "Economic planning (P)", "Economic policy (E)",
+    "Economic sociology (A)", "Economic statistics (C)", 
+    "Economic theory (A)", "Education economics (I)",
+    "Environmental economics (Q)", "Experimental economics (Z)", 
+    "Financial economics (G)", "Game theory (D)",
+    "Health economics (I)", "Industrial engineering (L)", 
+    "Industrial organization (L)", "Input-output model (E)",
+    "International economics (F)", "Knowledge economics (O)", 
+    "Labor economics (J2-J8)", "Law and economics (K)",
+    "Macroeconomics (E)", "Mathematical economics (C)", 
+    "Mathematical finance (G)", "Mechanism design (D)",
+    "Microeconomics (D)", "Monetary economics (E)", 
+    "Natural resource (Q)", "Political economy (A)",
+    "Public choice (H)", "Public economics (H)", 
+    "Regional economics (R)", "Service economics (R)",
+    "Socioeconomics (Y)", "Transportation (R)", 
+    "Urban economics (R)", "Welfare economics (I)",
 ]
 
 
@@ -81,7 +95,9 @@ Majors = [
 
 # ----------------------- ACADEMIC TITLES
 AcademicTitles = [
-    "Assistant Professor", "Associate Professor", "Professor",
+    "Assistant Professor", "Associate Professor",
+    "Department Chair", "Chair Professor",
+    "Professor",
     "Assistant Teaching Professor", "Assistant Research Professor",
     "Visiting Assistant Professor", "Professor of Practice", "Adjunct Professor",
 ]
@@ -99,7 +115,7 @@ IndustrialTitles = [
     "Unknown",
     "Founder", "CEO", "Chairman", "Director on board", "Department director",
     "Economist/Analyst", "Advisor/Consultant", "Administration",
-    "Other"
+    "Other",
 ]
 
 # ---------------------- INDUSTRIAL INSTITUTION TYPE
@@ -116,7 +132,8 @@ GovernmentTitles = [
     "Unknown",
     "Senior Research Fellow", "Junior Research Fellow", "Associate Research Fellow", "Researcher",
     "President", "Vice President", "Director", "Advisor/Consultant",
-    "Other research titles","Other administrative titles",
+    # "Other research titles","Other administrative titles",
+    "Other",
 ]
 
 
@@ -137,7 +154,8 @@ NGOTitles = [
     "Unknown",
     "Senior Research Fellow", "Junior Research Fellow", "Associate Research Fellow", "Researcher",
     "President", "Vice President", "Director", "Advisor/Consultant",
-    "Other research titles","Other administrative titles",
+    # "Other research titles","Other administrative titles",
+    "Other",
 ]
 
 # ------------------------ NGO TYPES
@@ -155,7 +173,8 @@ SocietyPositions = [
     "Research Assistant (NBER)", "Research Associate (NBER)", "Faculty Research Fellow (NBER)",
     "Fellow (ES)", "Membership (ES)",
     "President", "Vice President", "Executive Vice-president", "Department Director",
-    "Other research titles","Other administrative titles",
+    "Other",
+    # "Other research titles","Other administrative titles",
 ]
 
 
@@ -187,7 +206,15 @@ EditorialTitles = [
 ]
 
 # ------------------------- COURSE NAMES
-
+Courses = [
+    "Microeconomics","Macroeconomics","Econometrics",
+    "Labor Economics","International Economics","Urban Economics ",
+    "Economic Theory","Environmental and Resource Economics","Finance",
+    "Management","Industrial Organization","Trade ","Mathematical Economics ",
+    "Game Theory","Public Policy and Tax","Development Economics ",
+    "Advanced Courses in the Field",
+    "Not mentioned",
+]
 
 
 
