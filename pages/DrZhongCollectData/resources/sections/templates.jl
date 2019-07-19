@@ -57,7 +57,7 @@ PostDocRecord( Idx::Int ; required::Bool = false ) = begin
     local tmpmat = predefvars.empty_tablematrix(1,8)
     local tmpstr = required ? HtmlConstructor.CONS.RedAsterisk : ""  # used to mark the red star
     local tmpwidth = "70%"
-    local tmpprefix = "fulltime_academia_"
+    local tmpprefix = "fulltime_postdoc_"
     # --------------- now, let`s fill it
     # a. institution
         tmp_QuestionName = tmpprefix * string(Idx) * "_institution"
@@ -538,12 +538,12 @@ end # IndustrialPartTimeRecord
 
 # -------------------------- COURSE RECORD
 CourseRecord( CourseNameList::Vector{String} ; required::Bool = false ) = begin
-    local tmpmat = predefvars.empty_tablematrix(1+length(CourseNameList), 4) # title + body
+    # level lists
+    local levs = ["Undergrad","Graduate"]
+    local tmpmat = predefvars.empty_tablematrix(1+length(CourseNameList), 1 + length(levs)  ) # title + body
     local tmpstr = required ? HtmlConstructor.CONS.RedAsterisk : ""  # used to mark the red star
     # local tmpwidth = "70%"  # for year input
     local tmpprefix = "teach_"
-    # level lists
-    local levs = ["Undergrad","Master","PhD"]
     # --------------- now, let`s fill it
     # 0) Levels (leave 1,1 blank)
     for y in 1:length(levs)
@@ -552,11 +552,12 @@ CourseRecord( CourseNameList::Vector{String} ; required::Bool = false ) = begin
 
     # 1) Courses, using check boxes, starting from the second row
     for x in 1:length(CourseNameList)
-        tmpmat[x+1,1] = BlankHtmlTag(CourseNameList[x])
+        local NoSpaceCourseName = replace(CourseNameList[x], " " => "" )
+        tmpmat[x+1,1] = BlankHtmlTag(CourseNameList[x])  # keep spaces, only for display
         for y in 1:length(levs)
             tmpmat[x+1,y+1] = tag_input(
-                name = tmpprefix * CourseNameList[x] * levs[y] * "_flag",
-                value = CourseNameList[x], type = "checkbox" )
+                name = tmpprefix * NoSpaceCourseName * levs[y] * "_flag",
+                value = NoSpaceCourseName, type = "checkbox" )
         end # for y
     end # for x
 

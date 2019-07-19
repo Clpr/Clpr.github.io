@@ -24,9 +24,10 @@ Sex = [ "Male", "Female", "Unknown" ]
 
 # ----------------- RACE CANDIDATES
 Races = [
-    "Unknown",
+    # "Unknown",
     "White", "Black or African American",
     "Asian",
+    "Not white but TBD",
     "Brown and others",
     # "American Indian or Alaska Native",
     # "Hispanic or Latino", "Native Hawaiian or Other Pacific Islander",
