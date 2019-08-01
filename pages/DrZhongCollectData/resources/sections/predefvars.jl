@@ -38,28 +38,28 @@ Races = [
 Fields = [
     "Unknown (#)",
     "Other (Z)",
-    "Agricultural economics (Q)", 
-    "Business economics (M)", 
+    "Agricultural economics (Q)",
+    "Business economics (M)",
     "Computational economics (C6)", "Decision theory (C4)",
-    "Demographic economics (J1)", "Development economics (O)", 
+    "Demographic economics (J1)", "Development economics (O)",
     "Econometrics (C1-C5)", "Economic geography (Z)",
-    "Economic history (N)", "Economic model (C)", 
+    "Economic history (N)", "Economic model (C)",
     "Economic planning (P)", "Economic policy (E)",
-    "Economic sociology (A)", "Economic statistics (C)", 
+    "Economic sociology (A)", "Economic statistics (C)",
     "Economic theory (A)", "Education economics (I)",
-    "Environmental economics (Q)", "Experimental economics (Z)", 
+    "Environmental economics (Q)", "Experimental economics (Z)",
     "Financial economics (G)", "Game theory (D)",
-    "Health economics (I)", "Industrial engineering (L)", 
+    "Health economics (I)", "Industrial engineering (L)",
     "Industrial organization (L)", "Input-output model (E)",
-    "International economics (F)", "Knowledge economics (O)", 
+    "International economics (F)", "Knowledge economics (O)",
     "Labor economics (J2-J8)", "Law and economics (K)",
-    "Macroeconomics (E)", "Mathematical economics (C)", 
+    "Macroeconomics (E)", "Mathematical economics (C)",
     "Mathematical finance (G)", "Mechanism design (D)",
-    "Microeconomics (D)", "Monetary economics (E)", 
+    "Microeconomics (D)", "Monetary economics (E)",
     "Natural resource (Q)", "Political economy (A)",
-    "Public choice (H)", "Public economics (H)", 
+    "Public choice (H)", "Public economics (H)",
     "Regional economics (R)", "Service economics (R)",
-    "Socioeconomics (Y)", "Transportation (R)", 
+    "Socioeconomics (Y)", "Transportation (R)",
     "Urban economics (R)", "Welfare economics (I)",
 ]
 
@@ -100,7 +100,7 @@ AcademicTitles = [
     "Department Chair", "Chair Professor",
     "Professor",
     "Assistant Teaching Professor", "Assistant Research Professor",
-    "Visiting Assistant Professor", "Professor of Practice", "Adjunct Professor",
+    "Visiting Assistant Professor", "Professor of Practice", "Adjunct Professor", "Research Associate",
 ]
 
 # ----------------------- ACADEMIC DEPARTMENT
@@ -190,10 +190,8 @@ FundingTypes = [
 # ------------------------ FUNDING GRANT BY
 FundingGrantBy = [
     "Unknown",
-    "NSF of US", "NSFC of China", "NSF of UK", "NSF of European countries", "NSF of other countries",
-    "Academy Funding of US", "Academy Funding of China",
-    "Academy Funding of UK", "Academy Funding of European countries", "Academy Funding of other countries",
-    "General fellowship", "General award", "Private funding",
+    "NSF of a country",
+    # "General fellowship", "General award", "Private funding",
     "Other",
 ]
 

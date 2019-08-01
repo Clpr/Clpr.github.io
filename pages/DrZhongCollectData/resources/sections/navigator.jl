@@ -20,6 +20,7 @@ add!(p_navigator,quicktag_ol([
     tag_p(	"XV. 兼职非政府组织经历",	onclick="document.querySelector('#tab_serve_ngo').scrollIntoView();"),
     tag_p(	"XVI. 兼职业界工作",	onclick="document.querySelector('#tab_serve_industrial').scrollIntoView();"),
     tag_p(	"XVII: 教课信息",	onclick="document.querySelector('#tab_teaching_courses').scrollIntoView();"),
+    tag_p(	"XVIII: 学术休假",	onclick="document.querySelector('#tab_sabbatical').scrollIntoView();"),
 ]))
 
 

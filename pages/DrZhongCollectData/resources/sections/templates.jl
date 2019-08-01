@@ -570,8 +570,44 @@ end # CourseRecord
 
 
 
-
-
+# -------------------------- SABBATICAL RECORD
+SabbaticalRecord( Idx::Int ; required::Bool = true ) = begin
+    local tmpmat = predefvars.empty_tablematrix(3,6)
+    local tmpstr = required ? HtmlConstructor.CONS.RedAsterisk : ""  # used to mark the red star
+    local tmpwidth = "70%"  # for year input
+    local tmpprefix = "sabbatical_"
+    # --------------- now, let`s fill it
+    # 0) mark
+        tmpmat[1,1] = tag_b( "Record " * string(Idx) * tmpstr , style = "font-size:13pt;" )
+    # a) title
+        tmp_QuestionName = tmpprefix * string(Idx) * "_country"
+        tmpmat[2,1] = tag_label( "Country " * tmpstr , tmp_QuestionName )
+        tmpmat[2,2] = tag_input( name = tmp_QuestionName, class = "auto_country", type = "text", placeholder = "type to search", required = required )
+    # b) institution
+        tmp_QuestionName = tmpprefix * string(Idx) * "_institution"
+        tmpmat[2,3] = tag_label( "Institution "* tmpstr , tmp_QuestionName )
+        tmpmat[2,4] = tag_input( name = tmp_QuestionName, class = nothing, type = "text", placeholder = "please type", required = required )
+    # 3) institution type
+        # tmp_QuestionName = tmpprefix * string(Idx) * "_institutiontype"
+        # tmpmat[2,5] = tag_label( "Institution type " * tmpstr , tmp_QuestionName )
+        #     tmp_select = [ tag_option(x, value = x) for x in predefvars.IndustrialInstitutionTypes ]
+        #     insert!(tmp_select, 1, tag_option("# please select #", value = "#", selected = required, disabled = required )) # 加一个空选项(如果问题必填)
+        # tmpmat[2,6] = quicktag_select( tmp_select, name = tmp_QuestionName, required = required )
+    # b. since year
+        tmp_QuestionName = tmpprefix * string(Idx) * "_sinceyear"
+        tmpmat[3,1] = tag_label( "Since " * tmpstr , tmp_QuestionName )
+        tmpmat[3,2] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
+    # b. until year
+        tmp_QuestionName = tmpprefix * string(Idx) * "_untilyear"
+        tmpmat[3,3] = tag_label( "Until " * tmpstr , tmp_QuestionName )
+        tmpmat[3,4] = InputYear( 1920, 2019, name = tmp_QuestionName, width = tmpwidth, required = required )
+    # b. still ?
+        tmp_QuestionName = tmpprefix * string(Idx) * "_still"
+        tmpmat[3,5] = tag_label( "Still? " * tmpstr , tmp_QuestionName )
+            tmp_select = [ tag_option(x, value = x, selected = y) for (x,y) in zip(["Yes","No"],[false,true]) ]
+        tmpmat[3,6] = quicktag_select( tmp_select, name = tmp_QuestionName, required = required )
+    return tmpmat::Matrix{Any}
+end # SabbaticalRecord
 
 
 
