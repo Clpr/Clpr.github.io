@@ -5,132 +5,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>Tianhao's personal page</title>
-    <link rel="stylesheet" href="text/css/css_blogindex.css" />
+    <!-- w3css -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- w3css red theme -->
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
+    <!-- awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- academic icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </head>
 
 
 <body>
 
+    <!-- SIDEBAR -->
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">&times;</button>
+        <a href="assets/pdf/cv_latest.pdf" class="w3-bar-item w3-button">CV</a>
+        <a href="#" class="w3-bar-item w3-button">Research</a>
+        <a href="#" class="w3-bar-item w3-button">Teaching</a>
 
-    <!-- HEADING -->
-    <div class="header">
-        <h2>Tianhao's Personal Page</h2>
-        <p style="font-size:18px;"><i>"Society does not consist of individuals but expresses the sum of interrelations,
-                the relations within which these individuals stand."</i> ---- Karl Marx</p>
+
     </div>
 
-    <!-- MAIN CONTENTS -->
-    <div class="row">
-        <div class="leftcolumn" style="width:100%;">
-            <!-- SECTION: RESEARCH -->
-            <div class="card">
-                <h2>RESEARCH</h2>
-                
-                <!-- <div class="fakeimg" style="height:100px;">Image</div> -->
-                <!-- introduction -->
-                <p>I am now an incoming Ph.D. student at the Department of Economics, Emory University. My current research is
-                    about China’s public health insurance plans and population aging, with a perspective of
-                    macroeconomics.</p>
-                <a href="pages/research/index.html">Click to discover more about my past research.</a>
+
+    <!-- PAGE CONTENTS -->
+    <div id="main">
+        <!-- TOP -->
+        <div class="w3-bar w3-theme-d5">
+            <div class="w3-bar-item">
+                <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
+            </div>
+            <div class="w3-bar-item">
+                <!-- <p>ZHAO, Tianhao</p> -->
+            </div>
+        </div>
+
+
+        <!-- MAIN CONTENT -->
+        <div class="w3-content w3-margin-top " id="content" style="max-width: 60%">
+            <!-- PROFILE AND CONTACTS -->
+            <div class="w3-row ">
+                <div class="w3-col w3-third "><img src="assets/img/portrait.jpg" style="width:100%;" /></div>
+                <div class="w3-col w3-twothird ">
+
+                    <!-- CONTACTS -->
+                    <h1 class="w3-h1 w3-center">Tianhao Zhao</h1>
+                    <h5 class="w3-center">Department of Economics</h5>
+                    <h5 class="w3-center">Emory University</h5>
+                    <h5 class="w3-center"><a href="mailto:tianhao.zhao@emory.edu" class="w3-center">tianhao.zhao@emory.edu</a></h5>
+                    <br>
+
+                    <!-- LINKS -->
+                    <div class="w3-row ">
+                        <div class="w3-col w3-quarter  w3-center">
+                            <a href="https://github.com/clpr" class="w3-button"><i class="fa fa-github"
+                                    style="font-size:27px;"></i></a>
+                        </div>
+                        <div class="w3-col w3-quarter  w3-center">
+                            <a href="#" class="w3-button"><i class="fa fa-linkedin" style="font-size:27px;"></i></a>
+                        </div>
+                        <div class="w3-col w3-quarter  w3-center">
+                            <a href="#" class="w3-button"><i class="ai ai-google-scholar-square ai-3x"
+                                    style="font-size:27px;"></i></a>
+                        </div>
+                        <div class="w3-col w3-quarter  w3-center">
+                            <a href="#" class="w3-button"><i class="fa fa-steam" style="font-size:27px;"></i></a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
-            <!-- SECTION: SELECTED PROJECTS -->
-            <div class="card">
-                <h2>SELECTED PROJECTS</h2>
-                
-                <!-- <h4>Selection</h4> -->
-                <ul>
-                    <li><a href="https://github.com/Clpr/NumToolLibs">Numerical Toolkits in Julia</a></li>
-                    <li><a href="about:blank">plm for Julia (in developing)</a></li>
-                    <li><a href="pages/DrZhongCollectData/NewProfile.html">Form: create profile for a faculty member  </a></li>
-                </ul>
+            <!-- INTRODUCTION -->
+            <div class="w3-row ">
+                <div class="w3-col ">
+                    <br><br>
+                </div>
             </div>
 
-            <!-- SECTION: BLOGS -->
-            <div class="card">
-                <h2>BLOGS</h2>
-                
-                <!-- <h4>Selection</h4> -->
-                <ul>
-                    <li><a href="pages/blogs/190420_LHSonMvNormal.html" target="_blank">Latin Hypercube Sampling (LHS) on Univariate & Multivariate Normal Distributions with
-                            correlations</a></li>
-                    <li><a href="pages/blogs/190421_PrepareYourJuliaPkg.html" target="_blank">Prepare your Julia 1.0 for economic research</a></li>
-                    <li><a href="pages/blogs/190424_StatsInJulia.html" target="_blank">Statistics/Econometrics in Julia</a></li>
-                    <li><a href="about:blank" target="_blank">Abstraction of a DGE model</a></li>
-					<!-- <li><a href="pages/blogs/190622_The_household_life_cycle_problem_with_a_continuous_medical_expenditure_shock.html" target="_blank">A simple life-cycle model with one shock on consumption</a></li> -->
+            
 
-                </ul>
-            </div>
-
-            <!-- SECTION: TEACHING -->
-            <div class="card">
-                <h2>TEACHING</h2>
-                
-                <!-- <div class="fakeimg" style="height:100px;">Image</div> -->
-                <!-- <p>Some text..</p> -->
-            </div>
-
-            <!-- SECTION: CURRICULUM VITAE -->
-            <div class="card">
-                <h2>CURRICULUM VITAE</h2>
-                
-                <!-- <div class="fakeimg" style="height:100px;">Image</div> -->
-                <p><a href="src/CV_190421.pdf">Click here for my curriculum vitae</a></p>
-            </div>
-
-            <!-- <div class="card">
-                <h2>BIBLIOGRAPHY</h2>
-                <h5>Last update: Apr 20, 2019</h5>
-                <div class="fakeimg" style="height:100px;">Image</div>
-                <p>Some text..</p>
-            </div> -->
-
-            <!-- SECTION: CONTACTS -->
-            <div class="card">
-                <h2>CONTACT ME</h2>
-                <!-- <div class="fakeimg" style="height:100px;">Image</div> -->
-                <ul>
-                    <li>E-mail: <a href="mailto:tianhao.zhao@emory.edu">tianhao.zhao@emory.edu</a></li>
-                    <li>GitHub: <a href="https://github.com/Clpr">https://github.com/Clpr</a>
+            <!-- SELECTED PUBLICATIONS -->
+            <div class="w3-row ">
+                <ul class="w3-ul  w3-hoverable">
+                    <li>
+                        <h2>Selected publications</h2>
                     </li>
+                    <li>Jiang, Y., <b>Zhao, T.</b>, & Zheng, H. (2021). Population aging and its effects on the gap of
+                        urban public health insurance in China. <i>China Economic Review</i>, 101646.</li>
+                    <li>Jiang, Y., Zheng, H., & <b>Zhao, T.</b> (2019). Socioeconomic status and morbidity rate
+                        inequality in China: based on NHSS and CHARLS data. <i>International journal of environmental
+                            research and public health</i>, 16(2), 215.</li>
+                    <li>Wang, S., <b>Zhao, T.</b>, Zheng, H., & Hu, J. (2017). The STIRPAT analysis on carbon emission
+                        in Chinese cities: An asymmetric laplace distribution mixture model. <i>Sustainability</i>,
+                        9(12), 2237.</li>
                 </ul>
             </div>
 
 
-        </div> <!-- end div leftcolumn -->
 
 
+        </div>
 
-
-
-        <!-- <div class="rightcolumn" style="width:28.5%;">
-            <div class="card">
-                <h2>Contacts</h2>
-                <div class="fakeimg" style="height:100px;">Image</div>
-                <ul>
-                    <li style="padding-top:0.5em;">E-mail: <a
-                            href="mailto:tianhao.zhao@emory.edu">tianhao.zhao@emory.edu</a></li>
-                    <li style="padding-top:0.5em;">GitHub: <a href="https://github.com/Clpr">https://github.com/Clpr</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Popular Post</h3>
-                <div class="fakeimg">Image</div><br>
-                <div class="fakeimg">Image</div><br>
-                <div class="fakeimg">Image</div>
-            </div>
-        </div> -->
 
 
 
     </div>
 
-    <div class="footer">
-        <!-- KEEPING BLANK -->
-    </div>
 
 
+
+
+
+
+
+
+
+    <!-- SLIDING SIDEBAR -->
+    <script>
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "15%";
+            document.getElementById("mySidebar").style.width = "15%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+        }
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
+        }
+    </script>
 
 
 </body>
