@@ -1,112 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <title>Tianhao's personal page</title>
-    <!-- w3css -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!-- w3css red theme -->
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
-    <!-- awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- academic icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-</head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
+  <title>Clpr.github.io</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom CSS for the '3 Col Portfolio' Template -->
+  <link href="css/3-col-portfolio.css" rel="stylesheet">
+
+  <!-- awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- academic icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>
 
 <body>
 
-    <!-- SIDEBAR -->
-    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
-        <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">&times;</button>
-        <a href="assets/pdf/cv_latest.pdf" class="w3-bar-item w3-button">CV</a>
-        <a href="#" class="w3-bar-item w3-button">Research</a>
-        <a href="#" class="w3-bar-item w3-button">Teaching</a>
+  <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://clpr.github.io/"><i class="fa fa-github" style="font-size:27px;"></i></a>
+      </div>
 
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="https://scholar.google.com/citations?user=b2Pu9-YAAAAJ&hl"><i
+                class="ai ai-google-scholar-square ai-3x" style="font-size:27px;"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/tianhao-zhao-02a117197/"><i class="fa fa-linkedin"
+                style="font-size:27px;"></i></a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="https://www.dropbox.com/s/cp3qtvd9grzs90k/cv-tianhao.pdf?dl=0">CV</a></li>
+          <li><a href="pages/research.html">Research</a></li>
+          <li><a href="pages/teaching.html">Teaching</a></li>
+          <li><a href="pages/postgallary.html">Posts</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-12">
+        <h1 class="page-header">Tianhao Zhao <small>@Clpr</small></h1>
+      </div>
 
     </div>
 
+    <div class="row">
 
-    <!-- PAGE CONTENTS -->
-    <div id="main">
-        <!-- TOP -->
-        <div class="w3-bar w3-theme-d5">
-            <div class="w3-bar-item">
-                <button id="openNav" class="w3-button w3-xlarge" onclick="w3_open()">&#9776;</button>
-            </div>
-            <div class="w3-bar-item">
-                <!-- <p>ZHAO, Tianhao</p> -->
-            </div>
-        </div>
-
-
-        <!-- MAIN CONTENT -->
-        <div class="w3-content w3-margin-top " id="content" style="max-width: 60%">
-            <!-- PROFILE AND CONTACTS -->
-            <div class="w3-row ">
-                <div class="w3-col w3-third "><img src="assets/img/portrait.jpg" style="width:100%;" /></div>
-                <div class="w3-col w3-twothird ">
-
-                    <!-- CONTACTS -->
-                    <h1 class="w3-h1 w3-center">Tianhao Zhao</h1>
-                    <h5 class="w3-center">Department of Economics</h5>
-                    <h5 class="w3-center">Emory University</h5>
-                    <h5 class="w3-center"><a href="mailto:tianhao.zhao@emory.edu" class="w3-center">tianhao.zhao@emory.edu</a></h5>
-                    <br>
-
-                    <!-- LINKS -->
-                    <div class="w3-row ">
-                        <div class="w3-col w3-quarter  w3-center">
-                            <a href="https://github.com/clpr" class="w3-button"><i class="fa fa-github"
-                                    style="font-size:27px;"></i></a>
-                        </div>
-                        <div class="w3-col w3-quarter  w3-center">
-                            <a href="https://www.linkedin.com/in/tianhao-zhao-02a117197/" class="w3-button"><i class="fa fa-linkedin" style="font-size:27px;"></i></a>
-                        </div>
-                        <div class="w3-col w3-quarter  w3-center">
-                            <a href="https://scholar.google.com/citations?user=b2Pu9-YAAAAJ&hl" class="w3-button"><i class="ai ai-google-scholar-square ai-3x"
-                                    style="font-size:27px;"></i></a>
-                        </div>
-                        <!-- <div class="w3-col w3-quarter  w3-center">
-                            <a href="https://steamcommunity.com/id/ClprGitHub/" class="w3-button"><i class="fa fa-steam" style="font-size:27px;"></i></a>
-                        </div> -->
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- INTRODUCTION -->
-            <div class="w3-row ">
-                <div class="w3-col ">
-                    <br><br>
-                </div>
-            </div>
-
-            
-
-            <!-- SELECTED PUBLICATIONS -->
-            <div class="w3-row ">
-                <ul class="w3-ul  w3-hoverable">
-                    <li>
-                        <h2>Publications</h2>
-                    </li>
-                    <li>Jiang, Y., <b>Zhao, T.</b>, & Zheng, H. (2021). Population aging and its effects on the gap of
-                        urban public health insurance in China. <i>China Economic Review</i>, 101646.</li>
-                    <li>Jiang, Y., Zheng, H., & <b>Zhao, T.</b> (2019). Socioeconomic status and morbidity rate
-                        inequality in China: based on NHSS and CHARLS data. <i>International journal of environmental
-                            research and public health</i>, 16(2), 215.</li>
-                    <li>Wang, S., <b>Zhao, T.</b>, Zheng, H., & Hu, J. (2017). The STIRPAT analysis on carbon emission
-                        in Chinese cities: An asymmetric laplace distribution mixture model. <i>Sustainability</i>,
-                        9(12), 2237.</li>
-                </ul>
-            </div>
-
-
-
-
-        </div>
+      <ul>
+        <li class="list-unstyled">
+          PhD Candidate, Department of Economics, Emory University
+        </li>
+        <li class="list-unstyled">
+          Macroeconomics, International finance, Housing market
+        </li>
+        <li class="list-unstyled">
+          <a href="mailto:tianhao.zhao@emory.edu" class="w3-center">tianhao.zhao@emory.edu</a>
+        </li>
+        </li>
+      </ul>
 
 
 
@@ -114,29 +85,72 @@
     </div>
 
 
+    <!-- <div class="row">
 
+      <div class="col-md-4 portfolio-item">
+        <a href="#project-link"><img class="img-responsive" src="http://placehold.it/700x400"></a>
+        <h3><a href="#project-link">Project Name</a></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna
+          varius vitae.</p>
+      </div>
 
+      <div class="col-md-4 portfolio-item">
+        <a href="#project-link"><img class="img-responsive" src="http://placehold.it/700x400"></a>
+        <h3><a href="#project-link">Project Name</a></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna
+          varius vitae.</p>
+      </div>
 
+      <div class="col-md-4 portfolio-item">
+        <a href="#project-link"><img class="img-responsive" src="http://placehold.it/700x400"></a>
+        <h3><a href="#project-link">Project Name</a></h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna
+          varius vitae.</p>
+      </div>
 
+    </div> -->
 
+    <!-- <hr> -->
 
+    <!-- <div class="row text-center">
+        
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>        
+        </div>
 
+      </div> -->
 
-    <!-- SLIDING SIDEBAR -->
-    <script>
-        function w3_open() {
-            document.getElementById("main").style.marginLeft = "15%";
-            document.getElementById("mySidebar").style.width = "15%";
-            document.getElementById("mySidebar").style.display = "block";
-            document.getElementById("openNav").style.display = 'none';
-        }
-        function w3_close() {
-            document.getElementById("main").style.marginLeft = "0%";
-            document.getElementById("mySidebar").style.display = "none";
-            document.getElementById("openNav").style.display = "inline-block";
-        }
-    </script>
+  </div><!-- /.container -->
 
+  <div class="container">
 
+    <hr>
+
+    <footer>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; Company <span id="getCurrentDate"></span></p>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /.container -->
+
+  <!-- JavaScript -->
+  <script src="js/jquery-1.10.2.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script type="text/javascript">
+    var dt = new Date();
+    document.getElementById('getCurrentDate').innerHTML = dt.getFullYear();
+  </script>
 </body>
+
 </html>
