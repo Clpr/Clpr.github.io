@@ -1,4 +1,4 @@
 # Clpr.github.io
 
 
-for personal blog
+This is the repo for my personal website pages.
