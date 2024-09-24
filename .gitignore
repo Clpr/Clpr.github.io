@@ -43,6 +43,6 @@ _testmain.go
 *.ogg
 *.mp3
 *.mp4
-*.png
+
 *.jpeg
 *.psd
