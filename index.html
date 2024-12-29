@@ -429,6 +429,33 @@
                     <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
                 </div> -->
                 <!-- ----------------------------------------------------- -->
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h4 class="mb-0"><a href="./blogs/post_241229.html" target="_blank">Collocation with the presence of
+                                endogeneous Markovian risk</a></h4>
+                        <p>
+                            The collocation method is widely used in macroeconomic modeling to approximate value
+                            functions (or policy functions) through interpolation techniques.
+                            Despite its advantages, many textbooks and online materials overlook an important scenario:
+                            cases where the transition matrix (often assumed to describe a Markov process governing
+                            uncertainty in dynamic programming) is exogenous but depends on the current state of the
+                            system. This scenario, involving endogenous risk, is highly relevant in economic
+                            applications. For instance, an individual's unemployment risk in general equilibrium may
+                            depend on the aggregate unemployment rate, which itself evolves as an aggregate state.
+                            Addressing such cases requires specific formulations and methodological adjustments to
+                            extend the collocation method.
+                            In this post, I first establish the notation for collocation and outline the construction of
+                            the discretized system. I emphasize that endogenous risk, compared to standard exogenous
+                            risk, significantly increases the number of equations required to interpolate the expected
+                            value function. Specifically, the size of the system expands proportionally to the number of
+                            supporting nodes for endogenous states. I then discuss how to solve the resulting
+                            pseudo-linear system and compute its Jacobian matrix analytically. Finally, I explore
+                            several topics for efficiently implementing the collocation method.
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
+                </div>
+                <!-- ----------------------------------------------------- -->
             </div>
         </section>
     </div>
