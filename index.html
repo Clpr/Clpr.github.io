@@ -431,7 +431,8 @@
                 <!-- ----------------------------------------------------- -->
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h4 class="mb-0"><a href="./blogs/post_241229.html" target="_blank">Collocation with the presence of
+                        <h4 class="mb-0"><a href="./blogs/post_241229.html" target="_blank">Collocation with the
+                                presence of
                                 endogeneous Markovian risk</a></h4>
                         <p>
                             The collocation method is widely used in macroeconomic modeling to approximate value
@@ -454,6 +455,28 @@
                         </p>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
+                </div>
+                <!-- ----------------------------------------------------- -->
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h4 class="mb-0"><a href="./blogs/post_250101.html" target="_blank">Specifying the IPNewton
+                                method in Optim.jl</a></h4>
+                        <p>
+                            Optim.jl is a powerful Julia package that offers a wide range of optimization algorithms.
+                            Among these, interior-point Newton (IPNewton) is the only gradient-based method capable of
+                            solving non-linearly constrained problems.
+                            Despite its flexibility, IPNewton can magically accelerate the algorithm by requiring users
+                            to provide the Jacobians and Hessians for both objective function and constraint functions.
+                            Even though automatic differentiation is available today, user-provided information still
+                            has the best performance when it is available.
+                            However, specifying these data structures and functions is challenging because of the math
+                            complexity and the non-transparent internal routines of the algorithm.
+                            In this post, I clearly outline the ideas behind and math formulas for these data structures
+                            (primarily matrices) to help readers better understand the official documentation and tailor
+                            the method to their specific problems.
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
                 </div>
                 <!-- ----------------------------------------------------- -->
             </div>
