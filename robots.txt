@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://clpr.github.io/sitemap.xml
