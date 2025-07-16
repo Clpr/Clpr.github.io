@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data on Tianhao Zhao</title>
+    <link>http://localhost:1313/tags/data/</link>
+    <description>Recent content in Data on Tianhao Zhao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
+    <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
+    <copyright>© 2025 Tianhao Zhao</copyright>
+    <lastBuildDate>Tue, 15 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/data/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CountyPlus</title>
+      <link>http://localhost:1313/code/countyplus/</link>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/countyplus/</guid>
+      <description>CountyPlus is an open-source panel dataset that covers 3000+ U.S. counties from 2003 to 2019.This dataset estimates household consumption, measure of local financial friction, and measure of local nominal friction (Downward Nominal Wage Rigidity). Project URL: &lt;code&gt;https://github.com/Clpr/CountyPlus&lt;/code&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
