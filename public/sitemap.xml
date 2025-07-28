@@ -3,6 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>http://localhost:1313/code/</loc>
+    <lastmod>2025-07-28T00:00:01-07:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-07-28T00:00:01-07:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/code/multivariatemarkovchain.jl/</loc>
+    <lastmod>2025-07-28T00:00:01-07:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-07-16T00:00:01-07:00</lastmod>
     <changefreq>daily</changefreq>
@@ -15,19 +33,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-07-16T00:00:01-07:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/code/adaptivesg.jl/</loc>
-    <lastmod>2025-05-01T00:00:01-07:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/code/</loc>
     <lastmod>2025-05-01T00:00:01-07:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

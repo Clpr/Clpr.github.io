@@ -12,14 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>ConstrainedSimplexSearch.jl &middot; Tianhao Zhao</title>
-  <meta name="title" content="ConstrainedSimplexSearch.jl &middot; Tianhao Zhao" />
+  <title>MultivariateMarkovChain.jl &middot; Tianhao Zhao</title>
+  <meta name="title" content="MultivariateMarkovChain.jl &middot; Tianhao Zhao" />
   
-  <meta name="description" content="This repository implements the Constrained Nelder-Mead (simplex) Search algorithm. It handles generic non-linear equality and inequality constraints using penalty which guides the simplex to move towards the admissible space. Project URL: `https://github.com/Clpr/ConstrainedSimplexSearch.jl`" />
+  <meta name="description" content="This package provides types and methods for modeling vector-valued Markov chains in discrete time. It is useful for dynamic macroeconomic models and generic stochastic analysis. Project link: github.com/Clpr/MultivariateMarkovChain.jl" />
   <meta name="keywords" content="Julia, Code, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/code/constrainedsimplexsearch.jl/" />
+  <link rel="canonical" href="http://localhost:1313/code/multivariatemarkovchain.jl/" />
   
   
   
@@ -71,22 +71,22 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/code/constrainedsimplexsearch.jl/">
+  <meta property="og:url" content="http://localhost:1313/code/multivariatemarkovchain.jl/">
   <meta property="og:site_name" content="Tianhao Zhao">
-  <meta property="og:title" content="ConstrainedSimplexSearch.jl">
-  <meta property="og:description" content="A Julia implementation of constrained Nelder-Mead simplex search algorithm.">
+  <meta property="og:title" content="MultivariateMarkovChain.jl">
+  <meta property="og:description" content="My research code projects and datasets.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="code">
-    <meta property="article:published_time" content="2025-04-29T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-04-29T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-07-28T00:00:01-07:00">
+    <meta property="article:modified_time" content="2025-07-28T00:00:01-07:00">
     <meta property="article:tag" content="Julia">
     <meta property="article:tag" content="Code">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="ConstrainedSimplexSearch.jl">
-  <meta name="twitter:description" content="A Julia implementation of constrained Nelder-Mead simplex search algorithm.">
+  <meta name="twitter:title" content="MultivariateMarkovChain.jl">
+  <meta name="twitter:description" content="My research code projects and datasets.">
 
     
   
@@ -96,26 +96,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Data and code",
-    "name": "ConstrainedSimplexSearch.jl",
-    "headline": "ConstrainedSimplexSearch.jl",
-    "description": "A Julia implementation of constrained Nelder-Mead simplex search algorithm.",
-    "abstract": "This repository implements the Constrained Nelder-Mead (simplex) Search algorithm. It handles generic non-linear equality and inequality constraints using penalty which guides the simplex to move towards the admissible space. Project URL: \u003ccode\u003ehttps:\/\/github.com\/Clpr\/ConstrainedSimplexSearch.jl\u003c\/code\u003e",
+    "name": "MultivariateMarkovChain.jl",
+    "headline": "MultivariateMarkovChain.jl",
+    "description": "My research code projects and datasets.",
+    "abstract": "This package provides types and methods for modeling vector-valued Markov chains in discrete time. It is useful for dynamic macroeconomic models and generic stochastic analysis. Project link: github.com\/Clpr\/MultivariateMarkovChain.jl",
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/code\/constrainedsimplexsearch.jl\/",
+    "url" : "http:\/\/localhost:1313\/code\/multivariatemarkovchain.jl\/",
     "author" : {
       "@type": "Person",
       "name": "Tianhao Zhao"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-04-29T00:00:00\u002b00:00",
-    "datePublished": "2025-04-29T00:00:00\u002b00:00",
+    "dateCreated": "2025-07-28T00:00:01-07:00",
+    "datePublished": "2025-07-28T00:00:01-07:00",
     
-    "dateModified": "2025-04-29T00:00:00\u002b00:00",
+    "dateModified": "2025-07-28T00:00:01-07:00",
     
     "keywords": ["Julia","Code"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "86"
+    "wordCount": "101"
   }]
   </script>
 
@@ -510,7 +510,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        ConstrainedSimplexSearch.jl
+        MultivariateMarkovChain.jl
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -563,13 +563,27 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-04-29T00:00:00&#43;00:00">April 29, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>86 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+      <time datetime="2025-07-28T00:00:01-07:00">July 28, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>101 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
     
 
     
     
   </div>
 
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
   
 
   
@@ -806,14 +820,15 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <p>Project URL: <a
-  href="https://github.com/Clpr/ConstrainedSimplexSearch.jl"
-    target="_blank"
-  ><code>https://github.com/Clpr/ConstrainedSimplexSearch.jl</code></a>
+          <p>Project link: <a
+  href="github.com/Clpr/MultivariateMarkovChain.jl"><code>github.com/Clpr/MultivariateMarkovChain.jl</code></a>
 </p>
-<p>This repository implements the Constrained Nelder-Mead (simplex) Search algorithm which is generalized from the unconstrained Nelder-Mead search method. It handles generic non-linear equality and inequality constraints using penalty which guides the simplex to move towards the admissible space. This package provides a robust solver for high-dimensional quantitative macroeconomic models where: 1. endogeneous constraints are imposed; 2. boundary bindingness are important; 3. High-dimensional numerical approximations are oscilliating.</p>
-<p>This package has been registered at Julia&rsquo;s general registry. To install it, simply run:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">ConstrainedSimplexSearch</span><span class="o">.</span><span class="n">jl</span>
+<p>This package provides flexible API to define, approximate, manupulate, estimate and simulate multivariate (vector-valued) finite state Markov chains in discrete time. Some popular algorithms are also implemented such as Tauchen (1985) and Young (2010) non-stochastic simulation methods. It is super helpful in the parameterization of dynamic macroeconomic models as well as other generic numerical applications of stochastic analysis.</p>
+<p>To learn more about the functionalities and usage, check the project on GitHub.</p>
+<p>This package has not been registered at Julia&rsquo;s general registry yet. To install it, run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="s">&#34;https://github.com/Clpr/MultivariateMarkovChains.jl.git&#34;</span>
+</span></span></code></pre></div><p>In the future, one may run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">pkg</span><span class="o">&gt;</span> <span class="n">add</span> <span class="n">MultivariateMarkovChains</span>
 </span></span></code></pre></div>
           
           
@@ -843,8 +858,8 @@
           type="text/javascript"
           src="/js/page.min.407e5b2727c1f241c95d53db24c776bea71bfc18e09511b815d669ad8caca6e9e18a53864ad364b1ccccfa2f2956768d33cfe193bfb64d3406f3b5ece354ba57.js"
           integrity="sha512-QH5bJyfB8kHJXVPbJMd2vqcb/BjglRG4FdZprYyspunhilOGStNksczM&#43;i8pVnaNM8/hk7&#43;2TTQG87Xs41S6Vw=="
-          data-oid="views_code/ConstrainedSimplexSearch.jl.md"
-          data-oid-likes="likes_code/ConstrainedSimplexSearch.jl.md"></script>
+          data-oid="views_code/MultivariateMarkovChain.jl.md"
+          data-oid-likes="likes_code/MultivariateMarkovChain.jl.md"></script>
       
 
     </section>
@@ -859,7 +874,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/code/countyplus/">
+            <a class="flex group mr-3" href="/code/adaptivesg.jl/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -870,11 +885,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >CountyPlus</span
+                  >AdaptiveSG.jl</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-04-15T00:00:00&#43;00:00">April 15, 2025</time>
+                    <time datetime="2025-05-01T00:00:01-07:00">May 1, 2025</time>
                   
                 </span>
               </span>
@@ -882,27 +897,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/code/boxdomains.jl/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >BoxDomains.jl</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-04-30T00:00:00&#43;00:00">April 30, 2025</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
