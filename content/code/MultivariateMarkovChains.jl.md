@@ -1,5 +1,5 @@
 ---
-title: "MultivariateMarkovChain.jl"
+title: "MultivariateMarkovChains.jl"
 description: "My research code projects and datasets."
 date: 2025-07-28T00:00:01-07:00
 
@@ -14,7 +14,7 @@ tags: ["Julia","Code"]
 featureAsset: "img/feature_code.webp"
 ---
 
-Project link: [`github.com/Clpr/MultivariateMarkovChain.jl`](github.com/Clpr/MultivariateMarkovChain.jl)
+Project link: [`github.com/Clpr/MultivariateMarkovChains.jl`](https://github.com/Clpr/MultivariateMarkovChains.jl)
 
 This package provides flexible API to define, approximate, manupulate, estimate and simulate multivariate (vector-valued) finite state Markov chains in discrete time. Some popular algorithms are also implemented such as Tauchen (1985) and Young (2010) non-stochastic simulation methods. It is super helpful in the parameterization of dynamic macroeconomic models as well as other generic numerical applications of stochastic analysis.
 

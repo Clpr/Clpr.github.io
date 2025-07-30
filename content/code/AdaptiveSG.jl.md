@@ -14,7 +14,7 @@ tags: ["Julia","Code"]
 featureAsset: "img/feature_code.webp"
 ---
 
-Project link: [`github.com/Clpr/AdaptiveSG.jl`](github.com/Clpr/AdaptiveSG.jl)
+Project link: [`github.com/Clpr/AdaptiveSG.jl`](https://github.com/Clpr/AdaptiveSG.jl)
 
 This package provides object-oriented API to define, train, evaluate and adapt multi-linear Adaptive Sparse Grid (ASG) interpolations. It can be used to solve high-dimensional discrete/continuous time models; perform high-dimensional non-parametric estimations; and help with other high-dimensional numerical exercises.
 
