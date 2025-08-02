@@ -13,7 +13,7 @@ featureAsset: "img/feature_default.webp"
 
 {{< katex >}}
 
-Consider a controlled Markovivan process \(Y=(X,Z)\):
+Consider a controlled Markovian process \(Y=(X,Z)\):
 
 $$
 \begin{aligned}
@@ -30,7 +30,7 @@ To kick off the algorithm, assume:
 
 1. The process of \(Z\) is (or has been approximated by) a finite-state multivariate Markov chain \((\mathcal{Z},P_Z)\) where \(\mathcal{Z}\in\{\mathbb{R}^{M}\}^{D_Z}\) is the vector of total \(D_Z\) states, and \(P_Z \in\mathbb{R}^{D_Z\times D_Z}\) is the transition matrix. The Markov chain is totally exogenous and is not affected by \(X\).
 2. The function \(f(X,Z):\mathbb{R}^{N}\times \mathbb{R}^{M} \to \mathbb{R}^{N}\) is a continuous mapping that decides the transition from \(X\) to next period's \(X'\).
-3. The economist has got a desired grid \(\mathcal{X}\in\mathbb{R}^{D_N}\) for \(X\). The grid is typically obtained by Cartesian/tensor joinning \(X\)'s every dimension's grid. For example, let \(\mathcal{X}_i := [X_i^1,\dots,X_i^{N_i}] \in\mathbb{R}^{N_i}\) be a grid for the \(i$-th dimension of \(X$, then
+3. The economist has got a desired grid \(\mathcal{X}\in\mathbb{R}^{D_N}\) for \(X\). The grid is typically obtained by Cartesian/tensor joining \(X\)'s every dimension's grid. For example, let \(\mathcal{X}_i := [X_i^1,\dots,X_i^{N_i}] \in\mathbb{R}^{N_i}\) be a grid for the \(i\)-th dimension of \(X\), then
 
 $$
 \begin{aligned}
@@ -38,7 +38,7 @@ $$
 \end{aligned}
 $$
 
-The challange of Young's algorithm is to properly allocate the grid for \((X,Z)$: the dependency of \(f\) on \(Z\) makes it wrong to separately constrcut a chain for \(X\) and a chain \(Z\) then merge them together as if they are independent from each other. To properly handle this issue, we do the following procedures:
+The challenge of Young's algorithm is to properly allocate the grid for \((X,Z)\): the dependency of \(f\) on \(Z\) makes it wrong to separately construct a chain for \(X\) and a chain \(Z\) then merge them together as if they are independent from each other. To properly handle this issue, we do the following procedures:
 
 **Step 1**: design the finite state space for \(Y=(X,Z)\) joint process. The space has \(D_X \cdot D_Z\) states and every state is a \(N+M\) vector.
 
@@ -46,17 +46,17 @@ $$
 \mathcal{Y} := \mathcal{X} \times \mathcal{Z}
 $$
 
-**Step 2**: allocate the transition matrix \(P_Y\) of size \((D_XD_Z,D_XD_Z)$.
+**Step 2**: allocate the transition matrix \(P_Y\) of size \((D_XD_Z,D_XD_Z)\).
 
-**Step 3**: loop over all \(Y\) grid points in \(\mathcal{Y}$. At each point \(Y^i$, do the following steps:
+**Step 3**: loop over all \(Y\) grid points in \(\mathcal{Y}\). At each point \(Y^i\), do the following steps:
 
-1. Given \(Y^i$, evaluate \(f(X^i,Z^i)\) to get the next period's \(X^{i'}\) prediction which is continuous and likely to not match any grid point
+1. Given \(Y^i\), evaluate \(f(X^i,Z^i)\) to get the next period's \(X^{i'}\) prediction which is continuous and likely to not match any grid point
 2. Construct a discrete distribution over \(\mathcal{X}\) in which the probabilities is propotional to the distance between every grid point to the \(X^{i'}\) prediction. Let the distribution/density/probability vector be \(p^i$
-   1. The distance typically only considers the first two nearest neighbor grid points but truncate the probabilities for all the left grid points to zero. This is for sparsity of the transition dynamics. It leads to \(2\) support grid points over \(\mathcal{X}$
-   2. The distance is usually normalized along each dimension to avoid the scale effects. An alternative method is to use the  two nearest neighbor grid points for _every_ dimension, which leads to \(2N\) support grid points over \(\mathcal{X}$
-3. Construct the \(i$-th row of the transition matrix \(P_Y\) by Kronecker/tensor product \(P_{Z,i} \otimes p^i\) where \(P_{Z,i}\) is the row of \(Z$'s transition matrix that corresponds to the \(Z\) components of \(Y^i$.
+   1. The distance typically only considers the first two nearest neighbor grid points but truncate the probabilities for all the left grid points to zero. This is for sparsity of the transition dynamics. It leads to \(2\) support grid points over \(\mathcal{X}\)
+   2. The distance is usually normalized along each dimension to avoid the scale effects. An alternative method is to use the  two nearest neighbor grid points for _every_ dimension, which leads to \(2N\) support grid points over \(\mathcal{X}\)
+3. Construct the \(i\)-th row of the transition matrix \(P_Y\) by Kronecker/tensor product \(P_{Z,i} \otimes p^i\) where \(P_{Z,i}\) is the row of \(Z\)'s transition matrix that corresponds to the \(Z\) components of \(Y^i\).
 
-**Step 4**: Construct a `MultivariateMarkovChain` instance by passing in the state space \(\mathcal{Y}\) and the transition matrix \(P_Y$.
+**Step 4**: Construct a `MultivariateMarkovChain` instance by passing in the state space \(\mathcal{Y}\) and the transition matrix \(P_Y\).
 
 So far, we have successfully implemented the multivariate case of Young (2010)'s algorithm. In package `MultivariateMarkovChains.jl`, users can simply run:
 
