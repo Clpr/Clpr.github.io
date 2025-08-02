@@ -34,7 +34,7 @@ To kick off the algorithm, assume:
 
 $$
 \begin{aligned}
-\mathcal{X} := \bigtimes^N_{i=1} \mathcal{X}_i \in \{\mathbb{R}^{N}\}^{\prod_{i=1}^NN_i}
+\mathcal{X} := \otimes^N_{i=1} \mathcal{X}_i \in \{\mathbb{R}^{N}\}^{\prod_{i=1}^NN_i}
 \end{aligned}
 $$
 
