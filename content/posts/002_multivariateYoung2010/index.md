@@ -11,6 +11,8 @@ summary: "Explains how to implement the multivariate case of Young (2010) non-st
 featureAsset: "img/feature_default.webp"
 ---
 
+{{< katex >}}
+
 Consider a controlled Markovivan process $Y=(X,Z)$:
 
 $$
