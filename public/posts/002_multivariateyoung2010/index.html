@@ -12,14 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Blowfish: One cover picture for all posts &middot; Tianhao Zhao</title>
-  <meta name="title" content="Blowfish: One cover picture for all posts &middot; Tianhao Zhao" />
+  <title>Multivariate case for Young (2010) non-stochastic simulation &middot; Tianhao Zhao</title>
+  <meta name="title" content="Multivariate case for Young (2010) non-stochastic simulation &middot; Tianhao Zhao" />
   
-  <meta name="description" content="Shows how to specify cover/thumbnail picture for each post using assets without duplicate copies." />
+  <meta name="description" content="Explains how to implement the multivariate case of Young (2010) non-stochastic simulation algorithm." />
   
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/001_customthumbnailpicture/" />
+  <link rel="canonical" href="http://localhost:1313/posts/002_multivariateyoung2010/" />
   
   
   
@@ -71,20 +71,20 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/posts/001_customthumbnailpicture/">
+  <meta property="og:url" content="http://localhost:1313/posts/002_multivariateyoung2010/">
   <meta property="og:site_name" content="Tianhao Zhao">
-  <meta property="og:title" content="Blowfish: One cover picture for all posts">
-  <meta property="og:description" content="Shows how to specify cover/thumbnail picture for each post using assets without duplicate copies.">
+  <meta property="og:title" content="Multivariate case for Young (2010) non-stochastic simulation">
+  <meta property="og:description" content="Explains how to implement the multivariate case of Young (2010) non-stochastic simulation algorithm.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-07-16T00:00:01-07:00">
-    <meta property="article:modified_time" content="2025-07-16T00:00:01-07:00">
+    <meta property="article:published_time" content="2025-08-02T00:00:01-07:00">
+    <meta property="article:modified_time" content="2025-08-02T00:00:01-07:00">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Blowfish: One cover picture for all posts">
-  <meta name="twitter:description" content="Shows how to specify cover/thumbnail picture for each post using assets without duplicate copies.">
+  <meta name="twitter:title" content="Multivariate case for Young (2010) non-stochastic simulation">
+  <meta name="twitter:description" content="Explains how to implement the multivariate case of Young (2010) non-stochastic simulation algorithm.">
 
     
   
@@ -94,26 +94,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Blog",
-    "name": "Blowfish: One cover picture for all posts",
-    "headline": "Blowfish: One cover picture for all posts",
+    "name": "Multivariate case for Young (2010) non-stochastic simulation",
+    "headline": "Multivariate case for Young (2010) non-stochastic simulation",
     
-    "abstract": "Shows how to specify cover\/thumbnail picture for each post using assets without duplicate copies.",
+    "abstract": "Explains how to implement the multivariate case of Young (2010) non-stochastic simulation algorithm.",
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/posts\/001_customthumbnailpicture\/",
+    "url" : "http:\/\/localhost:1313\/posts\/002_multivariateyoung2010\/",
     "author" : {
       "@type": "Person",
       "name": "Tianhao Zhao"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-07-16T00:00:01-07:00",
-    "datePublished": "2025-07-16T00:00:01-07:00",
+    "dateCreated": "2025-08-02T00:00:01-07:00",
+    "datePublished": "2025-08-02T00:00:01-07:00",
     
-    "dateModified": "2025-07-16T00:00:01-07:00",
+    "dateModified": "2025-08-02T00:00:01-07:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "810"
+    "wordCount": "659"
   }]
   </script>
 
@@ -166,6 +166,146 @@
 
 
 
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/lib/katex/katex.min.7e7e35e3ef02b7b437449a44ca3fac62ec1ed39cb8312b680a00fe8ac60badc95b063b694636b8440856f7f5e8c2cc9e6b0efb581179b2656c7e1e97558c7096.css"
+    integrity="sha512-fn414&#43;8Ct7Q3RJpEyj&#43;sYuwe05y4MStoCgD&#43;isYLrclbBjtpRja4RAhW9/Xowsyeaw77WBF5smVsfh6XVYxwlg==">
+  
+  
+  <script defer src="/lib/katex/katex.min.cadd45c1af1f44bdaf196dc9b104f1daeb29043f0dc59155ffe22847510a04390a0b7a859400d420a626204f7fc5ddb07c19311de1c66b25e19c2559d3e126a8.js" integrity="sha512-yt1Fwa8fRL2vGW3JsQTx2uspBD8NxZFV/&#43;IoR1EKBDkKC3qFlADUIKYmIE9/xd2wfBkxHeHGayXhnCVZ0&#43;EmqA=="></script>
+  
+  
+  <script
+    defer
+    src="/lib/katex/auto-render.min.e9b2833d28623d18c071d78ef13e9c79d695122d296af3dbcee7bf1bf6518b0565bab59939267fbc8f5faf696193c20f5caef3e7501969cfb306f6738032730d.js"
+    integrity="sha512-6bKDPShiPRjAcdeO8T6cedaVEi0pavPbzue/G/ZRiwVlurWZOSZ/vI9fr2lhk8IPXK7z51AZac&#43;zBvZzgDJzDQ=="
+    onload="renderMathInElement(document.body);"></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
 
 
@@ -508,7 +648,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Blowfish: One cover picture for all posts
+        Multivariate case for Young (2010) non-stochastic simulation
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -561,7 +701,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-07-16T00:00:01-07:00">July 16, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>810 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+      <time datetime="2025-08-02T00:00:01-07:00">August 2, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>659 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
     
 
     
@@ -792,110 +932,61 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <p><code>Blowfish​</code> is a highly flexible framework within the <code>​Hugo​</code> ecosystem, allowing users to quickly build visually appealing websites in just minutes.
-A typical Blowfish (and Hugo) website is structured around &ldquo;posts&rdquo; or &ldquo;articles.&rdquo; Each post may include a cover image, commonly referred to as a &ldquo;thumbnail&rdquo; as demonstrated on this website.</p>
-<p>
+          
 
-
-
-
-
-
-<figure>
-      <img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="low"
-    alt="example_thumbnail_picture"
-    srcset="
-      /img/feature_default_hu_d2b7d83ffeccce82.webp  330w,
-      /img/feature_default_hu_e9636d63c821457c.webp  660w,
-      /img/feature_default_hu_20f47c234d1a62ab.webp 1280w
-    "
-    data-zoom-src="/img/feature_default.webp"
-    src="/img/feature_default.webp">
-
-  
-    <figcaption>An example cover/thumbnail picture</figcaption>
-</figure>
-</p>
-<p>The default ways to specify the cover picture for a post:</p>
+<p>Consider a controlled Markovian process \(Y=(X,Z)\):</p>
+$$
+\begin{aligned}
+& X' = f(X,Z) \\
+& Z' \sim \text{MarkovianProcess}(Z)
+\end{aligned}
+$$<p>where \(X \in \mathbb{R}^N\) is a vector of endogenous states that evolves according to some rules \(f\); \(Z \in \mathbb{R}^M\) is an exogenous process that drives the stochasticity of the joint process \(Y=(X,Z)\). The structure accommodates many models on which a recursive equilibrium can be defined.</p>
+<p>Young (2010)&rsquo;s non-stochastic simulation algorithm provides a convenient tool to approximate such a controlled Markov process \(Y\) with a finite-state Markov chain. However, typical implementations of  the algorithm focus on univariate case i.e. \(X\in\mathbb{R}\) which is common in Krusell-Smith model. My package <code>MultivariateMarkovChains.jl</code> implements the multivariate version of Young&rsquo;s algorithm and provides a generic API. This post explains how the multivariate version algorithm works.</p>
+<p>To kick off the algorithm, assume:</p>
+<ol>
+<li>The process of \(Z\) is (or has been approximated by) a finite-state multivariate Markov chain \((\mathcal{Z},P_Z)\) where \(\mathcal{Z}\in\{\mathbb{R}^{M}\}^{D_Z}\) is the vector of total \(D_Z\) states, and \(P_Z \in\mathbb{R}^{D_Z\times D_Z}\) is the transition matrix. The Markov chain is totally exogenous and is not affected by \(X\).</li>
+<li>The function \(f(X,Z):\mathbb{R}^{N}\times \mathbb{R}^{M} \to \mathbb{R}^{N}\) is a continuous mapping that decides the transition from \(X\) to next period&rsquo;s \(X'\).</li>
+<li>The economist has got a desired grid \(\mathcal{X}\in\mathbb{R}^{D_N}\) for \(X\). The grid is typically obtained by Cartesian/tensor joining \(X\)&rsquo;s every dimension&rsquo;s grid. For example, let \(\mathcal{X}_i := [X_i^1,\dots,X_i^{N_i}] \in\mathbb{R}^{N_i}\) be a grid for the \(i\)-th dimension of \(X\), then</li>
+</ol>
+$$
+\begin{aligned}
+\mathcal{X} := \otimes^N_{i=1} \mathcal{X}_i \in \{\mathbb{R}^{N}\}^{\prod_{i=1}^NN_i}
+\end{aligned}
+$$<p>The challenge of Young&rsquo;s algorithm is to properly allocate the grid for \((X,Z)\): the dependency of \(f\) on \(Z\) makes it wrong to separately construct a chain for \(X\) and a chain \(Z\) then merge them together as if they are independent from each other. To properly handle this issue, we do the following procedures:</p>
+<p><strong>Step 1</strong>: design the finite state space for \(Y=(X,Z)\) joint process. The space has \(D_X \cdot D_Z\) states and every state is a \(N+M\) vector.</p>
+$$
+\mathcal{Y} := \mathcal{X} \times \mathcal{Z}
+$$<p><strong>Step 2</strong>: allocate the transition matrix \(P_Y\) of size \((D_XD_Z,D_XD_Z)\).</p>
+<p><strong>Step 3</strong>: loop over all \(Y\) grid points in \(\mathcal{Y}\). At each point \(Y^i\), do the following steps:</p>
+<ol>
+<li>Given \(Y^i\), evaluate \(f(X^i,Z^i)\) to get the next period&rsquo;s \(X^{i'}\) prediction which is continuous and likely to not match any grid point</li>
+<li>Construct a discrete distribution over \(\mathcal{X}\) in which the probabilities is propotional to the distance between every grid point to the \(X^{i'}\) prediction. Let the distribution/density/probability vector be (p^i$
+<ol>
+<li>The distance typically only considers the first two nearest neighbor grid points but truncate the probabilities for all the left grid points to zero. This is for sparsity of the transition dynamics. It leads to \(2\) support grid points over \(\mathcal{X}\)</li>
+<li>The distance is usually normalized along each dimension to avoid the scale effects. An alternative method is to use the  two nearest neighbor grid points for <em>every</em> dimension, which leads to \(2N\) support grid points over \(\mathcal{X}\)</li>
+</ol>
+</li>
+<li>Construct the \(i\)-th row of the transition matrix \(P_Y\) by Kronecker/tensor product \(P_{Z,i} \otimes p^i\) where \(P_{Z,i}\) is the row of \(Z\)&rsquo;s transition matrix that corresponds to the \(Z\) components of \(Y^i\).</li>
+</ol>
+<p><strong>Step 4</strong>: Construct a <code>MultivariateMarkovChain</code> instance by passing in the state space \(\mathcal{Y}\) and the transition matrix \(P_Y\).</p>
+<p>So far, we have successfully implemented the multivariate case of Young (2010)&rsquo;s algorithm. In package <code>MultivariateMarkovChains.jl</code>, users can simply run:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="n">young</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="n">f</span><span class="p">,</span> <span class="c"># function f(X,Z) that receives two vectors and returns X&#39; prediction</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Zproc</span><span class="p">,</span> <span class="c"># a `MultivariateMarkovChain` instance that defines Z&#39;s (exogenous) dynamics</span>
+</span></span><span class="line"><span class="cl">  <span class="n">xgrids</span><span class="p">,</span> <span class="c"># an N-vector of grid (vector of grid points) for every dimension of X</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p>And everything is done automatically.</p>
+<blockquote>
+<p>Notes: if your controlled Markoc process has \(X'=f(X)\) i.e. the motion of \(X\) is independent from \(Z\), then <code>merge()</code> function should be good enough.</p></blockquote>
+<blockquote>
 <ul>
-<li>Putting a picture file with substring &ldquo;feature&rdquo; in the same folder as the <code>index.md</code> of the post</li>
-<li>Use <code>featureimage: PICTURE_URL</code> to cite an online picture</li>
-</ul>
-<p>While Blowfish (and Hugo) allows each post to specify its own cover image, this approach can lead to inefficiencies. Storing duplicate copies of the same image across multiple posts is unnecessary, especially when cover images are large.
-A more efficient approach would be to reuse a single image (or a set of images) stored in <code>assets/</code> or another directory, rather than embedding duplicates in each post. However, this is not currently supported. Blowfish’s <code>featureimage</code> parameter only accepts remote URLs, not local assets.
-This post introduces a new parameter, <code>featureAsset</code> (or a name of your choice), which allows referencing a local asset image (e.g., <code>featureAsset: &quot;img/feature_default.png&quot;</code>) directly in a post’s TOML front matter. This enables efficient reuse of cover images while maintaining flexibility.</p>
-<p>This post is based on the <a
-  href="https://github.com/nunocoracao/blowfish/discussions/1672"
+<li>Young, Eric R. “Solving the Incomplete Markets Model with Aggregate Uncertainty Using the Krusell–Smith Algorithm and Non-Stochastic Simulations.” Journal of Economic Dynamics and Control 34, no. 1 (2010): 36–41. <a
+  href="https://doi.org/10.1016/j.jedc.2008.11.010"
     target="_blank"
-  >discussion thread</a>
- by <code>@f-hollow</code> on GitHub.</p>
-<p><strong>Idea</strong>: We have to tell the compiler when and where to find the asset picture in the process of website building. This requries to modify the theme partial templates according to which hero style you are applying to your website.</p>
-<p><strong>Fisrt</strong>, copy <code>themes/blowfish/layouts/partials/article-link/</code> and <code>themes/blowfish/layouts/partials/hero/</code> to <code>layouts/partials/</code> folder. The files stored in <code>layouts/partials/</code> would overwrite the default Blowfish building files in the compilation process.</p>
-<ol>
-<li>Explain: the building files in <code>article-link/</code> controls how the gallery files (named as <code>_index.md</code>) are parsed and compiled</li>
-<li>Explain: the building files in <code>hero/</code> controls how the generic page/post/article files (named as <code>index.md</code>) are parsed and compiled</li>
-</ol>
-<p><strong>Then</strong>, let&rsquo;s check the building files in <code>layouts/partials/article-link/</code>. In the Blowfish version of writing this post (2.88.1), there should be 3 files:</p>
-<ol>
-<li><code>simple.html</code>: for <code>showCards=false</code> in the <code>[list]</code> section of the TOML file <code>config/_default/params.toml</code>. This building file works for the case where the posts are listed as top-to-bottom lists.</li>
-<li><code>card.html</code> and <code>card-related.html</code>: for <code>showCards=true</code>. These builidng files works for the case where the posts are organized as cards.</li>
-</ol>
-<p>WLOG, let&rsquo;s check <code>simple.html</code>. Reading this building file, one can quickly locate the related shortcodes that check and set up the cover pictures. e.g.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln"> 1</span><span class="cl">{{- with $.Params.images -}}
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">{{- range first 6 . }}
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:image&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;{{ . | absURL }}&#34;</span> <span class="p">/&gt;</span>{{ end -}}
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">{{- else -}}
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl">{{- $images := $.Resources.ByType &#34;image&#34; -}}
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">{{- $featured := $images.GetMatch &#34;*feature*&#34; -}}
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">{{- if not $featured }}{{ $featured = $images.GetMatch &#34;{*cover*,*thumbnail*}&#34; }}{{ end -}}
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">{{ if and .Params.featureimage (not $featured) }}
-</span></span><span class="line"><span class="ln">10</span><span class="cl">{{- $url:= .Params.featureimage -}}
-</span></span><span class="line"><span class="ln">11</span><span class="cl">{{ $featured = resources.GetRemote $url }}
-</span></span><span class="line"><span class="ln">12</span><span class="cl">{{ end }}
-</span></span><span class="line"><span class="ln">13</span><span class="cl">{{- if not $featured }}{{ with .Site.Params.defaultFeaturedImage }}{{ $featured = resources.Get . }}{{ end }}{{ end -}}
-</span></span><span class="line"><span class="ln">14</span><span class="cl">{{ if .Params.hideFeatureImage }}{{ $featured = false }}{{ end }}
-</span></span><span class="line"><span class="ln">15</span><span class="cl">{{- with $featured -}}
-</span></span><span class="line"><span class="ln">16</span><span class="cl">{{ if or $disableImageOptimization (strings.HasSuffix $featured &#34;.svg&#34;)}}
-</span></span><span class="line"><span class="ln">17</span><span class="cl">    {{ with . }}
-</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;{{ $articleImageClasses }}&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;background-image:url({{ .RelPermalink }});&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="ln">19</span><span class="cl">    {{ end }}
-</span></span><span class="line"><span class="ln">20</span><span class="cl">    {{ else }}
-</span></span><span class="line"><span class="ln">21</span><span class="cl">    {{ with .Resize &#34;600x&#34;  }}
-</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;{{ $articleImageClasses }}&#34;</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;background-image:url({{ .RelPermalink }});&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">    {{ end }}
-</span></span><span class="line"><span class="ln">24</span><span class="cl">    {{ end }}
-</span></span><span class="line"><span class="ln">25</span><span class="cl">{{- else -}}
-</span></span><span class="line"><span class="ln">26</span><span class="cl">{{- with $.Site.Params.images }}
-</span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">property</span><span class="o">=</span><span class="s">&#34;og:image&#34;</span> <span class="na">content</span><span class="o">=</span><span class="s">&#34;{{ index . 0 | absURL }}&#34;</span> <span class="p">/&gt;</span>{{ end -}}
-</span></span><span class="line"><span class="ln">28</span><span class="cl">{{- end -}}
-</span></span><span class="line"><span class="ln">29</span><span class="cl">{{- end -}}
-</span></span></code></pre></div><p>This shortcode block basiclly: first search if there exists a file with substring <code>feature</code>, <code>cover</code>, <code>thumbnail</code> in the same folder; if not, then check if <code>featureimage</code> parameter is set in the TOML front matter; if not, then use default feature picture (set in <code>config/_default/params.toml</code>); if no default picture, then hide the cover picture.</p>
-<p>Then, we need to modify this block by inserting the following condition codes between line 6 and 8 (to prioritize our specification):</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl">{{ if and .Params.featureAsset (not $featured) }}
-</span></span><span class="line"><span class="ln">2</span><span class="cl">    {{- $genericImage:= .Params.featureAsset -}}
-</span></span><span class="line"><span class="ln">3</span><span class="cl">    {{ $featured = resources.Get $genericImage }}
-</span></span><span class="line"><span class="ln">4</span><span class="cl">{{ end }}
-</span></span></code></pre></div><p>This shortcode block basically does: check if there is a parameter <code>featureAsset</code> in the TOML front matter; if yes and the <code>featured</code> value has not been successfully set yet, then set it using the provided path (<code>resources.Get RELATIVE_PATH</code> refers to the <code>assets/</code> folder which should be the root folder of the relative path).</p>
-<p>After understanding the idea, one can modify all the other building files in the same way.
-Then, a Markdown post file (not the gallery file) can have a TOML front matter like:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">---</span>
-</span></span><span class="line"><span class="cl"><span class="nx">title</span><span class="err">:</span> <span class="s2">&#34;Blowfish: One cover picture for all posts&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">date</span><span class="err">:</span> <span class="ld">2025-07-16T00:00:01-07:00</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">showAuthor</span><span class="err">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl"><span class="nx">showAuthorsBadges</span> <span class="err">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">showSummary</span><span class="err">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl"><span class="nx">summary</span><span class="err">:</span> <span class="s2">&#34;Shows how to specify cover/thumbnail picture for each post using assets without duplicate copies.&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">featureAsset</span><span class="err">:</span> <span class="s2">&#34;img/feature_default.webp&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">---</span>
-</span></span></code></pre></div>
+  >https://doi.org/10.1016/j.jedc.2008.11.010</a>
+.</li>
+</ul></blockquote>
+
           
           
           
@@ -924,8 +1015,8 @@ Then, a Markdown post file (not the gallery file) can have a TOML front matter l
           type="text/javascript"
           src="/js/page.min.407e5b2727c1f241c95d53db24c776bea71bfc18e09511b815d669ad8caca6e9e18a53864ad364b1ccccfa2f2956768d33cfe193bfb64d3406f3b5ece354ba57.js"
           integrity="sha512-QH5bJyfB8kHJXVPbJMd2vqcb/BjglRG4FdZprYyspunhilOGStNksczM&#43;i8pVnaNM8/hk7&#43;2TTQG87Xs41S6Vw=="
-          data-oid="views_posts/001_customThumbnailPicture/index.md"
-          data-oid-likes="likes_posts/001_customThumbnailPicture/index.md"></script>
+          data-oid="views_posts/002_multivariateYoung2010/index.md"
+          data-oid-likes="likes_posts/002_multivariateYoung2010/index.md"></script>
       
 
     </section>
@@ -940,10 +1031,15 @@ Then, a Markdown post file (not the gallery file) can have a TOML front matter l
       <div class="flex justify-between pt-3">
         <span>
           
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/003_newkeynesianfirm/">
+            <a class="flex group mr-3" href="/posts/003_newkeynesianfirm/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
                   >Non-linear Phillips curve in NK model step-by-step</span
@@ -954,15 +1050,10 @@ Then, a Markdown post file (not the gallery file) can have a TOML front matter l
                   
                 </span>
               </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>

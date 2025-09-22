@@ -12,11 +12,11 @@
     <lastBuildDate>Mon, 28 Jul 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/code/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>MultivariateMarkovChain.jl</title>
-      <link>http://localhost:1313/code/multivariatemarkovchain.jl/</link>
+      <title>MultivariateMarkovChains.jl</title>
+      <link>http://localhost:1313/code/multivariatemarkovchains.jl/</link>
       <pubDate>Mon, 28 Jul 2025 00:00:01 -0700</pubDate>
       <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
-      <guid>http://localhost:1313/code/multivariatemarkovchain.jl/</guid>
+      <guid>http://localhost:1313/code/multivariatemarkovchains.jl/</guid>
       <description>This package provides types and methods for modeling vector-valued Markov chains in discrete time. It is useful for dynamic macroeconomic models and generic stochastic analysis. Project link: github.com/Clpr/MultivariateMarkovChain.jl</description>
       
     </item>

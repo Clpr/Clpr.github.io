@@ -9,14 +9,34 @@
     <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
     <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
     <copyright>© 2025 Tianhao Zhao</copyright>
-    <lastBuildDate>Mon, 28 Jul 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Aug 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>MultivariateMarkovChain.jl</title>
-      <link>http://localhost:1313/code/multivariatemarkovchain.jl/</link>
+      <title>Multivariate case for Young (2010) non-stochastic simulation</title>
+      <link>http://localhost:1313/posts/002_multivariateyoung2010/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/002_multivariateyoung2010/</guid>
+      <description>Explains how to implement the multivariate case of Young (2010) non-stochastic simulation algorithm.</description>
+      
+    </item>
+    
+    <item>
+      <title>Non-linear Phillips curve in NK model step-by-step</title>
+      <link>http://localhost:1313/posts/003_newkeynesianfirm/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/003_newkeynesianfirm/</guid>
+      <description>Derives the non-linear Phillips curve in NK models with Rotemberg price rigidity step by step. Helpful for students.</description>
+      
+    </item>
+    
+    <item>
+      <title>MultivariateMarkovChains.jl</title>
+      <link>http://localhost:1313/code/multivariatemarkovchains.jl/</link>
       <pubDate>Mon, 28 Jul 2025 00:00:01 -0700</pubDate>
       <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
-      <guid>http://localhost:1313/code/multivariatemarkovchain.jl/</guid>
+      <guid>http://localhost:1313/code/multivariatemarkovchains.jl/</guid>
       <description>This package provides types and methods for modeling vector-valued Markov chains in discrete time. It is useful for dynamic macroeconomic models and generic stochastic analysis. Project link: github.com/Clpr/MultivariateMarkovChain.jl</description>
       
     </item>
