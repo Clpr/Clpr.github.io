@@ -1,6 +1,6 @@
 ---
 title: "Non-linear Phillips curve in NK model step-by-step"
-date: 2025-08-02T00:00:01-07:00
+date: 2025-09-22T00:00:01-07:00
 
 showAuthor: true
 showAuthorsBadges : true
@@ -23,10 +23,10 @@ $$
 y_t = \left( \int_0^1 y_t(i)^{\frac{\varepsilon-1}{\varepsilon}} \, \text{d} i \right)^{\frac{\varepsilon}{\varepsilon-1}}
 $$
 
-where \(\varepsilon\) denotes the elasticity of substitution across intermediate goods. In each period \(t\), individual intermediate producers choose how much capital \(k(i)\) and labor \(\ell(i)\) to hire, and set their own nominal prices \(P_t(i)\), while taking the nominal wage rate \(W_t\) and nominal interest rate \(R_t\) as given. The aggregate price level (or index) is defined as a CES aggregation of individual prices:
+where \(\varepsilon\) denotes the elasticity of substitution across intermediate goods. In each period \(t\), individual intermediate producers choose how much capital \(k(i)\) and labor \(\ell(i)\) to hire, and set their own nominal prices \(P_t(i)\), while taking the nominal wage rate \(W_t\) and nominal interest rate \(R_t\) as given. The aggregate price level (or index) is defined as:
 
 $$
-P_t = \left( \int_0^1 P_t(i)^{\frac{\varepsilon-1}{\varepsilon}} \, \text{d} i \right)^{\frac{\varepsilon}{\varepsilon-1}}.
+P_t^{1-\varepsilon} = \int_0^1 P_t(i)^{1-\varepsilon} \text{d} i
 $$
 
 At the same time, each intermediate producer faces a Rotemberg-type cost of adjusting nominal prices (nominal price rigidity):
@@ -167,6 +167,12 @@ $$
 $$
 
 > **Hint**: In many applications, \(Z_t(i)\) is the same across all the intermediate producers, and/or is normalized to 1. This simplifies the algebra further.
+
+> **Hint**: Plugging the optimality condition and the demand of type-\(i\) intermediate goods back to the budget constraint of the cost minimization problem,
+$$
+k_t(i) = \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon} k_t, \ell_t(i) = \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon} \ell_t 
+$$
+
 
 So far, the cost minimization problem has been solved: the cost of production is \(M_t(i) y_t(i)\) and \(M_t(i)\) is represented without the allocation of \((k_t(i),\ell_t(i))\).
 
@@ -396,10 +402,74 @@ The algebra is then left for exercises.
 
 
 
+## Aggregations
 
 
+After solving individual producer's problem, it is time to aggregate them up to obtain the aggregate policies. In this section, we will see how the _price dispersion_ \(\delta_t\) matters in determining the aggregate output, inflation, and premium.
+
+$$
+\delta_t := \int_0^1 \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon} \text{d} i
+$$
+
+### Output
+
+The aggregate output of the final goods \(y_t\) can be solved by plugging the demand for intermediate goods of type \(i\) back to the CES aggregation:
+
+$$
+\begin{aligned}
+y_t =& \left( \int_0^1 y_t(i)^\frac{\varepsilon-1}{\varepsilon} \text{d} i  \right)^\frac{\varepsilon}{\varepsilon-1} \\
+% --------
+y_t^{\frac{\varepsilon-1}{\varepsilon}} =& \int_0^1 y_t(i)^\frac{\varepsilon-1}{\varepsilon} \text{d} i \\
+=& \int_0^1 [ Z_t(i) k_t(i)^{\alpha_1} \ell_t(i)^{\alpha_2} ]^{\frac{\varepsilon-1}{\varepsilon}} \text{d} i
+\end{aligned}
+$$
+
+For simplicity, let's consider a special case where \(Z_t(i) \equiv Z_t\) which is standard in many applications.
+
+$$
+\begin{aligned}
+y_t^{\frac{\varepsilon-1}{\varepsilon}} =& Z_t^{\frac{\varepsilon-1}{\varepsilon}} \int_0^1\left[  k_t^{\alpha_1} \ell_t^{\alpha_2} \cdot \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon \alpha_1} \cdot \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon\alpha_2}  \right]^{\frac{\varepsilon-1}{\varepsilon}} \text{d} i \\
+=& (Z_t k_t^{\alpha_1} \ell_t^{\alpha_2})^{\frac{\varepsilon-1}{\varepsilon}} \cdot \int_0^1 \left(\frac{P_t(i)}{P_t}\right)^{1-\varepsilon} \text{d} i   \\
+% --------
+y_t =& (Z_t k_t^{\alpha_1} \ell_t^{\alpha_2}) \cdot \left[
+\int_0^1 \left(\frac{P_t(i)}{P_t}\right)^{1-\varepsilon} \text{d} i
+\right]^{\frac{\varepsilon}{\varepsilon-1}} \\ 
+=& (Z_t k_t^{\alpha_1} \ell_t^{\alpha_2}) \cdot \left[
+P_t^{\varepsilon-1} \cdot 
+\underbrace{ \int_0^1  P_t(i)^{1-\varepsilon} \text{d} i  }_{\text{power to price index}}
+\right]^{\frac{\varepsilon}{\varepsilon-1}} \\
+=& (Z_t k_t^{\alpha_1} \ell_t^{\alpha_2}) \cdot \left[
+P_t^{\varepsilon-1} \cdot P_t^{1-\varepsilon}
+\right]^{\frac{\varepsilon}{\varepsilon-1}} \\
+=& Z_t k_t^{\alpha_1} \ell_t^{\alpha_2}
+\end{aligned}
+$$
 
 
+Price dispersion is eliminated here because the intermediate producers use a constant returns to scale technology. In some standard applications, however, price dispersion appears explicitly in the aggregate output when production relies solely on labor \(\ell\).
 
 
+### Profit
+
+The assumption of \(Z_t(i)\equiv Z_t\) implies \(M_t(i)\equiv M_t\) in our setup. The aggregate profit of the _intermediate_ producers is
+
+$$
+\begin{aligned}
+\Pi_t =& \int_0^1 \Pi_t(i) \text{d} i = \int_0^1 y_t(i) \left( P_t(i) - M_t(i)  \right) \text{d}i \\
+% ------
+=& y_t \cdot \int_0^1 \left( P_t(i) - M_t(i)  \right) \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon} \text{d}i \\
+% ------
+=& y_t \cdot  \left[ \int_0^1 P_t(i) \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon} \text{d}i - \int_0^1 M_t(i) \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon} \text{d}i  \right]   \\
+% ------
+=& y_t \cdot \left[
+P_t^{\varepsilon} \underbrace{\int_0^1 P_t(i)^{1-\varepsilon} \text{d}i}_{\text{power to price index}} - M_t \underbrace{\int_0^1  \left(\frac{P_t(i)}{P_t}\right)^{-\varepsilon} \text{d}i  }_{\text{price dispersion}}
+\right] \\
+% ------
+=& y_t \cdot \left[ P_t^{\varepsilon} \cdot P_t^{1-\varepsilon} - M_t \cdot \delta_t \right] \\
+% ------
+=& y_t \cdot \underbrace{(P_t - M_t \delta_t)}_{\text{premium}}
+\end{aligned}
+$$
+
+One can instantly notice that the price dispersion directly changes the premium of unit goods (distributional effect).
 
