@@ -16,7 +16,7 @@ This page displays my research projects.
 
 ## Working paper
 
-- [Frictions, net worth shocks, and heterogenous impacts](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4915272) _(with Cheng Ding; under review at American Economic Journal: Macroeconomics)_
+- [Frictions, net worth shocks, and heterogenous impacts](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4915272) _(with Cheng Ding)_
 
 ## Work in progress
 
