@@ -9,7 +9,17 @@
     <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
     <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
     <copyright>© 2025 Tianhao Zhao</copyright>
-    <lastBuildDate>Mon, 22 Sep 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Oct 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Marginalization of multivariate Markov chains</title>
+      <link>http://localhost:1313/posts/004_mcmarginalization/</link>
+      <pubDate>Wed, 08 Oct 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/004_mcmarginalization/</guid>
+      <description>Discusses the marginalization operation of a multivariate Markov chain.</description>
+      
+    </item>
     
     <item>
       <title>Non-linear Phillips curve in NK model step-by-step</title>
