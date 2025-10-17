@@ -12,14 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Marginalization of multivariate Markov chains &middot; Tianhao Zhao</title>
-  <meta name="title" content="Marginalization of multivariate Markov chains &middot; Tianhao Zhao" />
+  <title>Linearity of (multi-)linear interpolation under weighted averaging &middot; Tianhao Zhao</title>
+  <meta name="title" content="Linearity of (multi-)linear interpolation under weighted averaging &middot; Tianhao Zhao" />
   
-  <meta name="description" content="Discusses the marginalization operation of a multivariate Markov chain." />
+  <meta name="description" content="Discusses a numerical issue in computing expected value function in dynamic programming." />
   
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/004_mcmarginalization/" />
+  <link rel="canonical" href="http://localhost:1313/posts/005_averagelinearinterp/" />
   
   
   
@@ -71,20 +71,20 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/posts/004_mcmarginalization/">
+  <meta property="og:url" content="http://localhost:1313/posts/005_averagelinearinterp/">
   <meta property="og:site_name" content="Tianhao Zhao">
-  <meta property="og:title" content="Marginalization of multivariate Markov chains">
-  <meta property="og:description" content="Discusses the marginalization operation of a multivariate Markov chain.">
+  <meta property="og:title" content="Linearity of (multi-)linear interpolation under weighted averaging">
+  <meta property="og:description" content="Discusses a numerical issue in computing expected value function in dynamic programming.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-10-08T00:00:01-07:00">
-    <meta property="article:modified_time" content="2025-10-08T00:00:01-07:00">
+    <meta property="article:published_time" content="2025-10-16T00:00:01-07:00">
+    <meta property="article:modified_time" content="2025-10-16T00:00:01-07:00">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Marginalization of multivariate Markov chains">
-  <meta name="twitter:description" content="Discusses the marginalization operation of a multivariate Markov chain.">
+  <meta name="twitter:title" content="Linearity of (multi-)linear interpolation under weighted averaging">
+  <meta name="twitter:description" content="Discusses a numerical issue in computing expected value function in dynamic programming.">
 
     
   
@@ -94,26 +94,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Blog",
-    "name": "Marginalization of multivariate Markov chains",
-    "headline": "Marginalization of multivariate Markov chains",
+    "name": "Linearity of (multi-)linear interpolation under weighted averaging",
+    "headline": "Linearity of (multi-)linear interpolation under weighted averaging",
     
-    "abstract": "Discusses the marginalization operation of a multivariate Markov chain.",
+    "abstract": "Discusses a numerical issue in computing expected value function in dynamic programming.",
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/posts\/004_mcmarginalization\/",
+    "url" : "http:\/\/localhost:1313\/posts\/005_averagelinearinterp\/",
     "author" : {
       "@type": "Person",
       "name": "Tianhao Zhao"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-10-08T00:00:01-07:00",
-    "datePublished": "2025-10-08T00:00:01-07:00",
+    "dateCreated": "2025-10-16T00:00:01-07:00",
+    "datePublished": "2025-10-16T00:00:01-07:00",
     
-    "dateModified": "2025-10-08T00:00:01-07:00",
+    "dateModified": "2025-10-16T00:00:01-07:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "920"
+    "wordCount": "324"
   }]
   </script>
 
@@ -648,7 +648,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Marginalization of multivariate Markov chains
+        Linearity of (multi-)linear interpolation under weighted averaging
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -701,7 +701,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-10-08T00:00:01-07:00">October 8, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>920 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+      <time datetime="2025-10-16T00:00:01-07:00">October 16, 2025</time><span class="px-2 text-primary-500">&middot;</span><span>324 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
     
 
     
@@ -943,9 +943,13 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#math">Math</a></li>
-    <li><a href="#fill-the-gap">Fill the gap</a></li>
-    <li><a href="#implementation">Implementation</a></li>
+    <li><a href="#are-they-equivalent">Are They Equivalent?</a>
+      <ul>
+        <li><a href="#proof-sketch">Proof Sketch</a></li>
+      </ul>
+    </li>
+    <li><a href="#when-the-equivalence-fails">When the Equivalence Fails</a></li>
+    <li><a href="#why-this-matters">Why this matters?</a></li>
   </ul>
 </nav>
   </div>
@@ -959,9 +963,13 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#math">Math</a></li>
-    <li><a href="#fill-the-gap">Fill the gap</a></li>
-    <li><a href="#implementation">Implementation</a></li>
+    <li><a href="#are-they-equivalent">Are They Equivalent?</a>
+      <ul>
+        <li><a href="#proof-sketch">Proof Sketch</a></li>
+      </ul>
+    </li>
+    <li><a href="#when-the-equivalence-fails">When the Equivalence Fails</a></li>
+    <li><a href="#why-this-matters">Why this matters?</a></li>
   </ul>
 </nav>
   </div>
@@ -984,61 +992,105 @@
         <div class="article-content max-w-prose mb-20">
           
 
+<p>Consider a collection of functions \(\{f_i(x)\}_i\), each associated with a constant weight \(w_i\).<br>
+The weighted average of these functions is:
+</p>
+$$
+F(x) = \sum_i w_i f_i(x).
+$$<p>Suppose each \(f_i(x)\) is interpolated on <strong>the same grid</strong> using (multi-)linear interpolation, yielding interpolants \(\hat{f}_i(x)\).<br>
+We can then form two natural operations:</p>
+<ul>
+<li>
+<p><strong>Operation A:</strong><br>
+</p>
+$$
+  G_A(x) = \sum_i w_i\,\hat{f}_i(x)
+  $$</li>
+<li>
+<p><strong>Operation B:</strong><br>
+</p>
+$$
+  G_B(x) = \widehat{F}(x) = \text{interpolant of } \sum_i w_i f_i(x)
+  $$</li>
+</ul>
+<hr>
 
-<h2 class="relative group">Math 
-    <div id="math" class="anchor"></div>
+<h2 class="relative group">Are They Equivalent? 
+    <div id="are-they-equivalent" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#math" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#are-they-equivalent" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>Let&rsquo;s consider a \(D\)-dimensional Markov chain \(\text{MC}_{X,Y}\)</p>
-$$
-\text{MC}_{X,Y} := \left( \mathbf{X} \times \mathbf{Y}, \mathbf{P}_{X,Y}   \right)
-$$<p>where \(\mathbf{X}\) and \(\mathbf{Y}\) denote the finite discrete state spaces of \(X \in \mathbb{R}^{D_X}\) and \(Y \in \mathbb{R}^{D_Y}\), respectively, and \(\mathbf{P}_{X,Y}\) is the transition matrix in which its $i$-th row $j$-th column element represents the transition probability from state $i$ to state $j$. The state space is constructed using the tensor (Cartesian) product to ensure complete coverage of all possible states and to facilitate programming implementation by leveraging properties of the Cartesian product. Our target is then to obtain a <em>marginalized</em> Markov chain \(\text{MC}_Y\) in which the new Markov chains summarizes the motion of the (partial) state \(Y\).</p>
-$$
-\text{MC}_Y := \left( \mathbf{Y}, \mathbf{P}_Y \right)
-$$<p>However, it is usually not apparent to marginalize a Markov chain. By definition, disaggregating the conditional probability \(\Pr\{Y'|Y\}\) gives:</p>
-$$
-\begin{aligned}
-   & \begin{cases}
-      \Pr\{Y'|Y\} = \sum_{X_j} \Pr\{ X_j,Y'|Y \} \\
-      \Pr\{ X_j,Y'|Y \} = \sum_{X_i} \Pr\{ X_j,Y'|X_i,Y \} \cdot \color{red}\Pr\{ X_i | Y \} \color{black} \\
-   \end{cases} \\
-   \implies & \Pr\{Y'|Y\} = \sum_{X_j} \sum_{X_i} \Pr\{ X_j,Y'|X_i,Y \} \cdot \color{red}\Pr\{ X_i | Y \} \color{black}
-\end{aligned}
-$$<p>where the red-font term represents the information required to infer the current value of the reduced partial state \(X\) given the current \(Y\). This information is not contained within the Markov chain \(\text{MC}_{X,Y}\) itself. The absence of this information is the primary reason why marginalization is generally not feasible.</p>
+<p>Yes — under the assumptions of:</p>
+<ol>
+<li>identical interpolation grids,</li>
+<li>(multi-)linear interpolation, and</li>
+<li>constant weights \(w_i\) (independent of \(x\)),</li>
+</ol>
+<p>these two operations are <strong>mathematically identical</strong> for all \(x\).</p>
 
-<h2 class="relative group">Fill the gap 
-    <div id="fill-the-gap" class="anchor"></div>
+<h3 class="relative group">Proof Sketch 
+    <div id="proof-sketch" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#fill-the-gap" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#proof-sketch" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
-<p><strong>We econometricians, now have to fill the gap.</strong></p>
-<p>However, caution is required: not every \(\Pr\{ X_i | Y \}\) works. To ensure that \(\text{MC}_Y\) is well defined, for every state \(Y\), there must exist at least one state \(Y'\) with positive probability in the final \(\text{MC}_Y\). That is, for any pair \((Y', Y)\), the conditional distribution \(\Pr\{ X_j, Y' | Y \}\) over \(X_j\) must exist. Intuitively, this requires that the mapping (which need not be a function and may be set-valued) implied by \(\Pr\{ X_i | Y \}\) from \(Y\) to \(X\) is injective in a generalized sense, such that \(\{ X \in \mathbf{X} : \Pr\{ X | Y \} > 0 \} \neq \emptyset\) for any given \(Y \in \mathbf{Y}\). In practice, it is often challenging to directly construct a \(\Pr\{ X_i | Y \}\) that satisfies this property. To further illustrate this point, consider a specific case where there exists a surjective function \(Y = f(X)\). In this situation, the equation above is valid only if \(f\) is also injective. When this condition is met, \(\Pr\{ X | Y \}\) takes values of either 1 or 0.</p>
-<p>In practical applications, the grid spaces \(\mathbf{X}\) and \(\mathbf{Y}\) are typically predetermined, while the mapping \(Y = f(X)\) may vary over time. For example, suppose \(X\) represents the current state of the economy and \(Y\) denotes the government&rsquo;s policy; in this context, \(f\) corresponds to the optimal policy rule that may evolve by time. The objective is to summarize the dynamics of the policy variables based on their joint evolution with the economic states. The grid spaces are often constructed to be sufficiently large to encompass all possible scenarios of \(f\). However, if the actual optimal policy rule today is stationary, meaning \(Y\) remains constant (e.g., a fixed foreign exchange rate), the mapping \(f\) is inherently not injective, which prevents the above marginalization from being valid. (In most cases, we do not adapt the state space)</p>
-<p>In such cases, it becomes necessary to specify \(\Pr\{ X | Y \}\) in a way that is robust to any original \(\text{MC}_{X,Y}\), since it is generally not possible to precisely predict or control how the Markov chain evolves over time or across iterations. Even if this belief is potentially inaccurate, the specification can still embody particular economic intuitions or rationality assumptions. A natural choice is a <strong>&ldquo;no-information&rdquo;</strong> prior, where \(\Pr\{ X | Y \}\) is uniform, that is, \(\Pr\{ X | Y \} = 1 / |\mathbf{X}|\), with \(|\mathbf{X}|\) denoting the cardinality of the grid space. The uniform distribution has its state space equal to its support, which enforces the injection property of \(\Pr\{ X_j,Y'|Y \}\).</p>
+</h3>
+<p>Let \(\{x_j\}_j\) denote the grid nodes and \(\phi_j(x)\) the (multi-)linear basis (“hat”) functions.<br>
+Each interpolant can be written as
+</p>
+$$
+\hat{f}_i(x) = \sum_j f_i(x_j)\,\phi_j(x).
+$$<p>
+Then,
+</p>
+$$
+\widehat{F}(x)
+= \sum_j \Big(\sum_i w_i f_i(x_j)\Big)\phi_j(x)
+= \sum_i w_i \sum_j f_i(x_j)\phi_j(x)
+= \sum_i w_i\,\hat{f}_i(x).
+$$<p>
+Hence, \( G_A(x) = G_B(x) \).</p>
+<hr>
 
-<h2 class="relative group">Implementation 
-    <div id="implementation" class="anchor"></div>
+<h2 class="relative group">When the Equivalence Fails 
+    <div id="when-the-equivalence-fails" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#implementation" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#when-the-equivalence-fails" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>Implementing the marginalization operation above is straightforward in the low-dimensional case, i.e., when \(N := |\mathbf{X}| \times |\mathbf{Y}|\) is relatively small. However, the computation becomes nontrivial as the number of states \(N\) grows to millions or even billions: on the one hand, the very large transition matrix necessitates sparse-matrix data structures and specialized algorithms to achieve good performance; on the other hand, the marginalization, by definition, has \(\mathcal{O}(N^2)\) time complexity because it must scan every \((X', Y', X, Y)\) tuple at least once. This section assumes a compressed sparse column (CSC) matrix representation in memory and presents and explains an algorithm for the marginalization operation. The example code is in Julia language and uses some of my packages.</p>
-<p><strong>Performance tips</strong>:
-For efficient implementation, it is advantageous to scan the transition matrix by columns, corresponding to the &ldquo;future&rdquo; states, as this approach optimizes the aggregation of each column and allows for parallelization since columns can be processed independently. It is also important to establish a consistent ordering of states in the new Markov chain \(\Pr\{Y'|Y\}\) and to understand how \((X, Y)\) states are indexed in the original chain \(\Pr\{ X', Y' | X, Y \}\). Utilizing the tensor (Cartesian) product to join the spaces of \(X\) and \(Y\) provides the necessary indexing information for efficient memory access and state queries.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-julia" data-lang="julia"><span class="line"><span class="cl"><span class="c"># TODO (will be updated later)</span>
-</span></span></code></pre></div><p>P.S.: The API <code>marginalize</code> will be added to <code>MultivariateMarkovChains.jl</code>.</p>
+<p>The linearity breaks if <strong>any</strong> of the following hold:</p>
+<ul>
+<li>the weights \(w_i\) depend on \(x\);</li>
+<li>different grids or interpolation stencils are used for each \(f_i\);</li>
+<li>interpolation is nonlinear (e.g., monotone cubic, clamped, or spline with slope limiters);</li>
+<li>extrapolation outside the grid domain uses nonlinear rules.</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Why this matters? 
+    <div id="why-this-matters" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#why-this-matters" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When solving a Bellman equation, the main computational bottleneck is optimizing the Lagrangian or Q-function at each grid point, which requires evaluating the expected value function millions or even billions of times. Direct computation is often prohibitively slow.</p>
+<p>A common workaround is to precompute an interpolant of the expected value function</p>
+$$
+\overline{v}(x,z) := \mathbb{E}\{v(x',z') \mid z\},
+$$<p>so that it can be evaluated cheaply everywhere.</p>
+<p>However, this post highlights a subtle numerical pitfall: treating the interpolated function as the true one can distort the shape of the expected value function when nonlinear interpolation (e.g., cubic splines) is used. Such overshooting in local regions of the state space can lead to unexpected or unstable behavior in the resulting solution.</p>
 
           
           
@@ -1068,8 +1120,8 @@ For efficient implementation, it is advantageous to scan the transition matrix b
           type="text/javascript"
           src="/js/page.min.407e5b2727c1f241c95d53db24c776bea71bfc18e09511b815d669ad8caca6e9e18a53864ad364b1ccccfa2f2956768d33cfe193bfb64d3406f3b5ece354ba57.js"
           integrity="sha512-QH5bJyfB8kHJXVPbJMd2vqcb/BjglRG4FdZprYyspunhilOGStNksczM&#43;i8pVnaNM8/hk7&#43;2TTQG87Xs41S6Vw=="
-          data-oid="views_posts/004_mcMarginalization/index.md"
-          data-oid-likes="likes_posts/004_mcMarginalization/index.md"></script>
+          data-oid="views_posts/005_averageLinearInterp/index.md"
+          data-oid-likes="likes_posts/005_averageLinearInterp/index.md"></script>
       
 
     </section>
@@ -1084,7 +1136,7 @@ For efficient implementation, it is advantageous to scan the transition matrix b
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/003_newkeynesianfirm/">
+            <a class="flex group mr-3" href="/posts/004_mcmarginalization/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1095,11 +1147,11 @@ For efficient implementation, it is advantageous to scan the transition matrix b
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Non-linear Phillips curve in NK model step-by-step</span
+                  >Marginalization of multivariate Markov chains</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-09-22T00:00:01-07:00">September 22, 2025</time>
+                    <time datetime="2025-10-08T00:00:01-07:00">October 8, 2025</time>
                   
                 </span>
               </span>
@@ -1107,27 +1159,6 @@ For efficient implementation, it is advantageous to scan the transition matrix b
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/005_averagelinearinterp/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Linearity of (Multi-)Linear Interpolation under Weighted Averaging</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-10-16T00:00:01-07:00">October 16, 2025</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
