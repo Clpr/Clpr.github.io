@@ -20,13 +20,7 @@ This package provides flexible API to define, approximate, manupulate, estimate 
 
 To learn more about the functionalities and usage, check the project on GitHub.
 
-This package has not been registered at Julia's general registry yet. To install it, run:
-
-```julia
-pkg> add "https://github.com/Clpr/MultivariateMarkovChains.jl.git"
-```
-
-In the future, one may run:
+This package has been registered at Julia's general registry yet. To install it, run:
 
 ```julia
 pkg> add MultivariateMarkovChains
