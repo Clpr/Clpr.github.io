@@ -9,7 +9,17 @@
     <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
     <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
     <copyright>© 2025 Tianhao Zhao</copyright>
-    <lastBuildDate>Mon, 28 Jul 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Oct 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>LifetimeProblems.jl</title>
+      <link>http://localhost:1313/code/lifetimeproblems.jl/</link>
+      <pubDate>Sat, 18 Oct 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/lifetimeproblems.jl/</guid>
+      <description>This package provides a programmatic framework of various lifetime problems of infinite and finite horizon. It provides a unified and user friendly API for economists.</description>
+      
+    </item>
     
     <item>
       <title>MultivariateMarkovChains.jl</title>
