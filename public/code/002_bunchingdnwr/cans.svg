@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Two canned foods: one closed can and one open can</title>
+  <desc id="desc">An SVG illustration showing two cans on a canvas, one sealed and one open with visible contents.</desc>
+
+  <defs>
+    <linearGradient id="metalBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8f98a3"/>
+      <stop offset="18%" stop-color="#d8dde3"/>
+      <stop offset="38%" stop-color="#aeb6bf"/>
+      <stop offset="58%" stop-color="#eef2f6"/>
+      <stop offset="78%" stop-color="#a4adb7"/>
+      <stop offset="100%" stop-color="#7c858f"/>
+    </linearGradient>
+
+    <linearGradient id="metalTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f4f6f8"/>
+      <stop offset="45%" stop-color="#b8c0c8"/>
+      <stop offset="100%" stop-color="#8f98a3"/>
+    </linearGradient>
+
+    <linearGradient id="labelRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d84f4f"/>
+      <stop offset="100%" stop-color="#a71f1f"/>
+    </linearGradient>
+
+    <linearGradient id="labelGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#57a95d"/>
+      <stop offset="100%" stop-color="#2f7a39"/>
+    </linearGradient>
+
+    <radialGradient id="foodFill" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#f0c36a"/>
+      <stop offset="100%" stop-color="#c9892d"/>
+    </radialGradient>
+
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="900" height="420" fill="#f6f1e8"/>
+  <rect y="315" width="900" height="105" fill="#e7dccd"/>
+
+  <!-- ground shadows -->
+  <ellipse cx="240" cy="330" rx="110" ry="20" fill="#000" opacity="0.14"/>
+  <ellipse cx="650" cy="334" rx="125" ry="22" fill="#000" opacity="0.14"/>
+
+  <!-- CLOSED CAN -->
+  <g transform="translate(120,65)" filter="url(#shadow)">
+    <!-- top rim -->
+    <ellipse cx="120" cy="45" rx="88" ry="24" fill="url(#metalTop)" stroke="#7e8790" stroke-width="2"/>
+    <ellipse cx="120" cy="45" rx="64" ry="14" fill="#c6ccd3" opacity="0.75"/>
+
+    <!-- body -->
+    <rect x="32" y="45" width="176" height="220" fill="url(#metalBody)" stroke="#707982" stroke-width="2"/>
+    <rect x="48" y="92" width="144" height="126" rx="10" fill="url(#labelRed)" stroke="#8f1d1d" stroke-width="2"/>
+
+    <!-- label details -->
+    <rect x="60" y="105" width="120" height="20" rx="4" fill="#f5dfb6" opacity="0.95"/>
+    <text x="120" y="120" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#7a2020">
+      TOMATO SOUP
+    </text>
+
+    <circle cx="120" cy="158" r="28" fill="#f6e2bb" stroke="#d8c092" stroke-width="2"/>
+    <path d="M120 138
+             C106 138, 96 150, 96 162
+             C96 176, 108 186, 120 186
+             C132 186, 144 176, 144 162
+             C144 150, 134 138, 120 138Z"
+          fill="#c83f3f"/>
+    <path d="M120 136 C112 126, 100 126, 95 134" fill="none" stroke="#4f8f44" stroke-width="4" stroke-linecap="round"/>
+    <path d="M120 136 C128 126, 140 126, 145 134" fill="none" stroke="#4f8f44" stroke-width="4" stroke-linecap="round"/>
+
+    <rect x="72" y="198" width="96" height="12" rx="6" fill="#f1c6c6" opacity="0.75"/>
+
+    <!-- bottom rim -->
+    <ellipse cx="120" cy="265" rx="88" ry="24" fill="url(#metalTop)" stroke="#6f7881" stroke-width="2"/>
+    <ellipse cx="120" cy="260" rx="84" ry="16" fill="#8b949d" opacity="0.35"/>
+
+    <!-- highlight -->
+    <rect x="52" y="50" width="16" height="205" rx="8" fill="#ffffff" opacity="0.25"/>
+  </g>
+
+  <!-- OPEN CAN -->
+  <g transform="translate(500,80)" filter="url(#shadow)">
+    <!-- can body -->
+    <ellipse cx="110" cy="38" rx="92" ry="27" fill="url(#metalTop)" stroke="#7e8790" stroke-width="2"/>
+    <ellipse cx="110" cy="38" rx="70" ry="18" fill="url(#foodFill)" stroke="#b67827" stroke-width="1.5"/>
+
+    <!-- visible food chunks -->
+    <circle cx="85" cy="35" r="7" fill="#e6b35c"/>
+    <circle cx="118" cy="29" r="8" fill="#d69a45"/>
+    <circle cx="142" cy="40" r="6" fill="#e9bb67"/>
+    <circle cx="101" cy="45" r="5" fill="#d08b31"/>
+    <circle cx="132" cy="50" r="7" fill="#c97f28"/>
+
+    <rect x="18" y="38" width="184" height="220" fill="url(#metalBody)" stroke="#707982" stroke-width="2"/>
+    <rect x="34" y="90" width="152" height="128" rx="10" fill="url(#labelGreen)" stroke="#2c6e34" stroke-width="2"/>
+
+    <!-- label details -->
+    <rect x="48" y="103" width="124" height="20" rx="4" fill="#e9f4d9" opacity="0.96"/>
+    <text x="110" y="118" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#245d2c">
+      MIXED VEGGIES
+    </text>
+
+    <g transform="translate(0,2)">
+      <circle cx="82" cy="160" r="12" fill="#f2a93b" stroke="#cf8720" stroke-width="2"/>
+      <circle cx="110" cy="152" r="11" fill="#76b84f" stroke="#4f8731" stroke-width="2"/>
+      <circle cx="136" cy="162" r="12" fill="#d94b43" stroke="#a5302c" stroke-width="2"/>
+      <circle cx="100" cy="181" r="10" fill="#f1d04f" stroke="#c4a32c" stroke-width="2"/>
+      <circle cx="129" cy="184" r="9" fill="#7cc46d" stroke="#4d8f42" stroke-width="2"/>
+    </g>
+
+    <ellipse cx="110" cy="258" rx="92" ry="27" fill="url(#metalTop)" stroke="#6f7881" stroke-width="2"/>
+    <ellipse cx="110" cy="252" rx="87" ry="17" fill="#8b949d" opacity="0.35"/>
+
+    <!-- highlight -->
+    <rect x="40" y="46" width="16" height="200" rx="8" fill="#ffffff" opacity="0.24"/>
+  </g>
+
+  <!-- lifted lid for open can -->
+  <g transform="translate(725,55) rotate(-18)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="0" rx="70" ry="22" fill="url(#metalTop)" stroke="#7a838c" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="48" ry="12" fill="#c2c9d0" opacity="0.85"/>
+    <path d="M18 -2
+             c10 0 18 6 18 14
+             c0 8 -8 14 -18 14
+             c-10 0 -18 -6 -18 -14
+             c0 -8 8 -14 18 -14 Z
+             M18 4
+             c-5 0 -9 3 -9 8
+             c0 4 4 8 9 8
+             c5 0 9 -4 9 -8
+             c0 -5 -4 -8 -9 -8 Z"
+          fill="#8f98a3" fill-rule="evenodd"/>
+  </g>
+</svg>

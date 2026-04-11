@@ -8,8 +8,18 @@
     <language>en</language>
     <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
     <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
-    <copyright>© 2025 Tianhao Zhao</copyright>
-    <lastBuildDate>Tue, 18 Nov 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Tianhao Zhao</copyright>
+    <lastBuildDate>Sat, 07 Feb 2026 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Estimating empirical measures of DNWR</title>
+      <link>http://localhost:1313/code/002_bunchingdnwr/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/002_bunchingdnwr/</guid>
+      <description>Math and programs to estimate empirical measures of downward nominal wage rigidity (DNWR)</description>
+      
+    </item>
     
     <item>
       <title>Discretize OU process over non-integer time step</title>

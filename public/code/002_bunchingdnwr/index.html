@@ -1,0 +1,1618 @@
+<!doctype html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="light"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>Estimating empirical measures of DNWR &middot; Tianhao Zhao</title>
+  <meta name="title" content="Estimating empirical measures of DNWR &middot; Tianhao Zhao" />
+  
+  <meta name="description" content="Math and programs to estimate empirical measures of downward nominal wage rigidity (DNWR)" />
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/code/002_bunchingdnwr/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.8bbba044c434c660338a4e201c886209d6c90daf521a4f8280a6c54e1584ce2e3b8cd35732494daf741dcfa2ed199950fbcd6bff18863f08dc5667b81623ea15.css"
+    integrity="sha512-i7ugRMQ0xmAzik4gHIhiCdbJDa9SGk&#43;CgKbFThWEzi47jNNXMklNr3Qdz6LtGZlQ&#43;81r/xiGPwjcVme4FiPqFQ==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.73a5f9ba5ff6b7a46ef83298ac6683960c79f4c7c04910d9cc5c25df23f4fa99a1afd7e2c73fff85268a72e6716fd3b5a75df834c675f8ee26cbea2854e40d2f.js"
+    integrity="sha512-c6X5ul/2t6Ru&#43;DKYrGaDlgx59MfASRDZzFwl3yP0&#43;pmhr9fixz//hSaKcuZxb9O1p134NMZ1&#43;O4my&#43;ooVOQNLw==" data-copy="Copy" data-copied="Copied"></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/code/002_bunchingdnwr/">
+  <meta property="og:site_name" content="Tianhao Zhao">
+  <meta property="og:title" content="Estimating empirical measures of DNWR">
+  <meta property="og:description" content="Math and programs to estimate empirical measures of downward nominal wage rigidity (DNWR)">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="code">
+    <meta property="article:published_time" content="2026-02-07T00:00:01-07:00">
+    <meta property="article:modified_time" content="2026-02-07T00:00:01-07:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Estimating empirical measures of DNWR">
+  <meta name="twitter:description" content="Math and programs to estimate empirical measures of downward nominal wage rigidity (DNWR)">
+
+    
+  
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Data and code",
+    "name": "Estimating empirical measures of DNWR",
+    "headline": "Estimating empirical measures of DNWR",
+    
+    "abstract": "Math and programs to estimate empirical measures of downward nominal wage rigidity (DNWR)",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/code\/002_bunchingdnwr\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Tianhao Zhao"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-02-07T00:00:01-07:00",
+    "datePublished": "2026-02-07T00:00:01-07:00",
+    
+    "dateModified": "2026-02-07T00:00:01-07:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2202"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Tianhao Zhao" />
+  
+  
+  
+  
+  <link href="https://clpr.github.io/" rel="me" />
+  
+  
+  
+  
+  <link href="https://github.com/Clpr" rel="me" />
+  
+  
+  
+  
+  <link href="https://scholar.google.com/citations?user=b2Pu9-YAAAAJ&amp;hl=en" rel="me" />
+  
+  
+  
+  
+  <link href="https://linkedin.com/in/zhaotianhao95" rel="me" />
+  
+  
+  
+  
+  <link href="https://orcid.org/0000-0002-4167-9537" rel="me" />
+  
+  
+  
+  
+  <link href="https://steamcommunity.com/id/ClprGitHub/" rel="me" />
+  
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/lib/katex/katex.min.7e7e35e3ef02b7b437449a44ca3fac62ec1ed39cb8312b680a00fe8ac60badc95b063b694636b8440856f7f5e8c2cc9e6b0efb581179b2656c7e1e97558c7096.css"
+    integrity="sha512-fn414&#43;8Ct7Q3RJpEyj&#43;sYuwe05y4MStoCgD&#43;isYLrclbBjtpRja4RAhW9/Xowsyeaw77WBF5smVsfh6XVYxwlg==">
+  
+  
+  <script defer src="/lib/katex/katex.min.cadd45c1af1f44bdaf196dc9b104f1daeb29043f0dc59155ffe22847510a04390a0b7a859400d420a626204f7fc5ddb07c19311de1c66b25e19c2559d3e126a8.js" integrity="sha512-yt1Fwa8fRL2vGW3JsQTx2uspBD8NxZFV/&#43;IoR1EKBDkKC3qFlADUIKYmIE9/xd2wfBkxHeHGayXhnCVZ0&#43;EmqA=="></script>
+  
+  
+  <script
+    defer
+    src="/lib/katex/auto-render.min.e9b2833d28623d18c071d78ef13e9c79d695122d296af3dbcee7bf1bf6518b0565bab59939267fbc8f5faf696193c20f5caef3e7501969cfb306f6738032730d.js"
+    integrity="sha512-6bKDPShiPRjAcdeO8T6cedaVEi0pavPbzue/G/ZRiwVlurWZOSZ/vI9fr2lhk8IPXK7z51AZac&#43;zBvZzgDJzDQ=="
+    onload="renderMathInElement(document.body);"></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+  
+  
+  
+  <meta name="theme-color"/>
+  
+  
+
+  
+  
+  
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a
+      >
+    </div>
+    
+    
+      <div class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 padding-main-menu">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Tianhao Zhao</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Blog">
+    Blog
+  </p>
+</a>
+
+
+
+            
+            
+  <a
+  href="/code/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Data and code">
+    Data &amp; Code
+  </p>
+</a>
+
+
+
+            
+            
+  <a
+  href="/research/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Research">
+    Research
+  </p>
+</a>
+
+
+
+            
+            
+  <a
+  href="/teach/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Teaching">
+    Teaching
+  </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 padding-top-[5px]">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Blog">
+      Blog
+    </p>
+  </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+  <a
+    href="/code/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Data and code">
+      Data &amp; Code
+    </p>
+  </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+  <a
+    href="/research/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Research">
+      Research
+    </p>
+  </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+  <a
+    href="/teach/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Teaching">
+      Teaching
+    </p>
+  </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Estimating empirical measures of DNWR
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-02-07T00:00:01-07:00">February 7, 2026</time><span class="px-2 text-primary-500">&middot;</span><span>2202 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">11 mins</span>
+    
+
+    
+    
+  </div>
+
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+          
+          
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img
+        class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4"
+        width="96"
+        height="96"
+        alt="Tianhao Zhao"
+        src="/img/logo_cat_hu_2633eedf8c78e1eb.jpeg">
+    
+  
+  <div class="place-self-center">
+    
+      <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+        Author
+      </div>
+      <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+        Tianhao Zhao
+      </div>
+    
+    
+      <div class="text-sm text-neutral-700 dark:text-neutral-400">More coffee</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://clpr.github.io/"
+          target="_blank"
+          aria-label="Link"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/Clpr"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://scholar.google.com/citations?user=b2Pu9-YAAAAJ&amp;hl=en"
+          target="_blank"
+          aria-label="Google"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://linkedin.com/in/zhaotianhao95"
+          target="_blank"
+          aria-label="Linkedin"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://orcid.org/0000-0002-4167-9537"
+          target="_blank"
+          aria-label="Orcid"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M294.75 188.19h-45.92V342h47.47c67.62 0 83.12-51.34 83.12-76.91 0-41.64-26.54-76.9-84.67-76.9zM256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-80.79 360.76h-29.84v-207.5h29.84zm-14.92-231.14a19.57 19.57 0 1 1 19.57-19.57 19.64 19.64 0 0 1-19.57 19.57zM300 369h-81V161.26h80.6c76.73 0 110.44 54.83 110.44 103.85C410 318.39 368.38 369 300 369z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://steamcommunity.com/id/ClprGitHub/"
+          target="_blank"
+          aria-label="Steam"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L176.6 279c-15.5-.9-30.7 3.4-43.5 12.1L0 236.1C10.2 108.4 117.1 8 247.6 8 384.8 8 496 119 496 256zM155.7 384.3l-30.5-12.6a52.79 52.79 0 0 0 27.2 25.8c26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3.1-40.3-5.4-13-15.5-23.2-28.5-28.6-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21zm173.8-129.9c-34.4 0-62.4-28-62.4-62.3s28-62.3 62.4-62.3 62.4 28 62.4 62.3-27.9 62.3-62.4 62.3zm.1-15.6c25.9 0 46.9-21 46.9-46.8 0-25.9-21-46.8-46.9-46.8s-46.9 21-46.9 46.8c.1 25.8 21.1 46.8 46.9 46.8z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+        
+
+        
+
+        
+          <div class="mb-5"></div>
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-math">1. Math</a>
+      <ul>
+        <li><a href="#11-bunching-fwcp-estimator">1.1 Bunching FWCP estimator</a></li>
+        <li><a href="#12-symmetry-based-fwcp-estimator">1.2 Symmetry-based FWCP estimator</a>
+          <ul>
+            <li><a href="#121-constructing-notional-distribution">1.2.1 Constructing notional distribution</a>
+              <ul>
+                <li><a href="#121a-the-same-sample">1.2.1.a The Same sample</a></li>
+                <li><a href="#121b-holden--wulfsberg-2009-jme">1.2.1.b Holden &amp; Wulfsberg (2009, JME)</a></li>
+              </ul>
+            </li>
+            <li><a href="#122-computing-fwcp">1.2.2 Computing FWCP</a></li>
+          </ul>
+        </li>
+        <li><a href="#13-practical-notes">1.3 Practical notes</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-programs-with-docs">3. Programs with docs</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-math">1. Math</a>
+      <ul>
+        <li><a href="#11-bunching-fwcp-estimator">1.1 Bunching FWCP estimator</a></li>
+        <li><a href="#12-symmetry-based-fwcp-estimator">1.2 Symmetry-based FWCP estimator</a>
+          <ul>
+            <li><a href="#121-constructing-notional-distribution">1.2.1 Constructing notional distribution</a>
+              <ul>
+                <li><a href="#121a-the-same-sample">1.2.1.a The Same sample</a></li>
+                <li><a href="#121b-holden--wulfsberg-2009-jme">1.2.1.b Holden &amp; Wulfsberg (2009, JME)</a></li>
+              </ul>
+            </li>
+            <li><a href="#122-computing-fwcp">1.2.2 Computing FWCP</a></li>
+          </ul>
+        </li>
+        <li><a href="#13-practical-notes">1.3 Practical notes</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-programs-with-docs">3. Programs with docs</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+<ul>
+<li><a
+  href="#1-math">1. Math</a>
+
+<ul>
+<li><a
+  href="#11-bunching-fwcp-estimator">1.1 Bunching FWCP estimator</a>
+</li>
+<li><a
+  href="#12-symmetry-based-fwcp-estimator">1.2 Symmetry-based FWCP estimator</a>
+
+<ul>
+<li><a
+  href="#121-constructing-notional-distribution">1.2.1 Constructing notional distribution</a>
+
+<ul>
+<li><a
+  href="#121a-the-same-sample">1.2.1.a The Same sample</a>
+</li>
+<li><a
+  href="#121b-holden-wulfsberg-2009-jme">1.2.1.b Holden &amp; Wulfsberg (2009, JME)</a>
+</li>
+</ul>
+</li>
+<li><a
+  href="#122-computing-fwcp">1.2.2 Computing FWCP</a>
+</li>
+</ul>
+</li>
+<li><a
+  href="#13-practical-notes">1.3 Practical notes</a>
+</li>
+</ul>
+</li>
+<li><a
+  href="#3-programs-with-docs">3. Programs with docs</a>
+</li>
+</ul>
+<!-- TOC end -->
+<!-- TOC --><a name="1-math"></a>
+
+<h2 class="relative group">1. Math 
+    <div id="1-math" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-math" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Downward nominal wage rigidity (DNWR) is a nominal friction characterizing that nominal wage is harder to decrease than to increase due to some institutional and psychological reasons. It has been formalized into today&rsquo;s macroeconomic modeling via a series of research by Schmitt-Grohé and Uribe. Mathematically, it is an occasionally binding constraint (OBC) in form:</p>
+$$
+w_{t} \geq \delta w_{t-1}
+$$<p>where \(\delta\) tells the degree of DNWR (e.g. 0.99). In equilibrium, the OBC generates kinks in policy functions, which implies a mass spike at zero-growth point or in its neighborhood in the distribution of (individual job stayer&rsquo;s) nominal wage growth rates.</p>
+<p>To empirically measure the intensity of DNWR, the literature compares actual wage growth distribution \(f(x)\) and a counterfactual/notional distribution \(g(x)\) where there is no DNWR preventing wage from going down. The <strong><em>fraction of wage cuts prevented (FWCP)</em></strong> computed from the comparison then becomes the empirical measure of DNWR.</p>
+<p>Intuitively, the identification relies on what assumption(s) to use for constructing the notional distribution \(g(x)\). There are 2 main ideas:</p>
+<ol>
+<li><strong>Symmetry assumption</strong>: If there is no friction that prevents wage from dropping, then the wage growth rate should be symmetric about its median \(x^{50\%}\) or its mean \(\overline{x}\)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>.</li>
+<li><strong>Zero mass spike assumption</strong>: If there does be friction that prevents wage from dropping, then the equilibrium-implied wage growth distribution shall have a mass spike in the neighborhood of 0 (as shown in the figure below). However, if friction-free, then the mass should be &ldquo;smooth&rdquo; across the neighborhood.</li>
+</ol>
+<p>The two different assumptions lead to two kinds of estimators: symmetry-based FWCP estimator, and bunching FWCP estimator, respectively.</p>
+<!-- TOC --><a name="11-bunching-fwcp-estimator"></a>
+
+<h3 class="relative group">1.1 Bunching FWCP estimator 
+    <div id="11-bunching-fwcp-estimator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#11-bunching-fwcp-estimator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Bunching FWCP estimator is more popular today when micro wage growth data is well available.</p>
+<p><strong>Procedures</strong>:</p>
+<ol>
+<li>Denote observed wage growth data as \(\{x_{i},w_{i}\}_i\) where \(i\) marks individual job stayers across two periods; \(x_{i}\) is wage growth rate; and \(w_{i}\) is (optional) weight provided in some questionnaire datasets.</li>
+<li>Cut \(x_{i}\) into total \(K\) <em>fine</em> bins (e.g. every 1% growth<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>) while ensuring there exists a bin having 0 as its middle point<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</li>
+<li>Count frequency \(\{q_k\}_{k\in K}\) of each bin, then estimate a weighted histogram \(\{x_k, d_k\}_{k\in K}\) where \(d_k\) is the <em>density</em> at bin middle point \(x_k\) that represents the whole bin<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</li>
+<li>Then, record the estimated density of the mass spiking bin that centers at 0. Let \(j\) be the index of the mass spiking bin, and denote its density as \(d_{j}\).</li>
+<li>After that, fitting a polynomial regression on data \(\{x_k,d_k\}_{k\neq j}\) by removing the density point of the mass spiking bin. The estimated model \(\hat{g}(x)\) is then the notional distribution of wage growth.
+<ul>
+<li>Caution: polynomial regression is recommended because what we do is smoothing over the mass spiking bin as if it does not spike there.</li>
+<li>Caution: stay with global polynomials such as Chebyshev. Because global polynomials cares about shape of the whole distribution while suppressing the possible numerical oscillations in neighboring bins. Local methods such as splines, Loess, kernel density (KDE) would totally depend on those neighboring bins because of being piecewise.</li>
+<li>Caution: cross-validation (CV) is typically required. For linear polynomial regressions, leave-one-out (LOO) CV is more efficient than K-fold CV.</li>
+<li>My implementation fits the notional distribution function using a Chebyshev-Ridge method i.e. Chebyshev polynomial regression with ridge regularization.
+<ul>
+<li>Why Chebyshev: standard and best choice if no special restrictions.</li>
+<li>Why ridge regularization: cutting data into very fine bins often introduces high-frequency zig-zag to the histogram estimate. Ridge regularization can ideally suppressing the zig-zag&rsquo;s impact while keeping efficient computing.</li>
+<li>Caution: when doing CV, one has to jointly select the maximum degree of Chebyshev polynomials and the ridge hyper-parameter to minimize e.g. RMSE.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Predict counterfactual density at 0. Denote the density as \(\tilde{d}_j = \hat{g}(0)\).</li>
+<li>Define FWCP as \(y_{\text{bunch}} := 1 - \tilde{d}_j/d_j\) i.e. the fraction of excess mass at the mass spiking point.
+<ul>
+<li>Hint: a common truncation \(\max\{0,y_{\text{bunch}}\}\) happens because it is often thought that &ldquo;friction cannot be negative&rdquo;.</li>
+<li>Pros: the definition of \(y_{\text{bunch}}\) here bounds its value within \([0,1]\) as a ratio, which is comparable across datasets or subsamples.</li>
+</ul>
+</li>
+</ol>
+<p>
+
+
+
+
+
+
+<figure>
+      <img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="Illustration"
+    srcset="
+      /code/002_bunchingdnwr/illustration_hu_c5c3fffb0a2f0a67.png  330w,
+      /code/002_bunchingdnwr/illustration_hu_8c4205aafd4cc487.png  660w,
+      /code/002_bunchingdnwr/illustration_hu_df9ec46f862939ba.png 1280w
+    "
+    data-zoom-src="/code/002_bunchingdnwr/illustration.png"
+    src="/code/002_bunchingdnwr/illustration.png">
+
+  
+    <figcaption>Illustration of bunching FWCP estimator on simulated data</figcaption>
+</figure>
+</p>
+<p>Even though bunching FWCP estimator is popular today, one has to be very careful when using it:</p>
+<ol>
+<li>The estimator requires large amount of micro wage data of individual job stayers, making it hard to construct at less aggregate level where micro data are less available.</li>
+<li>The estimator is <em>local</em> by focusing on the small mass spiking region, which is insensitive to things happening at tails or even a little bit further away from zero growth. This property makes the estimates often independent from many economic variables (so don&rsquo;t be surprised if you find almost zero correlationship).</li>
+</ol>
+<!-- TOC --><a name="12-symmetry-based-fwcp-estimator"></a>
+
+<h3 class="relative group">1.2 Symmetry-based FWCP estimator 
+    <div id="12-symmetry-based-fwcp-estimator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#12-symmetry-based-fwcp-estimator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>This kind of estimators were once popular in early studies and still important today. It is based on the more relaxed identification assumption above.</p>
+<p>The procedures is similar to bunching FWCP estimator: 1. construct notional distribution \(\hat{g}(x)\); 2. compute FWCP.</p>
+<p>However, the implementation at each step is quite different.</p>
+<!-- TOC --><a name="121-constructing-notional-distribution"></a>
+
+<h4 class="relative group">1.2.1 Constructing notional distribution 
+    <div id="121-constructing-notional-distribution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#121-constructing-notional-distribution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Based on the symmetry assumption, we construct notional distribution \(\hat{g}(x)\) by mirroring the actual distribution/density function against the median \(x^{50\%}\) (or mean, but mostly median). Specifically, &ldquo;flipping&rdquo; the right side of \(x^{50\%}\) to the left side:</p>
+<p>
+
+
+
+
+
+
+<figure>
+      <img class="my-0 rounded-md" loading="lazy" alt="Mirroring operation" src="/code/002_bunchingdnwr/mirroring.svg">
+
+  
+    <figcaption>Illustration of mirroring/flipping operation</figcaption>
+</figure>
+</p>
+<p>Here, depending on what data are used to estimate \(\hat{g}(x)\), there are two kinds of constructions.</p>
+<!-- TOC --><a name="121a-the-same-sample"></a>
+
+<h5 class="relative group">1.2.1.a The Same sample 
+    <div id="121a-the-same-sample" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#121a-the-same-sample" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>This is traditional: the data sample for estimating \(\hat{g}(x)\) is the same as the data sample to estimate FWCP on. In this case, the actual wage growth distribution \(f(x)\) for FWCP computing has an analytical relationship with \(\hat{g}(x)\). Writing the equation:</p>
+$$
+\hat{g}(x) := \begin{cases}
+f(x), x \geq x^{50\%} \\
+f(2x^{50\%}-x), else
+\end{cases}
+$$<ul>
+<li>Pros: simple and easy to apply</li>
+<li>Cons:
+<ul>
+<li>the degree of DNWR would be underestimated when the whole distribution of wage growth is too &ldquo;left&rdquo; e.g. in a recession.</li>
+<li>even in ordinary time, the median is not necessarily to be the threshold of DNWR being binding: even someone beyond the median could be binding to DNWR constraint. The subsample (right side of the median) to construct notional distribution cannot ensure to be rigidity-free.</li>
+<li>thus, the relaxed assumption is less powerful than the mass spiking assumption to uniquely identify where DNWR constraint is binding.</li>
+</ul>
+</li>
+</ul>
+<!-- TOC --><a name="121b-holden-wulfsberg-2009-jme"></a>
+
+<h5 class="relative group">1.2.1.b Holden &amp; Wulfsberg (2009, JME) 
+    <div id="121b-holden--wulfsberg-2009-jme" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#121b-holden--wulfsberg-2009-jme" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>To improve the notional distribution construction by overcoming the cons in Section 1.2.1.a, Holden &amp; Wulfsberg (2009, JME)<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> proposes an alternative method by using a subsample \(\{z_i\}_i\) that are more likely to be rigidity-free. The subsample can be from \(f(x)\), the actual distribution for finally computing FWCP, and can also come from another dataset in case of need.</p>
+<p>Consider a sample that can properly represent the whole wage growth distribution. HW09 picks top 25% growth observations which are thought to be very likely to be rigidity free. Then, the subsample \(\{z_i\}_{i}\) is mirrored about its minimum to get a symmetric notional distribution \(\hat{g}(x|\mu_z,\sigma_z)\) with two parameters: location parameter \(\mu_z\) and dispersion parameter \(\sigma_z\). Here the subscript \(z\) indicates to which sample the parameters belong.</p>
+<p>In practice, we choose \(\hat\mu_z = z^{50\%}\) the median as the location parameter; and choose \(\hat\sigma_z := z^{75\%} - z^{35\%}\) as the dispersion parameter. About the justification of why doing so, please check HW09 paper.</p>
+<p>
+
+
+
+
+
+
+<figure>
+      <img class="my-0 rounded-md" loading="lazy" alt="Holden &amp; Wulfsberg (2009, JME)" src="/code/002_bunchingdnwr/HW09.svg">
+
+  
+    <figcaption>Illustration of Holden &amp; Wulfsberg (2009, JME)</figcaption>
+</figure>
+</p>
+<p>However, one can immediately realize that this notional distribution \(\hat{g}(x|\mu_z,\sigma_z)\), no matter which sample based on, is not comparable with any actual wage growth distribution \(f(x)\):</p>
+<ul>
+<li>If \(\{z_i\}\) is drawn from \(f(x)\), then the location parameter \(\mu_z\) is actuall the top 25% quantile of \(f(x)\) rather than its median.</li>
+<li>If \(\{z_i\}\) is drawn from another population (e.g. auxiliary dataset(s)), then \(\mu_z\) is still likely to be much higher than median of \(f(x)\).</li>
+</ul>
+<p>To accommodate \(\hat{g}\) with \(f\), HW09 normalizes the distribution to \(\hat{g}(x|0,1)\) by:</p>
+$$
+\hat{g}(x|0,1) = \frac{x - \hat\mu_z}{\hat\sigma_z} = \frac{x - z^{50\%}}{z^{75\%} - z^{35\%}}
+$$<p>Applying the normalization to every \(z_i\) in the underlying sample of \(\hat{g}(x|\mu_z,\sigma_z)\), we get a normalized notional sample \(\{z^{0,1}_i\}_i\) as if they are drawn from the normalized distribution \(\hat{g}(x|0,1)\).</p>
+<p>Then, when we want to construct notional distribution for an actual wage growth distribution \(f(x|\mu_x,\sigma_x)\) with parameters \((\mu_x,\sigma_x)\), we simply re-scale  \(\{z^{0,1}_i\}_i\) to  \(\{z^{\mu_x,\sigma_x}_i\}_i\) using the paramters of the actual wage growth distribution \(f\) and get a corresponding counterfactual distribution \(\hat{g}(x|\mu_x,\sigma_x)\).</p>
+<p>
+
+
+
+
+
+
+<figure>
+      <img class="my-0 rounded-md" loading="lazy" alt="Holden &amp; Wulfsberg (2009, JME)" src="/code/002_bunchingdnwr/HW09-2.svg">
+
+  
+    <figcaption>g(x|0,1) works like canned foods for food trucks</figcaption>
+</figure>
+</p>
+<ul>
+<li>
+<p>Pros:</p>
+<ul>
+<li>Build once, then use for many times. This method works pretty well in scenario that we have to estimate FWCP for many times (e.g. for every state in the US).</li>
+<li>The reference dataset for drawing \(\{z_i\}_i\) is not necessary to be the actual wage growth data. This helps improve the quality of estimation by requiring very few degrees of freedom (only need 3 parameters: median and two quantiles) of \(\{x_i\}_i\), which is desirable when there is not enough observations to compute other data-heavy estimators such as the bunching FWCP estimator.</li>
+</ul>
+</li>
+<li>
+<p>Cons:</p>
+<ul>
+<li>There is an underlying assumption: the reference data to draw \(\{z_i\}\) is supposed to have the same confounders with the actual data to draw \(\{x_i\}\). Otherwise, one may have to prove the independency, or controlling for those confounders using techniques like distributional regression and functional data analysis (FDA, <del>Food and Drug Administration</del>)</li>
+</ul>
+</li>
+</ul>
+<!-- TOC --><a name="122-computing-fwcp"></a>
+
+<h4 class="relative group">1.2.2 Computing FWCP 
+    <div id="122-computing-fwcp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#122-computing-fwcp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>When the notional distribution \(\hat{g}(x)\) is ready, it is time to really compute the value of FWCP.</p>
+<p><strong>Definition 1: unweighted integration</strong></p>
+$$
+\hat{y}_{sym}^{uw} := \int_{-\infty}^{x^{50\%}} \left( \hat{g}(x) - f(x)  \right)\text{d}x
+$$<p>
+
+
+
+
+
+
+<figure>
+      <img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="Symmetry-based FWCP estimator: definition 1"
+    srcset="
+      /code/002_bunchingdnwr/fwcp_sym_def1_hu_7ff904da230c77fc.png  330w,
+      /code/002_bunchingdnwr/fwcp_sym_def1_hu_9768c358825053a2.png  660w,
+      /code/002_bunchingdnwr/fwcp_sym_def1_hu_20176935559546fa.png 1280w
+    "
+    data-zoom-src="/code/002_bunchingdnwr/fwcp_sym_def1.png"
+    src="/code/002_bunchingdnwr/fwcp_sym_def1.png">
+
+  
+    <figcaption>Illustration of definition 1 unweighted integration</figcaption>
+</figure>
+</p>
+<p>The above figure illustrates the intuition: the cummulative excess mass measures how much wage cuts are prevented by comparing two worlds with and without DNWR.</p>
+<p>Although conceptually different, values computed by definition 1 is often positively correlated with the values by the bunching FWCP estimator. The two are numerically consistent.</p>
+<p><strong>Definition 2: weighted integration</strong></p>
+$$
+\hat{y}_{sym}^{wt} := \int_{-\infty}^{x^{50\%}} |x^{50\%} - x| \left( \hat{g}(x) - f(x)  \right)\text{d}x
+$$<p>This weighted version of definition 1, in addition to measuring the extensive margin (quantity) of wage cuts prevented, also incorporates the intensive margin (degree). It is supposed to be more comprehensive but less used in practice, as it is often hard to remove the impact of business cycle when checking the degree of DNWR across time.</p>
+<p><strong>Definition 3: frequency</strong></p>
+$$
+\hat{y}_{sym}^{fr} := 1 - \frac{\#\{z^{\mu_x,\sigma_x}_i < 0\} / \#\{z^{\mu_x,\sigma_x}_i\}}{\#\{x_i < 0\} / \#\{x_i\}}
+$$<p>This formula applies to HW09 and other scenarios where one may want to respect the data as possible as they can. It does not require density estimation so that it is independent from hyperparameters (e.g. bandwidth selection, degree-ridge joint selection).</p>
+<p><strong>Definition 4: rule-of-thumb</strong></p>
+$$
+\hat{y}_{sym}^{rt} := \Pr\{x > 0\} - \Pr\{x < 0\} = 1 - 2\cdot q(0)
+$$<p>where \(q(0)\) is the quantile of 0 in the actual wage growth distribution \(f\). This rule-of-thumb formula in fact puts a stronger assumption: the notional wage growth distribution is symmetric and symmetric about 0.</p>
+<!-- TOC --><a name="13-practical-notes"></a>
+
+<h3 class="relative group">1.3 Practical notes 
+    <div id="13-practical-notes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#13-practical-notes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>The bunching FWCP estimator is often more robust than symmetry-based FWCP estimators due to its strong locality. However, it is still sensitive to the bin-width/bandwidth selection. In the above sections, I recommended 1% for consistence with canonical parameter value \(\delta=0.99\) in theoretical models. However, my own practice would suggest 2% for a better trade-off between numerical stability and economic interpretation.</li>
+<li>Integration-based symmetry-based FWCP estimators are sensitive to outliers. Be sure to well clean your data. e.g. winsorizing \(\{x_i\}\) to \([-100\%,+200\%]\) if using percentage growth. If using log growth, then \((-700\%,+200\%]\) is wide enough.</li>
+<li>In real data, mass spike and asymmetry may simultaneously exist in one actual wage growth distribution (as illustrated in the below figure)<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> if the economy has a positive wage growth trend. In this case, symmetry-based estimators, esp. integration-based FWCP definitions, could greatly underestimate the degree of DNWR because of the excessive mass at the mass spiking region. To fix this issue, one should remove those spiking-region observations before fitting \(f\) and \(\hat{g}\). This processing is similar to what one does in computing the bunching FWCP estimator.</li>
+</ol>
+<p>
+
+
+
+
+
+
+<figure>
+      <img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="Violation of symmetry assumption"
+    srcset="
+      /code/002_bunchingdnwr/rule-of-thumb-exception_hu_90b4fef1f089f2c3.png  330w,
+      /code/002_bunchingdnwr/rule-of-thumb-exception_hu_936e2b3c56cace7f.png  660w,
+      /code/002_bunchingdnwr/rule-of-thumb-exception_hu_bdd71778f541abd7.png 1280w
+    "
+    data-zoom-src="/code/002_bunchingdnwr/rule-of-thumb-exception.png"
+    src="/code/002_bunchingdnwr/rule-of-thumb-exception.png">
+
+  
+    <figcaption>Violation of symmetry-about-zero assumption</figcaption>
+</figure>
+</p>
+<!-- TOC --><a name="3-programs-with-docs"></a>
+
+<h2 class="relative group">3. Programs with docs 
+    <div id="3-programs-with-docs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-programs-with-docs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Python
+<ul>
+<li><a
+  href="fwcp_bunch_and_symmetric.py">fwcp_bunch_and_symmetric.py</a>
+: Bunching FWCP estimator, and standard symmetry-based FWCP estimator in the literature</li>
+<li><a
+  href="fwcp_hw2009.py">fwcp_hw2009.py</a>
+: Symmetry-based FWCP estimator in Holden and Wulfsberg (2009, JME)</li>
+<li><a
+  href="fwcp_legacy_bunch.py">fwcp_legacy_bunch.py</a>
+: Legacy code for bunching FWCP estimator</li>
+</ul>
+</li>
+</ul>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>In practice, the median is more preferred and supported by data observations, as the mass &ldquo;peak&rdquo; often locates at median than mean.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>The bin width should be consistent to your theoretical \(\delta\) parameter in structural models.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Or another point where the mass spike is supposed to happen according to your identification assumption. WLOG, I keep using 0 in this post.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Representing a bin with its middle point is valid here because of the very fine bin width.&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Holden, S. and Wulfsberg, F. (2009). How strong is the macroeconomic case for downward real wage rigidity?. <em>Journal of Monetary Economics</em>, 56(4):605–615.&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Also see figures in: Dickens, W. T., Goette, L., Groshen, E. L., Holden, S., Messina, J., Schweitzer, M. E., &hellip; &amp; Ward, M. E. (2007). How wages change: micro evidence from the International Wage Flexibility Project. <em>Journal of Economic Perspectives</em>, 21(2), 195-214.&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.407e5b2727c1f241c95d53db24c776bea71bfc18e09511b815d669ad8caca6e9e18a53864ad364b1ccccfa2f2956768d33cfe193bfb64d3406f3b5ece354ba57.js"
+          integrity="sha512-QH5bJyfB8kHJXVPbJMd2vqcb/BjglRG4FdZprYyspunhilOGStNksczM&#43;i8pVnaNM8/hk7&#43;2TTQG87Xs41S6Vw=="
+          data-oid="views_code\002_BunchingDNWR\index.md"
+          data-oid-likes="likes_code\002_BunchingDNWR\index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/code/001_discretizeou/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Discretize OU process over non-integer time step</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-11-18T00:00:01-07:00">November 18, 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top"
+    title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          Tianhao Zhao
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-index-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
