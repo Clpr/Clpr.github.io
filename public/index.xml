@@ -9,7 +9,17 @@
     <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
     <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
     <copyright>© 2026 Tianhao Zhao</copyright>
-    <lastBuildDate>Sat, 07 Feb 2026 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Apr 2026 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Python module for partially monotonic MLP</title>
+      <link>http://localhost:1313/code/003_easymlp/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/003_easymlp/</guid>
+      <description>A PyTorch-based python module for defining, training, auto fine-tuning prediction and I/O of partially monotonic multi-layer perceptron (MLP) function approximator.</description>
+      
+    </item>
     
     <item>
       <title>Estimating empirical measures of DNWR</title>
