@@ -5,6 +5,8 @@ date: 2025-08-02T00:00:01-07:00
 showAuthor: true
 showAuthorsBadges : true
 
+tags: ["GE model","Julia","Math"]
+
 showSummary: true
 summary: "Explains how to implement the multivariate case of Young (2010) non-stochastic simulation algorithm."
 

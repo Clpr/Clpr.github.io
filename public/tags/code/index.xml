@@ -9,7 +9,37 @@
     <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
     <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
     <copyright>© 2026 Tianhao Zhao</copyright>
-    <lastBuildDate>Sat, 18 Oct 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Apr 2026 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Smolyak Polynomial Interpolation in Practice</title>
+      <link>http://localhost:1313/code/004_smolyakpolyinterp/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/004_smolyakpolyinterp/</guid>
+      <description>A python module for defining, training, updating and I/O of Smolyak-Chebyshev polynomial interpolation. Also implements standard interpolation methods like basis matrix and coefficients.</description>
+      
+    </item>
+    
+    <item>
+      <title>A Python module for partially monotonic MLP</title>
+      <link>http://localhost:1313/code/003_easymlp/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/003_easymlp/</guid>
+      <description>A PyTorch-based python module for defining, training, auto fine-tuning prediction and I/O of partially monotonic multi-layer perceptron (MLP) function approximator.</description>
+      
+    </item>
+    
+    <item>
+      <title>Estimating empirical measures of DNWR</title>
+      <link>http://localhost:1313/code/002_bunchingdnwr/</link>
+      <pubDate>Sat, 07 Feb 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/002_bunchingdnwr/</guid>
+      <description>Math and programs to estimate empirical measures of downward nominal wage rigidity (DNWR)</description>
+      
+    </item>
     
     <item>
       <title>LifetimeProblems.jl</title>

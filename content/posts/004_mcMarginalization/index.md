@@ -5,6 +5,8 @@ date: 2025-10-08T00:00:01-07:00
 showAuthor: true
 showAuthorsBadges : true
 
+tags: ["GE model","Math"]
+
 showSummary: true
 summary: "Discusses the marginalization operation of a multivariate Markov chain."
 
@@ -72,9 +74,4 @@ Implementing the marginalization operation above is straightforward in the low-d
 For efficient implementation, it is advantageous to scan the transition matrix by columns, corresponding to the "future" states, as this approach optimizes the aggregation of each column and allows for parallelization since columns can be processed independently. It is also important to establish a consistent ordering of states in the new Markov chain \(\Pr\{Y'|Y\}\) and to understand how \((X, Y)\) states are indexed in the original chain \(\Pr\{ X', Y' | X, Y \}\). Utilizing the tensor (Cartesian) product to join the spaces of \(X\) and \(Y\) provides the necessary indexing information for efficient memory access and state queries.
 
 
-```julia
-# TODO (will be updated later)
-```
-
-
-P.S.: The API `marginalize` will be added to `MultivariateMarkovChains.jl`.
+P.S.: The API `marginalize` is available in `MultivariateMarkovChains.jl`.

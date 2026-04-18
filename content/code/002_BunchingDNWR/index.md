@@ -5,6 +5,8 @@ date: 2026-02-07T00:00:01-07:00
 showAuthor: true
 showAuthorsBadges : true
 
+tags: ["Python","Code"]
+
 showSummary: true
 summary: "Math and programs to estimate empirical measures of downward nominal wage rigidity (DNWR)"
 
@@ -126,7 +128,7 @@ $$
     - the degree of DNWR would be underestimated when the whole distribution of wage growth is too "left" e.g. in a recession.
     - even in ordinary time, the median is not necessarily to be the threshold of DNWR being binding: even someone beyond the median could be binding to DNWR constraint. The subsample (right side of the median) to construct notional distribution cannot ensure to be rigidity-free.
     - thus, the relaxed assumption is less powerful than the mass spiking assumption to uniquely identify where DNWR constraint is binding.
-  
+
 
 <!-- TOC --><a name="121b-holden-wulfsberg-2009-jme"></a>
 ##### 1.2.1.b Holden & Wulfsberg (2009, JME)

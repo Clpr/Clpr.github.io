@@ -5,6 +5,8 @@ date: 2025-07-16T00:00:01-07:00
 showAuthor: true
 showAuthorsBadges : true
 
+tags: ["Miscellaneous"]
+
 showSummary: true
 summary: "Shows how to specify cover/thumbnail picture for each post using assets without duplicate copies."
 

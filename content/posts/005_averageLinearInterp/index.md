@@ -5,6 +5,8 @@ date: 2025-10-16T00:00:01-07:00
 showAuthor: true
 showAuthorsBadges : true
 
+tags: ["Numerical analysis","GE model"]
+
 showSummary: true
 summary: "Discusses a numerical issue in computing expected value function in dynamic programming."
 
@@ -80,7 +82,7 @@ A common workaround is to precompute an interpolant of the expected value functi
 $$
 \overline{v}(x,z) := \mathbb{E}\{v(x',z') \mid z\},
 $$
-  
+
 so that it can be evaluated cheaply everywhere.  
 
 However, this post highlights a subtle numerical pitfall: treating the interpolated function as the true one can distort the shape of the expected value function when nonlinear interpolation (e.g., cubic splines) is used. Such overshooting in local regions of the state space can lead to unexpected or unstable behavior in the resulting solution.

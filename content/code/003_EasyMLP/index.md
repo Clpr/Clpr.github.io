@@ -5,6 +5,8 @@ date: 2026-04-13T00:00:01-07:00
 showAuthor: true
 showAuthorsBadges : true
 
+tags: ["Python","Code"]
+
 showSummary: true
 summary: "A PyTorch-based python module for defining, training, auto fine-tuning prediction and I/O of partially monotonic multi-layer perceptron (MLP) function approximator."
 

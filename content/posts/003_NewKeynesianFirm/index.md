@@ -5,6 +5,8 @@ date: 2025-09-22T00:00:01-07:00
 showAuthor: true
 showAuthorsBadges : true
 
+tags: ["GE model","Math"]
+
 showSummary: true
 summary: "Derives the non-linear Phillips curve in NK models with Rotemberg price rigidity step by step. Helpful for students."
 

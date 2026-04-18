@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HJB on Tianhao Zhao</title>
+    <link>http://localhost:1313/tags/hjb/</link>
+    <description>Recent content in HJB on Tianhao Zhao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
+    <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
+    <copyright>© 2026 Tianhao Zhao</copyright>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/hjb/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Finite difference scheme: Monotonicity violation of a class of interpolations</title>
+      <link>http://localhost:1313/posts/008_violatemonotonicity/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/008_violatemonotonicity/</guid>
+      <description>Monotonicity condition can be violated when points are denoted by multiple grid points.</description>
+      
+    </item>
+    
+    <item>
+      <title>Monotone discretization of 2nd order mixed derivatives: Wide stencil method</title>
+      <link>http://localhost:1313/posts/007_widestencil/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/007_widestencil/</guid>
+      <description>Monotone stencil for problems with non-zero 2nd order mixed derivatives.</description>
+      
+    </item>
+    
+    <item>
+      <title>Standard notations for my notes about HJB equation</title>
+      <link>http://localhost:1313/posts/006_standardnotationforhjb/</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/006_standardnotationforhjb/</guid>
+      <description>A collection of standard notations for all of my notes about HJB equation and numerical PDE.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

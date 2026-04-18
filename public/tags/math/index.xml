@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Math on Tianhao Zhao</title>
+    <link>http://localhost:1313/tags/math/</link>
+    <description>Recent content in Math on Tianhao Zhao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
+    <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
+    <copyright>© 2026 Tianhao Zhao</copyright>
+    <lastBuildDate>Tue, 18 Nov 2025 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Discretize OU process over non-integer time step</title>
+      <link>http://localhost:1313/code/001_discretizeou/</link>
+      <pubDate>Tue, 18 Nov 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/001_discretizeou/</guid>
+      <description>Approximate OU process with Markov chain when time step is non-integer</description>
+      
+    </item>
+    
+    <item>
+      <title>Marginalization of multivariate Markov chains</title>
+      <link>http://localhost:1313/posts/004_mcmarginalization/</link>
+      <pubDate>Wed, 08 Oct 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/004_mcmarginalization/</guid>
+      <description>Discusses the marginalization operation of a multivariate Markov chain.</description>
+      
+    </item>
+    
+    <item>
+      <title>Non-linear Phillips curve in NK model step-by-step</title>
+      <link>http://localhost:1313/posts/003_newkeynesianfirm/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/003_newkeynesianfirm/</guid>
+      <description>Derives the non-linear Phillips curve in NK models with Rotemberg price rigidity step by step. Helpful for students.</description>
+      
+    </item>
+    
+    <item>
+      <title>Multivariate case for Young (2010) non-stochastic simulation</title>
+      <link>http://localhost:1313/posts/002_multivariateyoung2010/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/002_multivariateyoung2010/</guid>
+      <description>Explains how to implement the multivariate case of Young (2010) non-stochastic simulation algorithm.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

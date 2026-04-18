@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GE Model on Tianhao Zhao</title>
+    <link>http://localhost:1313/tags/ge-model/</link>
+    <description>Recent content in GE Model on Tianhao Zhao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
+    <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
+    <copyright>© 2026 Tianhao Zhao</copyright>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/ge-model/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Finite difference scheme: Monotonicity violation of a class of interpolations</title>
+      <link>http://localhost:1313/posts/008_violatemonotonicity/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/008_violatemonotonicity/</guid>
+      <description>Monotonicity condition can be violated when points are denoted by multiple grid points.</description>
+      
+    </item>
+    
+    <item>
+      <title>Monotone discretization of 2nd order mixed derivatives: Wide stencil method</title>
+      <link>http://localhost:1313/posts/007_widestencil/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/007_widestencil/</guid>
+      <description>Monotone stencil for problems with non-zero 2nd order mixed derivatives.</description>
+      
+    </item>
+    
+    <item>
+      <title>Standard notations for my notes about HJB equation</title>
+      <link>http://localhost:1313/posts/006_standardnotationforhjb/</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/006_standardnotationforhjb/</guid>
+      <description>A collection of standard notations for all of my notes about HJB equation and numerical PDE.</description>
+      
+    </item>
+    
+    <item>
+      <title>Linearity of (multi-)linear interpolation under weighted averaging</title>
+      <link>http://localhost:1313/posts/005_averagelinearinterp/</link>
+      <pubDate>Thu, 16 Oct 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/005_averagelinearinterp/</guid>
+      <description>Discusses a numerical issue in computing expected value function in dynamic programming.</description>
+      
+    </item>
+    
+    <item>
+      <title>Marginalization of multivariate Markov chains</title>
+      <link>http://localhost:1313/posts/004_mcmarginalization/</link>
+      <pubDate>Wed, 08 Oct 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/004_mcmarginalization/</guid>
+      <description>Discusses the marginalization operation of a multivariate Markov chain.</description>
+      
+    </item>
+    
+    <item>
+      <title>Non-linear Phillips curve in NK model step-by-step</title>
+      <link>http://localhost:1313/posts/003_newkeynesianfirm/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/003_newkeynesianfirm/</guid>
+      <description>Derives the non-linear Phillips curve in NK models with Rotemberg price rigidity step by step. Helpful for students.</description>
+      
+    </item>
+    
+    <item>
+      <title>Multivariate case for Young (2010) non-stochastic simulation</title>
+      <link>http://localhost:1313/posts/002_multivariateyoung2010/</link>
+      <pubDate>Sat, 02 Aug 2025 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/posts/002_multivariateyoung2010/</guid>
+      <description>Explains how to implement the multivariate case of Young (2010) non-stochastic simulation algorithm.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

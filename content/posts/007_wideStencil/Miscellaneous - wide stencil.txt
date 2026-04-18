@@ -1,0 +1,235 @@
+
+## Setup
+
+Consider a tensor/Cartesian grid, and we are going to discretize the following diffusion term and make the discretization monotonic in Barles-Souganidis framework:
+
+$$
+\frac{1}{2}\text{tr}\{ \sigma \cdot \sigma^T \cdot D^2v \}
+$$
+
+where
+
+- $\sigma\in\mathbb{R}^{k\times m}$
+- $D^2v \in\mathbb{R}^{k\times k}$
+
+Split $\sigma$ volatility matrix into $m$ column $k$-vectors:
+
+$$
+\sigma := [ \sigma^{(1)}, \dots, \sigma^{(m)} ], \sigma^{(\ell)} \in \mathbb{R}^{k\times 1}
+$$
+
+Because the Hessian operator is not elliptic, then it is impossible to design stencils for mixed derivatives $\frac{\partial^2 v}{\partial x_i\partial x_j}$ where $i\neq j$. To fix this issue, an idea is to discretize the diffusion operator as a whole rather than discretizing each individual term of Hessian $D^2v$.
+
+So what way of discretizing the diffusion operator would generate monotonic-for-sure stencils with the presence of mixed 2nd order derivatives? An intuitive idea is to _rotate_ the coordinate to the direction of diffusion, which orthogonalizes the direction of differentiation. Then, the _directional_ derivatives would require canonical 3-point stencil only.
+
+A simple illustration is as follows:
+
+![[fig0007.png]]
+
+Because the new stencils are not necessary to be neighbors of the current/center point, the method is also known as _wide stencil_ method.
+
+**Attention**: the following results require $\sigma$ to be constant without varying by $x$. This may be not plausible in solving HJB equations where volatility matrix $\sigma$ is typically function of $x$. However, when designing numerical scheme, this property can be seen as _locally_ true (at a grid point).
+
+
+---------------
+## Some lemma
+
+### Lemma 1
+
+$$
+\text{tr}\{ \sigma \cdot \sigma^T \cdot D^2v \} = \text{tr}\{ \sigma^T \cdot D^2v \cdot \sigma  \}
+$$
+
+### Lemma 2
+
+$$
+\text{tr}\{ \sigma^{(\ell)} \cdot (\sigma^{(\ell)})^T \cdot D^2v  \} = (\sigma^{(\ell)})^T \cdot D^2v \cdot \sigma^{(\ell)}
+$$
+
+which is a quadratic form, resulting a scalar.
+
+### Lemma 3
+
+The $k\times k$ covariance matrix can be decomposed to:
+$$
+\sigma \cdot \sigma^T = \sum_{\ell=1}^m \sigma^{(\ell)} \cdot (\sigma^{(\ell)})^T
+$$
+
+### Lemma 4
+
+Assume $v$ is $C^2$ such that Hessian is symmetric. A quadratic form of the $\ell$-th column $\sigma^{(\ell)}$ and Hessian $D^2v$ is equivalent to the 2nd order directional derivatives along direction $\sigma^{(\ell)}$:
+
+$$
+(\sigma^{(\ell)})^T \cdot D^2 v \cdot \sigma^{(\ell)} = \partial^2_{\sigma^{(\ell)} \sigma^{(\ell)}} v
+$$
+
+**Proof 1** 
+
+Expanding the LHS and collect all terms:
+
+$$
+\begin{aligned}
+& (\sigma^{(\ell)})^T \cdot ( D^2v \cdot \sigma^{(\ell)} ) = \sum_{i=1}^k\sum_{j=1}^k \sigma_i^{(\ell)} \cdot \sigma_j^{(\ell)} \cdot \frac{\partial^2 v}{\partial x_i \partial x_j}
+\end{aligned}
+$$
+
+Expanding the RHS and collect all terms:
+
+$$
+\begin{aligned}
+& \partial_{\sigma^{(\ell)}} v = \nabla v \cdot \sigma^{(\ell)} = \sum_{i=1}^k \frac{\partial v}{\partial x_i} \cdot \sigma^{(\ell)}_i
+\end{aligned}
+$$
+
+then,
+
+$$
+\begin{aligned}
+& \partial^2_{\sigma^{(\ell)}, \sigma^{(\ell)}} v = \partial\left( \sum_{i=1}^k \frac{\partial v}{\partial x_i} \sigma^{(\ell)}_i  \right)
+\end{aligned}
+$$
+
+since operator $\partial$ is linear and _$\sigma^{(\ell)}$ is constant_:
+
+$$
+\begin{aligned}
+& \partial^2_{\sigma^{(\ell)}, \sigma^{(\ell)}} v = \sum_{i=1}^k \sigma^{(\ell)}_i \cdot \partial_{\sigma^{(\ell)}} \left(\frac{\partial v}{\partial x_i}\right)
+\end{aligned}
+$$
+
+Now, apply the directional derivative formula $(\nabla (\cdot) \cdot \sigma^{(\ell)})$ to the partial derivative $\partial v/\partial x_i$
+
+$$
+\partial_{\sigma^{(\ell)}} \left(\frac{\partial v}{\partial x_i}\right) = \sum_{j=1}^k \frac{\partial}{\partial x_j}\left(\frac{\partial v}{\partial x_i}\right) \cdot \sigma^{(\ell)}_j = \sum_{j=1}^k \frac{\partial^2 v}{\partial x_i \partial x_j}\cdot \sigma^{(\ell)}_j
+$$
+
+Substituting it back into the sum, and get 
+
+$$
+\partial^2_{\sigma^{(\ell)}, \sigma^{(\ell)}} v = \sum_{i=1}^k \sum_{j=1}^k \frac{\partial^2 v}{\partial x_i \partial x_j}\cdot \sigma^{(\ell)}_j
+$$
+
+which is the same as the expansion of the LHS. QED
+
+> Reference
+> - https://www.youtube.com/watch?v=freaaiSNV_Q
+
+
+**Proof 2** 
+
+Define an aux function $g(t) := v(x + t\cdot \sigma^{(\ell)})$. First derivative:
+
+$$
+\begin{aligned}
+g'(t) = \nabla v(x+t\sigma^{(\ell)}) \cdot \sigma^{(\ell)} \\
+g'(0) = \nabla v(x) \cdot \sigma^{(\ell)} = \partial_{\sigma^{(\ell)}} v
+\end{aligned}
+$$
+
+Now take the derivative of $g'(t)$ wrt $t$. Apply the chain rule again to $\nabla v(x+t\sigma^{(\ell)})$
+
+$$
+\begin{aligned}
+g{''}(t) = \frac{\text{d}}{\text{d} t} (\nabla v(x +t\sigma^{(\ell)}) \cdot \sigma^{(\ell)} ) \\
+= \left( \frac{\text{d}}{\text{d} t} (\nabla v(x +t\sigma^{(\ell)})  \right) \cdot \sigma^{(\ell)} 
+\end{aligned}
+$$
+
+The term $\frac{\text{d}}{\text{d} t} (\nabla v(x +t\sigma^{(\ell)})$ is the Jacobian of the gradient (i.e. Hessian) multiplied by the inner derivative $\sigma^{(\ell)}$
+
+$$
+ \frac{\text{d}}{\text{d} t} (\nabla v(x +t\sigma^{(\ell)}) = ( D^2 v(x + t \sigma^{(\ell)}) ) \cdot \sigma^{(\ell)}
+$$
+
+Substituting it back:
+
+$$
+\begin{aligned}
+& g''(t) = ( ( D^2 v(x + t\sigma^{(\ell)}) ) \cdot \sigma^{(\ell)} )\cdot \sigma^{(\ell)} \\
+&= (\sigma^{(\ell)})^T \cdot D^2 v(x+t\sigma^{(\ell)}) \cdot \sigma^{(\ell)} 
+\end{aligned}
+$$
+
+Evaluating it at $t=0$:
+
+$$
+g''(0) =  (\sigma^{(\ell)})^T \cdot D^2 v(x) \cdot \sigma^{(\ell)} 
+$$
+
+Since $g''(0)$ represents the second derivative along the line defined by $\sigma^{(\ell)}$ which is exactly $\partial^2_{\sigma^{(\ell)},\sigma^{(\ell)}}v$, the equality holds. The term $(\sigma^{(\ell)})^T \cdot D^2 v \cdot \sigma^{(\ell)}$ represents the curvature of the function $v$ at point $x$ in the direction of $\sigma$.
+
+------------
+## Wide stencil
+
+Each column of $\sigma$ can be seen as a _direction_ towards which the state variables move under the drive of Brownian motion(s). Thus, the diffusion term aggregates the moving along all such directions:
+
+$$
+\frac{1}{2}\text{tr}\{ \sigma \cdot \sigma^T \cdot D^2v \} = \frac{1}{2}\sum_{\ell=1}^m \partial^2_{\sigma^{(\ell)},\sigma^{(\ell)}} v
+$$
+
+The equivalence suggests us rotate the coordinate to the coordinate defined by columns of $\sigma$, then, 3-point monotonic stencil can be computed along that direction.
+
+Now, let's move things to a grid space in which not all directions defined by $\sigma$ can find exact grid points:
+
+![[fig0008.png]]
+
+In the above illustration, the true direction suggested by diffusion term is the green arrow. Observations:
+
+1. The point along the true direction does not necessarily fall onto a grid point.
+2. What we can do is to find a nearest on-grid direction to approximate the true directional derivatives. Easy to show that such approximation is consistent as grid steps go to zero.
+3. It is not surprise to see that the one-step away grid point along direction $\sigma$ is not necessary to be a neighbor grid point of the current grid point (bottom left in green) but can be further. A stencil using such points are **wide**.
+
+### Find nearest on-grid direction
+
+For every direction $\sigma^{(\ell)}$, now let's find its nearest on-grid direction that points at a grid point. Consider an even-space grid where each grid point, where $\Delta_{x_i}$ is the grid step. The notation of multi index $\mathbf{j}$ is t he same as the other notes.
+
+$$
+\begin{aligned}
+x_{\mathbf{j}} = [ \underline{x_1} + j_1 \Delta_{x_1}, \dots , \underline{x_k} + j_k\Delta _{x_k}   ]^T \\
+\Delta_x = [\Delta_{x_1},\dots,\Delta_{x_k}]^T
+\end{aligned}
+$$
+
+Now, assume _for now_ that all stencils below only need interior grid points in order to avoid discussing boundary conditions. Consider a direction $\sigma^\ell$ 
+
+$$
+\sigma^\ell = [ \sigma^\ell_1, \dots, \sigma^\ell_k ]^T
+$$
+
+The directional derivatives, using 3-point monotonic stencil, by definition,
+
+$$
+\partial^2_{\sigma^\ell\sigma^\ell} v \approx \frac{1}{\left|| \sigma^\ell \right||^2}\left( v[\mathbf{j}+\sigma^\ell] - 2v[\mathbf{j}] + v[\mathbf{j}-\sigma^\ell]   \right)
+$$
+
+where $\left||\sigma^\ell\right||$ is the norm of direction vector $\sigma^\ell$, and $\mathbf{j}\pm\sigma^\ell$ is the deviation along direction $\sigma^\ell$ for one step from the current grid point of index $\mathbf{j}$.
+
+Our demand is to make the directional neighbor points $v[\mathbf{j}\pm\sigma^\ell]$ locate exactly on the current grid.
+
+To do this, we consider an integer vector $p^\ell = [p^\ell_1,\dots,p^\ell_k]^T$ such that
+
+$$
+\begin{aligned}
+& p^\ell = \arg\min_p \left|| \hat\sigma^\ell  -  \sigma^\ell   \right|| \\
+& \hat\sigma^\ell := p\odot \Delta_x
+\end{aligned}
+$$
+
+such that $\hat\sigma^\ell$ is the on-grid direction that is closest to the true/original direction $\sigma^\ell$. The integer vector $p^\ell$ can be used to move on grid.
+
+The final stencil & approximation is:
+
+$$
+\frac{1}{\left|| \hat\sigma^\ell  \right||^2} \begin{bmatrix}
+	1 & -2 & 1
+\end{bmatrix} \cdot \begin{bmatrix}
+	v[\mathbf{j} + p^\ell] \\
+	v[\mathbf{j}] \\
+	v[\mathbf{j} - p^\ell] \\
+\end{bmatrix}
+$$
+
+### Boundary
+
+
+

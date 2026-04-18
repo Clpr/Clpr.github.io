@@ -5,6 +5,8 @@ date: 2025-11-18T00:00:01-07:00
 showAuthor: true
 showAuthorsBadges : true
 
+tags: ["Math"]
+
 showSummary: true
 summary: "Approximate OU process with Markov chain when time step is non-integer"
 
