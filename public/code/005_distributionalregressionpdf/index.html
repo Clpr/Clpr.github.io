@@ -12,14 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>Smolyak Polynomial Interpolation in Practice &middot; Tianhao Zhao</title>
-  <meta name="title" content="Smolyak Polynomial Interpolation in Practice &middot; Tianhao Zhao" />
+  <title>Distributional Regression PDF &middot; Tianhao Zhao</title>
+  <meta name="title" content="Distributional Regression PDF &middot; Tianhao Zhao" />
   
-  <meta name="description" content="A python module for defining, training, updating and I/O of Smolyak-Chebyshev polynomial interpolation. Also implements standard interpolation methods like basis matrix and coefficients." />
+  <meta name="description" content="A single-file Python module for estimating the full conditional probability density function of a scalar outcome y given covariates X" />
   <meta name="keywords" content="Python, Code, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/code/004_smolyakpolyinterp/" />
+  <link rel="canonical" href="http://localhost:1313/code/005_distributionalregressionpdf/" />
   
   
   
@@ -71,22 +71,22 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/code/004_smolyakpolyinterp/">
+  <meta property="og:url" content="http://localhost:1313/code/005_distributionalregressionpdf/">
   <meta property="og:site_name" content="Tianhao Zhao">
-  <meta property="og:title" content="Smolyak Polynomial Interpolation in Practice">
-  <meta property="og:description" content="A python module for defining, training, updating and I/O of Smolyak-Chebyshev polynomial interpolation. Also implements standard interpolation methods like basis matrix and coefficients.">
+  <meta property="og:title" content="Distributional Regression PDF">
+  <meta property="og:description" content="A single-file Python module for estimating the full conditional probability density function of a scalar outcome y given covariates X">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="code">
-    <meta property="article:published_time" content="2026-04-18T00:00:01-07:00">
-    <meta property="article:modified_time" content="2026-04-18T00:00:01-07:00">
+    <meta property="article:published_time" content="2026-04-19T00:00:01-07:00">
+    <meta property="article:modified_time" content="2026-04-19T00:00:01-07:00">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="Code">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Smolyak Polynomial Interpolation in Practice">
-  <meta name="twitter:description" content="A python module for defining, training, updating and I/O of Smolyak-Chebyshev polynomial interpolation. Also implements standard interpolation methods like basis matrix and coefficients.">
+  <meta name="twitter:title" content="Distributional Regression PDF">
+  <meta name="twitter:description" content="A single-file Python module for estimating the full conditional probability density function of a scalar outcome y given covariates X">
 
     
   
@@ -96,26 +96,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Data and code",
-    "name": "Smolyak Polynomial Interpolation in Practice",
-    "headline": "Smolyak Polynomial Interpolation in Practice",
+    "name": "Distributional Regression PDF",
+    "headline": "Distributional Regression PDF",
     
-    "abstract": "A python module for defining, training, updating and I\/O of Smolyak-Chebyshev polynomial interpolation. Also implements standard interpolation methods like basis matrix and coefficients.",
+    "abstract": "A single-file Python module for estimating the full conditional probability density function of a scalar outcome y given covariates X",
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/code\/004_smolyakpolyinterp\/",
+    "url" : "http:\/\/localhost:1313\/code\/005_distributionalregressionpdf\/",
     "author" : {
       "@type": "Person",
       "name": "Tianhao Zhao"
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-04-18T00:00:01-07:00",
-    "datePublished": "2026-04-18T00:00:01-07:00",
+    "dateCreated": "2026-04-19T00:00:01-07:00",
+    "datePublished": "2026-04-19T00:00:01-07:00",
     
-    "dateModified": "2026-04-18T00:00:01-07:00",
+    "dateModified": "2026-04-19T00:00:01-07:00",
     
     "keywords": ["Python","Code"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1442"
+    "wordCount": "1329"
   }]
   </script>
 
@@ -653,7 +653,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Smolyak Polynomial Interpolation in Practice
+        Distributional Regression PDF
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -706,7 +706,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-04-18T00:00:01-07:00">April 18, 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1442 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span>
+      <time datetime="2026-04-19T00:00:01-07:00">April 19, 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1329 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span>
     
 
     
@@ -974,26 +974,23 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-introduction">1. Introduction</a>
+    <li><a href="#what-this-module-is-for">What This Module Is For</a></li>
+    <li><a href="#wage-growth-illustration">Wage-Growth Illustration</a></li>
+    <li><a href="#underlying-ideas">Underlying Ideas</a>
       <ul>
-        <li><a href="#domain-normalization">Domain normalization</a></li>
-        <li><a href="#chebyshev-basis">Chebyshev basis</a></li>
-        <li><a href="#nested-clenshaw-curtis--chebyshev-gauss-lobatto-nodes">Nested Clenshaw-Curtis / Chebyshev-Gauss-Lobatto nodes</a></li>
-        <li><a href="#the-smolyak-idea">The Smolyak idea</a></li>
-        <li><a href="#interpolation-as-a-linear-system">Interpolation as a linear system</a></li>
-        <li><a href="#why-derivatives-are-cheap">Why derivatives are cheap</a></li>
+        <li><a href="#high-level-idea">High-level idea</a></li>
+        <li><a href="#basis-expansion">Basis expansion</a></li>
+        <li><a href="#important-identifiability-detail">Important identifiability detail</a></li>
+        <li><a href="#estimation-criterion">Estimation criterion</a></li>
+        <li><a href="#numerical-normalization">Numerical normalization</a></li>
       </ul>
     </li>
-    <li><a href="#2-implementation">2. Implementation</a>
-      <ul>
-        <li><a href="#a-single-file-module-but-not-a-black-box">A single-file module, but not a black box</a></li>
-        <li><a href="#how-the-sparse-grid-is-built">How the sparse grid is built</a></li>
-        <li><a href="#why-the-implementation-is-efficient">Why the implementation is efficient</a></li>
-        <li><a href="#why-this-is-a-good-fit-for-smolyak-interpolation">Why this is a good fit for Smolyak interpolation</a></li>
-        <li><a href="#practical-trade-offs">Practical trade-offs</a></li>
-      </ul>
-    </li>
-    <li><a href="#3-reference">3. Reference</a></li>
+    <li><a href="#practical-design-choices">Practical Design Choices</a></li>
+    <li><a href="#repository-files">Repository Files</a></li>
+    <li><a href="#typical-workflow">Typical Workflow</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#notes">Notes</a></li>
   </ul>
 </nav>
   </div>
@@ -1007,26 +1004,23 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-introduction">1. Introduction</a>
+    <li><a href="#what-this-module-is-for">What This Module Is For</a></li>
+    <li><a href="#wage-growth-illustration">Wage-Growth Illustration</a></li>
+    <li><a href="#underlying-ideas">Underlying Ideas</a>
       <ul>
-        <li><a href="#domain-normalization">Domain normalization</a></li>
-        <li><a href="#chebyshev-basis">Chebyshev basis</a></li>
-        <li><a href="#nested-clenshaw-curtis--chebyshev-gauss-lobatto-nodes">Nested Clenshaw-Curtis / Chebyshev-Gauss-Lobatto nodes</a></li>
-        <li><a href="#the-smolyak-idea">The Smolyak idea</a></li>
-        <li><a href="#interpolation-as-a-linear-system">Interpolation as a linear system</a></li>
-        <li><a href="#why-derivatives-are-cheap">Why derivatives are cheap</a></li>
+        <li><a href="#high-level-idea">High-level idea</a></li>
+        <li><a href="#basis-expansion">Basis expansion</a></li>
+        <li><a href="#important-identifiability-detail">Important identifiability detail</a></li>
+        <li><a href="#estimation-criterion">Estimation criterion</a></li>
+        <li><a href="#numerical-normalization">Numerical normalization</a></li>
       </ul>
     </li>
-    <li><a href="#2-implementation">2. Implementation</a>
-      <ul>
-        <li><a href="#a-single-file-module-but-not-a-black-box">A single-file module, but not a black box</a></li>
-        <li><a href="#how-the-sparse-grid-is-built">How the sparse grid is built</a></li>
-        <li><a href="#why-the-implementation-is-efficient">Why the implementation is efficient</a></li>
-        <li><a href="#why-this-is-a-good-fit-for-smolyak-interpolation">Why this is a good fit for Smolyak interpolation</a></li>
-        <li><a href="#practical-trade-offs">Practical trade-offs</a></li>
-      </ul>
-    </li>
-    <li><a href="#3-reference">3. Reference</a></li>
+    <li><a href="#practical-design-choices">Practical Design Choices</a></li>
+    <li><a href="#repository-files">Repository Files</a></li>
+    <li><a href="#typical-workflow">Typical Workflow</a></li>
+    <li><a href="#limitations">Limitations</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#notes">Notes</a></li>
   </ul>
 </nav>
   </div>
@@ -1049,298 +1043,370 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<p><strong>Python files</strong>:</p>
-<ul>
-<li><a
-  href="SmolyakPolyInterp/smolyakpoly.py">smolyakpoly.py</a>
-: the module file. Check <code>SmolyakPolyInterp</code> class for usage examples and parameter settings</li>
-<li><a
-  href="SmolyakPolyInterp/test.py">test.py</a>
-: tests</li>
-<li><a
-  href="SmolyakPolyInterp/smolyakpoly_demo.ipynb">smolyakpoly_demo.ipynb</a>
-: 2-D examples and illustration</li>
-<li><a
-  href="SmolyakPolyInterp/smolyakpoly_benchmark.ipynb">smolyakpoly_benchmark.ipynb</a>
-: benchmarking by dimensionality and interpolation accuracy</li>
-</ul>
 <blockquote>
 <p><strong>AI claimer</strong>: This project is developed with help of ChatGPT Codex function subscribed by the author.</p></blockquote>
-<p><code>smolyakpoly.py</code> is a single-file Python module for anisotropic Smolyak polynomial interpolation of scalar-valued functions \(f : \mathbb{R}^n \to \mathbb{R}\). It is built around nested Clenshaw-Curtis grids, Chebyshev polynomial basis functions, implicit domain normalization, and an interface that follows standard basis-coefficient interpolation language.</p>
-<p>This note is written as a compact blog post for people who want both the mathematical picture and the implementation intuition.</p>
+<p><code>DistributionalRegressionPDF</code> is a single-file Python module for estimating the full conditional probability density function of a scalar outcome <code>y</code> given covariates <code>X</code>.</p>
+<p>The implementation is aimed at distributional regression problems where the object of interest is not just <code>E[y | x]</code> or a few quantiles, but the entire conditional distribution:</p>
+\[
+f(y \mid x).
+\]<p>This is especially useful when the conditional outcome distribution is asymmetric, heteroskedastic, heavy-tailed, or otherwise far from Gaussian. A motivating example is <strong>conditional wage growth</strong>: workers with similar observed covariates may have very different upside risk, downside risk, and tail behavior, and those features can matter for forecasting, policy analysis, and counterfactual exercises.</p>
 
-<h2 class="relative group">1. Introduction 
-    <div id="1-introduction" class="anchor"></div>
+<h2 class="relative group">What This Module Is For 
+    <div id="what-this-module-is-for" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-introduction" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#what-this-module-is-for" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>The central problem is straightforward: given a function \(f(x)\) defined on a rectangular domain
-</p>
-$$
-\Omega = [a_1, b_1] \times \cdots \times [a_n, b_n],
-$$<p>
-we want an approximation \(\hat f(x)\) that is accurate, cheap to evaluate, differentiable, and practical in moderately high dimensions.</p>
-<p>If one uses a full tensor grid, the number of support nodes grows exponentially with dimension. Smolyak’s construction reduces that curse-of-dimensionality pressure by keeping only a carefully selected subset of tensor-product components.</p>
-
-<h3 class="relative group">Domain normalization 
-    <div id="domain-normalization" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#domain-normalization" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>Chebyshev interpolation is naturally defined on the hypercube \([-1,1]^n\), so each coordinate is transformed from the user domain into the normalized cube:</p>
-$$
-z_i = \frac{2x_i - (a_i + b_i)}{b_i - a_i}, \qquad i = 1, \dots, n.
-$$<p>Equivalently, the inverse map is</p>
-$$
-x_i = \frac{b_i - a_i}{2} z_i + \frac{a_i + b_i}{2}.
-$$<p>This is why the module accepts lower and upper bounds from the user but still builds the interpolation machinery in normalized coordinates.</p>
-
-<h3 class="relative group">Chebyshev basis 
-    <div id="chebyshev-basis" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#chebyshev-basis" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>The underlying one-dimensional basis is the Chebyshev family \(T_k(z)\), defined by</p>
-$$
-T_k(z) = \cos(k \arccos z), \qquad z \in [-1,1].
-$$<p>In multiple dimensions, a tensor-product basis function associated with a multi-degree \(\nu = (\nu_1, \dots, \nu_n)\) is</p>
-$$
-\Psi_{\nu}(z) = \prod_{i=1}^n T_{\nu_i}(z_i).
-$$<p>The interpolant is then written in basis-coefficient form:</p>
-$$
-\hat f(z) = \sum_{\nu \in \mathcal{A}} c_{\nu} \, \Psi_{\nu}(z),
-$$<p>where \(\mathcal{A}\) is the selected Smolyak basis index set and \(c_{\nu}\) are interpolation coefficients.</p>
-
-<h3 class="relative group">Nested Clenshaw-Curtis / Chebyshev-Gauss-Lobatto nodes 
-    <div id="nested-clenshaw-curtis--chebyshev-gauss-lobatto-nodes" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#nested-clenshaw-curtis--chebyshev-gauss-lobatto-nodes" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>The one-dimensional grids are nested. At level \(i\), the module uses:</p>
-$$
-\mathcal{X}^{(1)} = \{0\},
-$$$$
-\mathcal{X}^{(2)} = \{-1, 1\},
-$$<p>and for \(i \ge 3\),</p>
-$$
-\mathcal{X}^{(i)} = \left\{ \cos\left(\frac{\pi k}{m_i - 1}\right) : k = 0, \dots, m_i - 1 \right\},
-\qquad
-m_i = 2^{i-1} + 1.
-$$<p>Because these grids are nested, sparse-grid assembly can reuse nodes rather than duplicating them. That nesting is one of the main reasons Smolyak interpolation is computationally attractive.</p>
-
-<h3 class="relative group">The Smolyak idea 
-    <div id="the-smolyak-idea" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#the-smolyak-idea" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>Let \(\ell = (\ell_1, \dots, \ell_n)\) be a multi-index of one-dimensional levels. For each \(\ell_i\), define a one-dimensional incremental basis block and a one-dimensional incremental node block. Smolyak interpolation constructs a sparse union of tensor products over admissible multi-indices instead of taking the entire tensor grid.</p>
-<p>In the isotropic case, one often writes the admissible set as</p>
-$$
-\mathcal{I}(n,\mu) = \left\{\ell \in \mathbb{N}^n : \ell_i \ge 1,\;n \le |\ell|_1 \le n + \mu\right\},
-$$<p>where \(\mu\) is the accuracy parameter.</p>
-<p>In the anisotropic case implemented here, each dimension also has a user-specified maximum level \(L_i\), so the admissible set becomes</p>
-$$
-\mathcal{I}_{\text{aniso}}(n,\mu,L)=\left\{\ell \in \mathbb{N}^n :1 \le \ell_i \le L_i,\;n \le |\ell|_1 \le n + \mu\right\}.
-$$<p>This is a very practical compromise. The accuracy parameter controls the global sparsity rule, while the per-dimension caps \(L_i\) let the user invest more grid depth in some coordinates than others.</p>
-
-<h3 class="relative group">Interpolation as a linear system 
-    <div id="interpolation-as-a-linear-system" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#interpolation-as-a-linear-system" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>Once the sparse grid nodes \(z^{(1)}, \dots, z^{(M)}\) and basis functions \(\Psi_{\nu_1}, \dots, \Psi_{\nu_M}\) are fixed, interpolation becomes a square linear system:</p>
-$$
-\begin{bmatrix}
-\Psi_{\nu_1}(z^{(1)}) & \cdots & \Psi_{\nu_M}(z^{(1)}) \\
-\vdots & \ddots & \vdots \\
-\Psi_{\nu_1}(z^{(M)}) & \cdots & \Psi_{\nu_M}(z^{(M)})
-\end{bmatrix}
-\begin{bmatrix}
-c_{\nu_1} \\
-\vdots \\
-c_{\nu_M}
-\end{bmatrix}
-= \begin{bmatrix}
-f(z^{(1)}) \\
-\vdots \\
-f(z^{(M)})
-\end{bmatrix}.
-$$<p>If we call the matrix \(B\), the coefficient vector \(c\), and the nodal values \(y\), then</p>
-$$
-Bc = y.
-$$<p>This viewpoint is important because it explains the whole user-facing API:</p>
+<p>Suppose <code>y</code> is wage growth over the next year and <code>x</code> includes worker characteristics such as:</p>
 <ul>
-<li><code>basis(x)</code> evaluates rows of \(B\)-like basis matrices at new points.</li>
-<li><code>coef()</code> returns \(c\).</li>
-<li><code>update(ynew)</code> solves the same system again with a new right-hand side on the same grid.</li>
-<li><code>__call__(x)</code> computes \( \hat f(x) = \Phi(x)c \), where \(\Phi(x)\) is the basis row or basis matrix at \(x\).</li>
+<li>current wage level</li>
+<li>age</li>
+<li>tenure</li>
+<li>education</li>
+<li>occupation or industry indicators</li>
+<li>local labor-market conditions</li>
+</ul>
+<p>In many applications, the conditional distribution of wage growth is:</p>
+<ul>
+<li>skewed rather than symmetric</li>
+<li>more dispersed for some workers than others</li>
+<li>potentially long-tailed on the upside or downside</li>
+<li>not well described by a simple Gaussian location-scale model</li>
+</ul>
+<p>This module fits a flexible conditional density model that can learn those features directly. Instead of only predicting a conditional mean, it can answer questions like:</p>
+<ul>
+<li>What is the predicted density of wage growth for a worker with a given profile?</li>
+<li>How does the right tail change with education or tenure?</li>
+<li>How much probability mass sits below zero wage growth for different workers?</li>
+<li>How different are the full predictive distributions across groups, not just their averages?</li>
 </ul>
 
-<h3 class="relative group">Why derivatives are cheap 
-    <div id="why-derivatives-are-cheap" class="anchor"></div>
+<h2 class="relative group">Wage-Growth Illustration 
+    <div id="wage-growth-illustration" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#why-derivatives-are-cheap" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>Because the interpolant is a polynomial in Chebyshev basis form, derivatives are analytic. For a basis function
-</p>
-$$
-\Psi_{\nu}(z) = \prod_{i=1}^n T_{\nu_i}(z_i),
-$$<p>
-the partial derivative with respect to coordinate \(z_j\) is</p>
-$$
-\frac{\partial \Psi_{\nu}}{\partial z_j}(z) = T'_{\nu_j}(z_j)\prod_{i \ne j} T_{\nu_i}(z_i),
-$$<p>and second derivatives follow similarly:</p>
-$$
-\frac{\partial^2 \Psi_{\nu}}{\partial z_j^2}(z) = T''_{\nu_j}(z_j)\prod_{i \ne j} T_{\nu_i}(z_i),
-$$$$
-\frac{\partial^2 \Psi_{\nu}}{\partial z_j \partial z_k}(z) = T'_{\nu_j}(z_j)T'_{\nu_k}(z_k)\prod_{i \ne j,k} T_{\nu_i}(z_i).
-$$<p>Then the Jacobian and Hessian of \(\hat f\) are just coefficient-weighted sums of these derivative basis terms. The module also applies the chain rule to convert derivatives from normalized coordinates back to the user domain.</p>
-
-<h2 class="relative group">2. Implementation 
-    <div id="2-implementation" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-implementation" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#wage-growth-illustration" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<p>The design philosophy of <code>smolyakpoly.py</code> is simple: make the sparse-grid structure explicit, make basis-coefficient access first-class, and do the expensive setup work once so repeated evaluation is cheap.</p>
-
-<h3 class="relative group">A single-file module, but not a black box 
-    <div id="a-single-file-module-but-not-a-black-box" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#a-single-file-module-but-not-a-black-box" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>The module intentionally exposes the essential interpolation primitives:</p>
+<p>Below is a stylized example in which <code>y</code> is wage growth and <code>X</code> contains worker covariates. The model is fit once, then used to evaluate the full predicted density for a given worker profile.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">distributional_regression_pdf</span> <span class="kn">import</span> <span class="n">DistributionalRegressionPDF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="mi">1500</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Example covariates:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># x0 = baseline wage proxy</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># x1 = tenure</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># x2 = local labor market strength</span>
+</span></span><span class="line"><span class="cl"><span class="n">X</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Synthetic wage-growth-like outcome with asymmetry and right tail</span>
+</span></span><span class="line"><span class="cl"><span class="n">loc</span> <span class="o">=</span> <span class="mf">0.015</span> <span class="o">+</span> <span class="mf">0.02</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.18</span> <span class="o">+</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">tail</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="mf">0.04</span> <span class="o">*</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">loc</span> <span class="o">+</span> <span class="n">tail</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.04</span> <span class="o">*</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mod</span> <span class="o">=</span> <span class="n">DistributionalRegressionPDF</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">basis</span><span class="o">=</span><span class="s2">&#34;chebyshev&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">degree_y</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">degree_x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">include_interactions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x_interaction_order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">n_integration_nodes</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">y</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">X</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">l1_alpha</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">l2_alpha</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">folds</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rng</span><span class="o">=</span><span class="mi">1234</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Evaluate the conditional PDF for one worker profile</span>
+</span></span><span class="line"><span class="cl"><span class="n">x_worker</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.25</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">y_domain_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mod</span><span class="o">.</span><span class="n">y_domain_</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">300</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">pdf_vals</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">y_grid</span><span class="p">,</span> <span class="n">x_worker</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Probability density at zero wage growth:&#34;</span><span class="p">,</span> <span class="n">mod</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">x_worker</span><span class="p">))</span>
+</span></span></code></pre></div><p>Interpretation:</p>
 <ul>
-<li><code>nodes(normalized=False)</code> returns the sparse-grid support set.</li>
-<li><code>fit(f)</code> evaluates the target function on the support nodes and solves for coefficients.</li>
-<li><code>update(values)</code> skips function evaluation and recomputes coefficients from nodal values directly.</li>
-<li><code>basis(x)</code> returns the basis matrix at arbitrary points.</li>
-<li><code>coef()</code> returns the coefficient vector.</li>
-<li><code>jacobian(x)</code> and <code>hessian(x)</code> evaluate exact derivatives of the interpolating polynomial.</li>
+<li><code>pdf_vals</code> is the fitted conditional density curve for that worker profile.</li>
+<li>The mass below zero can be approximated using <code>mod.cdf(0.0, x_worker)</code>.</li>
+<li>The shape of <code>pdf_vals</code> reveals skewness, tail thickness, and dispersion in a way that a mean regression cannot.</li>
 </ul>
-<p>This mirrors the standard numerical interpolation workflow rather than hiding everything inside one opaque prediction method.</p>
 
-<h3 class="relative group">How the sparse grid is built 
-    <div id="how-the-sparse-grid-is-built" class="anchor"></div>
+<h2 class="relative group">Underlying Ideas 
+    <div id="underlying-ideas" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#how-the-sparse-grid-is-built" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#underlying-ideas" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">High-level idea 
+    <div id="high-level-idea" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#high-level-idea" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<p>There are two parallel constructions:</p>
+<p>The module uses a <strong>sieve-based conditional density model</strong>. A sieve estimator approximates an unknown infinite-dimensional object, here a conditional density, by a flexible but finite-dimensional basis expansion whose complexity can grow with the sample size.</p>
+<p>The conditional density is represented through a normalized log-density:</p>
+\[
+\log f(y \mid x) = \eta(y, x) - \log Z(x),
+\]<p>where</p>
+\[
+Z(x) = \int_{\mathcal Y} \exp(\eta(u, x))\,du.
+\]<p>This construction guarantees that, for each fixed <code>x</code>:</p>
+<ul>
+<li>\( f(y \mid x) \ge 0 \)</li>
+<li>\( \int_{\mathcal Y} f(y \mid x)\,dy = 1 \)</li>
+</ul>
+
+<h3 class="relative group">Basis expansion 
+    <div id="basis-expansion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#basis-expansion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>In this implementation, <code>eta(y, x)</code> is built from <strong>Chebyshev polynomial</strong> basis terms. The practical fitted form is:</p>
+\[
+\eta(y, x) = \sum_{r=1}^{R} \alpha_r T_r(\tilde y) + \sum_{j=1}^{k}\sum_{r=1}^{R}\sum_{s=1}^{S} \beta_{jrs}\, T_r(\tilde y)\,T_s(\tilde x_j) + \sum_{j<\ell}\sum_{r=1}^{R}\sum_{s=1}^{S}\sum_{t=1}^{S} \gamma_{j\ell rst}\, T_r(\tilde y)\,T_s(\tilde x_j)\,T_t(\tilde x_\ell),
+\]<p>where:</p>
+<ul>
+<li>\(T_r(\cdot)\) is the Chebyshev polynomial of degree <code>r</code></li>
+<li>\(\tilde y\) and \(\tilde x_j\) are affinely scaled versions of <code>y</code> and <code>x_j</code></li>
+<li><code>R = degree_y</code></li>
+<li><code>S = degree_x</code></li>
+</ul>
+<p>The module automatically maps each feature and the working <code>y</code> domain to <code>[-1, 1]</code> when standardization is enabled, which is numerically natural for Chebyshev polynomials.</p>
+
+<h3 class="relative group">Important identifiability detail 
+    <div id="important-identifiability-detail" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#important-identifiability-detail" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>In a normalized model of the form</p>
+\[
+f(y \mid x) = \frac{\exp(\eta(y, x))}{\int \exp(\eta(u, x))\,du},
+\]<p>any term in <code>eta(y, x)</code> that depends <strong>only on <code>x</code></strong> cancels out between numerator and denominator. A global intercept cancels for the same reason. So the identifiable object is the part of <code>eta</code> that changes with <code>y</code>.</p>
+<p>That is why the implementation emphasizes:</p>
+<ul>
+<li>marginal <code>y</code> basis terms</li>
+<li><code>y × x_j</code> interaction terms</li>
+<li>optional <code>y × x_j × x_l</code> interaction terms</li>
+</ul>
+<p>rather than trying to estimate pure <code>x</code>-only terms that normalization removes anyway.</p>
+
+<h3 class="relative group">Estimation criterion 
+    <div id="estimation-criterion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#estimation-criterion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Given observations \((y_i, x_i)_{i=1}^N\), the module maximizes penalized conditional log-likelihood:</p>
+\[
+\max_{\beta} \frac{1}{N}\sum_{i=1}^N \log f(y_i \mid x_i) - \lambda_1 \sum_m \sqrt{\beta_m^2 + \varepsilon} - \frac{\lambda_2}{2}\sum_m \beta_m^2.
+\]<p>Equivalently, the optimizer minimizes the penalized negative average log-likelihood. Here:</p>
+<ul>
+<li>\(\lambda_1\) controls smooth L1 regularization</li>
+<li>\(\lambda_2\) controls L2 regularization</li>
+<li>\(\varepsilon\) is a small smoothing constant that makes the L1 penalty differentiable</li>
+</ul>
+
+<h3 class="relative group">Numerical normalization 
+    <div id="numerical-normalization" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#numerical-normalization" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The normalizing constant</p>
+\[
+Z(x) = \int_{\mathcal Y} \exp(\eta(u, x))\,du
+\]<p>is computed numerically by <strong>Gauss-Legendre quadrature</strong> over a finite raw-<code>y</code> domain:</p>
+\[
+\mathcal Y = [y_{\min}, y_{\max}].
+\]<p>If the user does not specify <code>y_domain</code>, the module infers it from the observed sample with padding. The current implementation uses a log-sum-exp form internally for numerical stability.</p>
+
+<h2 class="relative group">Practical Design Choices 
+    <div id="practical-design-choices" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#practical-design-choices" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The module is intentionally practical rather than theoretically maximal.</p>
+<ul>
+<li><strong>Single file</strong>: the main estimator lives in one reusable Python file.</li>
+<li><strong>Chebyshev-first design</strong>: chosen for numerical stability on bounded intervals.</li>
+<li><strong>Automatic affine scaling</strong>: applied to <code>X</code> and, by default, to the <code>y</code> working domain.</li>
+<li><strong>Quadrature-based normalization</strong>: gives a proper density for each <code>x</code>.</li>
+<li><strong>Analytic gradients</strong>: used with <code>scipy.optimize.minimize</code> and <code>L-BFGS-B</code>.</li>
+<li><strong>Regularization support</strong>: smooth L1, L2, or both.</li>
+<li><strong>Optional cross-validation</strong>: selects regularization strengths using out-of-fold conditional log-likelihood.</li>
+</ul>
+
+<h2 class="relative group">Repository Files 
+    <div id="repository-files" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#repository-files" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="distributional_regression_pdf.py">distributional_regression_pdf.py</a>
+: main single-file module implementing <code>DistributionalRegressionPDF</code></li>
+<li><a
+  href="test.py">test.py</a>
+: runnable test suite for the module</li>
+<li><a
+  href="illustration.ipynb">illustration.ipynb</a>
+: notebook comparing fitted conditional PDFs to the true conditional PDFs in simulated data</li>
+<li><a
+  href="benchmark.ipynb">benchmark.ipynb</a>
+: notebook benchmarking fit and prediction performance across sample sizes and feature dimensions</li>
+<li><a
+  href="prompt.md">prompt.md</a>
+: original project specification</li>
+</ul>
+
+<h2 class="relative group">Typical Workflow 
+    <div id="typical-workflow" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#typical-workflow" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
 <ol>
-<li>The sparse-grid nodes are assembled from incremental Clenshaw-Curtis node blocks.</li>
-<li>The polynomial basis is assembled from matching incremental Chebyshev degree blocks.</li>
+<li>Fit the model on observed outcomes <code>y</code> and regressors <code>X</code>.</li>
+<li>Evaluate <code>pdf(y, x)</code> on a grid to recover a full conditional density curve.</li>
+<li>Use <code>cdf(y, x)</code> for event probabilities, such as the probability of negative wage growth.</li>
+<li>Use the illustration notebook to compare fitted versus true PDFs in controlled simulations.</li>
+<li>Use the benchmark notebook to understand how runtime changes with data size and model complexity.</li>
 </ol>
-<p>Those two pieces are aligned so that the final interpolation matrix is square. Duplicate nodes are removed deterministically, so node ordering stays invariant across repeated calls to <code>nodes()</code>. That stability matters for reproducibility and for the <code>update()</code> workflow.</p>
 
-<h3 class="relative group">Why the implementation is efficient 
-    <div id="why-the-implementation-is-efficient" class="anchor"></div>
+<h2 class="relative group">Limitations 
+    <div id="limitations" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#why-the-implementation-is-efficient" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>The module is efficient for several concrete reasons.</p>
-<p>First, it uses nested Clenshaw-Curtis rules. This means higher levels reuse many lower-level points, which cuts down the number of distinct support nodes compared with naive tensor construction.</p>
-<p>Second, it precomputes the basis matrix on the sparse grid and LU-factorizes it once. After that, solving for coefficients is just a linear solve with a cached factorization:</p>
-$$
-c = B^{-1} y
-$$<p>in conceptual notation, or more practically an LU solve. This is exactly why <code>update(ynew)</code> is fast: the grid and matrix structure are fixed, so only the right-hand side changes.</p>
-<p>Third, basis, Jacobian, and Hessian evaluation all share the same recursive Chebyshev machinery. The module computes \(T_k\), \(T_k'\), and \(T_k''\) by recurrence, which avoids repeatedly calling slower transcendental formulas point-by-point.</p>
-<p>Fourth, the domain transformation is implicit and vectorized. Users work in their original rectangular domain, while the module performs the normalized-coordinate bookkeeping internally.</p>
-<p>Fifth, <code>fit()</code> supports parallel nodal function evaluation through <code>n_jobs</code>. For expensive user-supplied functions, that can reduce wall-clock time materially even though the interpolation logic itself remains NumPy/SciPy based.</p>
-
-<h3 class="relative group">Why this is a good fit for Smolyak interpolation 
-    <div id="why-this-is-a-good-fit-for-smolyak-interpolation" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#why-this-is-a-good-fit-for-smolyak-interpolation" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>Smolyak interpolation is most attractive when:</p>
-<ul>
-<li>dimension is too high for dense tensor grids,</li>
-<li>the target function is smooth enough for polynomial approximation,</li>
-<li>derivatives are useful,</li>
-<li>one wants an explicit surrogate rather than a purely local interpolator.</li>
-</ul>
-<p>This module leans into that use case. It does not try to be a general-purpose machine learning framework. Instead, it gives a compact and transparent sparse-grid polynomial interpolant with inspectable nodes, inspectable coefficients, and exact derivative formulas.</p>
-
-<h3 class="relative group">Practical trade-offs 
-    <div id="practical-trade-offs" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#practical-trade-offs" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<p>No sparse-grid method escapes dimensionality entirely. If one pushes dimension, level caps, and accuracy all upward at once, node counts and solve costs will still grow quickly. The anisotropic design is therefore not just a mathematical detail; it is a practical control knob. By allocating deeper levels only where they matter, one often gets much better efficiency than a symmetric grid would provide.</p>
-<p>That same philosophy appears in the companion notebooks:</p>
-<ul>
-<li><code>smolyakpoly_demo.ipynb</code> visualizes interpolation quality, gradient quality, and Hessian quality.</li>
-<li><code>smolyakpoly_benchmark.ipynb</code> measures runtime and approximation error across dimension and accuracy sweeps.</li>
-</ul>
-<p>Together, the code and notebooks make a useful workflow: build a sparse interpolant, inspect its node set and coefficients, validate the approximation, and then use it as a fast differentiable surrogate.</p>
-
-<h2 class="relative group">3. Reference 
-    <div id="3-reference" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-reference" aria-label="Anchor">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#limitations" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>Judd, Kenneth L., Lilia Maliar, Serguei Maliar, and Rafael Valero. <em>Smolyak Method for Solving Dynamic Economic Models: Lagrange Interpolation, Anisotropic Grid and Adaptive Domain</em>. Econometrica. PDF link provided by the user: <a
-  href="https://web.stanford.edu/~maliars/Files/NBER19326.pdf"
-    target="_blank"
-  >https://web.stanford.edu/~maliars/Files/NBER19326.pdf</a>
-</li>
+<li>The model works on a <strong>finite modeled <code>y</code> domain</strong>, not the entire real line.</li>
+<li>Version 1 supports <strong>Chebyshev bases only</strong>.</li>
+<li>The outcome must be <strong>scalar</strong>.</li>
+<li>Very rich interaction structures can become expensive as the number of regressors grows.</li>
+<li>The estimated density is only as good as the chosen basis complexity, penalty strengths, and the suitability of the finite support approximation.</li>
 </ul>
+
+<h2 class="relative group">References 
+    <div id="references" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#references" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The implementation is inspired by the broader literature on conditional density estimation, series/sieve methods, and semi-nonparametric likelihood methods. Bibliographic metadata below was checked against publisher or repository pages.</p>
+<ol>
+<li>
+<p>Gallant, A. Ronald, and Douglas W. Nychka. 1987. “Semi-Nonparametric Maximum Likelihood Estimation.” <em>Econometrica</em> 55(2): 363-390.<br>
+Source: <a
+  href="https://www.econometricsociety.org/publications/econometrica/1987/03/01/semi-nonparametric-maximum-likelihood-estimation"
+    target="_blank"
+  >https://www.econometricsociety.org/publications/econometrica/1987/03/01/semi-nonparametric-maximum-likelihood-estimation</a>
+</p>
+</li>
+<li>
+<p>Shen, Xiaotong. 1997. “On Methods of Sieves and Penalization.” <em>The Annals of Statistics</em> 25(6): 2555-2591.<br>
+Source: <a
+  href="https://experts.umn.edu/en/publications/on-methods-of-sieves-and-penalization-2"
+    target="_blank"
+  >https://experts.umn.edu/en/publications/on-methods-of-sieves-and-penalization-2</a>
+</p>
+</li>
+<li>
+<p>Newey, Whitney K. 1997. “Convergence Rates and Asymptotic Normality for Series Estimators.” <em>Journal of Econometrics</em> 79(1): 147-168.<br>
+Source: <a
+  href="https://www.sciencedirect.com/science/article/abs/pii/S0304407697000110"
+    target="_blank"
+  >https://www.sciencedirect.com/science/article/abs/pii/S0304407697000110</a>
+</p>
+</li>
+<li>
+<p>Hall, Peter, Jeff Racine, and Qi Li. 2004. “Cross-Validation and the Estimation of Conditional Probability Densities.” <em>Journal of the American Statistical Association</em> 99(468): 1015-1026.<br>
+Source: <a
+  href="https://www.tandfonline.com/doi/abs/10.1198/016214504000000548"
+    target="_blank"
+  >https://www.tandfonline.com/doi/abs/10.1198/016214504000000548</a>
+</p>
+</li>
+<li>
+<p>Bierens, Herman J. 2014. “Consistency and Asymptotic Normality of Sieve ML Estimators Under Low-Level Conditions.” <em>Econometric Theory</em> 30(5): 1021-1076.<br>
+Source: <a
+  href="https://www.cambridge.org/core/journals/econometric-theory/article/consistency-and-asymptotic-normality-of-sieve-ml-estimators-under-lowlevel-conditions/4FCE8A96D85253A2DCC0F7966C143CBC"
+    target="_blank"
+  >https://www.cambridge.org/core/journals/econometric-theory/article/consistency-and-asymptotic-normality-of-sieve-ml-estimators-under-lowlevel-conditions/4FCE8A96D85253A2DCC0F7966C143CBC</a>
+</p>
+</li>
+<li>
+<p>Brunk, H. D. 1978. “Univariate Density Estimation by Orthogonal Series.” <em>Biometrika</em> 65(3): 521-528.<br>
+Source: <a
+  href="https://academic.oup.com/biomet/article-pdf/65/3/521/636906/65-3-521.pdf"
+    target="_blank"
+  >https://academic.oup.com/biomet/article-pdf/65/3/521/636906/65-3-521.pdf</a>
+</p>
+</li>
+</ol>
+
+<h2 class="relative group">Notes 
+    <div id="notes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#notes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This repository contains a production-style prototype rather than a large framework. The goal is to keep the code inspectable and modifiable for researchers who want a flexible, density-focused distributional regression estimator in plain scientific Python.</p>
 
           
           
@@ -1370,8 +1436,8 @@ $$<p>in conceptual notation, or more practically an LU solve. This is exactly wh
           type="text/javascript"
           src="/js/page.min.407e5b2727c1f241c95d53db24c776bea71bfc18e09511b815d669ad8caca6e9e18a53864ad364b1ccccfa2f2956768d33cfe193bfb64d3406f3b5ece354ba57.js"
           integrity="sha512-QH5bJyfB8kHJXVPbJMd2vqcb/BjglRG4FdZprYyspunhilOGStNksczM&#43;i8pVnaNM8/hk7&#43;2TTQG87Xs41S6Vw=="
-          data-oid="views_code/004_SmolyakPolyInterp/index.md"
-          data-oid-likes="likes_code/004_SmolyakPolyInterp/index.md"></script>
+          data-oid="views_code/005_DistributionalRegressionPDF/index.md"
+          data-oid-likes="likes_code/005_DistributionalRegressionPDF/index.md"></script>
       
 
     </section>
@@ -1386,7 +1452,7 @@ $$<p>in conceptual notation, or more practically an LU solve. This is exactly wh
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/code/003_easymlp/">
+            <a class="flex group mr-3" href="/code/004_smolyakpolyinterp/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1397,23 +1463,7 @@ $$<p>in conceptual notation, or more practically an LU solve. This is exactly wh
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >A Python module for partially monotonic MLP</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2026-04-13T00:00:01-07:00">April 13, 2026</time>
-                  
-                </span>
-              </span>
-            </a>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/code/005_distributionalregressionpdf/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Distributional Regression PDF</span
+                  >Smolyak Polynomial Interpolation in Practice</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1421,15 +1471,10 @@ $$<p>in conceptual notation, or more practically an LU solve. This is exactly wh
                   
                 </span>
               </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>

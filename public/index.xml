@@ -9,7 +9,17 @@
     <managingEditor>tianhao.zhao@emory.edu (Tianhao Zhao)</managingEditor>
     <webMaster>tianhao.zhao@emory.edu (Tianhao Zhao)</webMaster>
     <copyright>© 2026 Tianhao Zhao</copyright>
-    <lastBuildDate>Sat, 18 Apr 2026 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Apr 2026 00:00:01 -0700</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Distributional Regression PDF</title>
+      <link>http://localhost:1313/code/005_distributionalregressionpdf/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:01 -0700</pubDate>
+      <author>tianhao.zhao@emory.edu (Tianhao Zhao)</author>
+      <guid>http://localhost:1313/code/005_distributionalregressionpdf/</guid>
+      <description>A single-file Python module for estimating the full conditional probability density function of a scalar outcome y given covariates X</description>
+      
+    </item>
     
     <item>
       <title>Smolyak Polynomial Interpolation in Practice</title>
