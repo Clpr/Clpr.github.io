@@ -262,10 +262,15 @@ where \(q(0)\) is the quantile of 0 in the actual wage growth distribution \(f\)
 <!-- TOC --><a name="3-programs-with-docs"></a>
 ## 3. Programs with docs
 
-- Python
-    - [fwcp_bunch_and_symmetric.py](fwcp_bunch_and_symmetric.py): Bunching FWCP estimator, and standard symmetry-based FWCP estimator in the literature
-    - [fwcp_hw2009.py](fwcp_hw2009.py): Symmetry-based FWCP estimator in Holden and Wulfsberg (2009, JME)
-    - [fwcp_legacy_bunch.py](fwcp_legacy_bunch.py): Legacy code for bunching FWCP estimator
+- Python (unified version, recommended)
+    - [fwcp.py](fwcp.py)
+    - [test.py](test.py)
+    - [demo.ipynb](demo.ipynb): Usage examples and illustration
+    - [compare.ipynb](compare.ipynb): Comparison between estimators
+- Python (legacy programs, for archive only)
+    - [fwcp_bunch_and_symmetric.py](legacy_code/fwcp_bunch_and_symmetric.py): Bunching FWCP estimator, and standard symmetry-based FWCP estimator in the literature
+    - [fwcp_hw2009.py](legacy_code/fwcp_hw2009.py): Symmetry-based FWCP estimator in Holden and Wulfsberg (2009, JME)
+    - [fwcp_legacy_bunch.py](legacy_code/fwcp_legacy_bunch.py): Legacy code for bunching FWCP estimator
 
 
 
