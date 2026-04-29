@@ -15,7 +15,12 @@ Examples
 --------
 ```python
 import numpy as np
-from fwcp import BunchingEstimator, SymmetricEstimator, HoldenWulfsberg2009Estimator
+from fwcp import (
+    BunchingEstimator,
+    DensityFunctionSymmetricEstimator,
+    HoldenWulfsberg2009Estimator,
+    SymmetricEstimator,
+)
 
 rng = np.random.default_rng(0)
 data = np.concatenate([rng.normal(0.03, 0.12, 1200), rng.uniform(-0.01, 0.01, 80)])
@@ -29,6 +34,13 @@ print(sym.fwcp_absolute, sym.fwcp_relative)
 reference = rng.laplace(loc=0.05, scale=0.18, size=2500)
 hw = HoldenWulfsberg2009Estimator(reference).fit(data)
 print(hw.fwcp_frequency(), hw.fwcp_integral(weighted=False))
+
+density_sym = DensityFunctionSymmetricEstimator(
+    lambda x: np.exp(-0.5 * ((x - 0.05) / 0.1) ** 2) / (0.1 * np.sqrt(2 * np.pi)),
+    lambda x: np.exp(-np.abs((x - 0.05) / 0.12)) / 0.24,
+    symmetric_at=0.05,
+)
+print(density_sym.fwcp_integral(weighted=False, xlims=(-0.5, 0.05)))
 ```
 """
 
@@ -89,6 +101,52 @@ def _validate_weights(xvec: np.ndarray, weights: Optional[ArrayLike1D]) -> Optio
     if arr.sum() <= 0:
         raise ValueError("weights must sum to a positive value.")
     return arr
+
+
+def _validate_density_callable(
+    func: Callable[[Union[float, np.ndarray]], Union[float, np.ndarray]],
+    *,
+    name: str,
+) -> Callable[[Union[float, np.ndarray]], Union[float, np.ndarray]]:
+    if not callable(func):
+        raise TypeError(f"{name} must be callable.")
+    return func
+
+
+def _evaluate_density_scalar(
+    func: Callable[[Union[float, np.ndarray]], Union[float, np.ndarray]],
+    x: float,
+    *,
+    name: str,
+) -> float:
+    value = np.asarray(func(float(x)), dtype=float)
+    if value.size != 1:
+        raise ValueError(f"{name} must return a scalar value when evaluated at a scalar input.")
+    scalar = float(value.reshape(-1)[0])
+    if not np.isfinite(scalar):
+        raise ValueError(f"{name} returned a non-finite value at x={x}.")
+    return scalar
+
+
+def _evaluate_density_grid(
+    func: Callable[[Union[float, np.ndarray]], Union[float, np.ndarray]],
+    xvec: ArrayLike1D,
+    *,
+    name: str,
+) -> np.ndarray:
+    x = _as_1d_array(xvec, name="xvec")
+    try:
+        values = np.asarray(func(x), dtype=float)
+        if values.shape == ():
+            values = np.full_like(x, float(values))
+        elif values.shape != x.shape:
+            raise ValueError
+    except Exception:
+        values = np.asarray([_evaluate_density_scalar(func, xi, name=name) for xi in x], dtype=float)
+
+    if np.isnan(values).any() or np.isinf(values).any():
+        raise ValueError(f"{name} returned non-finite values on the evaluation grid.")
+    return values
 
 
 def _is_in_01(x: float) -> bool:
@@ -743,6 +801,141 @@ class HoldenWulfsberg2009Estimator(BaseFWCPEstimator):
         )
 
 
+class DensityFunctionSymmetricEstimator(BaseFWCPEstimator):
+    """Symmetry-based FWCP estimator from two supplied density functions.
+
+    Examples
+    --------
+    ```python
+    import scipy.stats
+    from fwcp import DensityFunctionSymmetricEstimator
+
+    f = lambda x: scipy.stats.norm.pdf(x, loc=0.05, scale=1.0)
+    g = lambda x: scipy.stats.laplace.pdf(x, loc=0.055, scale=0.8)
+
+    est = DensityFunctionSymmetricEstimator(f, g, symmetric_at=0.05)
+    print(est.fwcp_integral(weighted=False, xlims=(-2.0, 0.05)))
+    print(est.fwcp_integral(weighted=True, xlims=(-2.0, 0.05)))
+    ```
+    """
+
+    method_name = "density_function_symmetric"
+
+    def __init__(
+        self,
+        actual_density: Callable[[Union[float, np.ndarray]], Union[float, np.ndarray]],
+        notional_density: Callable[[Union[float, np.ndarray]], Union[float, np.ndarray]],
+        *,
+        symmetric_at: Optional[float] = None,
+        xlim: Optional[Tuple[float, float]] = None,
+        quad_kwargs: Optional[dict] = None,
+    ):
+        super().__init__()
+        self.actual_density = _validate_density_callable(actual_density, name="actual_density")
+        self.notional_density = _validate_density_callable(notional_density, name="notional_density")
+        self.symmetric_at = None if symmetric_at is None else float(symmetric_at)
+        if self.symmetric_at is not None and not np.isfinite(self.symmetric_at):
+            raise ValueError("symmetric_at must be finite.")
+        self.xlim = _validate_xlim(xlim) if xlim is not None else None
+        self.quad_kwargs = dict(quad_kwargs or {})
+        self._last_xlims: Optional[Tuple[float, float]] = None
+
+    def _resolve_center(self, xlims: Optional[Tuple[float, float]]) -> float:
+        if self.symmetric_at is not None:
+            return self.symmetric_at
+        if xlims is not None:
+            return float(xlims[1])
+        if self.xlim is not None:
+            return float(self.xlim[1])
+        raise ValueError("symmetric_at must be provided, or inferable from xlims/xlim.")
+
+    def _resolve_integral_xlim(self, xlims: Optional[Tuple[float, float]]) -> Tuple[float, float]:
+        if xlims is None:
+            if self.xlim is None:
+                raise ValueError("xlims must be provided unless xlim was set during initialization.")
+            bounds = self.xlim
+        else:
+            bounds = _validate_xlim(xlims)
+
+        xmin, xmax = bounds
+        center = self._resolve_center(bounds)
+        if xmax > center:
+            raise ValueError("For fwcp_integral, xlims[1] must be less than or equal to symmetric_at.")
+        return xmin, xmax
+
+    def _resolve_plot_xlim(self, xlims: Optional[Tuple[float, float]]) -> Tuple[float, float]:
+        if xlims is None:
+            if self.xlim is None:
+                raise ValueError("xlims must be provided unless xlim was set during initialization.")
+            return self.xlim
+        return _validate_xlim(xlims)
+
+    def fit(self, xlims: Optional[Tuple[float, float]] = None) -> "DensityFunctionSymmetricEstimator":
+        bounds = self._resolve_integral_xlim(xlims)
+        self.result = FWCPResult(
+            absolute=self.fwcp_integral(weighted=False, xlims=bounds),
+            relative=self.fwcp_integral(weighted=True, xlims=bounds),
+            method=self.method_name,
+        )
+        return self
+
+    def fwcp_integral(
+        self,
+        *,
+        weighted: bool = True,
+        xlims: Optional[Tuple[float, float]] = None,
+        quad_kwargs: Optional[dict] = None,
+    ) -> float:
+        xmin, xmax = self._resolve_integral_xlim(xlims)
+        center = self._resolve_center((xmin, xmax))
+        opts = dict(self.quad_kwargs)
+        if quad_kwargs is not None:
+            opts.update(quad_kwargs)
+
+        def integrand(x: float) -> float:
+            gap = _evaluate_density_scalar(self.notional_density, x, name="notional_density") - _evaluate_density_scalar(
+                self.actual_density, x, name="actual_density"
+            )
+            if weighted:
+                gap *= abs(center - x)
+            return gap
+
+        self._last_xlims = (xmin, xmax)
+        return float(integrate.quad(integrand, xmin, xmax, **opts)[0])
+
+    def fwcp_int(
+        self,
+        weighted: bool = True,
+        xlims: Optional[Tuple[float, float]] = None,
+        quad_kwargs: Optional[dict] = None,
+    ) -> float:
+        """Backward-compatible alias for the integral method name."""
+        return self.fwcp_integral(weighted=weighted, xlims=xlims, quad_kwargs=quad_kwargs)
+
+    def plotdata(self, grid_size: int = 400, *, xlims: Optional[Tuple[float, float]] = None) -> dict:
+        if int(grid_size) < 2:
+            raise ValueError("grid_size must be at least 2.")
+        xmin, xmax = self._resolve_plot_xlim(xlims)
+        grid = np.linspace(xmin, xmax, int(grid_size))
+        y_actual = _evaluate_density_grid(self.actual_density, grid, name="actual_density")
+        y_notional = _evaluate_density_grid(self.notional_density, grid, name="notional_density")
+        center = self._resolve_center((xmin, xmax))
+        return {
+            "x": grid,
+            "f": y_actual,
+            "g": y_notional,
+            "y_actual": y_actual,
+            "y_notional": y_notional,
+            "center": center,
+        }
+
+    def __str__(self) -> str:
+        return (
+            f"DensityFunctionSymmetricEstimator(symmetric_at={self.symmetric_at}, xlim={self.xlim}, "
+            f"last_xlims={self._last_xlims})"
+        )
+
+
 class RuleOfThumbEstimator(BaseFWCPEstimator):
     """Simple symmetry-about-zero FWCP estimator: 1 - 2 * q(0)."""
 
@@ -761,6 +954,7 @@ UnivariateChebRidgeRegression = ChebyshevRidgeRegressor
 FWCPBunchingEstimator = BunchingEstimator
 FWCPSymmetricEstimator = SymmetricEstimator
 HoldenWulfsberg2009 = HoldenWulfsberg2009Estimator
+DensityFunctionSymmetric = DensityFunctionSymmetricEstimator
 
 
 __all__ = [
@@ -774,6 +968,8 @@ __all__ = [
     "FWCPSymmetricEstimator",
     "HoldenWulfsberg2009Estimator",
     "HoldenWulfsberg2009",
+    "DensityFunctionSymmetricEstimator",
+    "DensityFunctionSymmetric",
     "RuleOfThumbEstimator",
     "normalize",
     "wtint_mirror",
